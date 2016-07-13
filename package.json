@@ -1,0 +1,24 @@
+{
+  "name": "hashbot",
+  "version": "1.0.0",
+  "description": "A bot for slack wich displays lbrys current hashrate via the open api.",
+  "main": "bot.js",
+  "dependencies": {
+    "needle": "^1.0.0",
+    "slackbots": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbryio/hashbot.git"
+  },
+  "author": "Fillerino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lbryio/hashbot/issues"
+  },
+  "homepage": "https://github.com/lbryio/hashbot#readme"
+}
