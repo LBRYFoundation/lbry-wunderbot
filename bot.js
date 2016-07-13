@@ -7,6 +7,10 @@ var CHANNEL = process.env.CHANNEL;
 if (!SLACK_TOKEN) {
     throw new Error('SLACK_TOKEN env var required');
 }
+if (!CHANNEL) {
+    throw new Error('CHANNEL env var required');
+}
+
 
 var bot = new SlackBot({
     token: SLACK_TOKEN,
