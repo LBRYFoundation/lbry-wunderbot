@@ -2,6 +2,7 @@ var SlackBot = require('slackbots');
 var needle = require('needle');
 
 var SLACK_TOKEN = process.env.SLACK_TOKEN;
+var CHANNEL = process.env.CHANNEL;
 
 if (!SLACK_TOKEN) {
     throw new Error('SLACK_TOKEN env var required');
@@ -27,7 +28,7 @@ function getData() {
             difficulty = numberWithCommas(Math.round(data.difficulty)),
             block = numberWithCommas(data.blocks);
 
-        bot.postMessageToChannel('testing', 
+        bot.postMessageToChannel(CHANNEL,
             // 'Blockchain stats:\n' +
             'Hashrate: ' + hashrate + ' GH/s\n' +
             'Difficulty: ' + difficulty + '\n' +
