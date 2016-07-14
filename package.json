@@ -4,6 +4,7 @@
   "description": "A bot for slack wich displays lbrys current hashrate via the open api.",
   "main": "bot.js",
   "dependencies": {
+    "bitcoin": "^3.0.1",
     "needle": "^1.0.0",
     "slackbots": "^0.5.1"
   },
