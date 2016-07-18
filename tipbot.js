@@ -150,8 +150,8 @@ function doHelp(bot, channel) {
     '`' + command + ' withdraw ADDRESS AMOUNT`: withdraw AMOUNT credits to ADDRESS\n' +
     '`' + command + ' USER AMOUNT`: send AMOUNT credits to USER\n' +
     '\n' +
-    'Send me a Direct Message if you want to interact privately.\n' +
-    'If I\'m not responding in some channel, you can invite me by @mentioning me\n'
+    '*Everyone will see what I say. Send me a Direct Message if you want to interact privately.*\n' +
+    'If I\'m not responding in some channel, you can invite me by @mentioning me.\n'
   , globalSlackParams);
 }
 
