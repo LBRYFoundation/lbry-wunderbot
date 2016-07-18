@@ -14,7 +14,7 @@ function init(slackbot, channel) {
     setInterval(function() {
       sendMiningInfo(slackbot, channel);
     }, 3600000);
-    sendMiningInfo(slackbot, channel);
+//    sendMiningInfo(slackbot, channel);
   }
 }
 
