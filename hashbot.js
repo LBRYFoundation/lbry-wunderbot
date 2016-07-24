@@ -13,7 +13,7 @@ function init(slackbot, channel) {
   if (channel) {
     setInterval(function() {
       sendMiningInfo(slackbot, channel);
-    }, 3600000);
+    }, 6 * 60 * 60 * 1000);
 //    sendMiningInfo(slackbot, channel);
   }
 }
