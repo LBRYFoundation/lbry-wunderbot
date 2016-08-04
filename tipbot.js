@@ -29,7 +29,7 @@ var globalSlackParams = {
 function respond(bot, data) {
   var tipper = data.user,
       channel = data.channel,
-      words = data.text.trim().split(' ');
+      words = data.text.trim().split(' ').filter( function(n){return n !== "";} );
 
   if (!lbry) {
     bot.postMessage(channel, 'Failed to connect to lbrycrd', {icon_emoji: ':exclamation:'});
