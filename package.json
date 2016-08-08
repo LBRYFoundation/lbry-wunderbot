@@ -6,7 +6,8 @@
   "dependencies": {
     "bitcoin": "^3.0.1",
     "needle": "^1.0.0",
-    "slackbots": "^0.5.1"
+    "slackbots": "^0.5.1",
+    "request": "^2.74.0"
   },
   "devDependencies": {},
   "scripts": {
