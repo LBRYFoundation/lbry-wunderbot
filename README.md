@@ -1,6 +1,9 @@
-# LBRY Hashbot
+# Bot for [LBRY's Slack](https://slack.lbry.io)
 
-Hashbot for [LBRY's Slack](https://slack.lbry.io). Posts mining info to #mining every hour and anytime someone says `!hash`.
+Features:
+
+- Tipbot for LBC. Responds to `!tip`.
+- Posts mining info to #mining every few hours and anytime someone says `!hash`.
 
 
 ## Requirements
@@ -19,6 +22,3 @@ Then run:
 npm install
 SLACK_TOKEN=<your-slack-token> CHANNEL=<channel-for-bot> node bot.js
 ```
-
-
-Made by Fillerino for LBRYs slack. MIT Licensed so feel free to improve!
