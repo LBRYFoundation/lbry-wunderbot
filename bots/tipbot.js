@@ -41,7 +41,7 @@ function respond(bot, data) {
     return;
   }
 
-  if (!tipper.is_admin || !tipper.is_owner || channel.name !== "bot-sandbox" ){
+  if ((!tipper.is_admin || !tipper.is_owner) && channel.name !== "bot-sandbox" ){
 	bot.postMessage(channel, 'Please help keep the channel clean: use #bot-sandbox', globalSlackParams);  
   }
   
