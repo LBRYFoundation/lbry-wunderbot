@@ -43,7 +43,9 @@ function respond(bot, data) {
 
   var subcommand = words.length >= 2 ? words[1] : 'help';
   var isAllowedTip = false;
-  if ((!tipper.is_admin || !tipper.is_owner) && channel.name !== 'bot-sandbox' ){
+  
+  //uncomment the next block when the new lower-level API is added (is_admin and is_owner must be included in the data dump)
+  if (/*(!tipper.is_admin || !tipper.is_owner) && */(channel.name !== 'C1TEEBS2Z' && !channel.name.startsWith("D") )){
 	//to check if the command is a tip (hence allowed to pass through) we need to check against all the other commands)
 	if (subcommand === 'help' || subcommand === 'balance' || subcommand === 'deposit' || subcommand === 'withdraw'){
 		bot.postMessage(channel, 'Please help keep the channel clean: use #bot-sandbox', globalSlackParams); 
