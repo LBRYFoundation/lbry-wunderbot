@@ -30,18 +30,27 @@ function respond(bot, data) {
   var tipper = data.user,
       channel = data.channel,
       words = data.text.trim().split(' ').filter( function(n){return n !== "";} );
-
+  
+  if (words[0] !== command) {
+    // if the received message isn't starting with the trigger -> ignore
+    return;
+  }
+  
   if (!lbry) {
     bot.postMessage(channel, 'Failed to connect to lbrycrd', {icon_emoji: ':exclamation:'});
     return;
   }
 
-  if (words[0] !== command) {
-    // wtf?
-    return;
-  }
-
   var subcommand = words.length >= 2 ? words[1] : 'help';
+  var isAllowedTip = false;
+  if ((!tipper.is_admin || !tipper.is_owner) && channel.name !== 'bot-sandbox' ){
+	//to check if the command is a tip (hence allowed to pass through) we need to check against all the other commands)
+	if (subcommand === 'help' || subcommand === 'balance' || subcommand === 'deposit' || subcommand === 'withdraw'){
+		bot.postMessage(channel, 'Please help keep the channel clean: use #bot-sandbox', globalSlackParams); 
+		return;	
+	}
+	isAllowedTip = true;
+  }
 
   if (subcommand === 'help') {
     doHelp(bot, channel);
@@ -56,7 +65,7 @@ function respond(bot, data) {
     doWithdraw(bot, channel, tipper, words);
   }
   else {
-    doTip(bot, channel, tipper, words);
+    doTip(bot, channel, tipper, words, isAllowedTip);
   }
 }
 
@@ -111,9 +120,11 @@ function doWithdraw(bot, channel, tipper, words) {
 }
 
 
-function doTip(bot, channel, tipper, words) {
+function doTip(bot, channel, tipper, words, isAllowedTip) {
   if (words.length < 3) {
-    doHelp(bot, channel);
+	//necessary to avoid the help menu opening up on all channels
+	if (!isAllowedTip)
+		doHelp(bot, channel);
     return;
   }
 
