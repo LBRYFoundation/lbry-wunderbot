@@ -30,26 +30,23 @@ function respond(bot, data) {
   var tipper = data.user,
       channel = data.channel,
       words = data.text.trim().split(' ').filter( function(n){return n !== "";} );
-  
+
   if (words[0] !== command) {
     // if the received message isn't starting with the trigger -> ignore
     return;
   }
-  
+
   if (!lbry) {
     bot.postMessage(channel, 'Failed to connect to lbrycrd', {icon_emoji: ':exclamation:'});
     return;
   }
 
   var subcommand = words.length >= 2 ? words[1] : 'help';
-  var isAllowedTip = false;
-  if ((!tipper.is_admin || !tipper.is_owner) && channel.name !== 'bot-sandbox' ){
-	//to check if the command is a tip (hence allowed to pass through) we need to check against all the other commands)
-	if (subcommand === 'help' || subcommand === 'balance' || subcommand === 'deposit' || subcommand === 'withdraw'){
-		bot.postMessage(channel, 'Please help keep the channel clean: use #bot-sandbox', globalSlackParams); 
-		return;	
-	}
-	isAllowedTip = true;
+
+  var moveToBotSandbox = !tipper.is_admin && !tipper.is_owner && channel.name !== 'bot-sandbox' && ['help', 'balance', 'deposit', 'withdraw'].indexOf(subcommand) != -1
+  if (moveToBotSandbox) {
+    bot.postMessage(channel, 'Please use #bot-sandbox to talk to bots', globalSlackParams);
+    return;
   }
 
   if (subcommand === 'help') {
@@ -65,7 +62,7 @@ function respond(bot, data) {
     doWithdraw(bot, channel, tipper, words);
   }
   else {
-    doTip(bot, channel, tipper, words, isAllowedTip);
+    doTip(bot, channel, tipper, words);
   }
 }
 
@@ -120,11 +117,9 @@ function doWithdraw(bot, channel, tipper, words) {
 }
 
 
-function doTip(bot, channel, tipper, words, isAllowedTip) {
+function doTip(bot, channel, tipper, words) {
   if (words.length < 3) {
-	//necessary to avoid the help menu opening up on all channels
-	if (!isAllowedTip)
-		doHelp(bot, channel);
+    doHelp(bot, channel);
     return;
   }
 
@@ -155,6 +150,7 @@ function doTip(bot, channel, tipper, words, isAllowedTip) {
 
 function doHelp(bot, channel) {
   bot.postMessage(channel,
+    '*USE <#bot-sandbox> FOR EVERYTHING EXCEPT ACTUAL TIPPING*\n' +
     '`' + command + ' help`: this message\n' +
     '`' + command + ' balance`: get your balance\n' +
     '`' + command + ' deposit`: get address for deposits\n' +
