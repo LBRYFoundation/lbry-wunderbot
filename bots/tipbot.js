@@ -30,17 +30,21 @@ function respond(bot, data) {
   var tipper = data.user,
       channel = data.channel,
       words = data.text.trim().split(' ').filter( function(n){return n !== "";} );
-
+  
+  if (words[0] !== command) {
+    // if the received message isn't starting with the trigger -> ignore
+    return;
+  }
+  
   if (!lbry) {
     bot.postMessage(channel, 'Failed to connect to lbrycrd', {icon_emoji: ':exclamation:'});
     return;
   }
 
-  if (words[0] !== command) {
-    // wtf?
-    return;
+  if (!tipper.is_admin || !tipper.is_owner || channel.name !== "bot-sandbox" ){
+	bot.postMessage(channel, 'Please help keep the channel clean: use #bot-sandbox', globalSlackParams);  
   }
-
+  
   var subcommand = words.length >= 2 ? words[1] : 'help';
 
   if (subcommand === 'help') {
