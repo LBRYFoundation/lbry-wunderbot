@@ -99,9 +99,9 @@ function doWithdraw(bot, channel, tipper, words) {
   }
 
   var address = words[2],
-      amount = words[3];
+      amount = getValidatedAmount(words[3]);
 
-  if (!validateAmount(amount)) {
+  if (amount === null) {
     bot.postMessage(channel, '<@' + tipper + '>: I dont know how to withdraw that many credits', globalSlackParams);
     return;
   }
@@ -124,9 +124,9 @@ function doTip(bot, channel, tipper, words) {
   }
 
   var user = words[1],
-      amount = words[2];
+      amount = getValidatedAmount(words[2]);
 
-  if (!validateAmount(amount)) {
+  if (amount === null) {
     bot.postMessage(channel, '<@' + tipper + '>: I dont know how to tip that many credits', globalSlackParams);
     return;
   }
@@ -204,8 +204,12 @@ function getAddress(userId, cb) {
 }
 
 
-function validateAmount(amount) {
-  return amount.match(/^[0-9]+(\.[0-9]+)?$/);
+function getValidatedAmount(amount) {
+  amount = amount.trim();
+  if (amount.toLowerCase().endsWith('lbc')) {
+    amount = amount.substring(0, amount.length-3);
+  }
+  return amount.match(/^[0-9]+(\.[0-9]+)?$/) ? amount : null;
 }
 
 
