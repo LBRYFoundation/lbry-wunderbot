@@ -150,7 +150,7 @@ function doTip(bot, channel, tipper, words) {
 
 function doHelp(bot, channel) {
   bot.postMessage(channel,
-    '*USE <#bot-sandbox> FOR EVERYTHING EXCEPT ACTUAL TIPPING*\n' +
+    '*USE <#C1TEEBS2Z|bot-sandbox> FOR EVERYTHING EXCEPT ACTUAL TIPPING*\n' +
     '`' + command + ' help`: this message\n' +
     '`' + command + ' balance`: get your balance\n' +
     '`' + command + ' deposit`: get address for deposits\n' +
