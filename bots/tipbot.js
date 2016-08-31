@@ -43,7 +43,7 @@ function respond(bot, data) {
 
   var subcommand = words.length >= 2 ? words[1] : 'help';
 
-  var moveToBotSandbox = /*!tipper.is_admin && !tipper.is_owner && */channel !== 'C1TEEBS2Z' && ['help', 'balance', 'deposit', 'withdraw'].indexOf(subcommand) != -1 && !channel.name.startsWith("D")
+  var moveToBotSandbox = /*!tipper.is_admin && !tipper.is_owner && */channel !== 'C1TEEBS2Z' && ['help', 'balance', 'deposit', 'withdraw'].indexOf(subcommand) != -1 && !channel.startsWith("D")
   if (moveToBotSandbox) {
     bot.postMessage(channel, 'Please use <#C1TEEBS2Z|bot-sandbox> to talk to bots.', globalSlackParams);
     return;
