@@ -30,8 +30,8 @@ tipbot.init(process.env.RPCUSER, process.env.RPCPASSWORD);
 var hashbot = require('./bots/hashbot');
 hashbot.init(slackbot, process.env.MINING_CHANNEL);
 
-var gifbot = require('./bots/gifbot');
-gifbot.init(slackbot, process.env.IMGUR_CLIENT_ID);
+//var gifbot = require('./bots/gifbot');
+//gifbot.init(slackbot, process.env.IMGUR_CLIENT_ID);
 
 slackbot.on('start', function() {
   slackbot.on('message', function(data) {
@@ -39,7 +39,7 @@ slackbot.on('start', function() {
       setTimeout(function() { sendWelcomeMessage(data.user.id); }, 2000); //Delay because of slow slack api updates which sometimes does not send msg.
     }
     if (data.text) {
-      gifbot.handle_msg(data.text, data.channel);
+//      gifbot.handle_msg(data.text, data.channel);
 
       var command = data.text.trim().split(' ')[0];
 
