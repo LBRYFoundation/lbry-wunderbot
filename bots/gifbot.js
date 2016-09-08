@@ -1,11 +1,27 @@
 var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+var path = require('path');
+var fs = require('fs');
 
 var slackbot;
 var imgur;
 
 var cache = {};
 var cache_timeout = 3600; // 1h
-var output_dir = 'files';
+var output_dir = path.resolve(path.dirname(require.main.filename), 'files');
+
+//function will check if a directory exists, and create it if it doesn't
+function checkDirectory(directory, callback) {
+  fs.stat(directory, function(err, stats) {
+    //Check if error defined and the error code is "not exists"
+    if (err && err.errno === 34) {
+      //Create the directory, call the callback.
+      fs.mkdir(directory, callback);
+    } else {
+      //just in case there was a different error:
+      callback(err)
+    }
+  });
+}
 
 module.exports = {
   init: init,
@@ -31,12 +47,14 @@ function jsonrpc_call(method, params, callback) {
   });
 
   xhr.open('POST', 'http://localhost:5279/lbryapi', true);
-  xhr.send(JSON.stringify({
+  payload = {
     'jsonrpc': '2.0',
     'method': method,
     'params': [params],
     'id': 0
-  }));
+  };
+  console.log('JSONRPC', payload);
+  xhr.send(JSON.stringify(payload));
 }
 
 function handle_msg(msg, channel)
@@ -77,8 +95,7 @@ function check_url(url, callback)
         }
 
         var meta_version = resolved.ver ? resolved.ver : '0.0.1';
-        var field_name = (meta_version == '0.0.1' || meta_version == '0.0.2') ?
-                            'content-type' : 'content_type';
+        var field_name = (meta_version == '0.0.1' || meta_version == '0.0.2') ? 'content-type' : 'content_type';
         var content_type = resolved[field_name];
         callback(content_type == 'image/gif');
     });
@@ -104,7 +121,6 @@ function handle_url(url, channel)
         }
     }
 
-    cache[channel][url] = now;
 
     check_url(url, function(valid)
     {
@@ -123,29 +139,37 @@ function handle_url(url, channel)
 
 function fetch_url(url, channel)
 {
-    jsonrpc_call('get', {'name': url, 'download_directory': output_dir},
-                 function(response)
+    checkDirectory(output_dir, function(error)
     {
-        var result = response.result;
-        if (!result)
-        {
-            console.warn('Failed to fetch', url);
-            console.warn(response);
-            slackbot.postMessage(channel, 'Unable to fetch URL [' + url + ']. Insufficient funds?');
-            return;
-        }
+        if(error) {
+            console.error("Could not create output directory", error);
+            slackbot.postMessage(channel, 'Unable to fetch URL [' + url + ']. Output directory missing.');
+        } else {
+           jsonrpc_call('get', {'name': url, 'download_directory': output_dir}, function(response)
+           {
+               var result = response.result;
+               if (!result)
+               {
+                   console.warn('Failed to fetch', url);
+                   console.warn(response);
+                   slackbot.postMessage(channel, 'Unable to fetch URL [' + url + ']. Insufficient funds?');
+                   return;
+               }
 
-        var filename = result.path;
-        console.log('Uploading', filename);
-        imgur.uploadFile(filename).then(function(uploaded)
-        {
-            var link = uploaded.data.link;
-            console.log(link);
-            var attachments = [{image_url: link, title: url}];
-            slackbot.postMessage(channel, null, {attachments: attachments})
-        }).catch(function(err)
-        {
-            console.error(err.message);
-        });
+               var filename = result.path;
+               console.log('Uploading', filename);
+               imgur.uploadFile(filename).then(function(uploaded)
+               {
+                   var link = uploaded.data.link;
+                   console.log(link);
+                   var attachments = [{image_url: link, title: url}];
+                   slackbot.postMessage(channel, null, {attachments: attachments})
+                   cache[channel][url] = new Date().getTime() / 1000;
+               }).catch(function(err)
+               {
+                   console.error(err.message);
+               });
+           });
+        }
     });
 }
