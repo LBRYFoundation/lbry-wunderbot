@@ -1,5 +1,7 @@
 var SlackBot = require('slackbots');
 var request = require('request');
+var fs = require('fs');
+var path = require('path');
 
 ['SLACK_TOKEN', 'RPCUSER', 'RPCPASSWORD', 'IMGUR_CLIENT_ID'].forEach(function(envVar) {
   if (!process.env[envVar]) {
@@ -14,10 +16,10 @@ var slackbot = new SlackBot({
 
 
 
-function sendWelcomeMessage(usertowelcome) {
-  request('https://raw.githubusercontent.com/lbryio/lbry.io/master/posts/other/slack-greeting.md', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      slackbot.postMessage(usertowelcome, body);
+function sendWelcomeMessage(user) {
+  fs.readFile(path.join(path.dirname(require.main.filename), 'slack-greeting.md'), {encoding: 'utf-8'}, function (error, data) {
+    if (!error) {
+      slackbot.postMessage(user, data);
     }
   });
 };
