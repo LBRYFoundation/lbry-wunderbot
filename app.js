@@ -1,7 +1,7 @@
 var SlackBot = require('slackbots');
 var request = require('request');
 
-['SLACK_TOKEN', 'RPCUSER', 'RPCPASSWORD'].forEach(function(envVar) {
+['SLACK_TOKEN', 'RPCUSER', 'RPCPASSWORD', 'IMGUR_CLIENT_ID'].forEach(function(envVar) {
   if (!process.env[envVar]) {
     throw new Error(envVar + ' env var required');
   }
