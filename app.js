@@ -3,7 +3,7 @@ var request = require('request');
 var fs = require('fs');
 var path = require('path');
 
-['SLACK_TOKEN', 'RPCUSER', 'RPCPASSWORD', 'IMGUR_CLIENT_ID'].forEach(function(envVar) {
+['SLACK_TOKEN', 'RPCUSER', 'RPCPASSWORD', 'MONGODB_URL'].forEach(function (envVar) {
   if (!process.env[envVar]) {
     throw new Error(envVar + ' env var required');
   }
@@ -13,7 +13,6 @@ var slackbot = new SlackBot({
   token: process.env.SLACK_TOKEN,
   name: 'wunderbot'
 });
-
 
 
 function sendWelcomeMessage(user) {
@@ -30,8 +29,8 @@ tipbot.init(process.env.RPCUSER, process.env.RPCPASSWORD);
 var hashbot = require('./bots/hashbot');
 hashbot.init(slackbot, process.env.MINING_CHANNEL);
 
-//var gifbot = require('./bots/gifbot');
-//gifbot.init(slackbot, process.env.IMGUR_CLIENT_ID);
+var claimbot = require('./bots/claimbot');
+claimbot.init(slackbot, process.env.CLAIMS_CHANNEL, process.env.RPCUSER, process.env.RPCPASSWORD, process.env.MONGODB_URL);
 
 slackbot.on('start', function() {
   slackbot.on('message', function(data) {

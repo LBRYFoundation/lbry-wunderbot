@@ -30,6 +30,12 @@ module.exports = {
 
 function init(_slackbot, imgur_client_id)
 {
+  if (!imgur_client_id)
+  {
+    console.log('No imgur client id, disabling gifbot');
+    return;
+  }
+
     slackbot = _slackbot;
     imgur = require('imgur');
     imgur.setClientId(imgur_client_id);
@@ -59,6 +65,11 @@ function jsonrpc_call(method, params, callback) {
 
 function handle_msg(msg, channel)
 {
+    if (!imgur)
+    {
+        return;
+    }
+
     var words = msg.trim().split(' ');
 
     words.forEach(function(word)
