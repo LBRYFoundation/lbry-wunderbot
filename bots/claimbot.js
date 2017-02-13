@@ -42,6 +42,8 @@ function init(slackbot_, channel_, rpcuser, rpcpassword, mongodburl) {
       'pass': rpcpassword
     });
 
+    console.log('Activating claimbot');
+
     setInterval(function () {
       announceNewClaims();
     }, 60 * 1000);
@@ -263,7 +265,7 @@ function setLastBlock(block) {
 
 function slackPost(text, params) {
   slackbot.postMessage(channel, text, params).fail(function (value) {
-    console.log('FAILED TO SLACK: ' + text + '. Params: ' + JSON.stringify(params) + "\nResponse: " + JSON.stringify(value));
+    console.log('FAILED TO SLACK to ' + channel + '. Text: "' + text + '". Params: ' + JSON.stringify(params) + "\nResponse: " + JSON.stringify(value));
   });
 }
 
