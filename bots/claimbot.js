@@ -2,6 +2,8 @@
 
 var lbry;
 var mongo;
+var slackbot;
+var channel;
 var moment = require('moment');
 
 module.exports = {
@@ -9,13 +11,16 @@ module.exports = {
 };
 
 
-function init(slackbot, channel, rpcuser, rpcpassword, mongodburl) {
+function init(slackbot_, channel_, rpcuser, rpcpassword, mongodburl) {
   if (lbry)
   {
     throw new Error('init was already called once');
   }
 
-  if (!channel)
+  slackbot = slackbot_;
+
+  channel = channel_;
+  if (!channel_)
   {
     console.log('No claims channel, disabling claimbot');
     return;
@@ -38,24 +43,24 @@ function init(slackbot, channel, rpcuser, rpcpassword, mongodburl) {
     });
 
     setInterval(function () {
-      announceNewClaims(slackbot, channel);
+      announceNewClaims();
     }, 60 * 1000);
-    announceNewClaims(slackbot, channel);
+    announceNewClaims();
   });
 }
 
 
-function announceNewClaims(slackbot, channel) {
+function announceNewClaims() {
 
   if (!mongo)
   {
-    slackbot.postMessage(channel, 'Failed to connect to mongo', {icon_emoji: ':exclamation:'});
+    slackPost('Failed to connect to mongo', {icon_emoji: ':exclamation:'});
     return;
   }
 
   if (!lbry)
   {
-    slackbot.postMessage(channel, 'Failed to connect to lbrycrd', {icon_emoji: ':exclamation:'});
+    slackPost('Failed to connect to lbrycrd', {icon_emoji: ':exclamation:'});
     return;
   }
 
@@ -77,16 +82,16 @@ function announceNewClaims(slackbot, channel) {
           lastBlockToProcess = currentHeight;
 
         // console.log('Doing blocks ' + firstBlockToProcess + ' to ' + lastBlockToProcess);
-        return announceClaimsLoop(slackbot, channel, firstBlockToProcess, lastBlockToProcess, currentHeight);
+        return announceClaimsLoop(firstBlockToProcess, lastBlockToProcess, currentHeight);
 
       }
     })
     .catch(function (err) {
-      slackbot.postMessage(channel, err.stack, {icon_emoji: ':exclamation:'});
+      slackPost(err.stack, {icon_emoji: ':exclamation:'});
     });
 }
 
-function announceClaimsLoop(slackbot, channel, block, lastBlock, currentHeight) {
+function announceClaimsLoop(block, lastBlock, currentHeight) {
   // console.log('Doing block ' + block)
   return lbryCall('getblockhash', block)
     .then(function (blockHash) {
@@ -101,7 +106,7 @@ function announceClaimsLoop(slackbot, channel, block, lastBlock, currentHeight) 
       });
       console.log('Found ' + claims.length + ' claims in ' + block);
       return Promise.all(claims.map(function (claim) {
-        return announceClaim(claim, block, currentHeight, slackbot, channel);
+        return announceClaim(claim, block, currentHeight);
       }));
     })
     .then(function () {
@@ -111,12 +116,12 @@ function announceClaimsLoop(slackbot, channel, block, lastBlock, currentHeight) 
       const nextBlock = block + 1;
       if (nextBlock <= lastBlock)
       {
-        return announceClaimsLoop(slackbot, channel, nextBlock, lastBlock, currentHeight);
+        return announceClaimsLoop(nextBlock, lastBlock, currentHeight);
       }
     });
 }
 
-function announceClaim(claim, claimBlockHeight, currentHeight, slackbot, channel) {
+function announceClaim(claim, claimBlockHeight, currentHeight) {
   console.log('' + claimBlockHeight + ': New claim for ' + claim['name']);
   return Promise.all([
     lbryCall('getvalueforname', claim['name']),
@@ -179,7 +184,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight, slackbot, channel
 
 
       const attachment = !value ? null : {
-        "fallback": "New claim for lbry://" + claim['name'] + ': "' + claim['title'] + '" by ' + claim['author'],
+        "fallback": "New claim for lbry://" + claim['name'] + ': "' + value['title'] + '" by ' + value['author'],
         "color": "#155b4a",
         // "pretext": "New claim in block " + claimBlockHeight,
         "author_name": 'lbry://' + claim['name'],
@@ -199,7 +204,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight, slackbot, channel
         "mrkdwn_in": ['text'],
       };
 
-      slackbot.postMessage(channel, '', {icon_emoji: ':bellhop_bell:', attachments: [attachment]});
+      slackPost('', {icon_emoji: ':bellhop_bell:', attachments: [attachment]});
     })
 }
 
@@ -253,6 +258,12 @@ function setLastBlock(block) {
         }
       }
     );
+  });
+}
+
+function slackPost(text, params) {
+  slackbot.postMessage(channel, text, params).fail(function (value) {
+    console.log('FAILED TO SLACK: ' + text + '. Params: ' + JSON.stringify(params) + "\nResponse: " + JSON.stringify(value));
   });
 }
 
