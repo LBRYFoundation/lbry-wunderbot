@@ -130,6 +130,20 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
     lbryCall('getclaimsforname', claim['name']),
   ])
     .then(function ([currentWinningClaim, claimsForName]) {
+      let takeoverMessage = '';
+      if (!claim['is controlling'])
+      {
+        // the following is based on https://lbry.io/faq/claimtrie-implementation
+        const lastTakeoverHeight = claimsForName['nLastTakeoverHeight'],
+          maxDelay = 4032, // 7 days of blocks at 2.5min per block
+          activationDelay = Math.min(maxDelay, Math.floor((claimBlockHeight - lastTakeoverHeight) / 32)),
+          takeoverHeight = claimBlockHeight + activationDelay,
+          secondsPerBlock = 161, // in theory this should be 150, but in practice its closer to 161
+          takeoverTime = Date.now() + ((takeoverHeight - currentHeight) * secondsPerBlock * 1000);
+
+        takeoverMessage = 'Takes effect on approx. *' + moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]') + '* (block ' + takeoverHeight + ')';
+      }
+
       let value;
       try
       {
@@ -137,6 +151,8 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
       }
       catch (e)
       {
+        slackPost('New claim for lbry://' + claim['name'] + ' ' + takeoverMessage, {icon_emoji: ':bellhop_bell:'});
+        return;
       }
 
       // console.log(claim);
@@ -170,18 +186,9 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
         text.push(fees.join(', '));
       }
 
-      const fields = [];
-      if (!claim['is controlling'])
+      if (takeoverMessage)
       {
-        // the following is based on https://lbry.io/faq/claimtrie-implementation
-        const lastTakeoverHeight = claimsForName['nLastTakeoverHeight'],
-          maxDelay = 4032, // 7 days of blocks at 2.5min per block
-          activationDelay = Math.min(maxDelay, Math.floor((claimBlockHeight - lastTakeoverHeight) / 32)),
-          takeoverHeight = claimBlockHeight + activationDelay,
-          secondsPerBlock = 161, // in theory this should be 150, but in practice its closer to 161
-          takeoverTime = Date.now() + ((takeoverHeight - currentHeight) * secondsPerBlock * 1000);
-
-        text.push('Takes effect on approx. *' + moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]') + '* (block ' + takeoverHeight + ')');
+        text.push(takeoverMessage);
       }
 
 
@@ -195,7 +202,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
         "title": escapeSlackHtml(value['title']),
         "title_link": "lbry://" + claim['name'],
         "text": escapeSlackHtml(text.join("\n")),
-        "fields": fields,
+        // "fields": [],
         // "image_url": value['nsfw'] ? null : value['thumbnail'],
         "thumb_url": value['nsfw'] ? null : value['thumbnail'],
         "unfurl_links": false,
@@ -207,7 +214,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
       };
 
       slackPost('', {icon_emoji: ':bellhop_bell:', attachments: [attachment]});
-    })
+    });
 }
 
 function escapeSlackHtml(txt) {
