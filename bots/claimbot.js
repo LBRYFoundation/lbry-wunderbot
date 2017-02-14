@@ -78,10 +78,12 @@ function announceNewClaims() {
         return setLastBlock(currentHeight);
       }
 
-      if (lastProcessedBlock < currentHeight)
+      const testBlock = false;
+
+      if (testBlock || lastProcessedBlock < currentHeight)
       {
-        const firstBlockToProcess = lastProcessedBlock + 1,
-          lastBlockToProcess = currentHeight;
+        const firstBlockToProcess = testBlock || lastProcessedBlock + 1,
+          lastBlockToProcess = testBlock || currentHeight;
 
         // console.log('Doing blocks ' + firstBlockToProcess + ' to ' + lastBlockToProcess);
         return announceClaimsLoop(firstBlockToProcess, lastBlockToProcess, currentHeight);
@@ -130,7 +132,46 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
     lbryCall('getclaimsforname', claim['name']),
   ])
     .then(function ([currentWinningClaim, claimsForName]) {
-      let takeoverMessage = '';
+      let value;
+      try
+      {
+        value = JSON.parse(claim['value']);
+      }
+      catch (e)
+      {
+      }
+
+      const text = [];
+
+      if (value)
+      {
+        if (value['author'])
+        {
+          text.push(value['author']);
+        }
+        if (value['description'])
+        {
+          text.push(value['description']);
+        }
+        // if (value['content_type'])
+        // {
+        //   text.push("*Content Type:* " + value['content_type']);
+        // }
+        if (value['nsfw'])
+        {
+          text.push("*Warning: Adult Content*");
+        }
+        if (value['fee'])
+        {
+          const fees = [];
+          for (var key in value['fee'])
+          {
+            fees.push(value['fee'][key]['amount'] + ' ' + key);
+          }
+          text.push(fees.join(', '));
+        }
+      }
+
       if (!claim['is controlling'])
       {
         // the following is based on https://lbry.io/faq/claimtrie-implementation
@@ -141,70 +182,22 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
           secondsPerBlock = 161, // in theory this should be 150, but in practice its closer to 161
           takeoverTime = Date.now() + ((takeoverHeight - currentHeight) * secondsPerBlock * 1000);
 
-        takeoverMessage = 'Takes effect on approx. *' + moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]') + '* (block ' + takeoverHeight + ')';
+        text.push('Takes effect on approx. *' + moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]') + '* (block ' + takeoverHeight + ')');
       }
 
-      let value;
-      try
-      {
-        value = JSON.parse(claim['value']);
-      }
-      catch (e)
-      {
-        slackPost('New claim for lbry://' + claim['name'] + ' ' + takeoverMessage, {icon_emoji: ':bellhop_bell:'});
-        return;
-      }
-
-      // console.log(claim);
-      // console.log(value);
-
-      const text = [];
-
-      if (value['author'])
-      {
-        text.push(value['author']);
-      }
-      if (value['description'])
-      {
-        text.push(value['description']);
-      }
-      // if (value['content_type'])
-      // {
-      //   text.push("*Content Type:* " + value['content_type']);
-      // }
-      if (value['nsfw'])
-      {
-        text.push("*Warning: Adult Content*");
-      }
-      if (value['fee'])
-      {
-        const fees = [];
-        for (var key in value['fee'])
-        {
-          fees.push(value['fee'][key]['amount'] + ' ' + key);
-        }
-        text.push(fees.join(', '));
-      }
-
-      if (takeoverMessage)
-      {
-        text.push(takeoverMessage);
-      }
-
-
-      const attachment = !value ? null : {
-        "fallback": "New claim for lbry://" + claim['name'] + ': "' + value['title'] + '" by ' + value['author'],
+      const attachment = {
+        "fallback": "New claim for lbry://" + claim['name'],
         "color": "#155b4a",
         // "pretext": "New claim in block " + claimBlockHeight,
-        "author_name": 'lbry://' + claim['name'],
-        "author_link": 'lbry://' + claim['name'],
+        // "author_name": 'lbry://' + claim['name'],
+        // "author_link": 'lbry://' + claim['name'],
         // "author_icon": "http://flickr.com/icons/bobby.jpg",
-        "title": escapeSlackHtml(value['title']),
+        "title": "lbry://" + claim['name'], //escapeSlackHtml(value['title']),
         "title_link": "lbry://" + claim['name'],
         "text": escapeSlackHtml(text.join("\n")),
         // "fields": [],
         // "image_url": value['nsfw'] ? null : value['thumbnail'],
-        "thumb_url": value['nsfw'] ? null : value['thumbnail'],
+        // "thumb_url": (!value || value['nsfw']) ? null : value['thumbnail'],
         "unfurl_links": false,
         "unfurl_media": false,
         "link_names": false,
@@ -212,6 +205,18 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
         "footer": "Block " + claimBlockHeight + " • Claim ID " + claim['claimId'],
         "mrkdwn_in": ['text'],
       };
+
+      if (value)
+      {
+        attachment['fallback'] += (': "' + value['title'] + '" by ' + value['author']);
+        attachment['author_name'] = 'lbry://' + claim['name'];
+        attachment['author_link'] = 'lbry://' + claim['name'];
+        attachment['title'] = escapeSlackHtml(value['title']);
+        if (!value['nsfw'])
+        {
+          attachment['thumb_url'] = value['thumbnail'];
+        }
+      }
 
       slackPost('', {icon_emoji: ':bellhop_bell:', attachments: [attachment]});
     });
