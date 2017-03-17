@@ -53,7 +53,7 @@ slackbot.on('start', function() {
           '\n' +
           'My code is at https://github.com/lbryio/lbry-wunderbot. I love learning new tricks.\n';
 
-        slackbot.postMessage(data.channel, helpMsg);
+        slackbot.postMessage(data.channel, helpMsg, {icon_emoji: ':bulb:'});
       }
 
       if (command === hashbot.command) {

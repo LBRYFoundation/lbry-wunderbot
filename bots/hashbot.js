@@ -53,7 +53,7 @@ function sendMiningInfo(slackbot, channel) {
         'Difficulty: ' + difficulty + '\n' +
         'Current block: ' + block + '\n' +
         '_Source: https://explorer.lbry.io_'
-      );
+      , {icon_emoji: ':miner:'});
     }
   });
 }
