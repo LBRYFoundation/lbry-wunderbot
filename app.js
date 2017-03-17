@@ -42,6 +42,17 @@ slackbot.on('start', function() {
 
       var command = data.text.trim().split(' ')[0];
 
+      if (command === '!help') {
+        var helpMsg = "I'm Wunderbot, LBRY's slackbot. Here's what I can do:\n" +
+          '`!help`: this message\n' +
+          '`!tip`: send LBC tips to others, withdraw and deposit credits\n' +
+          '\n' +
+          'I also update <#C266N3RMM|content> anytime new content is published on LBRY\n\n' +
+          'My source code at https://github.com/lbryio/lbry-wunderbot. I\'d love to learn some new tricks\n';
+
+        slackbot.postMessage(data.channel, helpMsg);
+      }
+
       if (command === hashbot.command) {
         hashbot.respond(slackbot, data);
       }
