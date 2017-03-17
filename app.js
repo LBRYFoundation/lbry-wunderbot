@@ -44,11 +44,13 @@ slackbot.on('start', function() {
 
       if (command === '!help') {
         var helpMsg = "I'm Wunderbot, LBRY's slackbot. Here's what I can do:\n" +
-          '`!help`: this message\n' +
-          '`!tip`: send LBC tips to others, withdraw and deposit credits\n' +
+          '`!help` shows this message\n' +
+          '`!tip` sends LBC tips to others, and withdraws and deposits credits into the your tipping wallet\n' +
+          '`!hash` reports on the LBRY blockchain\n' +
+          '_type any of the above commands for more info_' +
           '\n' +
           'I also update <#C266N3RMM|content> anytime new content is published on LBRY\n\n' +
-          'My source code at https://github.com/lbryio/lbry-wunderbot. I\'d love to learn some new tricks\n';
+          'My code is at https://github.com/lbryio/lbry-wunderbot. I love learning new tricks.\n';
 
         slackbot.postMessage(data.channel, helpMsg);
       }
