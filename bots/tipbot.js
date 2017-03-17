@@ -23,7 +23,7 @@ function init(rpcuser, rpcpassword) {
 }
 
 var globalSlackParams = {
-  icon_emoji: ':money_with_wings:'
+  icon_emoji: ':rickshutup:'
 };
 
 function respond(bot, data) {
@@ -149,23 +149,29 @@ function doTip(bot, channel, tipper, words) {
 
 
 function doHelp(bot, channel) {
-  bot.postMessage(channel,
-    '*USE <#C1TEEBS2Z|bot-sandbox> FOR EVERYTHING EXCEPT ACTUAL TIPPING*\n' +
+  var message =
     '`' + command + ' help`: this message\n' +
     '`' + command + ' balance`: get your balance\n' +
     '`' + command + ' deposit`: get address for deposits\n' +
     '`' + command + ' withdraw ADDRESS AMOUNT`: withdraw AMOUNT credits to ADDRESS\n' +
-    '`' + command + ' USER AMOUNT`: send AMOUNT credits to USER\n' +
-    '\n' +
-    '*Everyone will see what I say. Send me a Direct Message if you want to interact privately.*\n' +
-    'If I\'m not responding in some channel, you can invite me by @mentioning me.\n'
-  , globalSlackParams);
+    '`' + command + ' USER AMOUNT`: send AMOUNT credits to USER\n';
+
+    if (!channel.startsWith("D")) {
+      message =
+        '*USE <#C1TEEBS2Z|bot-sandbox> FOR EVERYTHING EXCEPT ACTUAL TIPPING*\n' +
+        message +
+        '\n' +
+        '*Everyone will see what I say. Send me a Direct Message if you want to interact privately.*\n' +
+        'If I\'m not responding in some channel, you can invite me by @mentioning me.\n';
+    }
+
+  bot.postMessage(channel, message, globalSlackParams);
 }
 
 
 function sendLbc(bot, channel, tipper, id, amount) {
   getAddress(id, function(err, address){
-    if (err){
+    if (err) {
       bot.postMessage(channel, err.message);
     }
     else {
@@ -174,7 +180,10 @@ function sendLbc(bot, channel, tipper, id, amount) {
           bot.postMessage(channel, err.message);
         }
         else {
-          bot.postMessage(channel, 'Wubba lubba dub dub! <@' + tipper + '> tipped <@' + id + '> ' + amount + ' LBC (' + txLink(txId) + ')', globalSlackParams);
+          var message =
+            'Wubba lubba dub dub! <@' + tipper + '> tipped <@' + id + '> ' + amount + ' LBC (' + txLink(txId) + '). ' +
+            'DM me `!tip` for tipbot instructions.'
+          bot.postMessage(channel, message, globalSlackParams);
         }
       });
     }
