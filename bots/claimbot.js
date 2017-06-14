@@ -5,7 +5,8 @@ var mongo;
 var slackbot;
 var channel;
 var moment = require('moment');
-const request = require("request");
+var request = require('request');
+var sleep = require('sleep');
 
 module.exports = {
   init: init,
@@ -90,6 +91,7 @@ function announceNewClaims() {
 
 function announceClaimsLoop(block, lastBlock, currentHeight) {
   // console.log('Doing block ' + block)
+  let claimsFound = 0;
   return lbryCall('getblockhash', block)
     .then(function (blockHash) {
       return lbryCall('getblock', blockHash);
@@ -102,7 +104,12 @@ function announceClaimsLoop(block, lastBlock, currentHeight) {
         return !!c;
       });
       console.log('Found ' + claims.length + ' claims in ' + block);
+      claimsFound = claims.length;
       return Promise.all(claims.map(function (claim) {
+        //slack has a rate limit. to avoid hitting it we must have a small delay between each message
+        //if claims were found in this block, then we wait, otherwise we don't
+        if (claimsFound > 0)
+          sleep.msleep(300);
         return announceClaim(claim, block, currentHeight);
       }));
     })
@@ -128,19 +135,36 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    body = JSON.parse(body);
     try {
-      let claimData = body.value.stream.metadata;
-      let channelName = (body.hasOwnProperty('channel_name') ? body['channel_name'] : null);
-      //claimData = JSON.parse(body).stream.metadata;
-      //console.log(JSON.stringify(claimData));
+      console.log(body);
+
+      let claimData = null;
+      let channelName = null;
+      try {
+        body = JSON.parse(body);
+        if (body.hasOwnProperty('value') && body.value.hasOwnProperty('stream') && body.value.stream.hasOwnProperty('metadata')) {
+          claimData = body.value.stream.metadata;
+          channelName = (body.hasOwnProperty('channel_name') ? body['channel_name'] : null);
+        }
+      }
+      catch (e) {
+        console.error(e);
+      }
+
       return Promise.all([
         lbryCall('getvalueforname', claim['name']),
         lbryCall('getclaimsforname', claim['name']),
       ])
-        .then(function ([currentWinningClaim, claimsForName]) {
+        .then(function([currentWinningClaim, claimsForName]) {
           //console.log(JSON.stringify(claimData));
-          let value = claimData;
+          let value = null;
+          if (claimData !== null)
+            value = claimData;
+          else {
+            try {
+              value = JSON.parse(claim['value']);
+            } catch (e) { }
+          }
 
           const text = [];
 
@@ -161,12 +185,15 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
             if (value['nsfw']) {
               text.push("*Warning: Adult Content*");
             }
+
+            //"fee":{"currency":"LBC","amount":186,"version":"_0_0_1","address":"bTGoFCakvQXvBrJg1b7FJzombFUu6iRJsk"}
             if (value['fee']) {
               const fees = [];
-              for (var key in value['fee']) {
+              text.push("Price: " + value['fee'].amount + " *" + value['fee'].currency + '*');
+              /*for (var key in value['fee']) {
                 fees.push(value['fee'][key]['amount'] + ' ' + key);
               }
-              text.push(fees.join(', '));
+              text.push(fees.join(', '));*/
             }
           }
 
