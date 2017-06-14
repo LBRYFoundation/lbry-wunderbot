@@ -155,7 +155,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
         lbryCall('getvalueforname', claim['name']),
         lbryCall('getclaimsforname', claim['name']),
       ])
-        .then(function([currentWinningClaim, claimsForName]) {
+        .then(function ([currentWinningClaim, claimsForName]) {
           //console.log(JSON.stringify(claimData));
           let value = null;
           if (claimData !== null)
@@ -169,10 +169,11 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
           const text = [];
 
           if (value) {
-            if (channelName) {
+            /*if (channelName) {
               text.push("Channel: lbry://" + channelName);
             }
-            else if (value['author']) {
+            else*/
+            if (value['author']) {
               text.push("author: " + value['author']);
             }
             if (value['description']) {
