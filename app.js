@@ -32,6 +32,9 @@ hashbot.init(slackbot, process.env.MINING_CHANNEL);
 var claimbot = require('./bots/claimbot');
 claimbot.init(slackbot, process.env.CLAIMS_CHANNEL, process.env.RPCUSER, process.env.RPCPASSWORD, process.env.MONGODB_URL);
 
+var pricebot = require('./bots/pricebot');
+pricebot.init(process.env.MARKET_TRADING_CHANNEL);
+
 slackbot.on('start', function() {
   slackbot.on('message', function(data) {
     if (data.type == 'team_join') {
@@ -62,6 +65,10 @@ slackbot.on('start', function() {
 
       if (command === tipbot.command) {
         tipbot.respond(slackbot, data);
+      }
+
+      if (command === pricebot.command) {
+        pricebot.respond(slackbot, data);
       }
     }
   });
