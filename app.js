@@ -35,8 +35,12 @@ claimbot.init(slackbot, process.env.CLAIMS_CHANNEL, process.env.RPCUSER, process
 var pricebot = require('./bots/pricebot');
 pricebot.init(process.env.MARKET_TRADING_CHANNEL);
 
+var modbot = require('./bots/modbot');
+modbot.init(process.env.MONGODB_URL, process.env.SLACK_TOKEN, slackbot);
+
 slackbot.on('start', function() {
   slackbot.on('message', function(data) {
+    modbot.check(slackbot,data);
     if (data.type == 'team_join') {
       setTimeout(function() { sendWelcomeMessage(data.user.id); }, 2000); //Delay because of slow slack api updates which sometimes does not send msg.
     }
