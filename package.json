@@ -1,6 +1,6 @@
 {
   "name": "hashbot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A bot for slack wich displays lbrys current hashrate via the open api.",
   "main": "app.js",
   "dependencies": {
@@ -11,6 +11,7 @@
     "needle": "^1.0.0",
     "request": "^2.81.0",
     "slackbots": "^0.5.1",
+    "sleep": "^5.1.1",
     "xmlhttprequest": "1.8.0"
   },
   "devDependencies": {},
