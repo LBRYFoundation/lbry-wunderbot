@@ -49,7 +49,7 @@ slackbot.on('start', function() {
       if (command === '!help') {
         var helpMsg = "I'm Wunderbot, LBRY's slackbot. Here's what I can do:\n" +
           '`!help` shows this message\n' +
-          '`!tip` sends LBC tips to others, and withdraws and deposits credits into the your tipping wallet*(now handled by <@tipbot>)*\n' +
+          '`!tip` sends LBC tips to others, and withdraws and deposits credits into the your tipping wallet *(now handled by <@tipbot>)*\n' +
           '`!hash` reports on the LBRY blockchain\n' +
           '_type any of the above commands for more info_\n' +
           '\n' +
