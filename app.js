@@ -23,9 +23,6 @@ function sendWelcomeMessage(user) {
   });
 };
 
-var tipbot = require('./bots/tipbot');
-tipbot.init(process.env.RPCUSER, process.env.RPCPASSWORD);
-
 var hashbot = require('./bots/hashbot');
 hashbot.init(slackbot, process.env.MINING_CHANNEL);
 
@@ -67,8 +64,9 @@ slackbot.on('start', function() {
         hashbot.respond(slackbot, data);
       }
 
-      if (command === tipbot.command) {
-        tipbot.respond(slackbot, data);
+      if (command === '!tip' && data.channel.startsWith("D")) {
+        var tipMsg = 'Sorry, tipping is now handled by <@B5VESJN2D>\n';
+        slackbot.postMessage(data.channel, tipMsg, {icon_emoji: ':bulb:'});
       }
 
       if (command === pricebot.command) {
