@@ -9,13 +9,15 @@ var options = {
     // supported currencies and api steps to arrive at the final value
     currencies: {
         USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00' },
+        GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00' },
         BTC: { steps: ['LBCBTC'], format: '0,0[.][00000000] BTC' }
     },
 
     // api steps
     api: {
         LBCBTC: { url: 'https://bittrex.com/api/v1.1/public/getticker?market=BTC-LBC', path: '$.result.Bid' },
-        BTCUSD: { url: 'https://blockchain.info/ticker', path: '$.USD.buy' }
+        BTCUSD: { url: 'https://blockchain.info/ticker', path: '$.USD.buy' },
+        BTCGBP: { url: 'https://blockchain.info/ticker', path: '$.GBP.buy' }
     },
 
     // display date/time format
