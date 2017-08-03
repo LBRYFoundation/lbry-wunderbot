@@ -1,9 +1,10 @@
-Welcome to LBRY Slack! A few things for new users to know:
+Welcome to LBRY Slack! 
 
-- LBRY is currently invite only. To get access ASAP, get on the list here: https://lbry.io/get
-- We will not give you an invite unless you demonstrate an ability to contribute or are a badass in some other way
-- Outside of the #help channel, do not ask basic or beginner questions
-- If you're a developer, we encourage you to join #dev. Warning: competent people only
-- Keep it on topic (LBRY), outside of #random_nsfw, which is a 4chan level of NSFW
+- LBRY is currently in open beta. To download go here: https://lbry.io/get
+- Ask questions only after reading the pinned items in each respective Slack channel.  If there is still an issue or a question you have please reach out in the #help channle.
+- If you're a developer, we encourage you to join #dev.
+- No spamming or referral links are permitted.
+- Keep it on topic in the #general channel
+- Please put NSFW material only in the #random_nsfw channel
 - Read the FAQ: http://lbry.io/faq
 - Be courteous, kind, and generous
