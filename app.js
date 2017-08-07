@@ -26,11 +26,14 @@ function sendWelcomeMessage(user) {
 var hashbot = require('./bots/hashbot');
 hashbot.init(slackbot, process.env.MINING_CHANNEL);
 
+var statbot = require('./bots/statbot');
+statbot.init(process.env.MARKET_TRADING_CHANNEL);
+
 var claimbot = require('./bots/claimbot');
 claimbot.init(slackbot, process.env.CLAIMS_CHANNEL, process.env.RPCUSER, process.env.RPCPASSWORD, process.env.MONGODB_URL);
 
 var pricebot = require('./bots/pricebot');
-pricebot.init(process.env.MARKET_TRADING_CHANNEL);
+pricebot.init(); //price bot only in PM
 
 var modbot = require('./bots/modbot');
 modbot.init(process.env.MONGODB_URL, process.env.SLACK_TOKEN, slackbot);
@@ -50,6 +53,8 @@ slackbot.on('start', function() {
         var helpMsg = "I'm Wunderbot, LBRY's slackbot. Here's what I can do:\n" +
           '`!help` shows this message\n' +
           '`!tip` sends LBC tips to others, and withdraws and deposits credits into the your tipping wallet *(now handled by <@tipbot>)*\n' +
+          '`!stats` shows market stats in trading channel\n' +
+          '`!price` works only in PM now\n' +
           '`!hash` reports on the LBRY blockchain\n' +
           '_type any of the above commands for more info_\n' +
           '\n' +
@@ -71,6 +76,9 @@ slackbot.on('start', function() {
 
       if (command === pricebot.command) {
         pricebot.respond(slackbot, data);
+      }
+       if (command === statbot.command) {
+        statbot.respond(slackbot, data);
       }
     }
   });

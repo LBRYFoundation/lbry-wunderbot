@@ -20,7 +20,7 @@ var options = {
         LBCBTC: { url: 'https://bittrex.com/api/v1.1/public/getticker?market=BTC-LBC', path: '$.result.Bid' },
         BTCUSD: { url: 'https://blockchain.info/ticker', path: '$.USD.buy' },
         BTCGBP: { url: 'https://blockchain.info/ticker', path: '$.GBP.buy' },
-        LBCETH: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eth', path: '$[0].price_eth' }
+        LBCETH: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eth', path: '$[0].price_eth' },
         LBCEUR: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eur', path: '$[0].price_eur' }
     },
 
