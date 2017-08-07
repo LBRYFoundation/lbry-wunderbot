@@ -9,10 +9,10 @@ var options = {
     // supported currencies and api steps to arrive at the final value
     currencies: {
         USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00', sign:'$' },
-        BTC: { steps: ['LBCBTC',], format: 'BTC 0,0.00000000', sign:'BTC' },
-        ETH: { steps: ['LBCETH',], format: 'ETH 0,0.00000000', sign: 'ETH' },
+        BTC: { steps: ['LBCBTC'], format: 'BTC 0,0.00000000', sign:'BTC' },
+        ETH: { steps: ['LBCETH'], format: 'ETH 0,0.00000000', sign: 'ETH' },
         GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00', sign: '£' },
-        EUR: { steps: ['LBCBTC', 'BTCGBP'], format: '€0,0.00', sign: '€' }
+        EUR: { steps: ['LBCEUR'], format: '€0,0.00', sign: '€' }
     },
 
     // api steps
@@ -84,8 +84,10 @@ function respond(bot, data) {
     doHelp(bot, channel);
   } else {
 
-    doSteps(bot, channel, 'ETH', amount);
     doSteps(bot, channel, 'USD', amount);
+    doSteps(bot, channel, 'EUR', amount);
+    doSteps(bot, channel, 'GBP', amount);
+    doSteps(bot, channel, 'ETH', amount);
     doSteps(bot, channel, 'BTC', amount);
     setTimeout(function() { marketstats(bot,channel); }, 250);
     //marketstats(bot,channel);
@@ -114,12 +116,12 @@ function doHelp(bot, channel) {
 
 function formatMessage(amount, rate, option) {
     var cur = option.sign;
-    var value = numeral(rate.rate * amount).format('0,0[.][00000000]');
+    var value = rate.rate * amount;
     if (option.sign == '$' || option.sign == '£' || option.sign == '€'){
-      return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur +' '+ value + '*';
+      return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur +' '+ value.toFixed(2) + '*';
     }
     else {
-      return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + value + ' ' + cur + '*';
+      return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + numeral(value).format('0,0[.][00000000]') + ' ' + cur + '*';
     }
 }
 
