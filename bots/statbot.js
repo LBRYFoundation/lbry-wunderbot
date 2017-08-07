@@ -28,7 +28,7 @@ var options = {
     dtFormat: 'Do MMM YYYY h:mma [UTC]',
 
     // refresh rate in milliseconds to retrieve a new price (default to 10 minutes)
-    refreshTime: 600000
+    refreshTime: 300000
 };
 
 // store the last retrieved rate
