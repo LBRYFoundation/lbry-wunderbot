@@ -44,14 +44,10 @@ function sendMiningInfo(slackbot, channel) {
     else {
         var data, k, hashrate = "", difficulty = "", height = "";
         data =  response.body;
-        data.status[0] =  "";
         height += data.status.height;
-        for (k in data.status.hashrate) {
-            hashrate += data.status.hashrate[k];
-        }
-        for (k in data.status.difficulty) {
-            difficulty += data.status.difficulty[k];
-        }
+        hashrate += data.status.hashrate;
+        difficulty += data.status.difficulty;
+
       slackbot.postMessage(channel,
         // 'Blockchain stats:\n' +
         'Hashrate: ' + hashrate + '\n' +
