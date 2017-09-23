@@ -42,7 +42,7 @@ function sendMiningInfo(slackbot, channel) {
       slackbot.postMessage(channel, 'Explorer API is not available');
     }
     else {
-        var data, k, hashrate = "", difficulty = "", height = "";
+        var data, hashrate = "", difficulty = "", height = "";
         data =  response.body;
         height += data.status.height;
         hashrate += data.status.hashrate;
