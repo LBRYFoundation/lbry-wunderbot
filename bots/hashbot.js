@@ -43,7 +43,7 @@ function sendMiningInfo(slackbot, channel) {
     }
     else {
         var data, hashrate = "", difficulty = "", height = "";
-        data =  response.body;
+        data = response.body;
         height += data.status.height;
         hashrate += data.status.hashrate;
         difficulty += data.status.difficulty;
