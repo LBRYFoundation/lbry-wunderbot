@@ -42,28 +42,16 @@ function sendMiningInfo(slackbot, channel) {
       slackbot.postMessage(channel, 'Explorer API is not available');
     }
     else {
-        var data, k, hashrate = "Hash Rate: ";
+        var data, k, hashrate = "Hash Rate: ", difficulty = "Difficulty: ", height = "Current Block: ";
         data =  response.body;
-        var data2, k, difficulty = "Difficulty: ";
-        data2 =  response.body;
-        var data3, k, height = "Current Block: ";
-        data3 =  response.body;
         data.status[0] =  "";
-
+        height += data.status.height;
         for (k in data.status.hashrate) {
             hashrate += data.status.hashrate[k];
         }
-        data2.status[0] = "";
-
-        for (k in data2.status.difficulty) {
-            difficulty += data2.status.difficulty[k];
+        for (k in data.status.difficulty) {
+            difficulty += data.status.difficulty[k];
         }
-        data3.status[0] = "";
-
-        for (k in data3.status.height) {
-            height += data3.status.height[k];
-        }
-
       slackbot.postMessage(channel,
         // 'Blockchain stats:\n' +
         'Hashrate: ' + hashrate + '\n' +
