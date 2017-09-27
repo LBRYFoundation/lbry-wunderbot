@@ -29,6 +29,7 @@ var options = {
         SGD: { steps: ['LBCBTC', 'BTCSGD'], format: '$0,0.00' },
         THB: { steps: ['LBCBTC', 'BTCTHB'], format: '฿0,0.00' },
         TWD: { steps: ['LBCBTC', 'BTCTWD'], format: 'NT$0,0.00' },
+        IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00' },
         BTC: { steps: ['LBCBTC'], format: '0,0[.][00000000] BTC' }
     },
 
@@ -56,7 +57,8 @@ var options = {
         BTCSEK: { url: 'https://blockchain.info/ticker', path: '$.SEK.buy' },
         BTCSGD: { url: 'https://blockchain.info/ticker', path: '$.SGD.buy' },
         BTCTHB: { url: 'https://blockchain.info/ticker', path: '$.THB.buy' },
-        BTCTWD: { url: 'https://blockchain.info/ticker', path: '$.TWD.buy' }
+        BTCTWD: { url: 'https://blockchain.info/ticker', path: '$.TWD.buy' },
+        BTCIDR: { url: 'https://min-api.cryptocompare.com/data/price?fsym=LBC&tsyms=IDR', path: '$.IDR'}
     },
 
     // display date/time format
@@ -128,7 +130,7 @@ function doHelp(bot, channel) {
     '`' + command + ' help`: this message\n' +
     '`' + command + ' CURRENCY`: show the price of 1 LBC in CURRENCY. Supported values for CURRENCY are Listed Below\n' +
     '`' + command + ' CURRENCY AMOUNT`: show the price of AMOUNT LBC in CURRENCY\n' +
-    '`Supported Currencies:` *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd* and *btc* (case-insensitive)';
+    '`Supported Currencies:` *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *idr* and *btc* (case-insensitive)';
 
     if (!channel.startsWith("D")) {
       message =
