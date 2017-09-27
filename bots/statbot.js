@@ -13,6 +13,7 @@ var options = {
         ETH: { steps: ['LBCETH'], format: 'ETH 0,0.00000000', sign: 'ETH' },
         GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00', sign: '£' },
         EUR: { steps: ['LBCEUR'], format: '€0,0.00', sign: '€' }
+        IDR: { steps: ['LBCIDR'], format: '€0,0.00', sign: 'Rp' }
     },
 
     // api steps
@@ -22,6 +23,7 @@ var options = {
         BTCGBP: { url: 'https://blockchain.info/ticker', path: '$.GBP.buy' },
         LBCETH: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eth', path: '$[0].price_eth' },
         LBCEUR: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eur', path: '$[0].price_eur' }
+        LBCIDR: { url: 'www.coingecko.com/en/widget_component/ticker/lbry-credits/idr?id=lbry-credits', path: '$[0].price_idr' }
     },
 
     // display date/time format
@@ -89,6 +91,7 @@ function respond(bot, data) {
     doSteps(bot, channel, 'GBP', amount);
     doSteps(bot, channel, 'ETH', amount);
     doSteps(bot, channel, 'BTC', amount);
+    doSteps(bot, channel, 'IDR', amount);
     setTimeout(function() { marketstats(bot,channel); }, 250);
     //marketstats(bot,channel);
     //volume24(bot,channel); can't get this part to work, someone help me fix - i think it's because 24h_volume_usd starts with number
