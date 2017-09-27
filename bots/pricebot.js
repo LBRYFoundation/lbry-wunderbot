@@ -10,6 +10,7 @@ var options = {
     currencies: {
         USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00' },
         GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00' },
+        IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00' },
         BTC: { steps: ['LBCBTC'], format: '0,0[.][00000000] BTC' }
     },
 
@@ -18,6 +19,8 @@ var options = {
         LBCBTC: { url: 'https://bittrex.com/api/v1.1/public/getticker?market=BTC-LBC', path: '$.result.Bid' },
         BTCUSD: { url: 'https://blockchain.info/ticker', path: '$.USD.buy' },
         BTCGBP: { url: 'https://blockchain.info/ticker', path: '$.GBP.buy' }
+        BTCIDR: { url: 'https://www.coingecko.com/en/widget_component/ticker/bitcoin/idr?id=bitcoin', path: '$.IDR.buy' }
+        
     },
 
     // display date/time format
