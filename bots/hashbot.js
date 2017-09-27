@@ -37,21 +37,22 @@ function respond(slackbot, data) {
 
 
 function sendMiningInfo(slackbot, channel) {
-  needle.get('https://explorer.lbry.io/api/getmininginfo', function(error, response) {
+  needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
     if (error || response.statusCode !== 200) {
       slackbot.postMessage(channel, 'Explorer API is not available');
     }
     else {
-      var data = response.body,
-          hashrate = Math.round(data.networkhashps / 1000000000),
-          difficulty = numberWithCommas(Math.round(data.difficulty)),
-          block = numberWithCommas(data.blocks);
+        var data, hashrate = "", difficulty = "", height = "";
+        data = response.body;
+        height += data.status.height;
+        hashrate += data.status.hashrate;
+        difficulty += data.status.difficulty;
 
       slackbot.postMessage(channel,
         // 'Blockchain stats:\n' +
-        'Hashrate: ' + hashrate + ' GH/s\n' +
+        'Hashrate: ' + hashrate + '\n' +
         'Difficulty: ' + difficulty + '\n' +
-        'Current block: ' + block + '\n' +
+        'Current block: ' + height + '\n' +
         '_Source: https://explorer.lbry.io_'
       , {icon_emoji: ':miner:'});
     }
