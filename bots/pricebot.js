@@ -58,7 +58,7 @@ var options = {
         BTCSGD: { url: 'https://blockchain.info/ticker', path: '$.SGD.buy' },
         BTCTHB: { url: 'https://blockchain.info/ticker', path: '$.THB.buy' },
         BTCTWD: { url: 'https://blockchain.info/ticker', path: '$.TWD.buy' },
-        BTCIDR: { url: 'https://min-api.cryptocompare.com/data/price?fsym=LBC&tsyms=IDR', path: '$.IDR'}
+        BTCIDR: { url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=IDR', path: '$.IDR'}
     },
 
     // display date/time format
