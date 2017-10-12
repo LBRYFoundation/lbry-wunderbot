@@ -12,7 +12,10 @@ var options = {
         BTC: { steps: ['LBCBTC'], format: 'BTC 0,0.00000000', sign:'BTC' },
         ETH: { steps: ['LBCETH'], format: 'ETH 0,0.00000000', sign: 'ETH' },
         GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00', sign: '£' },
-        EUR: { steps: ['LBCEUR'], format: '€0,0.00', sign: '€' }
+        EUR: { steps: ['LBCEUR'], format: '€0,0.00', sign: '€' },
+        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00', sign: '$' },
+        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00', sign: '$' },
+        IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00', sign: 'Rp' }
     },
 
     // api steps
@@ -21,7 +24,10 @@ var options = {
         BTCUSD: { url: 'https://blockchain.info/ticker', path: '$.USD.buy' },
         BTCGBP: { url: 'https://blockchain.info/ticker', path: '$.GBP.buy' },
         LBCETH: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eth', path: '$[0].price_eth' },
-        LBCEUR: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eur', path: '$[0].price_eur' }
+        LBCEUR: { url: 'https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=eur', path: '$[0].price_eur' },
+        BTCAUD: { url: 'https://blockchain.info/ticker', path: '$.AUD.buy' },
+        BTCCAD: { url: 'https://blockchain.info/ticker', path: '$.CAD.buy' },
+        BTCIDR: { url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=IDR', path: '$.IDR'}
     },
 
     // display date/time format
@@ -89,6 +95,9 @@ function respond(bot, data) {
     doSteps(bot, channel, 'GBP', amount);
     doSteps(bot, channel, 'ETH', amount);
     doSteps(bot, channel, 'BTC', amount);
+    doSteps(bot, channel, 'CAD', amount);
+    doSteps(bot, channel, 'AUD', amount);
+    doSteps(bot, channel, 'IDR', amount);
     setTimeout(function() { marketstats(bot,channel); }, 250);
     //marketstats(bot,channel);
     //volume24(bot,channel); can't get this part to work, someone help me fix - i think it's because 24h_volume_usd starts with number
