@@ -126,7 +126,7 @@ function doHelp(bot, channel) {
 function formatMessage(amount, rate, option) {
     var cur = option.sign;
     var value = rate.rate * amount;
-    if (option.sign == '$' || option.sign == '£' || option.sign == '€'|| option.sign == 'Rp'){
+    if (option.sign == 'USD $' || option.sign == 'CAD $' || option.sign == 'AUD $' || option.sign == '£' || option.sign == '€'|| option.sign == 'Rp'){
       return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur +' '+ value.toFixed(2) + '*';
     }
     else {
