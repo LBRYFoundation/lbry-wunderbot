@@ -8,13 +8,13 @@ var options = {
 
     // supported currencies and api steps to arrive at the final value
     currencies: {
-        USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00', sign:'$' },
+        USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00', sign:'USD $' },
         BTC: { steps: ['LBCBTC'], format: 'BTC 0,0.00000000', sign:'BTC' },
         ETH: { steps: ['LBCETH'], format: 'ETH 0,0.00000000', sign: 'ETH' },
         GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00', sign: '£' },
         EUR: { steps: ['LBCEUR'], format: '€0,0.00', sign: '€' },
-        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00', sign: '$' },
-        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00', sign: '$' },
+        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00', sign: 'CAD $' },
+        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00', sign: 'AUD $' },
         IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00', sign: 'Rp' }
     },
 
