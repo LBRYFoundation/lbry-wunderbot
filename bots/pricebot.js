@@ -7,30 +7,30 @@ var options = {
 
     // supported currencies and api steps to arrive at the final value
     currencies: {
-        USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00' },
-        GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00' },
-        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00' },
-        BRL: { steps: ['LBCBTC', 'BTCBRL'], format: 'R$0,0.00' },
-        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00' },
-        CHF: { steps: ['LBCBTC', 'BTCCHF'], format: 'CHF 0,0.00' },
-        CLP: { steps: ['LBCBTC', 'BTCCLP'], format: '$0,0.00' },
-        CNY: { steps: ['LBCBTC', 'BTCCNY'], format: '¥0,0.00' },
-        DKK: { steps: ['LBCBTC', 'BTCDKK'], format: 'kr 0,0.00' },
-        EUR: { steps: ['LBCBTC', 'BTCEUR'], format: '€0,0.00' },
-        HKD: { steps: ['LBCBTC', 'BTCHKD'], format: '$0,0.00' },
-        INR: { steps: ['LBCBTC', 'BTCINR'], format: '₹0,0.00' },
-        ISK: { steps: ['LBCBTC', 'BTCISK'], format: 'kr 0,0.00' },
-        JPY: { steps: ['LBCBTC', 'BTCJPY'], format: '¥0,0.00' },
-        KRW: { steps: ['LBCBTC', 'BTCKRW'], format: '₩0,0.00' },
-        NZD: { steps: ['LBCBTC', 'BTCNZD'], format: '$0,0.00' },
-        PLN: { steps: ['LBCBTC', 'BTCPLN'], format: 'zł 0,0.00' },
-        RUB: { steps: ['LBCBTC', 'BTCRUB'], format: 'RUB 0,0.00' },
-        SEK: { steps: ['LBCBTC', 'BTCSEK'], format: 'kr 0,0.00' },
-        SGD: { steps: ['LBCBTC', 'BTCSGD'], format: '$0,0.00' },
-        THB: { steps: ['LBCBTC', 'BTCTHB'], format: '฿0,0.00' },
-        TWD: { steps: ['LBCBTC', 'BTCTWD'], format: 'NT$0,0.00' },
-        IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00' },
-        BTC: { steps: ['LBCBTC'], format: '0,0[.][00000000] BTC' }
+        USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00', sign: '$' },
+        GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00', sign: '£' },
+        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00', sign: '$' },
+        BRL: { steps: ['LBCBTC', 'BTCBRL'], format: 'R$0,0.00', sign: 'R$' },
+        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00', sign: '$' },
+        CHF: { steps: ['LBCBTC', 'BTCCHF'], format: 'CHF 0,0.00', sign: 'CHF' },
+        CLP: { steps: ['LBCBTC', 'BTCCLP'], format: '$0,0.00', sign: '$' },
+        CNY: { steps: ['LBCBTC', 'BTCCNY'], format: '¥0,0.00', sign: '¥' },
+        DKK: { steps: ['LBCBTC', 'BTCDKK'], format: 'kr 0,0.00', sign: 'kr' },
+        EUR: { steps: ['LBCBTC', 'BTCEUR'], format: '€0,0.00', sign: '€' },
+        HKD: { steps: ['LBCBTC', 'BTCHKD'], format: '$0,0.00', sign: '$' },
+        INR: { steps: ['LBCBTC', 'BTCINR'], format: '₹0,0.00', sign: '₹' },
+        ISK: { steps: ['LBCBTC', 'BTCISK'], format: 'kr 0,0.00', sign: 'kr' },
+        JPY: { steps: ['LBCBTC', 'BTCJPY'], format: '¥0,0.00', sign: '¥' },
+        KRW: { steps: ['LBCBTC', 'BTCKRW'], format: '₩0,0.00', sign: '₩' },
+        NZD: { steps: ['LBCBTC', 'BTCNZD'], format: '$0,0.00', sign: '$' },
+        PLN: { steps: ['LBCBTC', 'BTCPLN'], format: 'zł 0,0.00', sign: 'zł' },
+        RUB: { steps: ['LBCBTC', 'BTCRUB'], format: 'RUB 0,0.00', sign: 'RUB' },
+        SEK: { steps: ['LBCBTC', 'BTCSEK'], format: 'kr 0,0.00', sign: 'kr' },
+        SGD: { steps: ['LBCBTC', 'BTCSGD'], format: '$0,0.00', sign: '$' },
+        THB: { steps: ['LBCBTC', 'BTCTHB'], format: '฿0,0.00', sign: '฿' },
+        TWD: { steps: ['LBCBTC', 'BTCTWD'], format: 'NT$0,0.00', sign: 'NT$' },
+        IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00', sign: 'Rp' },
+        BTC: { steps: ['LBCBTC'], format: '0,0[.][00000000] BTC', sign: 'BTC' }
     },
 
     // api steps
@@ -145,8 +145,9 @@ function doHelp(bot, channel) {
 }
 
 function formatMessage(amount, rate, option) {
+	var cur = option.sign;
     var value = numeral(rate.rate * amount).format(option.format);
-    return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + value + '*\n_last updated ' + rate.time.utc().format(options.dtFormat) + '_';
+    return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur +' ' + value + '*\n_last updated ' + rate.time.utc().format(options.dtFormat) + '_';
 }
 
 function doSteps(bot, channel, currency, amount) {
