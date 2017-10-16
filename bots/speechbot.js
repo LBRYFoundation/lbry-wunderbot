@@ -168,7 +168,7 @@ if (isUriImage(url) === false) {
 	download.on('end', (output) => { 
           //if no errors and file ready -> do the request
           output && doSteps(bot, channel, imagename, url, eighteen);
-	});
+  });}
 
 //send help message
 function doHelp(bot, channel) {
@@ -199,11 +199,11 @@ request.post(
 		if (body.message === "no files found in request") {
 			if (FullDebug === "true") {
 		console.log("no file found: " + fullpath);
-		var message = '`Failed to upload file!!`\n this could aslo be an issue with the url no being reachable \n please contact @MSFTserver or another moderator if the issue persists';
+		var message = '`Failed to upload file internally!!`\n please contact @MSFTserver or another moderator if the issue persists';
 		bot.postMessage(channel, message, globalSlackParams);
 		return
 			} else {
-		var message = '`Failed to upload file!!`\n this could aslo be an issue with the url no being reachable \n please contact @MSFTserver or another moderator if the issue persists';
+		var message = '`Failed to upload file internally!!`\n please contact @MSFTserver or another moderator if the issue persists';
 		bot.postMessage(channel, message, globalSlackParams);
 		return
 			}
@@ -213,11 +213,11 @@ request.post(
 				if (body.message === "no name field found in request") {
 			if (FullDebug === "true") {
 		console.log("no name field found: " + imagename);
-		var message = '`Failed to upload file!!`\n please contact @MSFTserver or another moderator if the issue persists';
+		var message = '`Failed to upload file internally!!`\n please contact @MSFTserver or another moderator if the issue persists';
 		bot.postMessage(channel, message, globalSlackParams);
 		return
 			} else {
-		var message = '`Failed to upload file!!`\n please contact @MSFTserver or another moderator if the issue persists';
+		var message = '`Failed to upload file internally!!`\n please contact @MSFTserver or another moderator if the issue persists';
 		bot.postMessage(channel, message, globalSlackParams);
 		return
 			}
