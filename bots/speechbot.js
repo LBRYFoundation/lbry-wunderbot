@@ -188,9 +188,10 @@ if (isUriImage(url) === false) {
 //send help message
 function doHelp(bot, channel) {
   var message =
-  	'`' + command + ' <Name>`: displays top claim on speech \n' +
-    '`' + command + ' <Name> <URL> <NSFW>`: Uploads Image URL to Spee.ch \n' +
-    'include all three parameters: Name of image, URL to Image, NSFW optional put true/false, if left blank will defualt to `false` \n';
+  	'`' + command + ' <Name>` : displays top claim on speech \n' +
+    '`' + command + ' <Name> <URL> <NSFW>` : Uploads Image URL to Spee.ch \n' +
+    '`**NOTE**` : `dont include spaces in name` (NSFW is optional `true/false`, if left blank will defualt to `false`) \n' +
+	'`EXAMPLE` : `!speech my-image-name https://url/to/image.png false`';
   bot.postMessage(channel, message, globalSlackParams);
 }
 
