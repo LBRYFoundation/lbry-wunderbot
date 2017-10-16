@@ -51,6 +51,19 @@ function respond(bot, data) {
 	   doHelp(bot, channel)
 	   return;
   } else {
+	  //check if imagename is defined if not do error
+	  if (imagename === undefined) {
+			  if (FullDebug === "true") {
+			  var message = "`no name provided`"
+			  console.log('no name provided');
+			  bot.postMessage(channel, message, globalSlackParams);
+			  return
+		  } else {
+			  var message = "`no name provided`"
+			  bot.postMessage(channel, message, globalSlackParams);
+			  return
+		  }  
+	  }
 	  
   //set second word to url
   var filepath = words[2];
@@ -58,15 +71,15 @@ function respond(bot, data) {
   //check if a url is provided if none do help message
   if (filepath === undefined) {
 	  if (FullDebug === "true") {
-	  var message = "`error no url provided`"
+	  var message = "`no url provided, fetching image from spee.ch/" + imagename + "`\n" +
+	  "https://spee.ch/" + imagename
 	  console.log('no url provided');
 	  bot.postMessage(channel, message, globalSlackParams);
-	  doHelp(bot, channel);
 	  return
   } else {
-	  var message = "`error no url provided`"
+	  var message = "`no url provided, fetching image from spee.ch/" + imagename + "`\n" +
+	  "https://spee.ch/" + imagename
 	  bot.postMessage(channel, message, globalSlackParams);
-	  doHelp(bot, channel);
 	  return
   }}
   
@@ -173,8 +186,9 @@ if (isUriImage(url) === false) {
 //send help message
 function doHelp(bot, channel) {
   var message =
+  	'`' + command + ' <Name>`: displays top claim on speech \n' +
     '`' + command + ' <Name> <URL> <NSFW>`: Uploads Image URL to Spee.ch \n' +
-    'include all three parameters above: Name of image, URL to Image, NSFW optional put true/false, if left blank will defualt to `false` \n';
+    'include all three parameters: Name of image, URL to Image, NSFW optional put true/false, if left blank will defualt to `false` \n';
   bot.postMessage(channel, message, globalSlackParams);
 }
 
