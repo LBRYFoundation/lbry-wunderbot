@@ -128,6 +128,15 @@ if (isUriImage(url) === false) {
 			  return;
 	}
 }
+  //set third word to nsfw, with it being an optional functionality
+  var eighteen = words[3];
+
+  //check is NSFW if yes or no sets proper value if none
+  if (eighteen == "" || eighteen == "none" || eighteen == undefined || eighteen == null || eighteen == "no"|| eighteen == "false" || eighteen == false || eighteen == "n") {
+	 eighteen = "no"; 
+  } else {
+	  eighteen = "yes"
+  }
 
   //prepare url for wget
   var source = url;
@@ -155,19 +164,11 @@ if (isUriImage(url) === false) {
 			return
 			}
            });
- 
-  //set third word to nsfw, with it being an optional functionality
-  var eighteen = words[3];
-
-  //check is NSFW if yes or no sets proper value if none
-  if (eighteen == "" || eighteen == "none" || eighteen == undefined || eighteen == null || eighteen == "no"|| eighteen == "false" || eighteen == false || eighteen == "n") {
-	 eighteen = "no"; 
-  } else {
-	  eighteen = "yes"
-  }
-
-//if no error yet do the request
-  doSteps(bot, channel, imagename, url, eighteen)}
+	   
+	download.on('end', (output) => { 
+          //if no errors and file ready -> do the request
+          output && doSteps(bot, channel, imagename, url, eighteen);
+	});
 
 //send help message
 function doHelp(bot, channel) {
