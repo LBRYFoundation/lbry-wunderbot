@@ -165,10 +165,10 @@ if (isUriImage(url) === false) {
 			}
            });
 	   
-	  download.on('end', function(output) { 
-            //if no errors and file ready -> do the request
-            output && doSteps(bot, channel, imagename, url, eighteen)}
-	  });
+	download.on('end', (output) => { 
+          //if no errors and file ready -> do the request
+          output && doSteps(bot, channel, imagename, url, eighteen);
+	});
 
 //send help message
 function doHelp(bot, channel) {
