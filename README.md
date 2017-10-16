@@ -23,5 +23,5 @@ Then run:
 
 ```
 npm install
-SLACK_TOKEN=<your-slack-token> CHANNEL=<channel-for-bot> node bot.js
+SLACK_TOKEN=<your-slack-token> RPCUSER=<your-rpc-username> RPCPASSWORD=<your-rpc-password> MONGODB_URL=<db-url> CHANNEL=<channel-for-bot> node bot.js
 ```
