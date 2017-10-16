@@ -1,7 +1,6 @@
 var request = require('request');
 var wget = require('wget');
-var http = require("http");
-var fs = require('fs-extra')
+var fs = require('fs')
 
 //debug output "true/false" outputs same error as slack message in console if set to true
 //if set to false console will be left blank like normal
