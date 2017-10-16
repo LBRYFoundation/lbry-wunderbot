@@ -57,10 +57,12 @@ function respond(bot, data) {
 			  var message = "`no name provided`"
 			  console.log('no name provided');
 			  bot.postMessage(channel, message, globalSlackParams);
+			  doHelp(bot, channel)
 			  return
 		  } else {
 			  var message = "`no name provided`"
 			  bot.postMessage(channel, message, globalSlackParams);
+			  doHelp(bot, channel)
 			  return
 		  }  
 	  }
