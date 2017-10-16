@@ -5,7 +5,7 @@ var fs = require('fs')
 //debug output "true/false" outputs same error as slack message in console if set to true
 //if set to false console will be left blank like normal
 //some have more info on file details of error
-var FullDebug = "true"
+var FullDebug = "false"
 //outputs response from speech, very bulk reply
 var ResponseDebug = "false"
 
