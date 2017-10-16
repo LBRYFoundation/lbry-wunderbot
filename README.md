@@ -1,10 +1,11 @@
 # Bot for [LBRY's Slack](https://slack.lbry.io)
 
 Features:
-
+- price bot to display current price of lbc
 - Tipbot for LBC. Responds to `!tip`.
 - Posts mining info to #mining every few hours and anytime someone says `!hash`.
-
+- claimbot to view claims on the network
+- posts published content to lbry in #content channel
 
 ## Requirements
 
@@ -14,11 +15,13 @@ Features:
 
 ## Installation
 
-Create a bot and get the bot's API Token: https://YOURSLACK.slack.com/apps/manage/custom-integrations
+Create a bot here: https://api.slack.com/apps?new_app=1
+
+after the bot is made head over here to get the token: https://api.slack.com/custom-integrations/legacy-tokens
 
 Then run:
 
 ```
 npm install
-SLACK_TOKEN=<your-slack-token> CHANNEL=<channel-for-bot> node bot.js
+SLACK_TOKEN=<your-slack-token> RPCUSER=<your-rpc-username> RPCPASSWORD=<your-rpc-password> MONGODB_URL=<db-url> CHANNEL=<channel-for-bot> node bot.js
 ```
