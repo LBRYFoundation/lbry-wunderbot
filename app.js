@@ -23,6 +23,9 @@ function sendWelcomeMessage(user) {
   });
 };
 
+var speechbot = require('./bots/speechbot');
+speechbot.init(process.env.GENERAL_CHANNEL);
+
 var hashbot = require('./bots/hashbot');
 hashbot.init(slackbot, process.env.MINING_CHANNEL);
 
@@ -56,6 +59,7 @@ slackbot.on('start', function() {
           '`!stats` shows market stats in trading channel\n' +
           '`!price` works only in PM now\n' +
           '`!hash` reports on the LBRY blockchain\n' +
+	  '`!speech` display or send image to spee.ch\n' +
           '_type any of the above commands for more info_\n' +
           '\n' +
           'I also update <#C266N3RMM|content> anytime new content is published on LBRY\n' +
@@ -79,6 +83,9 @@ slackbot.on('start', function() {
       }
        if (command === statbot.command) {
         statbot.respond(slackbot, data);
+      }
+       if (command === speechbot.command) {
+        speechbot.respond(slackbot, data);
       }
     }
   });
