@@ -115,11 +115,12 @@ function doTip(message, tipper, words) {
 }
 
 
-async function doHelp(message) {
+function doHelp(message) {
   if(!inPrivateOrBotSandbox(message)){
     message.reply('Please use <#369896313082478594> or DMs to talk to bots.');
     return;
   }
+  message.reply('Sent you help via DM!');
   message.author.send('**!tip**\n    balance: get your balance\n    deposit: get adress for your deposits\n    withdraw ADDRESS AMOUNT: withdraw AMOUNT credits to ADDRESS\n    <user> <amount>: send <amount> credits to <user>');
 }
 
