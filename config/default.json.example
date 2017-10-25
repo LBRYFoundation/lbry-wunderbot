@@ -1,0 +1,20 @@
+{
+  // Bot configuration
+  "bot": {
+      "token":"discordbottoken",
+      "prefix": "!",
+      "debug": false
+  },
+  "lbrycrd": {
+      "port": 9245,
+      "user": "lbry",
+      "pass": "lbry"
+  },
+  "mongodb": {
+      "url":"mongodb://localhost:27017/wunderbot"
+  },
+  "moderation":{
+  "perms": ["LBRY MODS","LBRY TEAM"], // Roles that have access to all commands.
+  "logchannel": "371620338263523328" // Channel to log the bots moderation..
+  }
+}
