@@ -137,7 +137,7 @@ function sendLbc(message, tipper, id, amount) {
         else {
           var imessage =
             'Wubba lubba dub dub! <@' + tipper + '> tipped <@' + id + '> ' + amount + ' LBC (' + txLink(txId) + '). ' +
-            'DM me `!help` for tipbot instructions.'
+            'DM me `!tip` for tipbot instructions.'
           message.reply(imessage);
         }
       });
