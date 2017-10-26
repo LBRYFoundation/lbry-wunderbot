@@ -14,31 +14,34 @@ exports.price = {
 	usage: "<currency> <amount>",
 	description: 'displays price of lbc',
 	process: function(bot,msg,suffix){
+		
+		var ChannelID = '369896313082478594'
+		
 		var options = {
     defaultCurrency: 'USD',
 
     // supported currencies and api steps to arrive at the final value
     currencies: {
-        USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00', sign: '' },
+        USD: { steps: ['LBCBTC', 'BTCUSD'], format: '$0,0.00', sign: 'USD $' },
         GBP: { steps: ['LBCBTC', 'BTCGBP'], format: '£0,0.00', sign: '£' },
-        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00', sign: '' },
+        AUD: { steps: ['LBCBTC', 'BTCAUD'], format: '$0,0.00', sign: 'AUD $' },
         BRL: { steps: ['LBCBTC', 'BTCBRL'], format: 'R$0,0.00', sign: 'R$' },
-        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00', sign: '' },
+        CAD: { steps: ['LBCBTC', 'BTCCAD'], format: '$0,0.00', sign: 'CAD $' },
         CHF: { steps: ['LBCBTC', 'BTCCHF'], format: 'CHF 0,0.00', sign: 'CHF' },
-        CLP: { steps: ['LBCBTC', 'BTCCLP'], format: '$0,0.00', sign: '' },
+        CLP: { steps: ['LBCBTC', 'BTCCLP'], format: '$0,0.00', sign: 'CLP $' },
         CNY: { steps: ['LBCBTC', 'BTCCNY'], format: '¥0,0.00', sign: '¥' },
         DKK: { steps: ['LBCBTC', 'BTCDKK'], format: 'kr 0,0.00', sign: 'kr' },
         EUR: { steps: ['LBCBTC', 'BTCEUR'], format: '€0,0.00', sign: '€' },
-        HKD: { steps: ['LBCBTC', 'BTCHKD'], format: '$0,0.00', sign: '' },
+        HKD: { steps: ['LBCBTC', 'BTCHKD'], format: '$0,0.00', sign: 'HKD $' },
         INR: { steps: ['LBCBTC', 'BTCINR'], format: '₹0,0.00', sign: '₹' },
         ISK: { steps: ['LBCBTC', 'BTCISK'], format: 'kr 0,0.00', sign: 'kr' },
         JPY: { steps: ['LBCBTC', 'BTCJPY'], format: '¥0,0.00', sign: '¥' },
         KRW: { steps: ['LBCBTC', 'BTCKRW'], format: '₩0,0.00', sign: '₩' },
-        NZD: { steps: ['LBCBTC', 'BTCNZD'], format: '$0,0.00', sign: '' },
+        NZD: { steps: ['LBCBTC', 'BTCNZD'], format: '$0,0.00', sign: 'NZD $' },
         PLN: { steps: ['LBCBTC', 'BTCPLN'], format: 'zł 0,0.00', sign: 'zł' },
         RUB: { steps: ['LBCBTC', 'BTCRUB'], format: 'RUB 0,0.00', sign: 'RUB' },
         SEK: { steps: ['LBCBTC', 'BTCSEK'], format: 'kr 0,0.00', sign: 'kr' },
-        SGD: { steps: ['LBCBTC', 'BTCSGD'], format: '$0,0.00', sign: '' },
+        SGD: { steps: ['LBCBTC', 'BTCSGD'], format: '$0,0.00', sign: 'SGD $' },
         THB: { steps: ['LBCBTC', 'BTCTHB'], format: '฿0,0.00', sign: '฿' },
         TWD: { steps: ['LBCBTC', 'BTCTWD'], format: 'NT$0,0.00', sign: 'NT$' },
         IDR: { steps: ['LBCBTC', 'BTCIDR'], format: 'Rp0,0.00', sign: 'Rp' },
@@ -95,10 +98,18 @@ var command = "!price"
   if (showHelp) {
     doHelp(bot,msg,suffix);
   } else {
+	  if(!inPrivateOrBotSandbox(msg)){
+    msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
+    return;
+  }
     doSteps(bot, currency, amount);
   }
 
 function doHelp(bot,msg,suffix) {
+	if(!inPrivateOrBotSandbox(msg)){
+    msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
+    return;
+  }
   var message =
     '**' + command + '**: show the price of 1 LBC in ' + options.defaultCurrency + '\n' +
     '**' + command + ' help**: this message\n' +
@@ -111,7 +122,7 @@ function doHelp(bot,msg,suffix) {
 function formatMessage(amount, rate, option) {
 	var cur = option.sign;
     var value = numeral(rate.rate * amount).format(option.format);
-    return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur +' ' + value + '*\n_last updated ' + rate.time.utc().format(options.dtFormat) + '_';
+		return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur +' ' + value + '*\n_last updated ' + rate.time.utc().format(options.dtFormat) + '_';
 }
 
 function doSteps(bot, currency, amount) {
@@ -179,5 +190,14 @@ function processSteps(bot, currency, rate, amount, steps, option) {
         });
     }
 }
+
+function inPrivateOrBotSandbox(msg){
+  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 }
 }
