@@ -12,7 +12,7 @@ exports.speech = {
 	usage: "<claim>",
 	description: 'Speech coming soon...',
 	process: function(bot,msg,suffix){
-		console.log("user " + msg.member.user.username + " used !speech command");
+		console.log("user " + msg.member.user.username + " used command " + msg);
 		if (suffix === "help") {
 		  msg.channel.send(
 		  	   {
