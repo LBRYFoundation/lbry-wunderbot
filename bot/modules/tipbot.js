@@ -121,7 +121,7 @@ function doHelp(message) {
     return;
   }
   message.reply('Sent you help via DM!');
-  message.author.send('**!tip**\n    balance: get your balance\n    deposit: get adress for your deposits\n    withdraw ADDRESS AMOUNT: withdraw AMOUNT credits to ADDRESS\n    <user> <amount>: send <amount> credits to <user>');
+  message.author.send('**!tip**\n    !tip balance: get your balance\n    !tip deposit: get adress for your deposits\n    !tip withdraw ADDRESS AMOUNT: withdraw AMOUNT credits to ADDRESS\n    !tip <user> <amount>: send <amount> credits to <user>');
 }
 
 
