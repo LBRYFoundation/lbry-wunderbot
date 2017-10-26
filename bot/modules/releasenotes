@@ -1,0 +1,41 @@
+var request = require('request');
+
+exports.commands = [
+	"releasenotes" // command that is in this file, every command needs it own export as shown below
+]
+
+
+exports.releasenotes = {
+	usage: "",
+	description: 'gets current release notes from GITHUB',
+	process: function(bot,msg){	
+		var headers = {
+			'Content-Type': 'application/json',
+			'User-Agent':       'Super Agent/0.0.1'
+			}
+		// Configure the request
+		var options = {
+			url: 'https://api.github.com/repos/lbryio/lbry-app/releases/latest',
+			method: 'GET',
+			headers: headers,
+		}
+
+		// Start the request
+		request(options, function (error, response, body) {
+				message = JSON.parse(body).body
+				msg.author.send({
+	  "embed": {
+		"title": "*Download the app here!*",
+		"description": message,
+		"url": "https://github.com/lbryio/lbry-app/releases",
+		"color": 7976557,
+		"author": {
+		  "name": "Lbry-app Release Notes",
+		  "icon_url": "https://i.imgur.com/yWf5USu.png"
+		}
+	  }
+	})
+		})
+				
+    }
+}
