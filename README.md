@@ -17,9 +17,9 @@ Features:
 
 Create a bot and get the bot's API Token: https://discordapp.com/developers/applications/me
 
-Edit and rename default.json.example in /config, then run:
+Edit and rename default.json.example in /config, then cd to wunderbot directory and run:
 
 ```
 npm install
-node bot.js
+node bot/bot.js
 ```
