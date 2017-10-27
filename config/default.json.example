@@ -16,5 +16,8 @@
   "moderation":{
   "perms": ["LBRY MODS","LBRY TEAM"], // Roles that have access to all commands.
   "logchannel": "371620338263523328" // Channel to log the bots moderation..
+  },
+  "rolelist":{
+  "allowedroles": ["Role1","Role2"]
   }
 }
