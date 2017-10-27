@@ -169,7 +169,7 @@ function doHelp(bot,msg,suffix) {
 		"description": '**!speech `<Name>`** : *displays top claim on speech* \n\n\n' +
 		"**COMING SOON POSTING TO SPEECH** \n\n" +
     '**!speech `<Name> <URL> <NSFW>`** : *Uploads Image URL to Spee.ch* \n' +
-    '**NOTE : dont include spaces in name (NSFW is optional true/false, if left blank will defualt to false)** \n' +
+    '**NOTE : dont include spaces in name (NSFW is optional true/false, if left blank will default to false)** \n' +
 	'EXAMPLE : `!speech my-image-name https://url/to/image.png false`',
 		"color": 7976557,
 		"author": {
