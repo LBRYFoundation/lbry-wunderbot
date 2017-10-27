@@ -9,3 +9,11 @@ if(message.member.roles.some(r=>permRanks.perms.includes(r.name)) ) {
   return false;
 }
 }
+
+exports.hasSpeechChannels = function(msg){
+if(msg.channel.id.some(r=>speechChannels.channelsIDs.includes(r.id)) ) {
+  return true;
+} else {
+  return false;
+}
+}
