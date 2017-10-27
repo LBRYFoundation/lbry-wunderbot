@@ -18,7 +18,12 @@ exports.speech = {
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
 		
-		var ChannelID = "363085078403874823"
+		var ChannelID1 = "363085078403874823"
+		var ChannelID2 = "363086945976320010"
+		var ChannelID3 = "363088045366312962"
+		var ChannelID4 = "363084262028607488"
+		var ChannelID5 = "369896313082478594"
+		var ChannelID6 = "363084227518136322"
 		
 		var command = "!speech"
 	words = suffix.trim().split(' ').filter( function(n){return n !== "";} );
@@ -239,7 +244,7 @@ request.post(
 };
 
 function inPrivateOrBotSandbox(msg){
-  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
+  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID1) || (msg.channel.id === ChannelID2) || (msg.channel.id === ChannelID3) || (msg.channel.id === ChannelID4) || (msg.channel.id === ChannelID5) || (msg.channel.id === ChannelID6)){
     return true;
   }else{
     return false;
