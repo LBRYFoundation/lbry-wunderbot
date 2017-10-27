@@ -8,7 +8,7 @@ exports.commands = [
 
 exports.m = {
 	usage: "<subcommand> <reason>",
-	description: 'ban: bans the user with the reason\n    kick: get adress for your deposits\n',
+	description: 'ban: bans the user with the reason\n    kick: get address for your deposits\n',
 	process: function(bot,msg,suffix){
 		console.log(msg.member.user);
 	}
