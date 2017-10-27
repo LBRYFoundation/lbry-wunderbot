@@ -18,7 +18,6 @@
   "logchannel": "371620338263523328" // Channel to log the bots moderation..
   },
   "rolelist":{
-  "allowedroles": {"Role1":"Role1", "Role2":"Role2"},
-  "listedroles": ["Role1","Role2"]
+  "allowedroles": ["Role1","Role2"]
   }
 }
