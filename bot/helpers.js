@@ -1,5 +1,6 @@
 let config = require('config');
 let permRanks = config.get('moderation');
+let speechChannels = config.get('speech');
 
 // Checks if user is allowed to use a command only for mods/team members
 exports.hasPerms = function(msg){
