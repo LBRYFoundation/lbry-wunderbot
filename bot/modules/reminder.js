@@ -11,7 +11,7 @@ exports.remind = {
 	description: 'description of command',
 	process: async function(bot,msg,suffix){
         console.log(suffix);
-        // Here the bot,msg and suffix is avaible, this function can be async if needed.
+        // Here the bot,msg and suffix is available, this function can be async if needed.
     }
 }
 
