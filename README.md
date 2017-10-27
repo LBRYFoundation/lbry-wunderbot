@@ -1,11 +1,15 @@
 # Bot for [LBRY's Discord](https://discord.gg/tgnNHf5)
 (This README will be updated along with bot updates)
-Features:
 
-- Tipbot for LBC. Responds to `!tip`.
-- Price bot displays price of lbc for currency given. Responds to `!price <cur> <amount>`
+## Features:
+
+- Tipbot for LBC. Responds to `!tip`.       
+- Price bot displays price of lbc for currency given. Responds to `!price <cur> <amount>` 
 - Github Release Notes bot displays release notes for current lbry-app release. Responds to `!releasenotes`
-- Speech bot displays top claim from provided image name(coming soon posting to speech). Responds to `!speech <imagename>`
+- Speech bot displays top claim from provided image name(coming soon posting to speech).
+
+        Responds to `!speech <imagename>`
+        
 - Welcome bot sends Direct Message for new users
 - Dynamic plugin loading with permission support.
 
