@@ -1,5 +1,5 @@
 
-let config = require('config');
+var config = require('config');
 rolelist = config.get('rolelist');
 
 exports.commands = [
@@ -13,7 +13,8 @@ exports.addrole = {
 	description: 'description of command',
 	process: function(bot,msg,suffix){
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
-        let newrole = msg.guild.roles.find('name', suffix);
+        //amsg.reply(rolelist.allowedroles.includes(suffix));
+        var newrole = msg.guild.roles.find('name', suffix);
         //var rolecheck = msg.guild.roles;
         //var rolecheckvar = JSON.parse(rolecheck).find('name', suffix);
 
@@ -21,7 +22,7 @@ exports.addrole = {
         //console.log(rolelist);
         //console.log(rolelist.allowedroles);
         //console.log(config.get('allowedroles'));
-        if (suffix === rolelist.allowedroles.Member || rolelist.allowedroles.Trustee) {
+        if (rolelist.allowedroles.includes(suffix)) {
             //console.log('Role is in allowed roles.');
             //console.log('Role to add: ' + newrole);
             if (!msg.member.roles.find('name', suffix)) {
@@ -51,10 +52,10 @@ exports.delrole = {
         //console.log('Delrole Event firing.');
         //console.log(msg);
         //console.log('Printing Suffix! ' + suffix);
-        if (suffix === rolelist.allowedroles.Member || rolelist.allowedroles.Trustee) {
+        if (rolelist.allowedroles.includes(suffix)) {
             if (msg.member.roles.find('name', suffix)) {
-                msg.member.removeRole(oldrole);
-                msg.channel.send(msg.member + ' has been removed from the ' + suffix + ' role!')
+                msg.member.removeRole(oldrole)
+                    .then(msg.channel.send(msg.member + ' has been removed from the ' + suffix + ' role!'));
             }
             else {
                 msg.channel.send("You don't seem to have that role! Try adding it first with the addrole command!");
@@ -71,6 +72,29 @@ exports.roles = {
     description: 'description of command',
     process: function(bot,msg,suffix){
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
-    msg.channel.send(JSON.stringify(rolelist.listedroles));
+        msg.channel.send({embed: {
+            color: 3447003,
+            title: "Wunderbot",
+            description: "You have accessed the rolebot function of Wunderbot!",
+            fields: [{
+                name: "List of roles",
+                value: buildRoleString(rolelist.allowedroles),
+                inline: false
+            }],
+            footer:{
+                icon_url: msg.author.avatarURL,
+                text: 'Requested by: ' + JSON.stringify(msg.author.username)
+            }
+
+        }});
+    //msg.channel.send(JSON.stringify(rolelist.allowedroles));
     }
 };
+
+function buildRoleString(roles) {
+    let str = "";
+    for (let i = 0; i < roles.length; i++) {
+        str += "`" + roles[i] + "`" + '\n';
+    }
+    return str;
+}
