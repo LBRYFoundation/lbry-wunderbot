@@ -18,7 +18,7 @@ exports.speech = {
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
 		
-		var ChannelID = "373251793498406912"
+		var ChannelID = "363085078403874823"
 		
 		var command = "!speech"
 	words = suffix.trim().split(' ').filter( function(n){return n !== "";} );
