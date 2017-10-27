@@ -7,7 +7,7 @@ bot.on('guildMemberAdd', member => {
 member.send(
 "**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n" +
 "If you are new to LBRY and would like to learn more, see the links at the end of this message. \n" +
-"This community allows LBRYians to reach the team directly and for us to engage users in order to grow the LBRY platform! \n!" +
+"This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n" +
 "**If your here for *Rewards Verification*, please go to #verification channel and make a request. A mod will reach out to you, please be patient. Only 1 Reward account is allowed per person** \n" +
 "\n" +
 "**Ground rules:** \n" +
@@ -60,7 +60,7 @@ member.send(
 {
 "embed": {
 "title": "*Have you checked out spee.ch yet?!*",
-"description": "[**spee.ch**](https://spee.ch) runs on top of the LBRY network - it's essentially an open source, censorship resistent and decentralized image and video sharing site with the added benefit of being a web-based (works on mobile too!) gateway into the LBRY network. spee.ch can be used to retrieve LBRY images/videos that are free by accessing them through a web browser. \n For example, if content is located at lbry://loose-cannons-episode1#12c87bb42dd8832167b1e54edf72bbd37bc47622, you can view it on spee.ch at: https://spee.ch/12c87bb42dd8832167b1e54edf72bbd37bc47622/loose-cannons-episode1. You can also view channels on spee.ch, such as: https://spee.ch/@copchronicles:5c039dc7423657e59d78939df72c186e43273675 or https://spee.ch/@MinutePhysics:589276465a23c589801d874f484cc39f307d7ec7 \n spee.ch also allows you to create a channel in order to group your uploads and retreive them easily. These channels are separate from any you may have in the LBRY app since they exist on the spee.ch site via a login process. You can even share your channel name and password so that others can contribute to it.",
+"description": "[**spee.ch**](https://spee.ch) runs on top of the LBRY network - it's essentially an open source, censorship resistent and decentralized image and video sharing site with the added benefit of being a web-based (works on mobile too!) gateway into the LBRY network. spee.ch can be used to retrieve LBRY images/videos that are free by accessing them through a web browser. \nFor example, if content is located at lbry://loose-cannons-episode1#12c87bb42dd8832167b1e54edf72bbd37bc47622, you can view it on spee.ch at: https://spee.ch/12c87bb42dd8832167b1e54edf72bbd37bc47622/loose-cannons-episode1. You can also view channels on spee.ch, such as: https://spee.ch/@copchronicles:5c039dc7423657e59d78939df72c186e43273675 or https://spee.ch/@MinutePhysics:589276465a23c589801d874f484cc39f307d7ec7 \n\nspee.ch also allows you to create a channel in order to group your uploads and retreive them easily. These channels are separate from any you may have in the LBRY app since they exist on the spee.ch site via a login process. You can even share your channel name and password so that others can contribute to it.",
 "url": "https://spee.ch/about",
 "color": 7976557,
 "author": {
