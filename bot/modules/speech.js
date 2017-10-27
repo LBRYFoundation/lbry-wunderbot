@@ -18,13 +18,18 @@ exports.speech = {
 	usage: "<name>",
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
-		if(hasSpeechChannels(msg) === false){
+	var ChannelID = "373251793498406912"
+	if(hasSpeechChannels(msg) === false){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to speech bot.');
     return;
   }
+		
+		
 		var command = "!speech"
 	words = suffix.trim().split(' ').filter( function(n){return n !== "";} );
           var imagename = words[0];
+  
+
   
   //check if image name is help, if it is then do help message
   if (imagename == "help") {
@@ -166,7 +171,7 @@ function doHelp(bot,msg,suffix) {
 		"description": '**!speech `<Name>`** : *displays top claim on speech* \n\n\n' +
 		"**COMING SOON POSTING TO SPEECH** \n\n" +
     '**!speech `<Name> <URL> <NSFW>`** : *Uploads Image URL to Spee.ch* \n' +
-    '**NOTE : dont include spaces in name (NSFW is optional true/false, if left blank will default to false)** \n' +
+    '**NOTE : dont include spaces in name (NSFW is optional true/false, if left blank will defualt to false)** \n' +
 	'EXAMPLE : `!speech my-image-name https://url/to/image.png false`',
 		"color": 7976557,
 		"author": {
