@@ -57,7 +57,7 @@ function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
     console.log(
-      "treating " + msg.content + " from " + msg.author + " as command"
+      "treating " + msg.content + " from UserID:" + msg.author + " || UserName: " + msg.author.username + " as command"
     );
     var cmdTxt = msg.content.split(" ")[0].substring(config.prefix.length);
     var suffix = msg.content.substring(
