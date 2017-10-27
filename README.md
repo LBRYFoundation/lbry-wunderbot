@@ -8,7 +8,7 @@
 - Github Release Notes bot displays release notes for current lbry-app release. Responds to `!releasenotes`
 - Speech bot displays top claim from provided image name(coming soon posting to speech).
 
-        Responds to `!speech <imagename>`
+     Responds to `!speech <imagename>`
         
 - Welcome bot sends Direct Message for new users
 - Dynamic plugin loading with permission support.
