@@ -1,5 +1,5 @@
 
-var config = require('config');
+let config = require('config');
 rolelist = config.get('rolelist');
 
 exports.commands = [
@@ -13,7 +13,7 @@ exports.addrole = {
 	description: 'description of command',
 	process: function(bot,msg,suffix){
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
-        var newrole = msg.guild.roles.find('name', suffix);
+        let newrole = msg.guild.roles.find('name', suffix);
         //var rolecheck = msg.guild.roles;
         //var rolecheckvar = JSON.parse(rolecheck).find('name', suffix);
 
@@ -46,7 +46,7 @@ exports.delrole = {
     description: 'description of command',
     process: function(bot,msg,suffix) {
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
-        var oldrole = msg.guild.roles.find('name', suffix);
+        let oldrole = msg.guild.roles.find('name', suffix);
         //console.log(oldrole);
         //console.log('Delrole Event firing.');
         //console.log(msg);
