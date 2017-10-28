@@ -5,8 +5,8 @@
 
 - Tipbot for LBC. Responds to `!tip`.       
 - Price bot displays price of lbc for currency given. Responds to `!price <cur> <amount>` 
-- Stats bot display current market stats of lbc Responds to `!stats`
-- Hash bot displays current hashrate of network Responds to `!hash`
+- Stats bot display current market stats of lbc. Responds to `!stats`
+- Hash bot displays current hashrate of network. Responds to `!hash`
 - Github Release Notes bot displays release notes for current lbry-app release. Responds to `!releasenotes`
 - Purge Bot (moderator only) deletes X amount of messages. Responds to `!purge <X>`
 - Speech bot displays top claim from provided image name(coming soon posting to speech).
