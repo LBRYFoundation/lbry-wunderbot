@@ -19,10 +19,10 @@ exports.speech = {
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
 	var ChannelID = "373251793498406912"
-	if(!hasSpeechChannels(msg)){
-    msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to speech bot.');
-    return;
-  }
+	if(!hasSpeechChannels(msg) && !inPrivate(msg)){
+   	 msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to speech bot.');
+   	 return;
+  	}
 		
 		
 		var command = "!speech"
