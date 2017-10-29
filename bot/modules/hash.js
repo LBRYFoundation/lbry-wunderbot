@@ -10,10 +10,10 @@ exports.custom = [
 
 exports.timedhash = function(bot) {
     setInterval(function() {
-      sendMiningInfo(bot, msg);
-    }, 60 * 60 * 1000);
+      sendMiningInfo(bot);
+    }, 6 * 60 * 60 * 1000);
 	
-	function sendMiningInfo(bot, msg) {
+	function sendMiningInfo(bot) {
   needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
     if (error || response.statusCode !== 200) {
       bot.channels.get(ChannelID).send('Explorer API is not available');
