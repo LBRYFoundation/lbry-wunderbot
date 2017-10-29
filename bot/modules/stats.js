@@ -2,7 +2,7 @@ var jp = require('jsonpath');
 var moment = require('moment');
 var numeral = require('numeral');
 var request = require('request');
-
+var ChannelID = "363050205043621908"
 exports.commands = [
 	"stats" // command that is in this file, every command needs it own export as shown below
 ]
@@ -50,7 +50,10 @@ var command = '!stats';
 
   var currency = options.defaultCurrency;
   var amount = 1;
-
+if(!inPrivateOrBotSandbox(msg)){
+    msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to stats bot.');
+    return;
+  } else {
     doSteps(bot, msg, 'USD', amount);
     doSteps(bot, msg, 'EUR', amount);
     doSteps(bot, msg, 'GBP', amount);
@@ -62,7 +65,7 @@ var command = '!stats';
     setTimeout(function() { marketstats(bot,msg,suffix); }, 250);
     //marketstats(bot,msg);
     //volume24(bot,msg); can't get this part to work, someone help me fix - i think it's because 24h_volume_usd starts with number
-
+  }
 	
 function formatMessage(amount, rate, option) {
     var cur = option.sign;
@@ -186,6 +189,14 @@ function processSteps(bot, msg, currency, rate, amount, steps, option) {
             }
         });
     }
+}
+
+function inPrivateOrBotSandbox(msg){
+  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
+    return true;
+  }else{
+    return false;
+  }
 }
   
     }
