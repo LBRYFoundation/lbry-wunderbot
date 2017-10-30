@@ -18,7 +18,7 @@ exports.speech = {
 	usage: "<name>",
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
-	var ChannelID = "373251793498406912"
+	var ChannelID = "363085078403874823"
 	if(!hasSpeechChannels(msg) && !inPrivate(msg)){
    	 msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to speech bot.');
    	 return;
@@ -239,6 +239,12 @@ request.post(
         }
 );
 };
-  
+  function inPrivate(msg){
+  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
+    return true;
+  }else{
+    return false;
+  }
+}
     }
 }
