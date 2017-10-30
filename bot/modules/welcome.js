@@ -95,7 +95,7 @@ member.send(
 "author": {
 "name": "spee.ch",
 "url": "https://spee.ch",
-"icon_url": "https://spee.ch/7/speechlogo.png"
+"icon_url": "http://www.pd4pic.com/images/flag-green-blue-purple-indigo-bars-background.png"
 }
  }
  });
