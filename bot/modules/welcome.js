@@ -5,28 +5,57 @@ exports.onUserJoin = function(bot) {
 
 bot.on('guildMemberAdd', member => {
 member.send(
-"**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n" +
+{
+"embed": {
+"title": "*Click here for more info about LBRY!*",
+"description": "**, you are now officially a LBRYian!** \n" +
 "If you are new to LBRY and would like to learn more, see the links at the end of this message. \n" +
 "This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n" +
-"**Looking for *Rewards Verification*? Please make a request in the #verification channel. A mod will reach out to you, please be patient. Only 1 Reward account is allowed per person** \n" +
-"\n" +
-"**Ground rules:** \n" +
-"1. Be respectful to other community members. Harrasment and vulgarity will not be tolerated \n" +
+"**Looking for *Rewards Verification*? Please make a request in the #verification channel. A mod will reach out to you, please be patient. Only 1 Reward account is allowed per person** \n",
+"url": "https://lbry.io/what",
+"color": 7976557,
+"author": {
+"name": "Welcome to LBRY Discord Community",
+"icon_url": "https://i.imgur.com/yWf5USu.png"
+}
+ }
+ }
+);
+member.send(
+{
+"embed": {
+"description": "1. Be respectful to other community members. Harrasment and vulgarity will not be tolerated \n" +
 "2. Do not spam, advertise or post referral links \n" +
 "3. Use appropriate channels for your discussions/questions. If you are looking for help with LBRY, use #help, for price talk, use #market-and-trading \n" +
 "4. #general discussions should be at least somewhat related to LBRY, otherwise there is #random \n" +
 "5. Do not post **not safe for work (NFSW)** content in any non-marked channels, there is #random-nsfw for that \n" +
 "6. Do not direct message and LBRY team or mods without being asked to do so \n" +
-"7. Do not request free LBC, begging will not be tolerated \n" +
-"\n" +
-"**Helpful hints:** \n" +
-"1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
+"7. Do not request free LBC, begging will not be tolerated \n",
+"color": 7976557,
+"author": {
+"name": "Ground rules",
+"icon_url": "https://i.imgur.com/yWf5USu.png"
+}
+ }
+ }
+);
+member.send(
+{
+"embed": {
+"description": "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
 "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
 "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
 "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
 "5. Want to contribute more? Check out https://lbry.io/faq/contributing \n" +
 "6. Are you a dev? Check out the #dev channel \n" +
-"7. Want to share something you published? Post it on the #publishers channel \n" 
+"7. Want to share something you published? Post it on the #publishers channel \n",
+"color": 7976557,
+"author": {
+"name": "Helpful hints",
+"icon_url": "https://i.imgur.com/yWf5USu.png"
+}
+ }
+ }
 );
 member.send(
 {
