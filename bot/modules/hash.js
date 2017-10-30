@@ -23,13 +23,17 @@ exports.timedhash = function(bot) {
         height += data.status.height;
         hashrate += data.status.hashrate;
         difficulty += data.status.difficulty;
-	bot.channels.get(ChannelID).send(
-        // 'Blockchain stats:\n' +
-        'Hashrate: ' + hashrate + '\n' +
-        'Difficulty: ' + difficulty + '\n' +
-        'Current block: ' + height + '\n' +
-        '_Source: https://explorer.lbry.io_'
-      );
+	description = "Hashrate: "+hashrate+"\n"+"Difficulty: "+difficulty+"\n"+"Current block: "+height+"\n"+"Source: https://explorer.lbry.io";
+	const embed = {
+	  "description": description,
+	  "color": 7976557,
+	  "author": {
+	    "name": "LBRY Explorer Stats",
+	    "url": "https://explorer.lbry.io",
+	    "icon_url": "https://i.imgur.com/yWf5USu.png"
+	  }
+	};
+	bot.channels.get(ChannelID).send({ embed });
     }
   });
 }
@@ -59,14 +63,17 @@ function sendMiningInfo(bot, msg) {
         height += data.status.height;
         hashrate += data.status.hashrate;
         difficulty += data.status.difficulty;
-
-      msg.channel.send(
-        // 'Blockchain stats:\n' +
-        'Hashrate: ' + hashrate + '\n' +
-        'Difficulty: ' + difficulty + '\n' +
-        'Current block: ' + height + '\n' +
-        '_Source: https://explorer.lbry.io_'
-      );
+	description = "Hashrate: "+hashrate+"\n"+"Difficulty: "+difficulty+"\n"+"Current block: "+height+"\n"+"Source: https://explorer.lbry.io";
+	const embed = {
+	  "description": description,
+	  "color": 7976557,
+	  "author": {
+	    "name": "LBRY Explorer Stats",
+	    "url": "https://explorer.lbry.io",
+	    "icon_url": "https://i.imgur.com/yWf5USu.png"
+	  }
+	};
+	msg.channel.send({ embed });    
     }
   });
 }
