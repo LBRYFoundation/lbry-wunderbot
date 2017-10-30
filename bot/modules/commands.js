@@ -1,7 +1,7 @@
 'use strict';
-var verificationChannelID = "374345193320611851"
-var miningChannelID = "mining"
-var randomChannelID = "random"
+var verificationChannelID = "363050496023592961"
+var miningChannelID = "363049669636390913"
+var randomChannelID = "363084227518136322"
 
 exports.commands = [
 	"helpcommands",
