@@ -18,7 +18,7 @@ exports.price = {
 		var ChannelID = '369896313082478594'
 		
 		var options = {
-    defaultCurrency: 'USD',
+    defaultCurrency: 'BTC',
 
     // supported currencies and api steps to arrive at the final value
     currencies: {
