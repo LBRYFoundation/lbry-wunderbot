@@ -1,7 +1,9 @@
 var request = require('request');
 var wget = require('wget');
-var fs = require('fs')
-let hasSpeechChannels = require('../helpers.js').hasSpeechChannels;
+var fs = require('fs');
+let config = require('config');
+let hasSpeechBotChannels = require('../helpers.js').hasSpeechBotChannels;
+let ChannelID = config.get('speechbot').mainchannel;
 //debug output "true/false" outputs same error as slack message in console if set to true
 //if set to false console will be left blank like normal
 //some have more info on file details of error
@@ -18,8 +20,7 @@ exports.speech = {
 	usage: "<name>",
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
-	var ChannelID = "373251793498406912"
-	if(!hasSpeechChannels(msg) && !inPrivate(msg)){
+	if(!hasSpeechBotChannels(msg) && !inPrivate(msg)){
    	 msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to speech bot.');
    	 return;
   	}
@@ -239,6 +240,12 @@ request.post(
         }
 );
 };
-  
+  function inPrivate(msg){
+  if((msg.channel.type == 'dm')){
+    return true;
+  }else{
+    return false;
+  }
+}
     }
 }
