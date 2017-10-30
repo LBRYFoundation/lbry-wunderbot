@@ -240,7 +240,7 @@ request.post(
 );
 };
   function inPrivate(msg){
-  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
+  if((msg.channel.type == 'dm')){
     return true;
   }else{
     return false;
