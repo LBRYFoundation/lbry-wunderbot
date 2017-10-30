@@ -17,9 +17,10 @@
   "perms": ["LBRY MODS","LBRY TEAM"], // Roles that have access to all commands.
   "logchannel": "371620338263523328" // Channel to log the bots moderation..
   },
-   "speechbot":{
-  	"channelIDs": ["363085078403874823","363086945976320010","363088045366312962","363084262028607488","369896313082478594","363084227518136322"]
-},
+  "speechbot":{
+  	"channels": ["363085078403874823","363086945976320010","363088045366312962","363084262028607488","369896313082478594","363084227518136322"], //All Channels Speechbot command works in
+	  "mainchannel": "363085078403874823" //Main Speechbot channel for directing with help message
+  },
   "rolelist":{
   "allowedroles": ["Role1","Role2"]
   }
