@@ -20,19 +20,19 @@ try {
 }
 }
 var commands = {
-  ping: {
+ /* ping: {
     description: "responds pong, useful for checking if bot is alive",
     process: async function(bot, msg, suffix) {
       let m = await msg.channel.send(msg.author + " Ping?");
       m.edit(
-        `Pong! Latency is ${m.createdTimestamp -
+        msg.author + ` Pong! Latency is ${m.createdTimestamp -
           msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`
       );
       if (suffix) {
         msg.channel.send("note that !ping takes no arguments!");
       }
     }
-  }
+  }*/
 };
 
 var bot = new Discord.Client();
@@ -42,9 +42,9 @@ bot.on("ready", function() {
     "Logged in! Serving in " + bot.guilds.array().length + " servers"
   );
   require("./plugins.js").init();
-  console.log("type " + config.prefix + "help in Discord for a commands list.");
+  //console.log("type " + config.prefix + "help in Discord for a commands list.");
   bot.user.setGame(
-    config.prefix + "help | Tipping not available"
+      "with LBRY | " + config.prefix + "help"
   );
 });
 
@@ -78,8 +78,9 @@ function checkMessageForCommand(msg, isEdit) {
     let alias = aliases[cmdTxt];
     if (alias) {
     var cmd = alias;
-    } else {
-    var cmd = commands[cmdTxt]; 
+    }
+    else {
+    var cmd = commands[cmdTxt];
     }
     if (cmdTxt === "help") {
       //help is special since it iterates over the other commands
@@ -106,6 +107,21 @@ function checkMessageForCommand(msg, isEdit) {
         }
         msg.channel.send(info);
       } else {
+          msg.channel.send({embed: {
+              color: 3447003,
+              title: "Wunderbot",
+              description: "Below are a list of available commands!",
+              fields: [{
+                  name: "Name of Command",
+                  value: "Usage of the Command",
+                  inline: false
+              }],
+              footer:{
+                  icon_url: msg.author.avatarURL,
+                  text: 'Requested by: ' + JSON.stringify(msg.author.username)
+              }
+
+          }});
         msg.author.send("**Available Commands:**").then(function() {
           var batch = "";
           var sortedCommands = Object.keys(commands).sort();
