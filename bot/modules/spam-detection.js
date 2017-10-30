@@ -26,7 +26,7 @@ exports.antiSpam = function(bot) {
    
    
     bot.on('message', msg => {
-	if(hasPerms(msg) == true || msg.author.id == "372832162572926987" || msg.author.id == "363343989442609152" || msg.channel.id == "363044275363119105") {
+	if(hasPerms(msg) == true || msg.author.id == "372832162572926987" || msg.author.id == "363343989442609152" || msg.channel.id == "363044275363119105" || msg.channel.id == "363044260938776576" || msg.channel.id == "363086719391629326") {
 		return
 	}
     if(msg.author.id != bot.user.id){
