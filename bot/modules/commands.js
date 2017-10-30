@@ -41,11 +41,10 @@ exports.helpcommands = {
 		msg.channel.send( 
 		{
 		  "embed":{
-		  "title": "*List of Helpful Commands*",
 		  "description": "!what, !beta, !github, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli",
 		  "color": 7976557,
 		  "author": {
-			"name": "LBRY Helpful COMMANDS",
+			"name": "List of Helpful Commands",
 			"icon_url": "https://i.imgur.com/yWf5USu.png"
 		}}}
 			);
