@@ -36,6 +36,10 @@
         "channels": ["374221161367601152"], // Channels Hash Bot is allowed to post in
         "mainchannel" : "374221161367601152" // Main Hash Bot channel for directing with help message
   },
+   "statsbot":{
+  	"channels": ["373172043652268032","373172043652268032"], // Channels Hash Bot is allowed to post in
+	"mainchannel" : "373172043652268032" // Main Hash Bot channel for directing with help message
+  },
   "rolelist":{
         "allowedroles": ["Role1","Role2"]
   }
