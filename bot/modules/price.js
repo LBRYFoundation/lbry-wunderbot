@@ -1,12 +1,12 @@
 'use strict';
-var jp = require('jsonpath');
-var moment = require('moment');
-var numeral = require('numeral');
-var request = require('request');
-var config = require('config');
-var hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
-var inPrivate = require('../helpers.js').inPrivate;
-var ChannelID = config.get('pricebot').mainchannel;
+let jp = require('jsonpath');
+let moment = require('moment');
+let numeral = require('numeral');
+let request = require('request');
+let config = require('config');
+let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('pricebot').mainchannel;
 
 
 exports.commands = [
