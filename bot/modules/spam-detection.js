@@ -3,6 +3,8 @@ var warned = [];
 var banned = [];
 var messagelog = [];
 let hasPerms = require('../helpers.js').hasPerms;
+let hasExcludedSpamChannels = require('../helpers.js').hasExcludedSpamChannels;
+let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
 
 /**
  * Add simple spam protection to your discord server.
@@ -18,7 +20,7 @@ exports.custom = [
 exports.antiSpam = function(bot) {
   const warnBuffer = 5;
   const maxBuffer = 10;
-  const interval = 1500;
+  const interval = 2000;
   const warningMessage = "stop spamming or I'll whack your head off.";
   const banMessage = "has been banned for spamming, anyone else?";
   const maxDuplicatesWarning = 4;
@@ -26,7 +28,7 @@ exports.antiSpam = function(bot) {
    
    
     bot.on('message', msg => {
-	if(hasPerms(msg) == true || msg.author.id == "372832162572926987" || msg.author.id == "363343989442609152" || msg.channel.id == "363044275363119105" || msg.channel.id == "363044260938776576" || msg.channel.id == "363086719391629326") {
+	if(hasPerms || hasExcludedSpamChannels || hasExcludedSpamUsers) {
 		return
 	}
     if(msg.author.id != bot.user.id){
