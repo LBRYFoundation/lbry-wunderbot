@@ -517,7 +517,7 @@ exports.ipfstorrent = {
 	description: 'How is LBRY different from IPFS / BitTorrent?',
 	process: function(bot,msg){
 const embed = {
-  "description": "If you are interested in how is LBRY different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
+  "description": "If you are interested in how LBRY is different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
   "color": 7976557,
   "author": {
     "name": "How is LBRY different from IPFS / BitTorrent?",
