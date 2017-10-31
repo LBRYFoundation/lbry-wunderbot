@@ -28,7 +28,7 @@ exports.antiSpam = function(bot) {
    
    
     bot.on('message', msg => {
-	if(hasPerms || hasExcludedSpamChannels || hasExcludedSpamUsers) {
+	if(hasPerms(msg) || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
 		return
 	}
     if(msg.author.id != bot.user.id){
