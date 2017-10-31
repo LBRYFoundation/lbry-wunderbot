@@ -1,7 +1,10 @@
 var request = require('request');
 var wget = require('wget');
-var fs = require('fs')
-let hasSpeechChannels = require('../helpers.js').hasSpeechChannels;
+var fs = require('fs');
+var config = require('config');
+var hasSpeechBotChannels = require('../helpers.js').hasSpeechBotChannels;
+var inPrivate = require('../helpers.js').inPrivate;
+var ChannelID = config.get('speechbot').mainchannel;
 //debug output "true/false" outputs same error as slack message in console if set to true
 //if set to false console will be left blank like normal
 //some have more info on file details of error
@@ -18,8 +21,7 @@ exports.speech = {
 	usage: "<name>",
 	description: "gets top claim from spee.ch, coming soon post to spee.ch",
 	process: function(bot,msg,suffix){
-	var ChannelID = "373251793498406912"
-	if(!hasSpeechChannels(msg) && !inPrivate(msg)){
+	if(!hasSpeechBotChannels(msg) && !inPrivate(msg)){
    	 msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to speech bot.');
    	 return;
   	}
@@ -218,11 +220,11 @@ request.post(
 				if (body.message === "no name field found in request") {
 			if (FullDebug === "true") {
 		console.log("no name field found: " + imagename);
-		var message = '`Failed to upload file internally!!`\n please contact <#244245498746241025> or another moderator if the issue persists';
+		var message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
 		msg.channel.send(message);
 		return
 			} else {
-		var message = '`Failed to upload file internally!!`\n please contact <#244245498746241025> or another moderator if the issue persists';
+		var message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
 		msg.channel.send(message);
 		return
 			}
@@ -239,6 +241,5 @@ request.post(
         }
 );
 };
-  
     }
 }
