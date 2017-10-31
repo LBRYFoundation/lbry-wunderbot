@@ -1,16 +1,16 @@
-var request = require('request');
-var wget = require('wget');
-var fs = require('fs');
-var config = require('config');
-var hasSpeechBotChannels = require('../helpers.js').hasSpeechBotChannels;
-var inPrivate = require('../helpers.js').inPrivate;
-var ChannelID = config.get('speechbot').mainchannel;
+let request = require('request');
+let wget = require('wget');
+let fs = require('fs');
+let config = require('config');
+let hasSpeechBotChannels = require('../helpers.js').hasSpeechBotChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('speechbot').mainchannel;
 //debug output "true/false" outputs same error as slack message in console if set to true
 //if set to false console will be left blank like normal
 //some have more info on file details of error
-var FullDebug = "true"
+let FullDebug = "true"
 //outputs response from speech, very bulk reply
-var ResponseDebug = "false"
+let ResponseDebug = "false"
 
 
 exports.commands = [
