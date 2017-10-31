@@ -34,7 +34,7 @@ exports.releasenotes = {
 				if (hasPerms(msg) && suffix === "post")  {
 					bot.channels.get(ChannelID).send(message)
 				} else {
-				msg.channel.send(":small_blue_diamond: Release notes sent via DM")
+				msg.channel.send(msg.author + " Release notes sent via DM")
 				msg.author.send(message)
 				}
 		})
