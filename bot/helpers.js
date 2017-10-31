@@ -58,3 +58,11 @@ if(ExcludedSpam.users.includes(msg.author.id) ) {
 }
 }
 
+// Checks if Message was sent from a channel in hashBot Channels list
+exports.hasHashBotChannels = function(msg){
+if(hashBotChannels.channels.includes(msg.channel.id) ) {
+  return true;
+} else {
+  return false;
+}
+}
