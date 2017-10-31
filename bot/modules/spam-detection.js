@@ -1,8 +1,9 @@
 const authors = [];
-var warned = [];
-var banned = [];
-var messagelog = [];
+let warned = [];
+let banned = [];
+let messagelog = [];
 let hasPerms = require('../helpers.js').hasPerms;
+let inPrivate = require('../helpers.js').inPrivate;
 let hasExcludedSpamChannels = require('../helpers.js').hasExcludedSpamChannels;
 let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
 
@@ -28,7 +29,7 @@ exports.antiSpam = function(bot) {
    
    
     bot.on('message', msg => {
-	if(hasPerms(msg) || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
+	if(!inPrivate(msg) && hasPerms(msg) || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
 		return
 	}
     if(msg.author.id != bot.user.id){
