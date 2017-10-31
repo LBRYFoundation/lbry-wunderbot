@@ -2,7 +2,8 @@ let config = require('config');
 let permRanks = config.get('moderation');
 let speechBotChannels = config.get('speechbot');
 let priceBotChannels = config.get('pricebot');
-let ExcludedSpam = config.get('spamdetection')
+let ExcludedSpam = config.get('spamdetection');
+let hashBotChannels = config.get('hashbot');
 
 // Checks if user is allowed to use a command only for mods/team members
 exports.hasPerms = function(msg){
