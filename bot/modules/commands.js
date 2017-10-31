@@ -34,16 +34,17 @@ exports.commands = [
 	"tipping",
 	"email",
 	"cli"
+	"ipfstorrent"
 ]
 
 exports.helpcommands = {
 	usage: " ",
-	description: 'Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli',
+	description: 'Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent',
 	process: function(bot,msg){
 		msg.channel.send( 
 		{
 		  "embed":{
-		  "description": "!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli",
+		  "description": "!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent",
 		  "color": 7976557,
 		  "author": {
 			"name": "List of Helpful Commands",
@@ -504,6 +505,23 @@ const embed = {
   "author": {
     "name": "Interact with the LBRY CLI",
     "url": "https://lbry.io/faq/how-to-cli",
+    "icon_url": "https://i.imgur.com/yWf5USu.png"
+  }
+};
+msg.channel.send({ embed });
+	}
+}
+
+exports.ipfstorrent = {
+	usage: " ",
+	description: 'How is LBRY different from IPFS / BitTorrent?',
+	process: function(bot,msg){
+const embed = {
+  "description": "If you are interested in how is LBRY different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
+  "color": 7976557,
+  "author": {
+    "name": "How is LBRY different from IPFS / BitTorrent?",
+    "url": "https://lbry.io/faq/different-ipfs",
     "icon_url": "https://i.imgur.com/yWf5USu.png"
   }
 };
