@@ -1,8 +1,8 @@
-var needle = require('needle');
-var config = require('config');
-var hasHasBotChannels = require('../helpers.js').hasHashBotChannels;
-var inPrivate = require('../helpers.js').inPrivate;
-var ChannelID = config.get('hashbot').mainchannel;	
+let needle = require('needle');
+let config = require('config');
+let hasHashBotChannels = require('../helpers.js').hasHashBotChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('hashbot').mainchannel;	
 exports.commands = [
 	"hash" // command that is in this file, every command needs it own export as shown below
 ]
@@ -52,7 +52,7 @@ exports.hash = {
 
 
 function sendMiningInfo(bot, msg) {
-	if(!inPrivate(msg) || !hasHashBotChannels(msg)){
+	if(!inPrivate(msg) && !hasHashBotChannels(msg)){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to hash bot.');
     return;
   }
