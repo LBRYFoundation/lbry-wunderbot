@@ -1,8 +1,11 @@
-var jp = require('jsonpath');
-var moment = require('moment');
-var numeral = require('numeral');
-var request = require('request');
-var ChannelID = "363050205043621908"
+let jp = require('jsonpath');
+let moment = require('moment');
+let numeral = require('numeral');
+let request = require('request');
+let config = require('config');
+let hasStatsBotChannels = require('../helpers.js').hasStatsBotChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('statsbot').mainchannel;
 exports.commands = [
 	"stats" // command that is in this file, every command needs it own export as shown below
 ]
@@ -50,7 +53,7 @@ var command = '!stats';
 
   var currency = options.defaultCurrency;
   var amount = 1;
-if(!inPrivateOrBotSandbox(msg)){
+if(!inPrivate(msg) && !hasStatsBotChannels(msg)){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to stats bot.');
     return;
   } else {
@@ -189,14 +192,6 @@ function processSteps(bot, msg, currency, rate, amount, steps, option) {
             }
         });
     }
-}
-
-function inPrivateOrBotSandbox(msg){
-  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
-    return true;
-  }else{
-    return false;
-  }
 }
   
     }
