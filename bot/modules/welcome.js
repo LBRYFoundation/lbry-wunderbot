@@ -8,7 +8,7 @@ member.send(
 {
 "embed": {
 "title": "*Click here for more info about LBRY!*",
-"description": "**, you are now officially a LBRYian!** \n" +
+"description": "**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n" +
 "If you are new to LBRY and would like to learn more, see the links at the end of this message. \n" +
 "This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n" +
 "**Looking for *Rewards Verification*? Please make a request in the #verification channel. A mod will reach out to you, please be patient. Only 1 Reward account is allowed per person** \n",
