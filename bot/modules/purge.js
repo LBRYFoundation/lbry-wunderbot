@@ -1,4 +1,5 @@
-var hasPerms = require('../helpers.js').hasPerms;
+let hasPerms = require('../helpers.js').hasPerms;
+let inPrivate = require('../helpers.js').inPrivate;
  
   exports.commands = [
 	"purge" // command that is in this file, every command needs it own export as shown below
@@ -8,6 +9,10 @@ exports.purge = {
 	usage: "<number of messages>",
 	description: 'Deletes Messages',
 	process: function(bot,msg,suffix){
+		if (inPrivate(msg)) {
+			msg.channel.send("You Cant Purge Message In DM's!");
+			return
+		}
 		if (hasPerms(msg)) {
 		  if (!suffix) {
 		   var newamount = "2"
