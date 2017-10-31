@@ -1,4 +1,4 @@
-let hasPerms = require('../helpers.js').hasPerms;
+var hasPerms = require('../helpers.js').hasPerms;
  
   exports.commands = [
 	"purge" // command that is in this file, every command needs it own export as shown below
@@ -8,7 +8,7 @@ exports.purge = {
 	usage: "<number of messages>",
 	description: 'Deletes Messages',
 	process: function(bot,msg,suffix){
-		if (hasPerms(msg) === true ) {
+		if (hasPerms(msg)) {
 		  if (!suffix) {
 		   var newamount = "2"
 		   } else {
@@ -22,7 +22,7 @@ exports.purge = {
             msg.channel.bulkDelete(messages);
             // Logging the number of messages deleted on both the channel and console.
             msg.channel
-			.send("Deletion of messages successful. Total messages deleted: "+ newamount)
+			.send("Deletion of messages successful. \n Total messages deleted including command: "+ newamount)
 			.then(message => message.delete(5000));
             console.log('Deletion of messages successful. \n Total messages deleted including command: '+ newamount)
           })
@@ -31,7 +31,9 @@ exports.purge = {
             console.log(err);
           });
 		} else {
-				msg.channel.send('only moderators can use this command!')
+				msg.channel
+				.send('only moderators can use this command!')
+				.then(message => message.delete(5000));
 		}
 	}
 }
