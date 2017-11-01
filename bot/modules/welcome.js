@@ -1,3 +1,6 @@
+let hasPerms = require('../helpers.js').hasPerms;
+let inPrivate = require('../helpers.js').inPrivate;
+
 exports.custom = [
     "onUserJoin"
 ]
