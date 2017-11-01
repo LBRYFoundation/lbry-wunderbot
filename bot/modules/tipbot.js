@@ -104,8 +104,8 @@ function doTip(message, tipper, words) {
     return;
   }
 
-  if (words[1].match(/^<@[^>]+>$/)) {
-    let id = words[1].substr(2,words[1].length-3);
+  if (message.mentions.members.first().id) {
+    let id = message.mentions.members.first().id;
     sendLbc(message, tipper, id, amount);
   }
   else
