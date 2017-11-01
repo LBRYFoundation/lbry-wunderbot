@@ -7,7 +7,9 @@ exports.commands = [
 	"helpcommands",
 	"what",
 	"beta",
+	"begging",
 	"github",
+	"appdownload",
 	"daemondownload",
 	"directories",
 	"faq",
@@ -32,16 +34,17 @@ exports.commands = [
 	"tipping",
 	"email",
 	"cli"
+	"ipfstorrent"
 ]
 
 exports.helpcommands = {
 	usage: " ",
-	description: 'Displays Helpful Commands:\n!what, !beta, !github, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli',
+	description: 'Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent',
 	process: function(bot,msg){
 		msg.channel.send( 
 		{
 		  "embed":{
-		  "description": "!what, !beta, !github, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli",
+		  "description": "!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent",
 		  "color": 7976557,
 		  "author": {
 			"name": "List of Helpful Commands",
@@ -351,7 +354,7 @@ exports.verification = {
 	usage: " ",
 	description: 'Verification Help Message',
 	process: function(bot,msg){
-var message = "If you would like to be verified goto this channel <#" + verificationChannelID + ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process which can take a while."
+var message = "If you would like to be verified goto this channel <#" + verificationChannelID + ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process that requires a minimum number of views on Youtube (If you restarted LBRY and didn't get verified, you most likely don't qualify)."
 msg.channel.send( message );
 	}
 }
@@ -502,6 +505,23 @@ const embed = {
   "author": {
     "name": "Interact with the LBRY CLI",
     "url": "https://lbry.io/faq/how-to-cli",
+    "icon_url": "https://i.imgur.com/yWf5USu.png"
+  }
+};
+msg.channel.send({ embed });
+	}
+}
+
+exports.ipfstorrent = {
+	usage: " ",
+	description: 'How is LBRY different from IPFS / BitTorrent?',
+	process: function(bot,msg){
+const embed = {
+  "description": "If you are interested in how LBRY is different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
+  "color": 7976557,
+  "author": {
+    "name": "How is LBRY different from IPFS / BitTorrent?",
+    "url": "https://lbry.io/faq/different-ipfs",
     "icon_url": "https://i.imgur.com/yWf5USu.png"
   }
 };
