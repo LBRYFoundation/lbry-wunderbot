@@ -36,7 +36,7 @@
   },
    "spamdetection":{
   	"channels": ["324400517075959808","373251793498406912"], // Channels excluded from Spam Detection
-	"users" : ["244245498746241025"] // Users to exclude from Spam Detection (include other bots here)
+	"users" : ["244245498746241025"] // Users to exclude from Spam Detection
   },
    "hashbot":{
         "channels": ["374221161367601152"], // Channels Hash Bot is allowed to post in

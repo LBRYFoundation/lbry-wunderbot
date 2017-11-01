@@ -29,7 +29,7 @@ exports.antiSpam = function(bot) {
    
    
     bot.on('message', msg => {
-	if(!inPrivate(msg) && hasPerms(msg) || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
+	if(!inPrivate(msg) && hasPerms(msg) || msg.author.bot || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
 		return
 	}
     if(msg.author.id != bot.user.id){
