@@ -1,26 +1,52 @@
 {
   // Bot configuration
   "bot": {
-      "token":"discordbottoken",
-      "prefix": "!",
-      "debug": false
+       "token":"discordbottoken",
+       "prefix": "!",
+       "debug": false
   },
   "lbrycrd": {
-      "port": 9245,
-      "user": "lbry",
-      "pass": "lbry"
+       "port": 9245,
+       "user": "lbry",
+       "pass": "lbry"
   },
   "mongodb": {
-      "url":"mongodb://localhost:27017/wunderbot"
+       "url":"mongodb://localhost:27017/wunderbot"
   },
   "moderation":{
-  "perms": ["LBRY MODS","LBRY TEAM"], // Roles that have access to all commands.
-  "logchannel": "371620338263523328" // Channel to log the bots moderation..
+       "perms": ["LBRY MODS","LBRY TEAM"], // Roles that have access to all commands.
+       "logchannel": "371620338263523328" // Channel to log the bots moderation..
+  },
+       //define channels for Commands.js usage
+   "Channels":{ 
+  	   "verification": "374345193320611851",
+	   "mining": "374221161367601152",
+	   "random": "375030404198957056"
   },
    "speechbot":{
-  	"channelIDs": ["363085078403874823","363086945976320010","363088045366312962","363084262028607488","369896313082478594","363084227518136322"]
-},
+  	   "channels": ["324399471087714315","373251793498406912","324400517075959808"], // Channels speech bot is allowed to post in
+	   "mainchannel": "373251793498406912" // Main Speech Bot channel for directing with help message
+  },
+   "pricebot":{
+  	   "channels": ["373172043652268032","373251793498406912"], // Channels price bot is allowed to post in
+	   "mainchannel": "373172043652268032" // Main Price Bot channel for directing with help message
+  },
+   "gitrelease":{
+  	   "channel": "373172043652268032" // Channel to send release info to using <!releasenotes post>
+  },
+   "spamdetection":{
+  	   "channels": ["324400517075959808","373251793498406912"], // Channels excluded from Spam Detection
+	   "users" : ["244245498746241025"] // Users to exclude from Spam Detection (include other bots here)
+  },
+   "hashbot":{
+       "channels": ["374221161367601152"], // Channels Hash Bot is allowed to post in
+       "mainchannel" : "374221161367601152" // Main Hash Bot channel for directing with help message
+  },
+   "statsbot":{
+  	   "channels": ["373172043652268032","373172043652268032"], // Channels Stats Bot is allowed to post in
+	   "mainchannel" : "373172043652268032" // Main Stats Bot channel for directing with help message
+  },
   "rolelist":{
-  "allowedroles": ["Role1","Role2"]
+       "allowedroles": ["Role1","Role2"]
   }
 }
