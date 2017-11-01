@@ -355,7 +355,7 @@ exports.verification = {
 	usage: " ",
 	description: 'Verification Help Message',
 	process: function(bot,msg){
-var message = "If you would like to be verified goto this channel <#" + verificationChannel + ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process that requires a minimum number of views on Youtube (If you restarted LBRY and didn't get verified, you most likely don't qualify)."
+var message = "If you would like to be verified go to <#" + verificationChannel + ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process that requires a minimum number of views on Youtube (If you restarted LBRY and didn't get verified, you most likely don't qualify)."
 msg.channel.send( message );
 	}
 }
