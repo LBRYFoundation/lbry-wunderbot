@@ -8,7 +8,7 @@
 		usage: "<subcommand>", //command usage like !demo <@username>, exclude !demo
 		description: 'description of command', //the description of command for !help command
 		process: function(bot,msg,suffix){
-		// Here the bot,msg and suffix is avaible, this function can be async if needed.
+		// Here the bot,msg and suffix is available, this function can be async if needed.
 	    }
 	}
 
@@ -18,7 +18,7 @@
 	]
 
 	exports.myFunction = function(bot) {
-	    // Other functions that needs to be ran once on bootup!
+	    // Other functions that need to be ran once on bootup!
 	    // For example a timed function and or some init stuff..
 	}
 */
