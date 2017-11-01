@@ -19,8 +19,8 @@ exports.antiSpam = function(bot) {
   const warnBuffer = 5;
   const maxBuffer = 10;
   const interval = 1500;
-  const warningMessage = "stop spamming or I'll whack your head off.";
-  const banMessage = "has been banned for spamming, anyone else?";
+  const warningMessage = ", Stop spamming or you will be banned! This is your warning!";
+  const banMessage = "has been banned for spamming.";
   const maxDuplicatesWarning = 4;
   const maxDuplicatesBan = 7;
    
