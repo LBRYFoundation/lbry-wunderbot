@@ -2,6 +2,8 @@ const authors = [];
 let warned = [];
 let banned = [];
 let messagelog = [];
+let config = require('config');
+let botlog = config.get('moderation').logchannel;
 let hasPerms = require('../helpers.js').hasPerms;
 let inPrivate = require('../helpers.js').inPrivate;
 let hasExcludedSpamChannels = require('../helpers.js').hasExcludedSpamChannels;
@@ -29,7 +31,7 @@ exports.antiSpam = function(bot) {
    
    
     bot.on('message', msg => {
-	if(!inPrivate(msg) && hasPerms(msg) || msg.author.bot || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
+	if(inPrivate(msg) || hasPerms(msg) || msg.author.bot || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
 		return
 	}
     if(msg.author.id != bot.user.id){
@@ -114,6 +116,7 @@ exports.antiSpam = function(bot) {
     if (user) {
       user.ban().then((member) => {
         msg.channel.send(msg.author + " " +banMessage);
+	bot.channels.get(botlog).send(msg.author + " " +banMessage);
         return true;
      }).catch(() => {
         msg.channel.send("insufficient permission to kick " + msg.author + " for spamming.");
