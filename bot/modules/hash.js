@@ -1,5 +1,8 @@
-var needle = require('needle');
-var ChannelID = "363049669636390913"	
+let needle = require('needle');
+let config = require('config');
+let hasHashBotChannels = require('../helpers.js').hasHashBotChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('hashbot').mainchannel;	
 exports.commands = [
 	"hash" // command that is in this file, every command needs it own export as shown below
 ]
@@ -49,7 +52,7 @@ exports.hash = {
 
 
 function sendMiningInfo(bot, msg) {
-	if(!inPrivateOrBotSandbox(msg)){
+	if(!inPrivate(msg) && !hasHashBotChannels(msg)){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to hash bot.');
     return;
   }
@@ -76,14 +79,6 @@ function sendMiningInfo(bot, msg) {
 	msg.channel.send({ embed });    
     }
   });
-}
-
-function inPrivateOrBotSandbox(msg){
-  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
-    return true;
-  }else{
-    return false;
-  }
 }
 
 function numberWithCommas(x) {

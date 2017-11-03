@@ -1,13 +1,14 @@
 'use strict';
-var verificationChannelID = "363050496023592961"
-var miningChannelID = "363049669636390913"
-var randomChannelID = "363084227518136322"
+let config = require('config');
+let miningChannel = config.get('Channels').mining;
+let randomChannel = config.get('Channels').random;
+let verificationChannel = config.get('Channels').verification;
 
 exports.commands = [
 	"helpcommands",
 	"what",
-	"beta",
 	"begging",
+	"beta",
 	"github",
 	"appdownload",
 	"daemondownload",
@@ -33,7 +34,7 @@ exports.commands = [
 	"migrate",
 	"tipping",
 	"email",
-	"cli"
+	"cli",
 	"ipfstorrent"
 ]
 
@@ -44,10 +45,10 @@ exports.helpcommands = {
 		msg.channel.send( 
 		{
 		  "embed":{
-		  "description": "!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent",
+		  "description": "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent**",
 		  "color": 7976557,
 		  "author": {
-			"name": "List of Helpful Commands",
+			"name": "List of Helpful LBRY Commands",
 			"icon_url": "https://i.imgur.com/yWf5USu.png"
 		}}}
 			);
@@ -210,7 +211,7 @@ exports.mining = {
 	usage: " ",
 	description: 'Mining LBRY Credits (LBC)',
 	process: function(bot,msg){
-var message = "We have a dedicated channel for mining discussion, feel free to join <#" + miningChannelID + ">"
+var message = "We have a dedicated channel for mining discussion, feel free to join <#" + miningChannel + ">"
 msg.channel.send( message );
 	}
 }
@@ -270,7 +271,7 @@ exports.random = {
 	usage: " ",
 	description: 'Off-Topic Message',
 	process: function(bot,msg){
-var message = "Please keep conversation on topic, or move random conversations to #" + randomChannelID + " if you wish to continue"
+var message = "Please keep conversation on topic, or move random conversations to #" + randomChannel + " if you wish to continue"
 msg.channel.send( message );
 	}
 }
@@ -329,7 +330,7 @@ exports.cc = {
 	usage: " ",
 	description: 'Credit Card Verification?',
 	process: function(bot,msg){
-var message = "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a Credit Card or by a manual verification process in order to be eligible for Rewards. Prepaid or Virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#" + verificationChannelID + "> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards, the app can be used without providing CC information**\n**Please See:https://lbry.io/faq/identity-requirements**"
+var message = "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a Credit Card or by a manual verification process in order to be eligible for Rewards. Prepaid or Virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#" + verificationChannel + "> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards, the app can be used without providing CC information**\n**Please See:https://lbry.io/faq/identity-requirements**"
 msg.channel.send( message );
 	}
 }
@@ -339,7 +340,7 @@ exports.verify = {
 	description: 'How to Verify?',
 	process: function(bot,msg){
 const embed = {
-  "description": "Please download the latest version from [HERE](https://lbry.io/get) Upon install, you'll be greeted with a welcome message. If you already had the App installed, then go to the wallet (bank icon in the top right) > Rewards - this should show your current status. New users will need to verify in order to access rewards. Type ?cc or ?verification for more information.",
+  "description": "Please download the latest version from [HERE](https://lbry.io/get) Upon install, you'll be greeted with a welcome message. If you already had the App installed, then go to the wallet (bank icon in the top right) > Rewards - this should show your current status. New users will need to verify in order to access rewards. Type !cc or !verification for more information.",
   "color": 7976557,
   "author": {
     "name": "How To Verify?",
@@ -354,7 +355,7 @@ exports.verification = {
 	usage: " ",
 	description: 'Verification Help Message',
 	process: function(bot,msg){
-var message = "If you would like to be verified goto this channel <#" + verificationChannelID + ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process that requires a minimum number of views on Youtube (If you restarted LBRY and didn't get verified, you most likely don't qualify)."
+var message = "If you would like to be verified go to <#" + verificationChannel + ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process that requires a minimum number of views on Youtube (If you restarted LBRY and didn't get verified, you most likely don't qualify)."
 msg.channel.send( message );
 	}
 }

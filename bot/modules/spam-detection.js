@@ -1,8 +1,13 @@
 const authors = [];
-var warned = [];
-var banned = [];
-var messagelog = [];
+let warned = [];
+let banned = [];
+let messagelog = [];
+let config = require('config');
+let botlog = config.get('moderation').logchannel;
 let hasPerms = require('../helpers.js').hasPerms;
+let inPrivate = require('../helpers.js').inPrivate;
+let hasExcludedSpamChannels = require('../helpers.js').hasExcludedSpamChannels;
+let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
 
 /**
  * Add simple spam protection to your discord server.
@@ -20,13 +25,13 @@ exports.antiSpam = function(bot) {
   const maxBuffer = 10;
   const interval = 1500;
   const warningMessage = ", Stop spamming or you will be banned! This is your warning!";
-  const banMessage = "has been banned for spamming.";
-  const maxDuplicatesWarning = 4;
-  const maxDuplicatesBan = 7;
+  const banMessage = "has been banned for spamming!";
+  const maxDuplicatesWarning = 5;
+  const maxDuplicatesBan = 10;
    
    
     bot.on('message', msg => {
-	if(hasPerms(msg) == true || msg.author.id == "372832162572926987" || msg.author.id == "363343989442609152" || msg.channel.id == "363044275363119105" || msg.channel.id == "363044260938776576" || msg.channel.id == "363086719391629326") {
+	if(inPrivate(msg) || hasPerms(msg) || msg.author.bot || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
 		return
 	}
     if(msg.author.id != bot.user.id){
@@ -111,6 +116,7 @@ exports.antiSpam = function(bot) {
     if (user) {
       user.ban().then((member) => {
         msg.channel.send(msg.author + " " +banMessage);
+	bot.channels.get(botlog).send(msg.author + " " +banMessage);
         return true;
      }).catch(() => {
         msg.channel.send("insufficient permission to kick " + msg.author + " for spamming.");

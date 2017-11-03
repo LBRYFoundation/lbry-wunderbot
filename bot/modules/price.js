@@ -1,9 +1,12 @@
 'use strict';
-var jp = require('jsonpath');
-var moment = require('moment');
-var numeral = require('numeral');
-var request = require('request');
-
+let jp = require('jsonpath');
+let moment = require('moment');
+let numeral = require('numeral');
+let request = require('request');
+let config = require('config');
+let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
+let inPrivate = require('../helpers.js').inPrivate;
+let ChannelID = config.get('pricebot').mainchannel;
 
 
 exports.commands = [
@@ -14,8 +17,6 @@ exports.price = {
 	usage: "<currency> <amount>",
 	description: 'displays price of lbc',
 	process: function(bot,msg,suffix){
-		
-		var ChannelID = '369896313082478594'
 		
 		var options = {
     defaultCurrency: 'BTC',
@@ -98,7 +99,7 @@ var command = "!price"
   if (showHelp) {
     doHelp(bot,msg,suffix);
   } else {
-	  if(!inPrivateOrBotSandbox(msg)){
+	  if(!hasPriceBotChannels(msg) && !inPrivate(msg)){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
     return;
   }
@@ -106,7 +107,7 @@ var command = "!price"
   }
 
 function doHelp(bot,msg,suffix) {
-	if(!inPrivateOrBotSandbox(msg)){
+	if(!hasPriceBotChannels(msg) && !inPrivate(msg)){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
     return;
   }
@@ -189,14 +190,6 @@ function processSteps(bot, currency, rate, amount, steps, option) {
             }
         });
     }
-}
-
-function inPrivateOrBotSandbox(msg){
-  if((msg.channel.type == 'dm') || (msg.channel.id === ChannelID)){
-    return true;
-  }else{
-    return false;
-  }
 }
 
 }
