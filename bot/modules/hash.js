@@ -45,7 +45,7 @@ exports.timedhash = function(bot) {
 
 exports.hash = {
 	usage: "",
-	description: 'Displays current Hashrate of Network',
+	description: 'Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate',
 	process: function(bot,msg,suffix){
   var command = '!hash';
   words = suffix.trim().split(' ').filter( function(n){return n !== "";} );
