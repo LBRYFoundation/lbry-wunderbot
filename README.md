@@ -8,7 +8,7 @@
 - Stats bot display current market stats of lbc. Responds to `!stats`
 - Hash bot displays current hashrate of network. Responds to `!hash`
 
-     Also Calcuates Potential Profit in 24 hours from Hashrate. Responds to `!hash power <Mh/s>`
+     Also Calculates Potential Profit in 24 hours from Hashrate. Responds to `!hash power <Mh/s>`
 
 - Github Release Notes bot displays release notes for current lbry-app release. 
 
