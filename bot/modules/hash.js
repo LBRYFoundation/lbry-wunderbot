@@ -107,9 +107,14 @@ function sendProfitInfo(bot, msg, suffix) {
 		var myHash = Number(myhashrate)
 		var LBC = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 3600
 		var LBC24 = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 86400
-		var message = "With " + myHash + " Mh/s you can earn about " + LBC.toFixed(2) + "LBC in 1 hour!\n" +
-		"Average 24hour Difficulty: " + Diff.toFixed(0) + "\n" +
-		"With that average you could earn around " + LBC24.toFixed(0) + " LBC in 24 hours!"
+		var LBC1w = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 604800
+		var LBC1m = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 2628000
+		var message = "With **" + myHash + " Mh/s** and Average 24 hour Difficulty: **" + Diff.toFixed(0) + "**\n" +
+		"You can earn the following amounts of **LBC**: \n" +
+		"1 Hour = **" + LBC.toFixed(4) + "** \n" +
+		"1 Day = **" + LBC24.toFixed(2) + "** \n" +
+		"1 Week = **" + LBC1w.toFixed(4) + "** \n" +
+		"1 Month = **" + LBC1m.toFixed(4) + "** \n" 
 			const embed = {
 			  "description": message,
 			  "color": 7976557,
