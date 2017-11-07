@@ -68,7 +68,7 @@ if(!inPrivate(msg) && !hasStatsBotChannels(msg)){
     doSteps(bot, msg, 'IDR', amount);
     marketstats(bot,msg,suffix);
     //marketstats(bot,msg);
-    volume(bot,msg); //can't get this part to work, someone help me fix - i think it's because 24h_volume_usd starts with number
+    volume(bot,msg);
   }
 	
 function formatMessage(amount, rate, option) {
