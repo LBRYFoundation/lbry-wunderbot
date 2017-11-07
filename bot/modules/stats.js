@@ -3,6 +3,7 @@ let moment = require('moment');
 let numeral = require('numeral');
 let request = require('request');
 let config = require('config');
+let needle = require('needle');
 let hasStatsBotChannels = require('../helpers.js').hasStatsBotChannels;
 let inPrivate = require('../helpers.js').inPrivate;
 let ChannelID = config.get('statsbot').mainchannel;
@@ -65,9 +66,9 @@ if(!inPrivate(msg) && !hasStatsBotChannels(msg)){
     doSteps(bot, msg, 'CAD', amount);
     doSteps(bot, msg, 'AUD', amount);
     doSteps(bot, msg, 'IDR', amount);
-    setTimeout(function() { marketstats(bot,msg,suffix); }, 250);
+    marketstats(bot,msg,suffix);
     //marketstats(bot,msg);
-    //volume24(bot,msg); can't get this part to work, someone help me fix - i think it's because 24h_volume_usd starts with number
+    volume(bot,msg); //can't get this part to work, someone help me fix - i think it's because 24h_volume_usd starts with number
   }
 	
 function formatMessage(amount, rate, option) {
@@ -125,31 +126,43 @@ function marketstats(bot,msg,suffix) {
         });
 }
 
-function volume24(bot,msg,suffix) {
-        var statsurl='https://api.coinmarketcap.com/v1/ticker/library-credit/';
-
-        request.get(statsurl, function(error, response, body) {
-            if (error) {
-                msg.channel.send(err.message ? err.message : 'The request could not be completed at this time. Please try again later.');
-                return;
-            }
-            var volume24 = 0;
-            try {
-                volume24 = jp.query(JSON.parse(body),'$[0].24h_volume_usd');
-                if (Array.isArray(volume24) && volume24.length > 0) {
-                    volume24 = volume24[0];
-                }
-
-            } catch (ignored) {
-                // invalid response or pair rate
-            }
-
-            var statmsg = '*'+'Volume: $'+volume24+'*\n';
-
-                msg.channel.send(statmsg);
-  
-        });
+function volume(bot,msg) {
+	needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/', function(error, response) {
+    if (error || response.statusCode !== 200) {
+      msg.channel.send('coinmarketcap API is not available');
+    } else {
+			var json = response.body[0];
+			var newjson = parse_obj(json)
+			var parse = JSON.stringify(newjson)
+			var volume = parse.replace(/[^0-9]/g, '');
+			console.log(volume)
+			console.log(newjson)
+			var statmsg = '*Volume: $'+volume+'*\n';
+			msg.channel.send(statmsg);
+			}
+        });	
 }
+
+function parse_obj(obj)
+{
+    var array = [];
+    var prop;
+    for (prop in obj)
+    {
+        if (obj.hasOwnProperty(prop))
+        {
+            var key = parseInt(prop, 10);
+            var value = obj[prop];
+            if (typeof value == "object")
+            {
+                value = parse_obj(value);
+            }
+            array[key] = value;
+        }
+    }
+    return array;
+}
+
 
 function processSteps(bot, msg, currency, rate, amount, steps, option) {
     if (steps.length > 0) {
