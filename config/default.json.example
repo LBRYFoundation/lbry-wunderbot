@@ -10,13 +10,6 @@
        "user": "lbry",
        "pass": "lbry"
   },
-  "mongodb": {
-       "url":"mongodb://localhost:27017/wunderbot"
-  },
-  "moderation":{
-       "perms": ["LBRY MODS","LBRY TEAM"], // Roles that have access to all commands.
-       "logchannel": "371620338263523328" // Channel to log the bots moderation..
-  },
        //define channels for Commands.js usage
    "Channels":{ 
   	"verification": "374345193320611851",
