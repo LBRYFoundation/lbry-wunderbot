@@ -17,27 +17,45 @@ exports.timedhash = function(bot) {
     }, 6 * 60 * 60 * 1000);
 	
 	function sendMiningInfo(bot) {
-  needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
+needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
     if (error || response.statusCode !== 200) {
-      bot.channels.get(ChannelID).send('Explorer API is not available');
-    } else {
-        var data, hashrate = "", difficulty = "", height = "";
-        data = response.body;
-        height += data.status.height;
-        hashrate += data.status.hashrate;
-        difficulty += data.status.difficulty;
-	description = "Hashrate: "+hashrate+"\n"+"Difficulty: "+difficulty+"\n"+"Current block: "+height+"\n"+"Source: https://explorer.lbry.io";
-	const embed = {
-	  "description": description,
-	  "color": 7976557,
-	  "author": {
-	    "name": "LBRY Explorer Stats",
-	    "url": "https://explorer.lbry.io",
-	    "icon_url": "https://i.imgur.com/yWf5USu.png"
-	  }
-	};
-	bot.channels.get(ChannelID).send({ embed });
+      msg.channel.send('Explorer API is not available');
     }
+    else {
+        var data = response.body;
+        var height = Number(data.status.height);
+        var hashrate = data.status.hashrate;
+        var difficulty = Number(data.status.difficulty);
+		needle.get('https://whattomine.com/coins/164.json', function(error, response) {
+    if (error || response.statusCode !== 200) {
+      msg.channel.send('whattomine API is not available');
+		} else {
+			var data = response.body;
+			var reward = Number(data.block_reward);
+			var block_time = Number(data.block_time);
+			var difficulty24 = Number(data.difficulty24);
+			description = "Hashrate: "+numberWithCommas(hashrate)+"\n" +
+			"Difficulty: "+numberWithCommas(difficulty.toFixed(0))+"\n" +
+			"Difficulty 24 Hour Average: "+numberWithCommas(difficulty24.toFixed(0))+"\n" +
+			"Current block: "+numberWithCommas(height.toFixed(0))+"\n" +
+			"Block Time: "+numberWithCommas(block_time.toFixed(0))+" seconds \n" +
+			"Block Reward: "+numberWithCommas(reward.toFixed(0))+" LBC \n" +
+			"Sources: https://explorer.lbry.io & \n" +
+			"https://whattomine.com/coins/164-lbc-lbry";
+			const embed = {
+		  "description": description,
+		  "color": 7976557,
+		  "author": {
+			"name": "LBRY Network Stats",
+			"icon_url": "https://i.imgur.com/yWf5USu.png"
+		  }
+		};
+		
+		msg.channel.send({ embed }); 
+		return
+			}
+		});
+	}
   });
 }
 }
@@ -45,7 +63,7 @@ exports.timedhash = function(bot) {
 
 exports.hash = {
 	usage: "",
-	description: 'Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate in Mh/s',
+	description: 'Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate',
 	process: function(bot,msg,suffix){
   var command = '!hash';
   words = suffix.trim().split(' ').filter( function(n){return n !== "";} );
@@ -71,28 +89,41 @@ function sendMiningInfo(bot, msg, suffix) {
       msg.channel.send('Explorer API is not available');
     }
     else {
-        var data, hashrate = "", difficulty = "", height = "";
-        data = response.body;
-        height += data.status.height;
-        hashrate += data.status.hashrate;
-        difficulty += data.status.difficulty;
-		description = "Hashrate: "+hashrate+"\n"+"Difficulty: "+difficulty+"\n"+"Current block: "+height+"\n"+"Source: https://explorer.lbry.io";
-		const embed = {
-	  "description": description,
-	  "color": 7976557,
-	  "author": {
-	    "name": "LBRY Explorer Stats",
-	    "url": "https://explorer.lbry.io",
-	    "icon_url": "https://i.imgur.com/yWf5USu.png"
-	  }
-	};
-	
-	msg.channel.send({ embed }); 
-	return
-		}
-	});
+        var data = response.body;
+        var height = Number(data.status.height);
+        var hashrate = data.status.hashrate;
+        var difficulty = Number(data.status.difficulty);
+		needle.get('https://whattomine.com/coins/164.json', function(error, response) {
+    if (error || response.statusCode !== 200) {
+      msg.channel.send('whattomine API is not available');
+		} else {
+			var data = response.body;
+			var reward = Number(data.block_reward);
+			var block_time = Number(data.block_time);
+			var difficulty24 = Number(data.difficulty24);
+			description = "Hashrate: "+numberWithCommas(hashrate)+"\n" +
+			"Difficulty: "+numberWithCommas(difficulty.toFixed(0))+"\n" +
+			"Difficulty 24 Hour Average: "+numberWithCommas(difficulty24.toFixed(0))+"\n" +
+			"Current block: "+numberWithCommas(height.toFixed(0))+"\n" +
+			"Block Time: "+numberWithCommas(block_time.toFixed(0))+" seconds \n" +
+			"Block Reward: "+numberWithCommas(reward.toFixed(0))+" LBC \n" +
+			"Sources: https://explorer.lbry.io & \n" +
+			"https://whattomine.com/coins/164-lbc-lbry";
+			const embed = {
+		  "description": description,
+		  "color": 7976557,
+		  "author": {
+			"name": "LBRY Network Stats",
+			"icon_url": "https://i.imgur.com/yWf5USu.png"
+		  }
+		};
+		bot.channels.get(ChannelID).send({ embed });
+		return
+			}
+		});
+	}
+  });
 }
-
 function sendProfitInfo(bot, msg, suffix) {
 		needle.get('https://whattomine.com/coins/164.json', function(error, response) {
     if (error || response.statusCode !== 200) {
@@ -104,11 +135,12 @@ function sendProfitInfo(bot, msg, suffix) {
 		myhashrate = "100";
 		}
 		var Diff = response.body.difficulty24;
+		var Reward = response.body.block_reward;
 		var myHash = Number(myhashrate)
-		var LBC = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 3600
-		var LBC24 = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 86400
-		var LBC1w = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 604800
-		var LBC1m = myHash / 2000 * (1 / (Diff * 2^32) * 386) * 2628000
+		var LBC = myHash / 2000 * (1 / (Diff * 2^32) * Reward) * 3600
+		var LBC24 = myHash / 2000 * (1 / (Diff * 2^32) * Reward) * 86400
+		var LBC1w = myHash / 2000 * (1 / (Diff * 2^32) * Reward) * 604800
+		var LBC1m = myHash / 2000 * (1 / (Diff * 2^32) * Reward) * 2628000
 		var message = "With **" + myHash + " Mh/s** and Average 24 hour Difficulty: **" + Diff.toFixed(0) + "**\n" +
 		"You can potentially earn the following amounts of **LBC**: \n" +
 		"1 Hour = **" + LBC.toFixed(4) + "** \n" +
@@ -131,6 +163,7 @@ function sendProfitInfo(bot, msg, suffix) {
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 
 
 }
