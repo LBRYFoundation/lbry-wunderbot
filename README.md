@@ -4,7 +4,6 @@
 
 ## Features:
 
-* Tipbot for LBC. Responds to `!tip`.
 * Price bot displays price of lbc for currency given. Responds to `!price <cur> <amount>`
 * Stats bot display current market stats of lbc. Responds to `!stats`
 * Hash bot displays current hashrate of network. Responds to `!hash`
