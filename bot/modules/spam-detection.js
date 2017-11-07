@@ -17,10 +17,10 @@ let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
  */
 
 exports.custom = [
-    "antiSpam"
+  "antiSpam"
 ]
 
-exports.antiSpam = function(bot) {
+exports.antiSpam = function (bot) {
   const warnBuffer = 5;
   const maxBuffer = 10;
   const interval = 1500;
@@ -28,13 +28,13 @@ exports.antiSpam = function(bot) {
   const banMessage = "has been banned for spamming!";
   const maxDuplicatesWarning = 5;
   const maxDuplicatesBan = 10;
-   
-   
-    bot.on('message', msg => {
-	if(inPrivate(msg) || hasPerms(msg) || msg.author.bot || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
-		return
-	}
-    if(msg.author.id != bot.user.id){
+
+
+  bot.on('message', msg => {
+    if (inPrivate(msg) || hasPerms(msg) || msg.author.bot || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
+      return
+    }
+    if (msg.author.id != bot.user.id) {
       var now = Math.floor(Date.now());
       authors.push({
         "time": now,
@@ -115,13 +115,13 @@ exports.antiSpam = function(bot) {
     var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
     if (user) {
       user.ban().then((member) => {
-        msg.channel.send(msg.author + " " +banMessage);
-	bot.channels.get(botlog).send(msg.author + " " +banMessage);
+        msg.channel.send(msg.author + " " + banMessage);
+        bot.channels.get(botlog).send(msg.author + " " + banMessage);
         return true;
-     }).catch(() => {
+      }).catch(() => {
         msg.channel.send("insufficient permission to kick " + msg.author + " for spamming.");
         return false;
-     });
+      });
     }
   }
-	}
+}

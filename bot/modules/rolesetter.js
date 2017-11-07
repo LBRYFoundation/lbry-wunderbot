@@ -3,15 +3,15 @@ var config = require('config');
 rolelist = config.get('rolelist');
 
 exports.commands = [
-	"addrole", // command that is in this file, every command needs it own export as shown below
-	"delrole",
-	"roles"
+    "addrole", // command that is in this file, every command needs it own export as shown below
+    "delrole",
+    "roles"
 ]
 
 exports.addrole = {
-	usage: "<role to add>",
-	description: 'description of command',
-	process: function(bot,msg,suffix){
+    usage: "<role to add>",
+    description: 'description of command',
+    process: function (bot, msg, suffix) {
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
         //amsg.reply(rolelist.allowedroles.includes(suffix));
         var newrole = msg.guild.roles.find('name', suffix);
@@ -31,8 +31,8 @@ exports.addrole = {
                 //console.log('Added role')
                 //msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!');
             }
-            else{
-            msg.channel.send('It seems that you already have that role! Try removing it first with the delrole command!');
+            else {
+                msg.channel.send('It seems that you already have that role! Try removing it first with the delrole command!');
             }
         }
         else {
@@ -45,7 +45,7 @@ exports.addrole = {
 exports.delrole = {
     usage: "<role to remove>",
     description: 'description of command',
-    process: function(bot,msg,suffix) {
+    process: function (bot, msg, suffix) {
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
         let oldrole = msg.guild.roles.find('name', suffix);
         //console.log(oldrole);
@@ -70,24 +70,26 @@ exports.delrole = {
 exports.roles = {
     usage: "",
     description: 'description of command',
-    process: function(bot,msg,suffix){
+    process: function (bot, msg, suffix) {
         // Here the bot,msg and suffix is avaible, this function can be async if needed.
-        msg.channel.send({embed: {
-            color: 3447003,
-            title: "Wunderbot",
-            description: "You have accessed the rolebot function of Wunderbot!",
-            fields: [{
-                name: "List of roles",
-                value: buildRoleString(rolelist.allowedroles),
-                inline: false
-            }],
-            footer:{
-                icon_url: msg.author.avatarURL,
-                text: 'Requested by: ' + JSON.stringify(msg.author.username)
-            }
+        msg.channel.send({
+            embed: {
+                color: 3447003,
+                title: "Wunderbot",
+                description: "You have accessed the rolebot function of Wunderbot!",
+                fields: [{
+                    name: "List of roles",
+                    value: buildRoleString(rolelist.allowedroles),
+                    inline: false
+                }],
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: 'Requested by: ' + JSON.stringify(msg.author.username)
+                }
 
-        }});
-    //msg.channel.send(JSON.stringify(rolelist.allowedroles));
+            }
+        });
+        //msg.channel.send(JSON.stringify(rolelist.allowedroles));
     }
 };
 
