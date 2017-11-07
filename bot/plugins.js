@@ -33,14 +33,14 @@ function load_plugins() {
           }
         }
       }
-      if("custom" in plugin){
+      if ("custom" in plugin) {
         for (let j = 0; j < plugin.custom.length; j++) {
           if (plugin.custom[j] in plugin) {
             dbot.addCustomFunc(plugin[plugin.custom[j]]);
             otherFunc++;
           }
         }
-        }
+      }
     }
   }
   console.log(`Loaded ${dbot.commandCount()} chat commands and ${otherFunc} custom functions.`);
