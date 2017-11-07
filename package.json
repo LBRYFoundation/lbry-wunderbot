@@ -19,7 +19,7 @@
     "build": "babel bot -d dist",
     "prod": "babel bot -d dist & node dist/bot.js",
     "lint": "prettier --write bot/**/*.js",
-    "precommit": "lint"
+    "precommit": "prettier --write bot/**/*.js"
   },
   "devDependencies": {
     "husky": "^0.14.3",
