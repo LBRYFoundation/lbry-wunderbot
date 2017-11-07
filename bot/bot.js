@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 // Load up libraries
 const Discord = require("discord.js");
 // Load config!
-let config = require('config');
-config = config.get('bot');
+let config = require("config");
+config = config.get("bot");
 
 var aliases;
 try {
@@ -12,12 +12,12 @@ try {
 } catch (e) {
   //No aliases defined
   aliases = {
-    "test": {
-      process: function(bot,msg){
-        msg.channel.send('test');
+    test: {
+      process: function(bot, msg) {
+        msg.channel.send("test");
       }
     }
-}
+  };
 }
 var commands = {
   ping: {
@@ -43,9 +43,7 @@ bot.on("ready", function() {
   );
   require("./plugins.js").init();
   console.log("type " + config.prefix + "help in Discord for a commands list.");
-  bot.user.setGame(
-    config.prefix + "help | Tipping not available"
-  );
+  bot.user.setGame(config.prefix + "help | Tipping not available");
 });
 
 bot.on("disconnected", function() {
@@ -57,7 +55,13 @@ function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
     console.log(
-      "treating " + msg.content + " from UserID:" + msg.author + " || UserName: " + msg.author.username + " as command"
+      "treating " +
+        msg.content +
+        " from UserID:" +
+        msg.author +
+        " || UserName: " +
+        msg.author.username +
+        " as command"
     );
     var cmdTxt = msg.content.split(" ")[0].substring(config.prefix.length);
     var suffix = msg.content.substring(
@@ -77,9 +81,9 @@ function checkMessageForCommand(msg, isEdit) {
     }
     let alias = aliases[cmdTxt];
     if (alias) {
-    var cmd = alias;
+      var cmd = alias;
     } else {
-    var cmd = commands[cmdTxt]; 
+      var cmd = commands[cmdTxt];
     }
     if (cmdTxt === "help") {
       //help is special since it iterates over the other commands
@@ -185,7 +189,7 @@ exports.addCustomFunc = function(customFunc) {
   } catch (err) {
     console.log(err);
   }
-}
+};
 exports.commandCount = function() {
   return Object.keys(commands).length;
 };

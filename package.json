@@ -17,10 +17,13 @@
   "scripts": {
     "prettier": "prettier * --write",
     "build": "babel bot -d dist",
-    "prod": "babel bot -d dist & node dist/bot.js"
+    "prod": "babel bot -d dist & node dist/bot.js",
+    "lint": "prettier --write bot/**/*.js",
+    "precommit": "prettier --write bot/**/*.js"
   },
   "devDependencies": {
-    "prettier": "1.7.4"
+    "husky": "^0.14.3",
+    "prettier": "1.8.1"
   },
   "name": "wunderbot-discord",
   "version": "0.0.1",
