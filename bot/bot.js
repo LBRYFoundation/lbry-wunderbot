@@ -43,7 +43,7 @@ bot.on("ready", function() {
   );
   require("./plugins.js").init();
   console.log("type " + config.prefix + "help in Discord for a commands list.");
-  bot.user.setGame(config.prefix + "help | Tipping not available");
+  bot.user.setGame(config.prefix + "help");
 });
 
 bot.on("disconnected", function() {

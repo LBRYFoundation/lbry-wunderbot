@@ -10,9 +10,11 @@
     "jsonpath": "^0.2.12",
     "moment": "^2.19.1",
     "mongoose": "^4.12.3",
+    "needle": "^2.0.1",
     "node-config": "^0.0.2",
     "numeral": "^2.0.6",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "wget": "^0.0.1"
   },
   "scripts": {
     "prettier": "prettier * --write",
