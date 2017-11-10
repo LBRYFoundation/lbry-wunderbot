@@ -29,7 +29,7 @@ needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
 		needle.get('https://whattomine.com/coins/164.json', function(error, response) {
     if (error || response.statusCode !== 200) {
       msg.channel.send('whattomine API is not available');
-		} else {
+		}
 			var data = response.body;
 			var reward = Number(data.block_reward);
 			var block_time = Number(data.block_time);
@@ -52,7 +52,6 @@ needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
 		};
 		bot.channels.get(ChannelID).send({ embed })
 		return
-			}
 		});
 	}
   });
