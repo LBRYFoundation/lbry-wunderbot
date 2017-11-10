@@ -48,7 +48,7 @@ function doBalance(message, tipper) {
 
 function doDeposit(message, tipper) {
   if(!inPrivateOrBotSandbox(message)){
-    message.reply('Please use <#369896313082478594> or DMs to talk to bots.');
+    message.reply('Please use <#369896313082478594> or DM <@372832162572926987> to talk to tipbot.');
     return;
   }
   getAddress(tipper, function(err, address) {
@@ -64,7 +64,7 @@ function doDeposit(message, tipper) {
 
 function doWithdraw(message, tipper, words) {
   if(!inPrivateOrBotSandbox(message)){
-    message.reply('Please use <#369896313082478594> or DMs to talk to bots.');
+    message.reply('Please use <#369896313082478594> or DM <@372832162572926987> to talk to tipbot.');
     return;
   }
   if (words.length < 4) {
@@ -117,7 +117,7 @@ function doTip(message, tipper, words) {
 
 function doHelp(message) {
   if(!inPrivateOrBotSandbox(message)){
-    message.reply('Please use <#369896313082478594> or DMs to talk to bots.');
+    message.reply('Please use <#369896313082478594> or DM <@372832162572926987> to talk to tipbot.');
     return;
   }
   message.reply('Sent you help via DM!');
