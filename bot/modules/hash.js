@@ -2,7 +2,7 @@ let needle = require('needle');
 let config = require('config');
 let hasHashBotChannels = require('../helpers.js').hasHashBotChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('hashbot').mainchannel;	
+let ChannelID = config.get('hashbot').mainchannel;
 exports.commands = [
 	"hash" // command that is in this file, every command needs it own export as shown below
 ]
@@ -62,7 +62,6 @@ needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
 }
 }
 
-
 exports.hash = {
 	usage: "",
 	description: 'Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate',
@@ -79,7 +78,7 @@ exports.hash = {
 			sendMiningInfo(bot, msg, suffix);
 			return
 		}
-  
+
 
 function sendMiningInfo(bot, msg, suffix) {
 	if(!inPrivate(msg) && !hasHashBotChannels(msg)){
@@ -98,7 +97,7 @@ function sendMiningInfo(bot, msg, suffix) {
 		needle.get('https://whattomine.com/coins/164.json', function(error, response) {
     if (error || response.statusCode !== 200) {
       msg.channel.send('whattomine API is not available');
-		} else {
+		}
 			var data = response.body;
 			var reward = Number(data.block_reward);
 			var block_time = Number(data.block_time);
@@ -119,9 +118,8 @@ function sendMiningInfo(bot, msg, suffix) {
 			"icon_url": "https://i.imgur.com/yWf5USu.png"
 		  }
 		};
-		msg.channel.send({ embed }); 
+		msg.channel.send({ embed });
 		return
-			}
 		});
 	}
   });
@@ -148,7 +146,7 @@ function sendProfitInfo(bot, msg, suffix) {
 		"1 Hour = **" + LBC.toFixed(4) + "** \n" +
 		"1 Day = **" + LBC24.toFixed(2) + "** \n" +
 		"1 Week = **" + LBC1w.toFixed(4) + "** \n" +
-		"1 Month = **" + LBC1m.toFixed(4) + "** \n" 
+		"1 Month = **" + LBC1m.toFixed(4) + "** \n"
 			const embed = {
 			  "description": message,
 			  "color": 7976557,
