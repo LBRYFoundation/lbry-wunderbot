@@ -54,7 +54,7 @@ exports.altprice = {
             } else {
               var price = Number(response.body[currency2])
               var newprice = price * amount
-              var message = amount+" "+currency1+" = "+newprice+" "+currency2+"\n" +
+              var message = amount+" "+currency1+" = "+newprice.toFixed(8)+" "+currency2+"\n" +
               "*Updated: "+timestamp+"*";
               msg.channel.send(message)
             }
