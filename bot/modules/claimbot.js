@@ -32,7 +32,7 @@ function init(discordBot_, mongodburl) {
     lbry = new bitcoin.Client(config.get("lbrycrd"));
 
     console.log("Activating claimbot");
-    discordBot.channels.get("377938982111019010").send("activating claimbot");
+    discordBot.channels.get(channels[0]).send("activating claimbot");
 
     setInterval(function() {
       announceNewClaims();
@@ -55,9 +55,6 @@ function announceNewClaims() {
   Promise.all([getLastBlock(), lbryCall("getinfo")])
     .then(function([lastProcessedBlock, currentBlockInfo]) {
       const currentHeight = currentBlockInfo["blocks"];
-
-      // console.log('Checking for new blocks');
-
       if (lastProcessedBlock === null) {
         console.log(
           "First run. Setting last processed block to " +
@@ -87,7 +84,6 @@ function announceNewClaims() {
 }
 
 function announceClaimsLoop(block, lastBlock, currentHeight) {
-  // console.log('Doing block ' + block)
   let claimsFound = 0;
   return lbryCall("getblockhash", block)
     .then(function(blockHash) {
@@ -129,7 +125,6 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
   console.log(claim);
   let options = {
     method: "GET",
-    //url: 'https://explorer.lbry.io/api/getclaimbyid/' + claim['claimId']
     url: "http://127.0.0.1:5000/claim_decode/" + claim["name"]
   };
 
@@ -172,9 +167,9 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
 
         if (value) {
           /*if (channelName) { 
-                          text.push("Channel: lbry://" + channelName); 
-                        } 
-                        else*/
+                                    text.push("Channel: lbry://" + channelName); 
+                                  } 
+                                  else*/
           console.log(value);
           if (value["author"]) {
             text.push("author: " + value["author"]);
@@ -200,10 +195,6 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
                 value["fee"].currency +
                 "*"
             );
-            /*for (var key in value['fee']) { 
-                              fees.push(value['fee'][key]['amount'] + ' ' + key); 
-                            } 
-                            text.push(fees.join(', '));*/
           }
 
           if (!claim["is controlling"]) {
@@ -249,65 +240,6 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
 
           discordPost(text, richEmbeded);
         }
-        /*
-                                        if (!claim['is controlling']) {
-                                            // the following is based on https://lbry.io/faq/claimtrie-implementation 
-                                            const lastTakeoverHeight = claimsForName['nLastTakeoverHeight'],
-                                                maxDelay = 4032, // 7 days of blocks at 2.5min per block 
-                                                activationDelay = Math.min(maxDelay, Math.floor((claimBlockHeight - lastTakeoverHeight) / 32)),
-                                                takeoverHeight = claimBlockHeight + activationDelay,
-                                                secondsPerBlock = 161, // in theory this should be 150, but in practice its closer to 161 
-                                                takeoverTime = Date.now() + ((takeoverHeight - currentHeight) * secondsPerBlock * 1000);
-                    
-                                            text.push('Takes effect on approx. *' + moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]') + '* (block ' + takeoverHeight + ')');
-                                        }
-                    
-                                        const richEmbeded = {
-                                            author: {
-                                                name: value['author'] | 'Anonymous',
-                                                url: 'http://open.lbry.io/' + claim['name'],
-                                                icon_url: 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif'
-                                            },
-                                            title: "[lbry://" + (channelName ? channelName + '/' : '') + claim['name'] + '](http://open.lbry.io/' + claim['name'] + ')',
-                                            color: "#155b4a",
-                                            description: escapeSlackHtml(text.join("\n")),
-                                            footer: "Block " + claimBlockHeight + " • Claim ID " + claim['claimId'],
-                                            image: (!value['nsfw']) ? (value['thumbnail'] | '') : '',
-                                            thumbnail: (!value['nsfw']) ? (value['thumbnail'] | '') : '',
-                                            url: 'http://open.lbry.io/' + claim['name'],
-                                        }
-                                        const attachment = {
-                                            "fallback": "New claim for lbry://" + claim['name'],
-                                            "color": "#155b4a",
-                                            // "pretext": "New claim in block " + claimBlockHeight, 
-                                            // "author_name": 'lbry://' + claim['name'], 
-                                            // "author_link": 'lbry://' + claim['name'], 
-                                            // "author_icon": "http://flickr.com/icons/bobby.jpg", 
-                                            "title": "lbry://" + (channelName ? channelName + '/' : '') + claim['name'], //escapeSlackHtml(value['title']), 
-                                            "title_link": "lbry://" + (channelName ? channelName + '/' : '') + claim['name'],
-                                            "text": escapeSlackHtml(text.join("\n")),
-                                            // "fields": [], 
-                                            // "image_url": value['nsfw'] ? null : value['thumbnail'], 
-                                            // "thumb_url": (!value || value['nsfw']) ? null : value['thumbnail'], 
-                                            "unfurl_links": false,
-                                            "unfurl_media": false,
-                                            "link_names": false,
-                                            "parse": "none",
-                                            "footer": "Block " + claimBlockHeight + " • Claim ID " + claim['claimId'],
-                                            "mrkdwn_in": ['text'],
-                                        };
-                    
-                                        if (value) {
-                                            attachment['fallback'] += (': "' + value['title'] + '" by ' + value['author']);
-                                            attachment['author_name'] = 'lbry://' + (channelName ? channelName + '/' : '') + claim['name'];
-                                            attachment['author_link'] = 'lbry://' + (channelName ? channelName + '/' : '') + claim['name'];
-                                            attachment['title'] = escapeSlackHtml(value['title']);
-                                            if (!value['nsfw']) {
-                                                attachment['thumb_url'] = value['thumbnail'];
-                                            }
-                                        }
-                                        discordPost(text, richEmbeded);*/
-        //discordPost('', { icon_emoji: ':bellhop_bell:', attachments: [attachment] });
       });
     } catch (e) {
       console.error(e);
@@ -372,22 +304,10 @@ function setLastBlock(block) {
 }
 
 function discordPost(text, params) {
-  //tmpdata = params.attachments[0];
   let richEmbeded = new Discord.RichEmbed(params);
-  /*richEmbeded.setAuthor(tmpdata.author_name, tmpdata.thumb_url, 'http://open.lbry.io/' + tmpdata.title);
-    richEmbeded.setColor(tmpdata.color);
-    richEmbeded.setDescription(tmpdata.text);
-    richEmbeded.setTitle(tmpdata.title);
-    richEmbeded.setURL('http://open.lbry.io/' + tmpdata.title);
-    richEmbeded.setFooter(tmpdata.footer);*/
-
-  //console.log(params);
   channels.forEach(channel => {
     discordBot.channels.get(channel).send("", richEmbeded);
   });
-  /*discordBot.postMessage(channel, text, params).fail(function (value) {
-        console.log('FAILED TO SLACK to ' + channel + '. Text: "' + text + '". Params: ' + JSON.stringify(params) + "\nResponse: " + JSON.stringify(value));
-    });*/
 }
 
 function lbryCall(...args) {
