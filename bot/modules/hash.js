@@ -2,7 +2,7 @@ let needle = require('needle');
 let config = require('config');
 let hasHashBotChannels = require('../helpers.js').hasHashBotChannels;
 let inPrivate = require('../helpers.js').inPrivate;
-let ChannelID = config.get('hashbot').mainchannel;	
+let ChannelID = config.get('hashbot').mainchannel;
 exports.commands = [
 	"hash" // command that is in this file, every command needs it own export as shown below
 ]
@@ -15,7 +15,7 @@ exports.timedhash = function(bot) {
     setInterval(function() {
       sendMiningInfo(bot);
     }, 6 * 60 * 60 * 1000);
-	
+
 	function sendMiningInfo(bot) {
 		needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
 		if (error || response.statusCode !== 200) {
@@ -69,7 +69,6 @@ exports.hash = {
 		words = suffix.trim().split(' ').filter( function(n){return n !== "";} );
 		profitcommand = words[0];
 		myhashrate = words[1];
-		console.log(suffix)
 		if (profitcommand == "power") {
 			sendProfitInfo(bot, msg, suffix);
 			return
@@ -77,7 +76,7 @@ exports.hash = {
 			sendMiningInfo(bot, msg, suffix);
 			return
 		}
-		  
+
 		function sendMiningInfo(bot, msg, suffix) {
 			if(!inPrivate(msg) && !hasHashBotChannels(msg)){
 			msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to hash bot.');
@@ -115,7 +114,7 @@ exports.hash = {
 								"icon_url": "https://i.imgur.com/yWf5USu.png"
 								}
 							};
-							msg.channel.send({ embed }); 
+							msg.channel.send({ embed });
 							return
 					});
 				}
@@ -143,7 +142,7 @@ exports.hash = {
 					"1 Hour = **" + LBC.toFixed(4) + "** \n" +
 					"1 Day = **" + LBC24.toFixed(2) + "** \n" +
 					"1 Week = **" + LBC1w.toFixed(4) + "** \n" +
-					"1 Month = **" + LBC1m.toFixed(4) + "** \n" 
+					"1 Month = **" + LBC1m.toFixed(4) + "** \n"
 					const embed = {
 						"description": message,
 						"color": 7976557,
