@@ -10,26 +10,17 @@ exports.commands = [
 ]
 exports.tip = {
 	usage: "<subcommand>",
-	description: 'balance: get your balance\n    deposit: get adress for your deposits\n    withdraw ADDRESS AMOUNT: withdraw AMOUNT credits to ADDRESS\n    <user> <amount>: mention a user with @ and then the amount to tip them',
+	description: 'balance: get your balance\n    deposit: get adress for your deposits\n    withdraw ADDRESS AMOUNT: withdraw AMOUNT credits to ADDRESS\n    [private] <user> <amount>: mention a user with @ and then the amount to tip them, or put private before the user to tip them privately.\n Key: [] : Optionally include contained keyword, <> : Replace with appropriate value.',
 	process: async function(bot,msg,suffix){
         let tipper = msg.author.id,
             words = msg.content.trim().split(' ').filter( function(n){return n !== "";} ),
             subcommand = words.length >= 2 ? words[1] : 'help';
-        if (subcommand === 'help') {
-          doHelp(msg);
-        }
-        else if (subcommand === 'balance') {
-          doBalance(msg, tipper);
-        }
-        else if (subcommand === 'deposit') {
-          doDeposit(msg, tipper);
-        }
-        else if (subcommand === 'withdraw') {
-          doWithdraw(msg, tipper, words);
-        }
-        else {
-          doTip(msg, tipper, words);
-        }
+	switch subcommand {
+		case 'help': doHelp(msg); break;
+		case 'balance': doBalance(msg, tipper); break;
+		case 'deposit': doDeposit(msg, tipper); break;
+		case 'withdraw': doWithdraw(msg, tipper, words); break;
+		default: doTip(msg, tipper, words);
 	}
 }
 
@@ -96,17 +87,24 @@ function doTip(message, tipper, words) {
     doHelp(message);
     return;
   }
-
-  let amount = getValidatedAmount(words[2]);
-
+	
+  let prv = 0;
+  let amountOffset = 2;
+  if (words.length >= 4 && words[1] === 'private') {
+	  prv = 1;
+	  amountOffset = 3;
+  }
+	
+  let amount = getValidatedAmount(words[amountOffset]);
+  
   if (amount === null) {
     message.reply('I dont know how to tip that many credits');
     return;
   }
 
   if (message.mentions.members.first().id) {
-    let id = message.mentions.members.first().id;
-    sendLbc(message, tipper, id, amount);
+    let member = message.mentions.members.first();
+    sendLbc(message, tipper, member, amount, prv);
   }
   else
       {
@@ -125,8 +123,8 @@ function doHelp(message) {
 }
 
 
-function sendLbc(message, tipper, id, amount) {
-  getAddress(id, function(err, address){
+function sendLbc(message, tipper, member, amount, privacyFlag) {
+  getAddress(member.id, function(err, address){
     if (err) {
       message.reply(err.message);
     }
@@ -137,9 +135,14 @@ function sendLbc(message, tipper, id, amount) {
         }
         else {
           var imessage =
-            'Wubba lubba dub dub! <@' + tipper + '> tipped <@' + id + '> ' + amount + ' LBC (' + txLink(txId) + '). ' +
+            'Wubba lubba dub dub! <@' + tipper + '> tipped <@' + member.id + '> ' + amount + ' LBC (' + txLink(txId) + '). ' +
             'DM me `!tip` for tipbot instructions.'
+	  if (privacyFlag) {
+          message.author.send(imessage);
+          member.send(imessage);
+	  } else {
           message.reply(imessage);
+	  }
         }
       });
     }
