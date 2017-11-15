@@ -7,7 +7,7 @@ exports.lbrylink = function(bot,msg,suffix) {
     if (msg.content.indexOf("lbry://") != -1) {
     var text = msg.content.replace("lbry://", "https://open.lbry.io/");
     msg.delete(500);
-    msg.reply(" I see you tried to Post a LBRY link let me help you with that:\n\n"+text)
+    msg.reply(" I see you tried to post a LBRY link let me help you with that:\n\n"+text)
   }
 })
 }
