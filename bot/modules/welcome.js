@@ -108,7 +108,6 @@ exports.welcome = {
   usage: "<@username>",
   description: "send welcome message to specified user",
   process: function(bot, msg, suffix) {
-    console.log(suffix);
     if (inPrivate(msg)) {
       msg.channel.send("command cannot be used in a DM");
       return;
