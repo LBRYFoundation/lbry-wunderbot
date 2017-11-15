@@ -1,27 +1,43 @@
-
 exports.custom = [
-    "lbrylink" //change this to your function name
+  "lbrylink" //change this to your function name
 ]
 
-exports.lbrylink = function(bot,msg,suffix) {
+exports.lbrylink = function(bot, msg, suffix) {
   bot.on('message', msg => {
     var link = msg.content.indexOf("lbry://")
     if (link != -1) {
-    var text = msg.content.replace("lbry://", "https://open.lbry.io/");
-    var message = GetWordByPos(text, link)
-    var name = message.replace("https://open.lbry.io/", "");
-    const embed = {
-					"description": msg.author+", I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n"+"[lbry://"+name+"]("+message+")",
-					"color": 7976557,
-					"author": {
-					     "name": "LBRY Linker",
-					     "icon_url": "https://i.imgur.com/yWf5USu.png"
-							}
-					};
-    msg.channel.send({embed})
-  }
-})
-function GetWordByPos(str, pos) {
+      var text = msg.content.replace("lbry://", "https://open.lbry.io/");
+      var message = GetWordByPos(text, link)
+      if (text.search("<") != -1) {
+        var name = "@" + msg.mentions.members.first().user.username
+        var trim = message.split("/").pop()
+        var trim2 = trim.substr(2)
+        var id = trim2.substr(0, trim2.length - 1)
+        if (msg.mentions.members.first().id != id) {
+          var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username + "/" + message.split("/").pop()
+          var newname = name + "/" + message.split("/").pop()
+        } else {
+          var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username
+          var newname = name
+        }
+      } else {
+        var newname = message.replace("https://open.lbry.io/", "");
+      }
+      const embed = {
+        "description": msg.author + ", I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" + "[lbry://" + newname + "](" + message + ")",
+        "color": 7976557,
+        "author": {
+          "name": "LBRY Linker",
+          "icon_url": "https://i.imgur.com/yWf5USu.png"
+        }
+      };
+      msg.channel.send({
+        embed
+      })
+    }
+  })
+
+  function GetWordByPos(str, pos) {
     var left = str.substr(0, pos);
     var right = str.substr(pos);
 
@@ -29,5 +45,5 @@ function GetWordByPos(str, pos) {
     right = right.replace(/ .+$/g, "");
 
     return left + right;
-}
+  }
 }
