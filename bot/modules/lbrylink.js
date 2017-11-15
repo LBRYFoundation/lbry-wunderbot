@@ -13,13 +13,19 @@ exports.lbrylink = function(bot, msg, suffix) {
         var trim = message.split("/").pop()
         var trim2 = trim.substr(2)
         var id = trim2.substr(0, trim2.length - 1)
+        if (message.indexOf("#") != -1) {
+          var trim3 = message.split("#").pop()
+          var done = trim3
+          var message = "https://open.lbry.io/" + name + "#" + done
+          var newname = name + "#" + done
+        } else {
         if (msg.mentions.members.first().id != id) {
           var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username + "/" + message.split("/").pop()
           var newname = name + "/" + message.split("/").pop()
         } else {
           var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username
           var newname = name
-        }
+        }}
       } else {
         var newname = message.replace("https://open.lbry.io/", "");
       }
