@@ -1,9 +1,14 @@
+let inPrivate = require("../helpers.js").inPrivate;
+
 exports.custom = [
   "lbrylink" //change this to your function name
 ]
 
 exports.lbrylink = function(bot, msg, suffix) {
   bot.on('message', msg => {
+    if (inPrivate(msg)) {
+      return;
+    }
     var link = msg.content.indexOf("lbry://")
     if (link != -1) {
       var text = msg.content.replace("lbry://", "https://open.lbry.io/");
