@@ -14,18 +14,25 @@ exports.lbrylink = function(bot, msg, suffix) {
         var trim2 = trim.substr(2)
         var id = trim2.substr(0, trim2.length - 1)
         if (message.indexOf("#") != -1) {
-          var trim3 = message.split("#").pop()
-          var done = trim3
-          var message = "https://open.lbry.io/" + name + "#" + done
-          var newname = name + "#" + done
+          if (trim.indexOf("@") != -1) {
+            var trim3 = message.split("#").pop()
+            var message = "https://open.lbry.io/" + name + "#" + trim3
+            var newname = name + "#" + trim3
+          } else {
+            var trim3 = message.split("/").pop()
+            var done = trim3
+            var message = "https://open.lbry.io/" + name + "/" + done
+            var newname = name + "/" + done
+          }
         } else {
-        if (msg.mentions.members.first().id != id) {
-          var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username + "/" + message.split("/").pop()
-          var newname = name + "/" + message.split("/").pop()
-        } else {
-          var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username
-          var newname = name
-        }}
+          if (msg.mentions.members.first().id != id) {
+            var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username + "/" + message.split("/").pop()
+            var newname = name + "/" + message.split("/").pop()
+          } else {
+            var message = "https://open.lbry.io/@" + msg.mentions.members.first().user.username
+            var newname = name
+          }
+        }
       } else {
         var newname = message.replace("https://open.lbry.io/", "");
       }
@@ -41,15 +48,15 @@ exports.lbrylink = function(bot, msg, suffix) {
         embed
       })
     }
+
+    function GetWordByPos(str, pos) {
+      var left = str.substr(0, pos);
+      var right = str.substr(pos);
+
+      left = left.replace(/^.+ /g, "");
+      right = right.replace(/ .+$/g, "");
+
+      return left + right;
+    }
   })
-
-  function GetWordByPos(str, pos) {
-    var left = str.substr(0, pos);
-    var right = str.substr(pos);
-
-    left = left.replace(/^.+ /g, "");
-    right = right.replace(/ .+$/g, "");
-
-    return left + right;
-  }
 }
