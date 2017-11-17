@@ -31,8 +31,8 @@ exports.antiSpam = function(bot) {
   bot.on("message", msg => {
     if (
       inPrivate(msg) ||
-      hasPerms(msg) ||
       msg.author.bot ||
+      hasPerms(msg) ||
       hasExcludedSpamChannels(msg) ||
       hasExcludedSpamUsers(msg)
     ) {
