@@ -7,7 +7,7 @@ let config = require("config");
 config = config.get("bot");
 
 //load modules
-const claimbot = require('./modules/claimbot.js');
+const claimbot = require("./modules/claimbot.js");
 
 var aliases;
 try {
