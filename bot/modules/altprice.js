@@ -3,8 +3,6 @@ let hasPriceBotChannels = require('../helpers.js').hasPriceBotChannels;
 let inPrivate = require('../helpers.js').inPrivate;
 let config = require('config');
 let ChannelID = config.get('pricebot').mainchannel;
-let dt = new Date();
-let timestamp = dt.toUTCString();
 
 exports.commands = [
   "altprice"
@@ -14,6 +12,8 @@ exports.altprice = {
   usage: "<coin> <fiat/coin> <amount>",
   description: 'display price of specified alt coin from crypto compare\n**Example:** *!altprice ETH USD 100*',
   process: function(bot,msg,suffix){
+    let dt = new Date();
+    let timestamp = dt.toUTCString();
     if(!hasPriceBotChannels(msg) && !inPrivate(msg)){
     msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
     return;
