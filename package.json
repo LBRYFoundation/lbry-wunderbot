@@ -14,6 +14,7 @@
     "node-config": "^0.0.2",
     "numeral": "^2.0.6",
     "request": "^2.83.0",
+    "sleep": "^5.1.1",
     "wget": "^0.0.1"
   },
   "scripts": {

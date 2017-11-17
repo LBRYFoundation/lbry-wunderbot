@@ -6,6 +6,9 @@ const Discord = require("discord.js");
 let config = require("config");
 config = config.get("bot");
 
+//load modules
+const claimbot = require('./modules/claimbot.js');
+
 var aliases;
 try {
   aliases = require("./alias.json");
@@ -44,6 +47,9 @@ bot.on("ready", function() {
   require("./plugins.js").init();
   console.log("type " + config.prefix + "help in Discord for a commands list.");
   bot.user.setGame(config.prefix + "help");
+
+  //initialize the claimbot (content bot)
+  claimbot.init(bot);
 });
 
 bot.on("disconnected", function() {
@@ -193,5 +199,4 @@ exports.addCustomFunc = function(customFunc) {
 exports.commandCount = function() {
   return Object.keys(commands).length;
 };
-
 bot.login(config.token);
