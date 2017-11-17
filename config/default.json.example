@@ -88,5 +88,16 @@
   },
   "mongodb": {
     "url": "mongodb://HOST:PORT/DATABASE"
+  },
+  "irc": {
+     "nickname": "nick",
+      "server": "chat.freenode.net",
+      "discordToken": "tokenhere",
+      "autoSendCommands": [
+      ["PRIVMSG", "NickServ", "IDENTIFY password"]
+      ],
+      "channelMapping": {
+         "#shared": "#lbry"
+      }
   }
 }
