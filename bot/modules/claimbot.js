@@ -227,7 +227,10 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
               icon_url:
                 "http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif"
             },
-            title: (channelName ? channelName + "/" : "") + claim["name"],
+            title:
+              "lbry://" +
+              (channelName ? channelName + "/" : "") +
+              claim["name"],
             color: 1399626,
             description: escapeSlackHtml(text.join("\n")),
             footer: {
