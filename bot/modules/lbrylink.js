@@ -10,10 +10,8 @@ exports.lbrylink = function(bot, msg, suffix) {
       return;
     }
     var link = msg.content.indexOf("lbry://");
-    console.log(link);
     if (link != -1) {
       var text = msg.content.replace("lbry://", "https://open.lbry.io/");
-      console.log(text);
       var message = GetWordByPos(text, link);
       if (message === "https://open.lbry.io/") {
         return;
