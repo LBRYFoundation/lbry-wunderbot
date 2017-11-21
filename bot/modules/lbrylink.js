@@ -52,8 +52,7 @@ exports.lbrylink = function(bot, msg, suffix) {
       }
       const embed = {
         description:
-          msg.author +
-          ", I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" +
+          "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" +
           "[lbry://" +
           newname +
           "](" +
