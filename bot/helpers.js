@@ -8,7 +8,7 @@ let statsBotChannels = config.get("statsbot");
 
 // Checks if user is allowed to use a command only for mods/team members
 exports.hasPerms = function(msg) {
-  return msg.member.roles.some(r => permRanks.perms.includes(r.name));
+  return msg.member.roles.some(r => permRanks.perms.includes("LBRY TEAM","LBRY MOD"));
 };
 
 // Check if command was sent in dm
