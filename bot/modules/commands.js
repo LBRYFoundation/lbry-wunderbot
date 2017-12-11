@@ -36,6 +36,8 @@ exports.commands = [
   "email",
   "cli",
   "ipfstorrent"
+  "shapeshift"
+  "youtube"
 ];
 
 exports.helpcommands = {
@@ -621,3 +623,63 @@ exports.ipfstorrent = {
     });
   }
 };
+exports.ipfstorrent = {
+  usage: " ",
+  description: "How is LBRY different from IPFS / BitTorrent?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "If you are interested in how LBRY is different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
+      color: 7976557,
+      author: {
+        name: "How is LBRY different from IPFS / BitTorrent?",
+        url: "https://lbry.io/faq/different-ipfs",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+
+exports.shapeshift = {
+  usage: " ",
+  description: "How can I convert my crypto into LBC?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "Please see this guide on how to convert my crypto into LBC, check out [lbry.io/faq/shapeshift](https://lbry.io/faq/shapeshift)",
+      color: 7976557,
+      author: {
+        name: "How can I convert my crypto into LBC?",
+        url: "https://lbry.io/faq/shapeshift",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+
+exports.Youtube = {
+  usage: " ",
+  description: "What is YouTube Sync?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "Please see this guide on how youtube sync works, check out [lbry.io/faq/youtube](https://lbry.io/faq/youtube)",
+      color: 7976557,
+      author: {
+        name: "What is YouTube Sync?",
+        url: "https://lbry.io/faq/youtube",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+
