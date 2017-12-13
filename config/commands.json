@@ -1,0 +1,78 @@
+{
+    "!helpcommands": {
+        "usage": "",
+        "description": "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "message": "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent**",
+            "color": 7976557,
+            "author": {
+                "name": "List of Helpful LBRY Commands",
+                "url": "",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
+    "!what": {
+        "usage": "",
+        "description": "What is Lbry?",
+        "operation": "send",
+        "bundle": {
+            "url": "https://lbry.io/what",
+            "title": "*Click Here for more Info!*",
+            "message": "[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the App here**_](https://lbry.io/get)",
+            "color": 7976557,
+            "author": {
+                "name": "What is LBRY?",
+                "url": "https://lbry.io/what",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
+    "!begging": {
+        "usage": "",
+        "description": "Dont Request Free Coins Message",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "message": "**Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.**",
+            "color": 7976557,
+            "author": {
+                "name": "BEGGING!",
+                "url": "https://i.imgur.com/yWf5USu.png",
+                "icon_url": ""
+            }
+        }
+    },
+    "!beta": {},
+    "!github": {},
+    "!appdownload": {},
+    "!daemondownload": {},
+    "!directories": {},
+    "!faq": {},
+    "!name": {},
+    "!mining": {},
+    "!pricestance": {},
+    "!publisher": {},
+    "!publish": {},
+    "!random": {},
+    "!referrals": {},
+    "!rewards": {},
+    "!rewardsvsreferrals": {},
+    "!cc": {},
+    "!verify": {},
+    "!verification": {},
+    "!logfile": {},
+    "!backup": {},
+    "!startup": {},
+    "!streamingissues": {},
+    "!ports": {},
+    "!migrate": {},
+    "!tipping": {},
+    "!email": {},
+    "!cli": {},
+    "!ipfstorrent": {}
+}
