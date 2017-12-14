@@ -17,7 +17,7 @@ exports.commands = [
   "name",
   "mining",
   "pricestance",
-  "publisher",
+  "youtuber",
   "publish",
   "random",
   "referrals",
@@ -36,17 +36,20 @@ exports.commands = [
   "email",
   "cli",
   "ipfstorrent"
+  "shapeshift"
+  "youtube"
+  "transactions"
 ];
 
 exports.helpcommands = {
   usage: " ",
   description:
-    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent",
+    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions",
   process: function(bot, msg) {
     msg.channel.send({
       embed: {
         description:
-          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent**",
+          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions**",
         color: 7976557,
         author: {
           name: "List of Helpful LBRY Commands",
@@ -268,17 +271,17 @@ exports.pricestance = {
   }
 };
 
-exports.publisher = {
+exports.youtuber = {
   usage: " ",
-  description: "Interested in publishing on LBRY?",
+  description: "Are you a Youtuber curious about LBRY?",
   process: function(bot, msg) {
     const embed = {
       description:
-        "Interested in publishing on LBRY?  Have a look at [lbry.io/publish](https://lbry.io/publish)",
+        "Are you a Youtuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
       color: 7976557,
       author: {
-        name: "Want to Publish?",
-        url: "https://lbry.io/publish",
+        name: "Are you a Youtuber?",
+        url: "https://lbry.io/youtube",
         icon_url: "https://i.imgur.com/yWf5USu.png"
       }
     };
@@ -346,11 +349,11 @@ exports.rewards = {
   process: function(bot, msg) {
     const embed = {
       description:
-        "Rewards are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a Credit Card or other manual methods.\n Please see [lbry.io/faq/identity-requirements](https://lbry.io/faq/identity-requirements)",
+        "[Rewards](https://lbry.io/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a Credit Card or other manual methods.\n Please see [lbry.io/faq/identity-requirements](https://lbry.io/faq/identity-requirements)",
       color: 7976557,
       author: {
         name: "Rewards",
-        url: "https://lbry.io/faq/identity-requirements",
+        url: "https://lbry.io/faq/rewards",
         icon_url: "https://i.imgur.com/yWf5USu.png"
       }
     };
@@ -417,18 +420,18 @@ exports.verification = {
     var message =
       "If you would like to be verified go to <#" +
       verificationChannel +
-      ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  This channel is not for YouTube sync, which is a separate process that requires a minimum number of views on Youtube (If you restarted LBRY and didn't get verified, you most likely don't qualify).";
+      ">.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  Check out our [YouTube Sync](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.";
     msg.channel.send(message);
   }
 };
 
 exports.logfile = {
   usage: " ",
-  description: "How to fine LBRY-app Log File?",
+  description: "How to find LBRY-app Log File?",
   process: function(bot, msg) {
     const embed = {
       description:
-        "You can find your log files by following the tutorial [HERE](https://lbry.io/faq/how-to-find-lbry-log-file)",
+        "You can find your log files by following the guide [HERE](https://lbry.io/faq/how-to-find-lbry-log-file)",
       color: 7976557,
       author: {
         name: "How to find my LogFile?",
@@ -621,3 +624,63 @@ exports.ipfstorrent = {
     });
   }
 };
+
+exports.shapeshift = {
+  usage: " ",
+  description: "How can I convert my crypto into LBC?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "Please see this guide on how to convert your crypto into LBC: [lbry.io/faq/shapeshift](https://lbry.io/faq/shapeshift)",
+      color: 7976557,
+      author: {
+        name: "How can I convert my crypto into LBC?",
+        url: "https://lbry.io/faq/shapeshift",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+
+exports.youtube = {
+  usage: " ",
+  description: "What is YouTube Sync?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "Please see this guide on how youtube sync works, check out [lbry.io/faq/youtube](https://lbry.io/faq/youtube)",
+      color: 7976557,
+      author: {
+        name: "What is YouTube Sync?",
+        url: "https://lbry.io/faq/youtube",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+exports.transactions = {
+  usage: " ",
+  description: "What types of LBRY transactions are there?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "Please see this guide on [transaction types](https://lbry.io/faq/transaction-types)",
+      color: 7976557,
+      author: {
+        name: "What types of LBRY transactions are there?",
+        url: "https://lbry.io/faq/transaction-types",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+
