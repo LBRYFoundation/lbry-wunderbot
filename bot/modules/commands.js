@@ -17,7 +17,7 @@ exports.commands = [
   "name",
   "mining",
   "pricestance",
-  "Youtuber",
+  "youtuber",
   "publish",
   "random",
   "referrals",
@@ -38,7 +38,7 @@ exports.commands = [
   "ipfstorrent"
   "shapeshift"
   "youtube"
-  "Transactions"
+  "transactions"
 ];
 
 exports.helpcommands = {
