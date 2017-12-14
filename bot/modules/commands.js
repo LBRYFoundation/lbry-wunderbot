@@ -38,6 +38,7 @@ exports.commands = [
   "ipfstorrent"
   "shapeshift"
   "youtube"
+  "Transactions"
 ];
 
 exports.helpcommands = {
