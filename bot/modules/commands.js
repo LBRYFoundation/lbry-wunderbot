@@ -43,12 +43,12 @@ exports.commands = [
 exports.helpcommands = {
   usage: " ",
   description:
-    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube",
+    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions",
   process: function(bot, msg) {
     msg.channel.send({
       embed: {
         description:
-          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube**",
+          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions**",
         color: 7976557,
         author: {
           name: "List of Helpful LBRY Commands",
@@ -270,17 +270,17 @@ exports.pricestance = {
   }
 };
 
-exports.publisher = {
+exports.youtuber = {
   usage: " ",
-  description: "Interested in publishing on LBRY?",
+  description: "Are you a Youtuber curious about LBRY?",
   process: function(bot, msg) {
     const embed = {
       description:
-        "Interested in publishing on LBRY?  Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
+        "Are you a Youtuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
       color: 7976557,
       author: {
-        name: "Want to Publish?",
-        url: "https://lbry.io/publish",
+        name: "Are you a Youtuber?",
+        url: "https://lbry.io/youtube",
         icon_url: "https://i.imgur.com/yWf5USu.png"
       }
     };
@@ -644,7 +644,7 @@ exports.shapeshift = {
   }
 };
 
-exports.Youtube = {
+exports.youtube = {
   usage: " ",
   description: "What is YouTube Sync?",
   process: function(bot, msg) {
@@ -655,6 +655,25 @@ exports.Youtube = {
       author: {
         name: "What is YouTube Sync?",
         url: "https://lbry.io/faq/youtube",
+        icon_url: "https://i.imgur.com/yWf5USu.png"
+      }
+    };
+    msg.channel.send({
+      embed
+    });
+  }
+};
+exports.transactions = {
+  usage: " ",
+  description: "What types of LBRY transactions are there?",
+  process: function(bot, msg) {
+    const embed = {
+      description:
+        "Please see this guide on [transaction types](https://lbry.io/faq/transaction-types)",
+      color: 7976557,
+      author: {
+        name: "What types of LBRY transactions are there?",
+        url: "https://lbry.io/faq/transaction-types",
         icon_url: "https://i.imgur.com/yWf5USu.png"
       }
     };
