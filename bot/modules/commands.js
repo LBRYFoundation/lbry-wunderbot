@@ -684,15 +684,15 @@ exports.transactions = {
     });
   }
 };
-
 exports.tipbot = {
   usage: " ",
-  description: "tipbot Help Message",
+  description: "Tipbot Help Message",
   process: function(bot, msg) {
     var message =
-      "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#" + Bot-sandboxChannel +
-      "> channel for assistance.\n**Bot-sandbox is purely optional and ONLY relevant for Talk to bots, Avoid spamming public channels;
-     msg.channel.send(message);   
+      "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#" +
+      Bot-sandboxChannel +
+      ">.  After joining,please type !tip help on channel for more assistance, the channel is dedicated for Talk to bots in here! Avoid spamming public channels.";
+    msg.channel.send(message);
   }
 };
 
