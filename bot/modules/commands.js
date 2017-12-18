@@ -46,12 +46,12 @@ exports.commands = [
 exports.helpcommands = {
   usage: " ",
   description:
-    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions, !tipbot,",
+    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions, !tipbot",
   process: function(bot, msg) {
     msg.channel.send({
       embed: {
         description:
-          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions, !tipbot,**",
+          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions, !tipbot**",
         color: 7976557,
         author: {
           name: "List of Helpful LBRY Commands",
@@ -691,7 +691,7 @@ exports.tipbot = {
   process: function(bot, msg) {
     var message =
       "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#" +
-      bot-sandboxChannel +
+      botsandboxChannel +
       ">.  After joining,please type `!tip help` for more assistance. This channel should be used to talk to bots in order to avoid spamming other channels.";
     msg.channel.send(message);
   }
