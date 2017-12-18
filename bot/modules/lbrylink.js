@@ -13,7 +13,10 @@ exports.lbrylink = function(bot, msg, suffix) {
     if (link != -1) {
       var text = msg.content.replace("lbry://", "https://open.lbry.io/");
       var message = GetWordByPos(text, link);
-      if (text.search("<") != -1) {
+      if (message === "https://open.lbry.io/") {
+        return;
+      }
+      if (message.search("<") != -1) {
         var name = "@" + msg.mentions.members.first().user.username;
         var trim = message.split("/").pop();
         var trim2 = trim.substr(2);
@@ -49,8 +52,7 @@ exports.lbrylink = function(bot, msg, suffix) {
       }
       const embed = {
         description:
-          msg.author +
-          ", I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" +
+          "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" +
           "[lbry://" +
           newname +
           "](" +

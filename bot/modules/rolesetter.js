@@ -1,5 +1,6 @@
-var config = require("config");
-rolelist = config.get("rolelist");
+let config = require("config");
+let botconfig = config.get("bot");
+let rolelist = config.get("rolelist");
 
 exports.commands = [
   "addrole", // command that is in this file, every command needs it own export as shown below
@@ -21,28 +22,34 @@ exports.addrole = {
     //console.log(rolelist);
     //console.log(rolelist.allowedroles);
     //console.log(config.get('allowedroles'));
-    if (rolelist.allowedroles.includes(suffix)) {
-      //console.log('Role is in allowed roles.');
-      //console.log('Role to add: ' + newrole);
-      if (!msg.member.roles.find("name", suffix)) {
-        msg.member
-          .addRole(newrole)
-          .then(
+    if (suffix) {
+        if (rolelist.allowedroles.includes(suffix)) {
+            //console.log('Role is in allowed roles.');
+            //console.log('Role to add: ' + newrole);
+            if (!msg.member.roles.find("name", suffix)) {
+                msg.member
+                    .addRole(newrole)
+                    .then(
+                        msg.channel.send(
+                            msg.member + " has been added to the " + suffix + " role!"
+                        )
+                    );
+                //console.log('Added role')
+                //msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!');
+            } else {
+                msg.channel.send(
+                    "It seems that you already have that role! Try removing it first with the " + botconfig.prefix + "delrole command!"
+                );
+            }
+        } else {
             msg.channel.send(
-              msg.member + " has been added to the " + suffix + " role!"
-            )
-          );
-        //console.log('Added role')
-        //msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!');
-      } else {
-        msg.channel.send(
-          "It seems that you already have that role! Try removing it first with the delrole command!"
-        );
-      }
+                "That role isn't one you can add yourself too! Please run the " + botconfig.prefix + "roles command to find out which ones are allowed."
+            );
+        }
     } else {
-      msg.channel.send(
-        "That role isn't one you can add yourself too! Please run the roles command to find out which ones are allowed."
-      );
+        msg.channel.send (
+            "Please specify a role. Type " + botconfig.prefix + "roles to see which you may add!"
+        )
     }
   }
 };
@@ -56,24 +63,30 @@ exports.delrole = {
     //console.log('Delrole Event firing.');
     //console.log(msg);
     //console.log('Printing Suffix! ' + suffix);
-    if (rolelist.allowedroles.includes(suffix)) {
-      if (msg.member.roles.find("name", suffix)) {
-        msg.member
-          .removeRole(oldrole)
-          .then(
+    if (suffix) {
+        if (rolelist.allowedroles.includes(suffix)) {
+            if (msg.member.roles.find("name", suffix)) {
+                msg.member
+                    .removeRole(oldrole)
+                    .then(
+                        msg.channel.send(
+                            msg.member + " has been removed from the " + suffix + " role!"
+                        )
+                    );
+            } else {
+                msg.channel.send(
+                    "You don't seem to have that role! Try adding it first with the " + botconfig.prefix + "addrole command!"
+                );
+            }
+        } else {
             msg.channel.send(
-              msg.member + " has been removed from the " + suffix + " role!"
-            )
-          );
-      } else {
-        msg.channel.send(
-          "You don't seem to have that role! Try adding it first with the addrole command!"
-        );
-      }
+                "That role isn't one you can add yourself too! Please run the " + botconfig.prefix + "roles command to find out which ones are allowed."
+            );
+        }
     } else {
-      msg.channel.send(
-        "That role isn't one you can add yourself too! Please run the roles command to find out which ones are allowed."
-      );
+        msg.channel.send(
+            "Please specify a role. Type " + botconfig.prefix + "roles to see which you may add!"
+        )
     }
   }
 };
