@@ -14,7 +14,7 @@ module.exports = {
   init: init
 };
 
-function init(discordBot_, mongodburl) {
+function init(discordBot_) {
   if (lbry) {
     throw new Error("init was already called once");
   }
@@ -31,7 +31,7 @@ function init(discordBot_, mongodburl) {
     const bitcoin = require("bitcoin");
     lbry = new bitcoin.Client(config.get("lbrycrd"));
 
-    console.log("Activating claimbot");
+    console.log("Activating claimbot ");
     discordBot.channels.get(channels[0]).send("activating claimbot");
 
     setInterval(function() {
@@ -55,6 +55,7 @@ function announceNewClaims() {
   Promise.all([getLastBlock(), lbryCall("getinfo")])
     .then(function([lastProcessedBlock, currentBlockInfo]) {
       const currentHeight = currentBlockInfo["blocks"];
+      console.log(currentHeight);
       if (lastProcessedBlock === null) {
         console.log(
           "First run. Setting last processed block to " +
@@ -70,7 +71,9 @@ function announceNewClaims() {
         const firstBlockToProcess = testBlock || lastProcessedBlock + 1,
           lastBlockToProcess = testBlock || currentHeight;
 
-        // console.log('Doing blocks ' + firstBlockToProcess + ' to ' + lastBlockToProcess);
+        console.log(
+          "Doing blocks " + firstBlockToProcess + " to " + lastBlockToProcess
+        );
         return announceClaimsLoop(
           firstBlockToProcess,
           lastBlockToProcess,
@@ -104,7 +107,8 @@ function announceClaimsLoop(block, lastBlock, currentHeight) {
         claims.map(function(claim) {
           //slack has a rate limit. to avoid hitting it we must have a small delay between each message
           //if claims were found in this block, then we wait, otherwise we don't
-          if (claimsFound > 0) sleep.msleep(300);
+          if (claimsFound > 0 && claim.hasOwnProperty("claimId"))
+            sleep.msleep(300);
           return announceClaim(claim, block, currentHeight);
         })
       );
@@ -131,7 +135,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
   request(options, function(error, response, body) {
     if (error) throw new Error(error);
     try {
-      console.log(body);
+      console.log(JSON.stringify(JSON.parse(body), null, 2));
       let claimData = null;
       let channelName = null;
       try {
@@ -308,8 +312,12 @@ function setLastBlock(block) {
 
 function discordPost(text, params) {
   let richEmbeded = new Discord.RichEmbed(params);
+
   channels.forEach(channel => {
-    discordBot.channels.get(channel).send("", richEmbeded);
+    discordBot.channels
+      .get(channel)
+      .send("", richEmbeded)
+      .catch(console.error);
   });
 }
 
