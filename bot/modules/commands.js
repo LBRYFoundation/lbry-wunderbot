@@ -36,10 +36,10 @@ exports.commands = [
   "tipping",
   "email",
   "cli",
-  "ipfstorrent"
-  "shapeshift"
-  "youtube"
-  "transactions"
+  "ipfstorrent",
+  "shapeshift",
+  "youtube",
+  "transactions",
   "tipbot"
 ];
 
