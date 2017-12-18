@@ -77,8 +77,8 @@
   },
   "rolelist": {
     "allowedroles": [
-      "Role1",
-      "Role2"
+      "Reward Scammer",
+      "Reported Scammer"
     ]
   },
   "claimbot": {
