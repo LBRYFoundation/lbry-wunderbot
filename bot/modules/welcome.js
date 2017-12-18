@@ -40,7 +40,7 @@ exports.onUserJoin = function(bot) {
     member.send({
       embed: {
         description:
-          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC), see #bot-sandbox channel. **PS:Enable 2FA in your Discord account settings!** \n" +
+          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC), see the #bot-sandbox channel. **PS:Enable 2FA in your Discord account settings!** \n" +
           "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
           "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
           "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
@@ -156,7 +156,7 @@ exports.welcome = {
     msg.mentions.members.first().send({
       embed: {
         description:
-          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC),you can do that to interact with the tipbot in #bot-sandbox channel . **PS:Enable 2FA in your Discord account settings!** \n" +
+          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC), see the #bot-sandbox channel . **PS:Enable 2FA in your Discord account settings!** \n" +
           "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
           "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
           "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
