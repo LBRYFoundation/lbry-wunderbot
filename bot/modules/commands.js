@@ -3,7 +3,7 @@ let config = require("config");
 let miningChannel = config.get("Channels").mining;
 let randomChannel = config.get("Channels").random;
 let verificationChannel = config.get("Channels").verification;
-let bot-sandboxChannel = config.get("Channels").sandbox;
+let botsandboxChannel = config.get("Channels").sandbox;
 
 exports.commands = [
   "helpcommands",
