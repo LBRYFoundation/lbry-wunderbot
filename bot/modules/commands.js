@@ -690,8 +690,8 @@ exports.tipbot = {
   process: function(bot, msg) {
     var message =
       "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#" +
-      Bot-sandboxChannel +
-      ">.  After joining,please type !tip help on channel for more assistance, the channel is dedicated for Talk to bots in here! Avoid spamming public channels.";
+      bot-sandboxChannel +
+      ">.  After joining,please type `!tip help` for more assistance. This channel should be used to talk to bots in order to avoid spamming other channels.";
     msg.channel.send(message);
   }
 };
