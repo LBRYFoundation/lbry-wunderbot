@@ -40,7 +40,7 @@ exports.onUserJoin = function(bot) {
     member.send({
       embed: {
         description:
-          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
+          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC), see the #bot-sandbox channel. **PS:Enable 2FA in your Discord account settings!** \n" +
           "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
           "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
           "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
@@ -156,7 +156,7 @@ exports.welcome = {
     msg.mentions.members.first().send({
       embed: {
         description:
-          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
+          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC), see the #bot-sandbox channel . **PS:Enable 2FA in your Discord account settings!** \n" +
           "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
           "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
           "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
@@ -188,7 +188,7 @@ exports.welcome = {
       embed: {
         title: "*Click here to see all LBRY Frequently Asked Questions (FAQ)!*",
         description:
-          "Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troublshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)",
+          "Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troublshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals) \nWhat is YouTube Sync? [**Youtube**](https://lbry.io/faq/youtube) \nHow can I convert my crypto into LBC? [**Shapeshift**](https://lbry.io/faq/shapeshift)",
         url: "https://lbry.io/faq",
         color: 7976557,
         author: {
