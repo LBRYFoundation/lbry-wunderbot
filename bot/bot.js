@@ -145,7 +145,7 @@ function checkMessageForCommand(msg, isEdit) {
         msg.channel.send(msgTxt);
       }
     } else {
-      msg.channel.send(cmdTxt + ' not recognized as a command!').then(message => message.delete(10000));
+      //msg.channel.send(cmdTxt + ' not recognized as a command!').then(message => message.delete(10000));
     }
   } else {
     //message isn't a command or is from us
