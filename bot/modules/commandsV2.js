@@ -29,8 +29,6 @@ let checkForCommand = function(message) {
       message.content.toLowerCase().indexOf(command.toLowerCase()) >= 0 &&
       commands[command].operation === "send"
     ) {
-      console.log("sending message");
-      console.log(commands[command].bundle);
       message.channel.send("", new Discord.RichEmbed(commands[command].bundle));
     }
   });
