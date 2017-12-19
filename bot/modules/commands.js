@@ -3,6 +3,7 @@ let config = require("config");
 let miningChannel = config.get("Channels").mining;
 let randomChannel = config.get("Channels").random;
 let verificationChannel = config.get("Channels").verification;
+let botsandboxChannel = config.get("Channels").sandbox;
 
 exports.commands = [
   "helpcommands",
@@ -35,21 +36,22 @@ exports.commands = [
   "tipping",
   "email",
   "cli",
-  "ipfstorrent"
-  "shapeshift"
-  "youtube"
-  "transactions"
+  "ipfstorrent",
+  "shapeshift",
+  "youtube",
+  "transactions",
+  "tipbot"
 ];
 
 exports.helpcommands = {
   usage: " ",
   description:
-    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions",
+    "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions, !tipbot",
   process: function(bot, msg) {
     msg.channel.send({
       embed: {
         description:
-          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions**",
+          "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !youtuber, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent, !shapeshift, !youtube, !transactions, !tipbot**",
         color: 7976557,
         author: {
           name: "List of Helpful LBRY Commands",
@@ -683,4 +685,16 @@ exports.transactions = {
     });
   }
 };
+exports.tipbot = {
+  usage: " ",
+  description: "Tipbot Help Message",
+  process: function(bot, msg) {
+    var message =
+      "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#" +
+      botsandboxChannel +
+      ">.  After joining,please type `!tip help` for more assistance. This channel should be used to talk to bots in order to avoid spamming other channels.";
+    msg.channel.send(message);
+  }
+};
+
 
