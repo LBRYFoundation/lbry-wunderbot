@@ -1,12 +1,12 @@
 {
     "!helpcommands": {
         "usage": "",
-        "description": "Displays Helpful Commands:\n!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent",
-        "operation": "send",
+        "description": "Displays Helpful Commands",
+        "operation": "none",
         "bundle": {
             "url": "",
             "title": "",
-            "description": "**!what, !beta, !begging, !github, !appdownload, !daemondownload, !directories, !faq, !name, !mining, !pricestance, !publisher, !publish, !random, !referrals, !rewards, !rewardsvsreferrals, !cc, !verify, !verification, !logfile, !backup, !startup, !streamingissues, !ports, !migrate, !tipping, !email, !cli, !ipfstorrent**",
+            "description": "filled at runtime",
             "color": 7976557,
             "author": {
                 "name": "List of Helpful LBRY Commands",
@@ -539,6 +539,22 @@
             "author": {
                 "name": "What types of LBRY transactions are there?",
                 "url": "https://lbry.io/faq/transaction-types",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
+    "!tipbot": {
+        "usage": "",
+        "description": "Tipbot Help Message",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#369896313082478594>.  After joining,please type `!tip help` for more assistance. This channel should be used to talk to bots in order to avoid spamming other channels.",
+            "color": 7976557,
+            "author": {
+                "name": "Tipbot Help Message",
+                "url": "",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
         }
