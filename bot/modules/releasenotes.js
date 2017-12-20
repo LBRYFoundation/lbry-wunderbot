@@ -39,7 +39,8 @@ exports.releasenotes = {
             timestamp: releasedate,
             author: {
               name: "Lbry-app Release Notes for " + releasename,
-              icon_url: "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
+              icon_url:
+                "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
             },
             footer: {
               icon_url: "https://i.imgur.com/yWf5USu.png",
@@ -58,9 +59,12 @@ exports.releasenotes = {
           msg.author.send(message);
         }
       } else {
-        message = releasemessage.trim().split("###").filter(function(n) {
-          return n !== "";
-        });
+        message = releasemessage
+          .trim()
+          .split("###")
+          .filter(function(n) {
+            return n !== "";
+          });
         releasemessage1 = message[0];
         releasemessage2 = message[1];
         releasemessage3 = message[2];
@@ -75,7 +79,8 @@ exports.releasenotes = {
             timestamp: releasedate,
             author: {
               name: "Lbry-app Release Notes for " + releasename,
-              icon_url: "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
+              icon_url:
+                "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
             },
             footer: {
               icon_url: "https://i.imgur.com/yWf5USu.png",
@@ -89,7 +94,8 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
+              icon_url:
+                "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
             },
             footer: {
               icon_url: "https://i.imgur.com/yWf5USu.png",
@@ -103,7 +109,8 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
+              icon_url:
+                "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
             },
             footer: {
               icon_url: "https://i.imgur.com/yWf5USu.png",
@@ -117,7 +124,8 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
+              icon_url:
+                "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
             },
             footer: {
               icon_url: "https://i.imgur.com/yWf5USu.png",
@@ -131,7 +139,8 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
+              icon_url:
+                "http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png"
             },
             footer: {
               icon_url: "https://i.imgur.com/yWf5USu.png",

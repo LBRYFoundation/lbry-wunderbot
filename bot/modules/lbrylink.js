@@ -13,25 +13,25 @@ exports.lbrylink = function(bot, msg, suffix) {
     if (link != -1) {
       var text = msg.content.replace("lbry://", "https://open.lbry.io/");
       var message = GetWordByPos(text, link);
-        if (ResponseDebug == "true") {
-          console.log("text = " + text);
-          console.log("message = " + message);
-        }
+      if (ResponseDebug == "true") {
+        console.log("text = " + text);
+        console.log("message = " + message);
+      }
       if (message === "https://open.lbry.io/") {
         return;
       }
       if (message.search(">") != -1) {
         parsename = message.split(">").pop();
-        if (parsename.search("/") == -1){
+        if (parsename.search("/") == -1) {
           return;
         }
         newname = message.split("/").pop();
         message = "https://open.lbry.io/" + newname;
-          if (ResponseDebug == "true") {
-            console.log("Username Provided!");
-            console.log("parsename = " + parsename);
-            console.log("newname = " + newname);
-          }
+        if (ResponseDebug == "true") {
+          console.log("Username Provided!");
+          console.log("parsename = " + parsename);
+          console.log("newname = " + newname);
+        }
       } else {
         var newname = message.replace("https://open.lbry.io/", "");
       }
