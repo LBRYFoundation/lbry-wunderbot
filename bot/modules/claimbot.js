@@ -105,7 +105,7 @@ function announceClaimsLoop(block, lastBlock, currentHeight) {
       claimsFound = claims.length;
       return Promise.all(
         claims.map(function(claim) {
-          //slack has a rate limit. to avoid hitting it we must have a small delay between each message
+          //the API has a rate limit. to avoid hitting it we must have a small delay between each message
           //if claims were found in this block, then we wait, otherwise we don't
           if (claimsFound > 0 && claim.hasOwnProperty("claimId"))
             sleep.msleep(300);
@@ -127,6 +127,12 @@ function announceClaimsLoop(block, lastBlock, currentHeight) {
 function announceClaim(claim, claimBlockHeight, currentHeight) {
   console.log("" + claimBlockHeight + ": New claim for " + claim["name"]);
   console.log(claim);
+
+  //ignore supports for now
+  //the issue with supports is that they should be treated completely differently
+  //they are not new claims...
+  if (claim.hasOwnProperty("supported claimId")) return;
+
   let options = {
     method: "GET",
     url: "http://127.0.0.1:5000/claim_decode/" + claim["name"]
@@ -170,10 +176,12 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
         const text = [];
 
         if (value) {
-          /*if (channelName) { 
-                                    text.push("Channel: lbry://" + channelName); 
-                                  } 
-                                  else*/
+          /*
+          if (channelName) { 
+            text.push("Channel: lbry://" + channelName);
+          } 
+          else
+          */
           console.log(value);
           if (value["author"]) {
             text.push("author: " + value["author"]);

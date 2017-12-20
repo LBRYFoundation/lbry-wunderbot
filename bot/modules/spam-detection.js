@@ -39,7 +39,7 @@ exports.antiSpam = function(bot) {
       return;
     }
     if (msg.author.id != bot.user.id) {
-      var now = Math.floor(Date.now());
+      let now = Math.floor(Date.now());
       authors.push({
         time: now,
         author: msg.author.id
@@ -50,8 +50,8 @@ exports.antiSpam = function(bot) {
       });
 
       // Check how many times the same message has been sent.
-      var msgMatch = 0;
-      for (var i = 0; i < messagelog.length; i++) {
+      let msgMatch = 0;
+      for (let i = 0; i < messagelog.length; i++) {
         if (
           messagelog[i].message == msg.content &&
           messagelog[i].author == msg.author.id &&
@@ -70,7 +70,7 @@ exports.antiSpam = function(bot) {
 
       matched = 0;
 
-      for (var i = 0; i < authors.length; i++) {
+      for (let i = 0; i < authors.length; i++) {
         if (authors[i].time > now - interval) {
           matched++;
           if (matched == warnBuffer && !warned.includes(msg.author.id)) {
@@ -109,7 +109,7 @@ exports.antiSpam = function(bot) {
    * @return {boolean} True or False
    */
   function ban(msg, userid) {
-    for (var i = 0; i < messagelog.length; i++) {
+    for (let i = 0; i < messagelog.length; i++) {
       if (messagelog[i].author == msg.author.id) {
         messagelog.splice(i);
       }
@@ -117,7 +117,7 @@ exports.antiSpam = function(bot) {
 
     banned.push(msg.author.id);
 
-    var user = msg.channel.guild.members.find(
+    let user = msg.channel.guild.members.find(
       member => member.user.id === msg.author.id
     );
     if (user) {
