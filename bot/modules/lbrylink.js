@@ -1,5 +1,5 @@
 let inPrivate = require("../helpers.js").inPrivate;
-let ResponseDebug = "false";
+let ResponseDebug = "true";
 exports.custom = [
   "lbrylink" //change this to your function name
 ];
@@ -9,40 +9,43 @@ exports.lbrylink = function(bot, msg, suffix) {
     if (inPrivate(msg)) {
       return;
     }
-    var link = msg.content.indexOf("lbry://");
-    if (link != -1) {
+    var link = msg.content.includes("lbry://");
+    if (link) {
       var text = msg.content.replace("lbry://", "https://open.lbry.io/");
-      var message = GetWordByPos(text, link);
+      var message = text.match(/\bhttps?:\/\/\S+/gi);
       if (ResponseDebug == "true") {
+        console.log("Link = " + link);
         console.log("text = " + text);
         console.log("message = " + message);
       }
-      if (message === "https://open.lbry.io/") {
+      if (text === "https://open.lbry.io/") {
         return;
       }
-      if (message.search(">") != -1) {
-        parsename = message.split(">").pop();
-        if (parsename.search("/") == -1) {
-          return;
-        }
-        newname = message.split("/").pop();
-        message = "https://open.lbry.io/" + newname;
+      if (message.includes(">")) {
+        parsename = text.split(">").pop();
+        parsename = parsename.split("/").pop();
+        message = "https://open.lbry.io/" + parsename;
+        newname = message.match(/\bhttps?:\/\/\S+/gi);
         if (ResponseDebug == "true") {
           console.log("Username Provided!");
           console.log("parsename = " + parsename);
+          console.log("message = " + message);
           console.log("newname = " + newname);
         }
+        if (newname == "https://open.lbry.io/") {
+          return;
+        }
       } else {
-        var newname = message.replace("https://open.lbry.io/", "");
+        var newname = message;
+        if (ResponseDebug == "true") {
+          console.log("message = " + message);
+          console.log("newname = " + newname);
+        }
       }
       const embed = {
         description:
           "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" +
-          "[lbry://" +
-          newname +
-          "](" +
-          message +
-          ")",
+          newname,
         color: 7976557,
         author: {
           name: "LBRY Linker",
