@@ -1,5 +1,5 @@
 let inPrivate = require("../helpers.js").inPrivate;
-let ResponseDebug = "true";
+let ResponseDebug = "false";
 exports.custom = [
   "lbrylink" //change this to your function name
 ];
@@ -12,31 +12,52 @@ exports.lbrylink = function(bot, msg, suffix) {
     var link = msg.content.includes("lbry://");
     if (link) {
       var text = msg.content.replace("lbry://", "https://open.lbry.io/");
-      var message = text.match(/\bhttps?:\/\/\S+/gi);
+      var message = text.match(/\bhttps?:\/\/\S+/gi).toString();
+      var check1 = message.includes(">");
       if (ResponseDebug == "true") {
         console.log("Link = " + link);
         console.log("text = " + text);
         console.log("message = " + message);
+        console.log("check1 = " + check1);
       }
-      if (text === "https://open.lbry.io/") {
+      if (message == "https://open.lbry.io/") {
         return;
       }
-      if (message.includes(">")) {
-        parsename = text.split(">").pop();
-        parsename = parsename.split("/").pop();
-        message = "https://open.lbry.io/" + parsename;
-        newname = message.match(/\bhttps?:\/\/\S+/gi);
+      if (check1 === true) {
+        parsename = message.split(">").pop();
+        message = "https://open.lbry.io" + parsename;
+        var newname = message.match(/\bhttps?:\/\/\S+/gi);
         if (ResponseDebug == "true") {
           console.log("Username Provided!");
           console.log("parsename = " + parsename);
           console.log("message = " + message);
           console.log("newname = " + newname);
         }
-        if (newname == "https://open.lbry.io/") {
+        if (!parsename.startsWith("/")) {
+          parsename2 = parsename.split("/").pop();
+          message = "https://open.lbry.io/" + parsename2;
+          newname = message.match(/\bhttps?:\/\/\S+/gi);
+          if (ResponseDebug == "true") {
+            console.log("Username no / check");
+            console.log("parsename2 = " + parsename2);
+            console.log("message = " + message);
+            console.log("newname = " + newname);
+          }
+          if (
+            newname == "https://open.lbry.io/" ||
+            parsename2.startsWith("#")
+          ) {
+            return;
+          }
+        }
+        if (newname == "https://open.lbry.io") {
           return;
         }
       } else {
         var newname = message;
+        if (newname == "https://open.lbry.io/") {
+          return;
+        }
         if (ResponseDebug == "true") {
           console.log("message = " + message);
           console.log("newname = " + newname);
