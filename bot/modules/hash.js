@@ -7,6 +7,77 @@ exports.commands = [
   "hash" // command that is in this file, every command needs it own export as shown below
 ];
 
+exports.custom = ["timedhash"];
+
+exports.timedhash = function(bot) {
+  setInterval(function() {
+    sendMiningInfo(bot);
+  }, 6 * 60 * 60 * 1000);
+
+  function sendMiningInfo(bot) {
+    needle.get("https://explorer.lbry.io/api/v1/status", function(
+      error,
+      response
+    ) {
+      if (error || response.statusCode !== 200) {
+        msg.channel.send("Explorer API is not available");
+      } else {
+        var data = response.body;
+        var height = Number(data.status.height);
+        var hashrate = data.status.hashrate;
+        var difficulty = Number(data.status.difficulty);
+        needle.get("https://whattomine.com/coins/164.json", function(
+          error,
+          response
+        ) {
+          if (error || response.statusCode !== 200) {
+            msg.channel.send("whattomine API is not available");
+          }
+          var data = response.body;
+          var reward = Number(data.block_reward);
+          var block_time = Number(data.block_time);
+          var difficulty24 = Number(data.difficulty24);
+          description =
+            "Hashrate: " +
+            numberWithCommas(hashrate) +
+            "\n" +
+            "Difficulty: " +
+            numberWithCommas(difficulty.toFixed(0)) +
+            "\n" +
+            "Difficulty 24 Hour Average: " +
+            numberWithCommas(difficulty24.toFixed(0)) +
+            "\n" +
+            "Current block: " +
+            numberWithCommas(height.toFixed(0)) +
+            "\n" +
+            "Block Time: " +
+            numberWithCommas(block_time.toFixed(0)) +
+            " seconds \n" +
+            "Block Reward: " +
+            numberWithCommas(reward.toFixed(0)) +
+            " LBC \n" +
+            "Sources: https://explorer.lbry.io & \n" +
+            "https://whattomine.com/coins/164-lbc-lbry";
+          const embed = {
+            description: description,
+            color: 7976557,
+            author: {
+              name: "LBRY Network Stats",
+              icon_url: "https://i.imgur.com/yWf5USu.png"
+            }
+          };
+          bot.channels.get(ChannelID).send({ embed });
+          return;
+        });
+      }
+    });
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  }
+};
+
+
 exports.hash = {
   usage: "",
   description:
