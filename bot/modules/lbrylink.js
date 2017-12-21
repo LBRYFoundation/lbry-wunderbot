@@ -1,5 +1,5 @@
 let inPrivate = require("../helpers.js").inPrivate;
-let responseDebug = true;
+let responseDebug = false;
 exports.custom = [
   "lbrylink" //change this to your function name
 ];
