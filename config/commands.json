@@ -326,7 +326,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "If you would like to be verified go to <#363050496023592961> and type `-new` - this will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per person is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
+            "description": "If you would like to be verified go to <#363050496023592961> and type `-new` \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per person is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
             "color": 7976557,
             "author": {
                 "name": "Rewards Verification",
