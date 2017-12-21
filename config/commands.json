@@ -326,7 +326,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "If you would like to be verified go to <#363050496023592961>.  After joining, post that you would like verification and a mod will get to your request as soon as possible. We appreciate your patience.  Only one account per person is allowed access to LBRY Rewards.  Check out our [YouTube Sync](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
+            "description": "If you would like to be verified go to <#363050496023592961> and type `-new` - this will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per person is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
             "color": 7976557,
             "author": {
                 "name": "Rewards Verification",
@@ -550,7 +550,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC) go to <#369896313082478594>.  After joining,please type `!tip help` for more assistance. This channel should be used to talk to bots in order to avoid spamming other channels.",
+            "description": "Type `!tip help` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels.",
             "color": 7976557,
             "author": {
                 "name": "Tipbot Help Message",
