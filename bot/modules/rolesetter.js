@@ -9,7 +9,7 @@ exports.commands = [
 ];
 
 exports.addrole = {
-  usage: "<role to add>",
+  usage: "<role>",
   description: "Adds you to specified role",
   process: function(bot, msg, suffix) {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
@@ -60,7 +60,7 @@ exports.addrole = {
   }
 };
 exports.delrole = {
-  usage: "<role to remove>",
+  usage: "<role>",
   description: "Deletes your role specified",
   process: function(bot, msg, suffix) {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
