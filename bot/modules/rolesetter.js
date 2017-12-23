@@ -10,7 +10,7 @@ exports.commands = [
 
 exports.addrole = {
   usage: "<role to add>",
-  description: "description of command",
+  description: "Adds you to specified role",
   process: function(bot, msg, suffix) {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
     //amsg.reply(rolelist.allowedroles.includes(suffix));
@@ -61,7 +61,7 @@ exports.addrole = {
 };
 exports.delrole = {
   usage: "<role to remove>",
-  description: "description of command",
+  description: "Deletes your role specified",
   process: function(bot, msg, suffix) {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
     let oldrole = msg.guild.roles.find("name", suffix);
@@ -104,7 +104,7 @@ exports.delrole = {
 };
 exports.roles = {
   usage: "",
-  description: "description of command",
+  description: "displays roles you can give yourself",
   process: function(bot, msg, suffix) {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
     msg.channel.send({
