@@ -4,16 +4,20 @@ let moment = require("moment");
 let numeral = require("numeral");
 let request = require("request");
 let config = require("config");
+let needle = require("needle");
 let hasPriceBotChannels = require("../helpers.js").hasPriceBotChannels;
 let inPrivate = require("../helpers.js").inPrivate;
 let ChannelID = config.get("pricebot").mainchannel;
+let responseDebug = false;
 
 exports.commands = ["price"];
 
 exports.price = {
   usage: "<currency> <amount>",
-  description: "displays price of lbc",
+  description: "displays price of lbc\n**!price lambo <amount-optional>**\n    displays amount of LBC to get a lambo\n    if <amount> is supplied that will be deducted from total price towards 1 Lambo!",
   process: function(bot, msg, suffix) {
+    let dt = new Date();
+    let timestamp = dt.toUTCString();
     var options = {
       defaultCurrency: "BTC",
 
@@ -254,7 +258,10 @@ exports.price = {
       .filter(function(n) {
         return n !== "";
       });
-
+      if (words[0] == "lambo") {
+        lbcLamboCalc(bot,msg,suffix)
+        return;
+      }
     var currency =
       words.length > 0 ? words[0].toUpperCase() : options.defaultCurrency;
     var amount = words.length > 1 ? parseFloat(words[1], 10) : 1;
@@ -305,6 +312,10 @@ exports.price = {
         "**" +
         command +
         " CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY\n" +
+        "**" +
+        command +
+        " lambo AMOUNT**: displays amount of LBC to get a lambo\n" +
+        "    if AMOUNT is supplied that will be deducted from total price towards 1 Lambo!"
         "**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *idr* and *btc* (case-insensitive)";
       msg.channel.send(message);
     }
@@ -324,6 +335,61 @@ exports.price = {
         "_"
       );
     }
+
+    function lbcLamboCalc(bot,msg,suffix) {
+    var words = suffix.trim().split(" ").filter(function(n) {
+        return n !== "";
+      });
+    needle.get("https://min-api.cryptocompare.com/data/price?fsym=LBC&tsyms=USD", function(
+      error,
+      response
+    ) {
+      if (error || response.statusCode !== 200) {
+        msg.channel.send("blockchain.info API is not available");
+      } else {
+        if (words[1] == undefined){
+          var amount = 1
+        } else {
+          var amount = words[1];
+        }
+        var data = response.body;
+        var lbcrate = Number(data.USD);
+        var cost = 250000 / lbcrate;
+        if (responseDebug){
+        console.log("words = "+words[1]);
+        console.log("lbcrate = "+lbcrate);
+        console.log("amount = "+amount)
+        console.log("cost = "+cost);
+      }
+        if (amount <= 1) {
+          var message = cost.toFixed(0) + " LBC = 1 Lambo Huracan"
+          if (responseDebug){
+          console.log("amount equal 1 check");
+          console.log(message)
+        }
+        } else {
+          cost = cost - amount;
+          var message = "Need **" + cost.toFixed(0) + " LBC** for 1 Lambo Huracan"
+          if (responseDebug){
+          console.log("Words[0] doesnt equal 1 check");
+          console.log("cost = "+cost)
+          console.log(message);
+        }
+        }
+        const embed = {
+          description: message,
+          color: 7976557,
+          footer: {
+            text: "Last Updated | " + timestamp
+          },
+          author: {
+            name: "LBC to 1 Lambo Calc",
+          }
+        };
+        msg.channel.send({ embed });
+      }
+    });
+  }
 
     function doSteps(bot, currency, amount) {
       var option = options.currencies[currency];
