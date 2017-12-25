@@ -9,6 +9,7 @@ config = config.get('bot');
 //load modules
 const claimbot = require('./modules/claimbot.js');
 const commandsV2 = require('./modules/commandsV2.js');
+const supportbot = require('./modules/supportbot.js');
 
 var aliases;
 try {
@@ -48,6 +49,8 @@ bot.on('ready', function() {
   claimbot.init(bot);
   //initialize the commandsBot
   commandsV2.init(bot);
+  //initialize the support bot
+  supportbot.init(bot);
 });
 
 bot.on('disconnected', function() {
