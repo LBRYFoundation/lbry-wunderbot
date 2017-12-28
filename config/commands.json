@@ -143,18 +143,18 @@
             }
         }
     },
-    "!name": {
-        "usage": "",
-        "description": "Change Name Message",
+    "!naming": {
+       "usage": "",
+        "description": "How does LBRY naming work?",
         "operation": "send",
         "bundle": {
             "url": "",
             "title": "",
-            "description": "Hey, glad to see you love LBRY so much, but for the safety of our users we ask that you avoid using discord names that include the word lbry. This is to prevent impersonation and scams.",
+            "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity.",
             "color": 7976557,
             "author": {
-                "name": "Discord Username",
-                "url": "",
+                "name": "How does LBRY naming work?",
+                "url": "https://lbry.io/faq/naming",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
         }
@@ -556,25 +556,7 @@
                 "name": "Tipbot Help Message",
                 "url": "",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
-            }
+           }
         }
     }
 }
-"!naming": {
-        "usage": "",
-        "description": "How does LBRY naming work?",
-        "operation": "send",
-        "bundle": {
-            "url": "",
-            "title": "",
-            "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity.",
-            "color": 7976557,
-            "author": {
-                "name": "How does LBRY naming work?",
-                "url": "https://lbry.io/faq/naming",
-                "icon_url": "https://i.imgur.com/yWf5USu.png"
-            }
-        }
-    }
-}
-
