@@ -255,7 +255,7 @@
             }
         }
     },
-     "!naming": {
+     "!bounty": {
        "usage": "",
         "description": "LBRY Bounties",
         "operation": "send",
