@@ -255,6 +255,22 @@
             }
         }
     },
+     "!naming": {
+       "usage": "",
+        "description": "LBRY Bounties",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Complete challenges and earn LBRY Credits.",
+            "color": 7976557,
+            "author": {
+                "name": "LBRY Bounties",
+                "url": "https://lbry.io/bounty",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },
     "!referrals": {
         "usage": "",
         "description": "What are Referrals?",
