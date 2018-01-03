@@ -109,6 +109,11 @@ exports.price = {
           format: "RUB 0,0.00",
           sign: "RUB"
         },
+        MYR: {
+          steps: ["LBCBTC", "BTCMYR"],
+          format: "RM 0,0.00",
+          sign: "RM"
+        },
         SEK: {
           steps: ["LBCBTC", "BTCSEK"],
           format: "kr 0,0.00",
@@ -218,6 +223,10 @@ exports.price = {
         BTCRUB: {
           url: "https://blockchain.info/ticker",
           path: "$.RUB.buy"
+        },
+        BTCMYR: {
+          url: "https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=MYR",
+          path: "$.MYR.buy"
         },
         BTCSEK: {
           url: "https://blockchain.info/ticker",
