@@ -8,7 +8,6 @@ let needle = require("needle");
 let hasPriceBotChannels = require("../helpers.js").hasPriceBotChannels;
 let inPrivate = require("../helpers.js").inPrivate;
 let ChannelID = config.get("pricebot").mainchannel;
-let responseDebug = false;
 
 exports.commands = ["price"];
 
@@ -355,26 +354,11 @@ exports.price = {
         var data = response.body;
         var lbcrate = Number(data.USD);
         var cost = 250000 / lbcrate;
-        if (responseDebug){
-        console.log("words = "+words[1]);
-        console.log("lbcrate = "+lbcrate);
-        console.log("amount = "+amount)
-        console.log("cost = "+cost);
-      }
         if (amount <= 1) {
           var message = cost.toFixed(0) + " LBC = 1 Lambo Huracan"
-          if (responseDebug){
-          console.log("amount equal 1 check");
-          console.log(message)
-        }
         } else {
           cost = cost - amount;
           var message = "Need **" + cost.toFixed(0) + " LBC** for 1 Lambo Huracan"
-          if (responseDebug){
-          console.log("Words[0] doesnt equal 1 check");
-          console.log("cost = "+cost)
-          console.log(message);
-        }
         }
         const embed = {
           description: message,
