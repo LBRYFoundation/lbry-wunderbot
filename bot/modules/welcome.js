@@ -11,7 +11,7 @@ exports.onUserJoin = function(bot) {
           "**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n" +
           "If you are new to LBRY and would like to learn more, see the links at the end of this message. \n" +
           "This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n" +
-          "**Looking for *Rewards Verification*? Please make a request in the #verification channel. A mod will reach out to you, please be patient. Only 1 Reward account is allowed per person** \n",
+          "**Looking for *Rewards Verification*? Please make a request in the #verification channel by typing **-new** - this will create a ticket (channel) for your request. A mod will reach out to you, please be patient . **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n",
         url: "https://lbry.io/what",
         color: 7976557,
         author: {
@@ -40,7 +40,7 @@ exports.onUserJoin = function(bot) {
     member.send({
       embed: {
         description:
-          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
+          "1. Type !tip help in the #bot-sandbox channel to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
           "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
           "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
           "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
@@ -127,7 +127,7 @@ exports.welcome = {
           "**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n" +
           "If you are new to LBRY and would like to learn more, see the links at the end of this message. \n" +
           "This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n" +
-          "**Looking for *Rewards Verification*? Please make a request in the #verification channel. A mod will reach out to you, please be patient. Only 1 Reward account is allowed per person** \n",
+          "**Looking for *Rewards Verification*? Please make a request in the #verification channel by typing **-new** - this will create a ticket (channel) for your request. A mod will reach out to you, please be patient, **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n",
         url: "https://lbry.io/what",
         color: 7976557,
         author: {
@@ -156,7 +156,7 @@ exports.welcome = {
     msg.mentions.members.first().send({
       embed: {
         description:
-          "1. Type !tip help to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
+          "1. Type !tip help in the #bot-sandbox channel to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n" +
           "2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n" +
           "3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n" +
           "4. You can find the LBRY Block explorer at https://explorer.lbry.io \n" +
