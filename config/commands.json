@@ -260,8 +260,8 @@
         "description": "LBRY Bounties",
         "operation": "send",
         "bundle": {
-            "url": "",
-            "title": "",
+            "url": "https://lbry.io/bounty",
+            "title": "*LBRY Bounties*",
             "description": "Complete challenges and earn LBRY Credits.",
             "color": 7976557,
             "author": {
