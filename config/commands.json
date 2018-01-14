@@ -244,8 +244,8 @@
         "description": "How does LBRY naming work?",
         "operation": "send",
         "bundle": {
-            "url": "",
-            "title": "",
+            "url": "https://lbry.io/faq/naming",
+            "title": "*How Does LBRY Naming Work?*",
             "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity.",
             "color": 7976557,
             "author": {
@@ -260,8 +260,8 @@
         "description": "LBRY Bounties",
         "operation": "send",
         "bundle": {
-            "url": "",
-            "title": "",
+            "url": "https://lbry.io/bounty",
+            "title": "*LBRY Bounties*",
             "description": "Complete challenges and earn LBRY Credits.",
             "color": 7976557,
             "author": {
