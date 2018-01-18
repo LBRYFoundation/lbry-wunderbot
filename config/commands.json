@@ -143,6 +143,22 @@
             }
         }
     },
+    "!contribute": {
+        "usage": "",
+        "description": "Contributing to LBRY",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Want to help develop and contribute to the Lbry Project?\nCheck out this **[GUIDE](https://lbry.io/faq/contributing)** that will get you startd.",
+            "color": 7976557,
+            "author": {
+                "name": "Contributing to LBRY",
+                "url": "https://lbry.io/faq/contributing",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },        
     "!news": {
         "usage": "",
         "description": "LBRY inc. News Feed",
