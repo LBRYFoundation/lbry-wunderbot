@@ -74,7 +74,7 @@
             "color": 7976557,
             "author": {
                 "name": "GitHub",
-                "url": "",
+                "url": "https://github.com/lbryio",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
         }
@@ -143,6 +143,38 @@
             }
         }
     },
+    "!contribute": {
+        "usage": "",
+        "description": "Contributing to LBRY",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Want to help develop and contribute to the Lbry Project?\nCheck out this **[GUIDE](https://lbry.io/faq/contributing)** that will get you startd.",
+            "color": 7976557,
+            "author": {
+                "name": "Contributing to LBRY",
+                "url": "https://lbry.io/faq/contributing",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },        
+    "!news": {
+        "usage": "",
+        "description": "LBRY inc. News Feed",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "check out the News Feed **[HERE](https://lbry.io/news)**.",
+            "color": 7976557,
+            "author": {
+                "name": "LBRY inc. News Feed",
+                "url": "https://lbry.io/news",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },    
     "!name": {
         "usage": "",
         "description": "Change Name Message",
@@ -166,7 +198,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>",
+            "description": "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>, we have guides pinned in that channel to get you started mining some LBC!",
             "color": 7976557,
             "author": {
                 "name": "Mining",
@@ -217,8 +249,8 @@
             "description": "We've created a small guide to help with the Publishing features of LBRY, check it out here: [lbry.io/faq/how-to-publish](https://lbry.io/faq/how-to-publish)",
             "color": 7976557,
             "author": {
-                "name": "",
-                "url": "",
+                "name": "How To Publish on LBRY?",
+                "url": "https://lbry.io/faq/how-to-publish",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
         }
@@ -244,9 +276,9 @@
         "description": "How does LBRY naming work?",
         "operation": "send",
         "bundle": {
-            "url": "https://lbry.io/faq/naming",
-            "title": "*How Does LBRY Naming Work?*",
-            "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity.",
+            "url": "",
+            "title": "",
+            "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity. Learn more **[HERE](https://lbry.io/faq/naming)**",
             "color": 7976557,
             "author": {
                 "name": "How does LBRY naming work?",
@@ -260,9 +292,9 @@
         "description": "LBRY Bounties",
         "operation": "send",
         "bundle": {
-            "url": "https://lbry.io/bounty",
-            "title": "*LBRY Bounties*",
-            "description": "Complete challenges and earn LBRY Credits.",
+            "url": "",
+            "title": "",
+            "description": "You can earn LBRY Credits for completing tasks as part of the LBRY Bounty Program, All bounties can be seen on the **[Bounty Home Page](https://lbry.io/bounty)**.\nBounties range from simple typo fixes to third party applications and custom projects!",
             "color": 7976557,
             "author": {
                 "name": "LBRY Bounties",
@@ -271,6 +303,22 @@
             }
         }
     },
+    "!roadmap": {
+        "usage": "",
+        "description": "The Lbry RoadMap",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Check Out The **[RoadMap](https://lbry.io/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
+            "color": 7976557,
+            "author": {
+                "name": "RoadMap",
+                "url": "https://lbry.io/roadmap",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },    
     "!referrals": {
         "usage": "",
         "description": "What are Referrals?",
@@ -281,7 +329,7 @@
             "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - referral redemptions are currently in test mode and limited to one. But you can see your entire referral history in your LBRY app.",
             "color": 7976557,
             "author": {
-                "name": "Referals",
+                "name": "Referrals",
                 "url": "https://lbry.io/faq/referrals",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
@@ -438,7 +486,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "The daemon uses ports **3333** and **4444**. May interfere with mining software. Start miner after the app and you should be okay. Also these ports need to be port forwarded on your router. Google is your friend there. \n **Please see this tutorial on how to change ports : [lbry.io/faq/how-to-change-port](https://lbry.io/faq/how-to-change-port)**",
+            "description": "The daemon uses ports **3333** and **4444**. It may interfere with mining software, Start the miner after the app and you should be okay. Also these ports need to be port forwarded on your router. Google is your friend there. \n **Please see this tutorial on how to change ports : [lbry.io/faq/how-to-change-port](https://lbry.io/faq/how-to-change-port)**",
             "color": 7976557,
             "author": {
                 "name": "Ports",
@@ -575,6 +623,22 @@
             }
         }
     },
+    "!team": {
+        "usage": "",
+        "description": "Meet the Team!",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description": "Get to know the [Offical Team](https://lbry.io/team) behind the scenes of lbry inc.",
+            "color": 7976557,
+            "author": {
+                "name": "Meet the Team!",
+                "url": "https://lbry.io/team",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },    
     "!tipbot": {
         "usage": "",
         "description": "Tipbot Help Message",
