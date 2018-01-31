@@ -406,7 +406,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description": "If you would like to be verified go to <#363050496023592961> and type `-new` \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
+            "description": "If you would like to be verified go to <#363050496023592961> and type *`-new`* \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
             "color": 7976557,
             "author": {
                 "name": "Rewards Verification",
@@ -635,6 +635,22 @@
             "author": {
                 "name": "Meet the Team!",
                 "url": "https://lbry.io/team",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },    
+    "!phone": {
+        "usage": "",
+        "description": "Phone Verification!",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description" : "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via SMS verification method. Phone number verification provides another method for LBRY users to participate in the rewards program",
+            "color": 7976557,
+            "author": {
+                "name": "Phone Verification!",
+                "url": "https://lbry.io/faq/phone",
                 "icon_url": "https://i.imgur.com/yWf5USu.png"
             }
         }
