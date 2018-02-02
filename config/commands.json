@@ -646,7 +646,7 @@
         "bundle": {
             "url": "",
             "title": "",
-            "description" : "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via SMS verification method. [Phone number](https://lbry.io/faq/phone) verification provides another method for LBRY users to participate in the rewards program",
+            "description" : "[Phone number](https://lbry.io/faq/phone) verification provides another method for LBRY users to participate in the rewards program",
             "color": 7976557,
             "author": {
                 "name": "Phone Verification!",
