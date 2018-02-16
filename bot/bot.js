@@ -13,8 +13,11 @@ const supportbot = require('./modules/supportbot.js');
 
 var aliases;
 try {
-  aliases = require('./alias.json');
+  aliases = require("./alias.json");
+  console.log("aliases")
+  console.log(aliases)
 } catch (e) {
+  console.log("No aliases defined")
   //No aliases defined
   aliases = {
     test: {
@@ -76,7 +79,7 @@ function checkMessageForCommand(msg, isEdit) {
     }
     let alias = aliases[cmdTxt];
     if (alias) {
-      var cmd = alias;
+      var cmd =  commands[alias];
     } else {
       var cmd = commands[cmdTxt];
     }
