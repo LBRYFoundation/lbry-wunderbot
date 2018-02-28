@@ -655,6 +655,22 @@
             }
         }
     },    
+    "!basic": {
+        "usage": "",
+        "description": "LBRY App Basics!",
+        "operation": "send",
+        "bundle": {
+            "url": "",
+            "title": "",
+            "description" : "[LBRY App Basics](https://lbry.io/faq/lbry-basics) The purpose of this FAQ is to answer questions about some of the basic functionality available in the LBRY App",
+            "color": 7976557,
+            "author": {
+                "name": "LBRY App Basics!",
+                "url": "https://lbry.io/faq/lbry-basics",
+                "icon_url": "https://i.imgur.com/yWf5USu.png"
+            }
+        }
+    },    
     "!tipbot": {
         "usage": "",
         "description": "Tipbot Help Message",
