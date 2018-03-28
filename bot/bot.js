@@ -62,11 +62,7 @@ function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
     //check if user is Online
-    if (
-      !msg.author.presence.status ||
-      msg.author.presence.status == 'offline' ||
-      msg.author.presence.status == 'invisible'
-    ) {
+    if (!msg.author.presence.status || msg.author.presence.status == 'offline' || msg.author.presence.status == 'invisible') {
       msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!');
       return;
     }
