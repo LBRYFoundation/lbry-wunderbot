@@ -61,6 +61,15 @@ bot.on('disconnected', function() {
 function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
+    //check if user is Online
+    if (
+      !msg.author.presence.status ||
+      msg.author.presence.status == 'offline' ||
+      msg.author.presence.status == 'invisible'
+    ) {
+      msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!');
+      return;
+    }
     console.log('treating ' + msg.content + ' from UserID:' + msg.author + ' || UserName: ' + msg.author.username + ' as command');
     var cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
     var suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
