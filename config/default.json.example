@@ -5,6 +5,10 @@
     "prefix": "!",
     "debug": false
   },
+  "moderation": {
+    "perms": ["LBRY ASSISTANT","LBRY TEAM"], // Roles that have access to all commands.
+    "logchannel": "371620338263523328" // Channel to log the bots moderation..
+   },
   "lbrycrd": {
     "port": 9245,
     "user": "user",
