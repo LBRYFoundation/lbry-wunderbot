@@ -80,9 +80,10 @@
     "mainchannel": "363050205043621908" // Main Stats Bot channel for directing with help message
   },
   "rolelist": {
+    "baserole": "Member",
     "allowedroles": [
-      "Reward Scammer",
-      "Reported Scammer"
+      "Scammer",
+      "Spammer"
     ]
   },
   "claimbot": {
