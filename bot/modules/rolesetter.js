@@ -81,6 +81,8 @@ exports.delrole = {
       } else {
         msg.channel.send("That role isn't one you can add yourself too! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
       }
+    } else {
+      msg.channel.send('Please specify a role. Type ' + botconfig.prefix + 'roles to see which you may add!');
     }
   }
 };
