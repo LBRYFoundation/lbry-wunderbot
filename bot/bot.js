@@ -43,7 +43,9 @@ bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
-  bot.user.setGame(config.prefix + 'help');
+  bot.user
+    .setActivity(config.prefix + 'help', { type: 'LISTENING' })
+    .catch(console.error);
 
   //initialize the claimbot (content bot)
   claimbot.init(bot);
