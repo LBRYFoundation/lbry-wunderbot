@@ -19,11 +19,11 @@
     "wget": "^0.0.1"
   },
   "scripts": {
-    "prettier": "prettier * --write",
+    "prettier": "prettier --write '{bot,.}/**/*.{js,json}' --single-quote --print-width 240",
     "build": "babel bot -d dist",
     "prod": "babel bot -d dist & node dist/bot.js",
-    "lint": "prettier --write bot/**/*.js",
-    "precommit": "prettier --write bot/**/*.js"
+    "lint": "prettier --write '{bot,.}/**/*.{js,json}' --single-quote --print-width 240",
+    "precommit": "prettier --write '{bot,.}/**/*.{js,json}' --single-quote --print-width 240"
   },
   "devDependencies": {
     "husky": "^0.14.3",
