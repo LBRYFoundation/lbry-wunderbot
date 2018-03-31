@@ -55,8 +55,18 @@ bot.on('ready', function() {
   supportbot.init(bot);
 });
 
+process.on('unhandledRejection', err => {
+  console.log('unhandledRejection: ' + err);
+  process.exit(1); //exit node.js with an error
+});
+
 bot.on('disconnected', function() {
   console.log('Disconnected!');
+  process.exit(1); //exit node.js with an error
+});
+
+bot.on('error', function(error) {
+  console.log('error: ' + error);
   process.exit(1); //exit node.js with an error
 });
 
