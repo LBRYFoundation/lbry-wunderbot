@@ -88,7 +88,6 @@ function checkMessageForCommand(msg, isEdit) {
       return;
     });
     }
-    console.log('treating ' + msg.content + ' from UserID:' + msg.author + ' || UserName: ' + msg.author.username + ' as command');
     var cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
     var suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
     if (msg.isMentioned(bot.user)) {
@@ -166,6 +165,7 @@ function checkMessageForCommand(msg, isEdit) {
       }
     } else if (cmd) {
       // Add permission check here later on ;)
+      console.log('treating ' + msg.content + ' from UserID:' + msg.author + ' || UserName: ' + msg.author.username + ' as command');
       try {
         cmd.process(bot, msg, suffix, isEdit);
       } catch (e) {
