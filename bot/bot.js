@@ -65,7 +65,13 @@ function checkMessageForCommand(msg, isEdit) {
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
     //check if user is Online
     if (!msg.author.presence.status || msg.author.presence.status == 'offline' || msg.author.presence.status == 'invisible') {
-      msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!');
+      msg.author.send('Please set your Discord Presence to Online to talk to the bot!')
+        .catch(msg.channel.send(msg.author +
+          ', Please enable Direct Messages from server members to communicate fully with our bot, ' + 
+			    'it is located in the user setting area under Privacy & Safety tab, ' +
+			    'select the option allow direct messages from server members')
+          .then(msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!'))
+        );
       return;
     }
     console.log('treating ' + msg.content + ' from UserID:' + msg.author + ' || UserName: ' + msg.author.username + ' as command');
