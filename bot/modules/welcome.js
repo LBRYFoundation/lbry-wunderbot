@@ -19,7 +19,10 @@ exports.onUserJoin = function(bot) {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(bot.channels.get('369896313082478594').send(member +
+		    ', Please enable Direct Messages from server members to communicate fully with our bot, it is located in the user setting area under Privacy & Safety tab, select the option allow direct messages from server members\nSince the bot could not send you our Welcome message please check the posts in <#428634445176766464> and available commands in <#428661678796832768>'
+      )
+		);
     member.send({
       embed: {
         description:
@@ -36,7 +39,7 @@ exports.onUserJoin = function(bot) {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     member.send({
       embed: {
         description:
@@ -53,7 +56,7 @@ exports.onUserJoin = function(bot) {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     member.send({
       embed: {
         title: '*Click here for more info about LBRY!*',
@@ -67,7 +70,7 @@ exports.onUserJoin = function(bot) {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     member.send({
       embed: {
         title: '*Click here to see all LBRY Frequently Asked Questions (FAQ)!*',
@@ -81,7 +84,7 @@ exports.onUserJoin = function(bot) {
           icon_url: 'https://spee.ch/8/Id5Qoc3w.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     member.send({
       embed: {
         title: '*Have you checked out spee.ch yet?!*',
@@ -95,7 +98,7 @@ exports.onUserJoin = function(bot) {
           icon_url: 'http://www.pd4pic.com/images/flag-green-blue-purple-indigo-bars-background.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
   });
 };
 
@@ -134,7 +137,10 @@ exports.welcome = {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(msg.channel.send(msg.mentions.members.first() +
+        ', Please enable Direct Messages from server members to communicate fully with our bot, it is located in the user setting area under Privacy & Safety tab, select the option allow direct messages from server members'
+      )
+    );
     msg.mentions.members.first().send({
       embed: {
         description:
@@ -151,7 +157,7 @@ exports.welcome = {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     msg.mentions.members.first().send({
       embed: {
         description:
@@ -168,7 +174,7 @@ exports.welcome = {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     msg.mentions.members.first().send({
       embed: {
         title: '*Click here for more info about LBRY!*',
@@ -182,7 +188,7 @@ exports.welcome = {
           icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     msg.mentions.members.first().send({
       embed: {
         title: '*Click here to see all LBRY Frequently Asked Questions (FAQ)!*',
@@ -196,7 +202,7 @@ exports.welcome = {
           icon_url: 'https://spee.ch/8/Id5Qoc3w.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
     msg.mentions.members.first().send({
       embed: {
         title: '*Have you checked out spee.ch yet?!*',
@@ -210,6 +216,6 @@ exports.welcome = {
           icon_url: 'http://www.pd4pic.com/images/flag-green-blue-purple-indigo-bars-background.png'
         }
       }
-    });
+    }).catch(console.error).then(console.log('could not send dm'));
   }
 };
