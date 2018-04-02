@@ -83,7 +83,7 @@ function checkMessageForCommand(msg, isEdit) {
 	    'select the option allow direct messages from server members'
 	    ).then(msg.channel.send(
               'Please set your Discord Presence to Online to talk to the Bot!'
-       	    );
+       	    )
           );
       return;
     });
