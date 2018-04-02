@@ -43,7 +43,9 @@ bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
-  bot.user.setGame(config.prefix + 'help');
+  bot.user
+    .setActivity(config.prefix + 'help', { type: 'LISTENING' })
+    .catch(console.error);
 
   //initialize the claimbot (content bot)
   claimbot.init(bot);
@@ -53,8 +55,18 @@ bot.on('ready', function() {
   supportbot.init(bot);
 });
 
+process.on('unhandledRejection', err => {
+  console.log('unhandledRejection: ' + err);
+  process.exit(1); //exit node.js with an error
+});
+
 bot.on('disconnected', function() {
   console.log('Disconnected!');
+  process.exit(1); //exit node.js with an error
+});
+
+bot.on('error', function(error) {
+  console.log('error: ' + error);
   process.exit(1); //exit node.js with an error
 });
 
@@ -63,10 +75,19 @@ function checkMessageForCommand(msg, isEdit) {
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
     //check if user is Online
     if (!msg.author.presence.status || msg.author.presence.status == 'offline' || msg.author.presence.status == 'invisible') {
-      msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!');
+      msg.author.send('Please set your Discord Presence to Online to talk to the bot!')
+        .catch(function(error) {
+          msg.channel.send(msg.author +
+            ', Please enable Direct Messages from server members to communicate fully with our bot, ' +
+	    'it is located in the user setting area under Privacy & Safety tab, ' +
+	    'select the option allow direct messages from server members'
+	    ).then(msg.channel.send(
+              'Please set your Discord Presence to Online to talk to the Bot!'
+       	    );
+          );
       return;
+    });
     }
-    console.log('treating ' + msg.content + ' from UserID:' + msg.author + ' || UserName: ' + msg.author.username + ' as command');
     var cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
     var suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
     if (msg.isMentioned(bot.user)) {
@@ -144,6 +165,7 @@ function checkMessageForCommand(msg, isEdit) {
       }
     } else if (cmd) {
       // Add permission check here later on ;)
+      console.log('treating ' + msg.content + ' from UserID:' + msg.author + ' || UserName: ' + msg.author.username + ' as command');
       try {
         cmd.process(bot, msg, suffix, isEdit);
       } catch (e) {

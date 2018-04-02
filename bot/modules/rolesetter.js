@@ -13,12 +13,31 @@ exports.addrole = {
   description: 'Adds you to specified role',
   process: function(bot, msg, suffix) {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
-    var newrole = msg.guild.roles.find('name', suffix);
+    let newrole = msg.guild.roles.find('name', suffix);
+    let baserole = msg.guild.roles.find('name', rolelist.baserole);
 
     // Checks if the user put a role in the message.
     if (suffix) {
       // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
       if (rolelist.allowedroles.includes(suffix)) {
+        // Checks if the role even exists in the discord server
+        if (newrole !== null) {
+          // Checks if the member has the role that they are trying to add
+          if (!msg.member.roles.find('name', suffix)) {
+            msg.member.addRole(newrole).then(msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!'));
+            if (baserole !== null) {
+              if (!msg.member.roles.find('name', rolelist.baserole)) {
+                msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
+              }
+            } else {
+              msg.channel.send('The ' + rolelist.baserole + " Doesn't exist. Please add that role first!");
+            }
+          } else {
+            msg.channel.send('It seems that you already have that role! Try removing it first with the ' + botconfig.prefix + 'delrole command!');
+          }
+        } else {
+          msg.channel.send('The role ' + '`' + suffix + '`' + ' does not exist!');
+        }
         // Checks if the role even exists in the discord server
         if (newrole !== null) {
           // Checks if the member has the role that they are trying to add
@@ -81,6 +100,16 @@ exports.roles = {
           {
             name: 'List of roles',
             value: buildRoleString(rolelist.allowedroles),
+            inline: false
+          },
+          {
+            name: 'How to add a role to yourself',
+            value: '!addrole (role) - Adds a specified role to yourself.\n!addrole Certified Troll would add the Certified Troll role.',
+            inline: false
+          },
+          {
+            name: 'How to remove a role from yourself',
+            value: '!delrole (role) - Removed a specified role from yourself.\n!delrole Certified Troll would remove the Certified Troll role.',
             inline: false
           }
         ],
