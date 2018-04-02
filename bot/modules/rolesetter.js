@@ -15,7 +15,6 @@ exports.addrole = {
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
     let newrole = msg.guild.roles.find('name', suffix);
     let baserole = msg.guild.roles.find('name', rolelist.baserole);
-
     // Checks if the user put a role in the message.
     if (suffix) {
       // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
@@ -32,17 +31,6 @@ exports.addrole = {
             } else {
               msg.channel.send('The ' + rolelist.baserole + " Doesn't exist. Please add that role first!");
             }
-          } else {
-            msg.channel.send('It seems that you already have that role! Try removing it first with the ' + botconfig.prefix + 'delrole command!');
-          }
-        } else {
-          msg.channel.send('The role ' + '`' + suffix + '`' + ' does not exist!');
-        }
-        // Checks if the role even exists in the discord server
-        if (newrole !== null) {
-          // Checks if the member has the role that they are trying to add
-          if (!msg.member.roles.find('name', suffix)) {
-            msg.member.addRole(newrole).then(msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!'));
           } else {
             msg.channel.send('It seems that you already have that role! Try removing it first with the ' + botconfig.prefix + 'delrole command!');
           }
