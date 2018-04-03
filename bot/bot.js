@@ -77,12 +77,8 @@ function checkMessageForCommand(msg, isEdit) {
         return;
       }
     }
-    let alias = aliases[cmdTxt];
-    if (alias) {
-      var cmd =  commands[alias];
-    } else {
-      var cmd = commands[cmdTxt];
-    }
+    
+    let cmd = aliases.hasOwnProperty(cmdTxt) ? commands[aliases[cmdTxt]] : commands[cmdTxt];
     if (cmdTxt === 'help') {
       //help is special since it iterates over the other commands
       if (suffix) {
