@@ -11,11 +11,9 @@ const claimbot = require('./modules/claimbot.js');
 const commandsV2 = require('./modules/commandsV2.js');
 const supportbot = require('./modules/supportbot.js');
 
-var aliases;
+let aliases;
 try {
   aliases = require("./alias.json");
-  console.log("aliases")
-  console.log(aliases)
 } catch (e) {
   console.log("No aliases defined")
   //No aliases defined
@@ -27,7 +25,7 @@ try {
     }
   };
 }
-var commands = {
+let commands = {
   ping: {
     description: 'responds pong, useful for checking if bot is alive',
     process: async function(bot, msg, suffix) {
@@ -40,7 +38,7 @@ var commands = {
   }
 };
 
-var bot = new Discord.Client();
+let bot = new Discord.Client();
 
 bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
