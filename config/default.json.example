@@ -80,11 +80,9 @@
     "mainchannel": "363050205043621908" // Main Stats Bot channel for directing with help message
   },
   "rolelist": {
-    "baserole": "Member",
-    "allowedroles": [
-      "Scammer",
-      "Spammer"
-    ]
+    // The roles here are Case Sensitive to how they are in your Discord Server!
+    "baserole": "LBRYian",
+    "allowedroles": ["NSFW", "Marketers", "Miners", "Off-Topic Chats"]
   },
   "claimbot": {
     "channels": [
