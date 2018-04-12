@@ -687,7 +687,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "want to shop, visit our store [LBRY Inc. Shop](https://shop.lbry.io) Logowear and custom designs from LBRY, Inc",
+      "description": "Visit our at-cost [merchandise store](https://shop.lbry.io) to check out the latest LBRY swag.",
       "color": 7976557,
       "author": {
         "name": "LBRY Inc. Shop!",
@@ -698,12 +698,12 @@
   },
    "!content": {
     "usage": "",
-    "description": "What content can I legally upload to LBRY ?",
+    "description": "What content can I legally upload to LBRY?",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": " This guide provides answers to questions regarding what you may upload to the LBRY app and network, as well as how to report illegal or infringing content.[Read Our FAQ](https://lbry.io/faq/content). ",
+      "description": "[Read our FAQ](https://lbry.io/faq/content) to learn more about LBRY's content policy.",
       "color": 7976557,
       "author": {
         "name": "What content can I legally upload to LBRY ?",
@@ -719,23 +719,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": " [Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to know more information on LBRY Acceptable Use Policy ",
-      "color": 7976557,
-      "author": {
-        "name": "Acceptable Use Policy",
-        "url": "https://lbry.io/faq/acceptable-use-policy",
-        "icon_url": "https://i.imgur.com/yWf5USu.png"
-      }
-    }
-  },
-   "!aup": {
-    "usage": "",
-    "description": "Acceptable Use Policy",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": " [Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to know more information on LBRY Acceptable Use Policy ",
+      "description": "[Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to learn more about LBRY's Acceptable Use Policy",
       "color": 7976557,
       "author": {
         "name": "Acceptable Use Policy",
@@ -751,7 +735,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": " LBRY is looking for ambassadors to spread the word to College campuses and [Meetup](https://lbry.io/meet) groups worldwide! ",
+      "description": "LBRY is looking for ambassadors to spread the word to [College campuses](https://lbry.io/college) and [Meetup](https://lbry.io/meet) groups worldwide! ",
       "color": 7976557,
       "author": {
         "name": "Wanna Meet Up?",
@@ -767,7 +751,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "LBRY needs alpha testers for our [Android](https://lbry.io/android-alpha) app!",
+      "description": "Sign up to become an alpha tester for our [Android app](https://lbry.io/android-alpha)!",
       "color": 7976557,
       "author": {
         "name": "Android Alpha Tester",
