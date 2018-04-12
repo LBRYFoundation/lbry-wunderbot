@@ -680,6 +680,102 @@
       }
     }
   },
+  "!shop": {
+    "usage": "",
+    "description": "LBRY Inc. Shop!",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "want to shop, visit our store [LBRY Inc. Shop](https://shop.lbry.io) Logowear and custom designs from LBRY, Inc",
+      "color": 7976557,
+      "author": {
+        "name": "LBRY Inc. Shop!",
+        "url": "https://shop.lbry.io",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+   "!content": {
+    "usage": "",
+    "description": "What content can I legally upload to LBRY ?",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": " This guide provides answers to questions regarding what you may upload to the LBRY app and network, as well as how to report illegal or infringing content.[Read Our FAQ](https://lbry.io/faq/content). ",
+      "color": 7976557,
+      "author": {
+        "name": "What content can I legally upload to LBRY ?",
+        "url": "https://lbry.io/faq/content",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+   "!aup": {
+    "usage": "",
+    "description": "Acceptable Use Policy",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": " [Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to know more information on LBRY Acceptable Use Policy ",
+      "color": 7976557,
+      "author": {
+        "name": "Acceptable Use Policy",
+        "url": "https://lbry.io/faq/acceptable-use-policy",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+   "!aup": {
+    "usage": "",
+    "description": "Acceptable Use Policy",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": " [Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to know more information on LBRY Acceptable Use Policy ",
+      "color": 7976557,
+      "author": {
+        "name": "Acceptable Use Policy",
+        "url": "https://lbry.io/faq/acceptable-use-policy",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+  "!meet": {
+    "usage": "",
+    "description": "Wanna Meet Up?",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": " LBRY is looking for ambassadors to spread the word to College campuses and [Meetup](https://lbry.io/meet) groups worldwide! ",
+      "color": 7976557,
+      "author": {
+        "name": "Wanna Meet Up?",
+        "url": "https://lbry.io/meet",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+  "!alpha": {
+    "usage": "",
+    "description": "Android Alpha Tester",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "LBRY needs alpha testers for our [Android](https://lbry.io/android-alpha) app!",
+      "color": 7976557,
+      "author": {
+        "name": "Android Alpha Tester",
+        "url": "https://lbry.io/android-alpha",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
   "!tipbot": {
     "usage": "",
     "description": "Tipbot Help Message",
