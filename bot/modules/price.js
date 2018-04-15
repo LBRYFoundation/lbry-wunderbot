@@ -129,6 +129,11 @@ exports.price = {
           format: 'NT$0,0.00',
           sign: 'NT$'
         },
+        MYR: {
+          steps: ['LBCBTC', 'BTCMYR'],
+          format: 'RM 0,0.00',
+          sign: 'RM'
+        },
         IDR: {
           steps: ['LBCBTC', 'BTCIDR'],
           format: 'Rp0,0.00',
@@ -170,6 +175,10 @@ exports.price = {
         BTCCHF: {
           url: 'https://blockchain.info/ticker',
           path: '$.CHF.buy'
+        },
+        BTCMYR: {
+          url: 'https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=MYR',
+          path: '$.MYR.buy'
         },
         BTCCLP: {
           url: 'https://blockchain.info/ticker',
@@ -298,7 +307,7 @@ exports.price = {
         '**' +
         command +
         ' CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY\n' +
-        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *idr* and *btc* (case-insensitive)';
+        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *idr* and *btc* (case-insensitive)';
       msg.channel.send(message);
     }
 
