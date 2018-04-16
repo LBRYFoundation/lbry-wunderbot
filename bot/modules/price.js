@@ -177,8 +177,8 @@ exports.price = {
           path: '$.CHF.buy'
         },
         BTCMYR: {
-          url: 'https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=MYR',
-          path: '$.MYR.buy'
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=MYR',
+          path: '$.MYR'
         },
         BTCCLP: {
           url: 'https://blockchain.info/ticker',
