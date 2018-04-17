@@ -1,67 +1,88 @@
-let inPrivate = require("../helpers.js").inPrivate;
-let ResponseDebug = "false";
+let inPrivate = require('../helpers.js').inPrivate;
+let responseDebug = false;
 exports.custom = [
-  "lbrylink" //change this to your function name
+  'lbrylink' //change this to your function name
 ];
 
 exports.lbrylink = function(bot, msg, suffix) {
-  bot.on("message", msg => {
+  bot.on('message', msg => {
     if (inPrivate(msg)) {
       return;
     }
-    var link = msg.content.indexOf("lbry://");
-    if (link != -1) {
-      var text = msg.content.replace("lbry://", "https://open.lbry.io/");
-      var message = GetWordByPos(text, link);
-      if (ResponseDebug == "true") {
-        console.log("text = " + text);
-        console.log("message = " + message);
+    if (msg.content.includes('lbry://')) {
+      //Extract URL from Message
+      newURL = msg.content
+        .replace('lbry://', 'https://open.lbry.io/')
+        .match(/\bhttps?:\/\/\S+/gi)
+        .toString();
+      if (responseDebug) {
+        console.log('___________________________');
+        console.log('newURL = ' + newURL);
       }
-      if (message === "https://open.lbry.io/") {
+
+      //Check if just lbry:// was supplied
+      if (newURL == 'https://open.lbry.io/') {
         return;
       }
-      if (message.search(">") != -1) {
-        parsename = message.split(">").pop();
-        if (parsename.search("/") == -1) {
+
+      //Check if Username Was Supplied
+      if (newURL.includes('>')) {
+        //Get rid of ID from message
+        parseID = newURL.split('>').pop();
+        newURL = 'https://open.lbry.io' + parseID;
+        if (responseDebug) {
+          console.log('Username Provided!');
+          console.log('parseID = ' + parseID);
+          console.log('newURL = ' + newURL);
+        }
+
+        //check if just Username Was Supplied
+        if (!newURL.substr(20).includes('/')) {
           return;
         }
-        newname = message.split("/").pop();
-        message = "https://open.lbry.io/" + newname;
-        if (ResponseDebug == "true") {
-          console.log("Username Provided!");
-          console.log("parsename = " + parsename);
-          console.log("newname = " + newname);
+
+        //check if more than username was supplied
+        //Also check obscurity in username like ``@MSFTserver` vs `@MSFTserverPics`
+        if (parseID.includes('/')) {
+          //parse out extra params before `/` like `<@123456789>Pics`
+          parseID = parseID.split('/').pop();
+          newURL = 'https://open.lbry.io/' + parseID;
+          if (responseDebug) {
+            console.log('Username no / check');
+            console.log('parseID = ' + parseID);
+            console.log('newURL = ' + newURL);
+          }
+
+          //checks if username had if after it or just blank to be safe
+          if (newURL == 'https://open.lbry.io/' || parseID.startsWith('#')) {
+            return;
+          }
         }
+
+        //one last saftey check
+        if (newURL == 'https://open.lbry.io') {
+          return;
+        }
+
+        //If no UserName Found proceed
       } else {
-        var newname = message.replace("https://open.lbry.io/", "");
+        if (newURL == 'https://open.lbry.io/') {
+          return;
+        }
+        if (responseDebug) {
+          console.log('___________________________');
+          console.log('newURL = ' + newURL);
+        }
       }
       const embed = {
-        description:
-          "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" +
-          "[lbry://" +
-          newname +
-          "](" +
-          message +
-          ")",
+        description: "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" + newURL,
         color: 7976557,
         author: {
-          name: "LBRY Linker",
-          icon_url: "https://i.imgur.com/yWf5USu.png"
+          name: 'LBRY Linker',
+          icon_url: 'https://i.imgur.com/yWf5USu.png'
         }
       };
-      msg.channel.send({
-        embed
-      });
-    }
-
-    function GetWordByPos(str, pos) {
-      var left = str.substr(0, pos);
-      var right = str.substr(pos);
-
-      left = left.replace(/^.+ /g, "");
-      right = right.replace(/ .+$/g, "");
-
-      return left + right;
+      msg.channel.send({ embed });
     }
   });
 };
