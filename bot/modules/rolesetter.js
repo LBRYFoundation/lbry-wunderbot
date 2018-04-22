@@ -24,12 +24,14 @@ exports.addrole = {
           // Checks if the member has the role that they are trying to add
           if (!msg.member.roles.find('name', suffix)) {
             msg.member.addRole(newrole).then(msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!'));
-            if (baserole !== null) {
-              if (!msg.member.roles.find('name', rolelist.baserole)) {
-                msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
+            if (rolelist.baserole !== ' ') {
+              if (baserole !== null) {
+                if (!msg.member.roles.find('name', rolelist.baserole)) {
+                  msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
+                }
+              } else {
+                msg.channel.send('The ' + rolelist.baserole + " Role doesn't exist. Please add that role first!");
               }
-            } else {
-              msg.channel.send('The ' + rolelist.baserole + " Doesn't exist. Please add that role first!");
             }
           } else {
             msg.channel.send('It seems that you already have that role! Try removing it first with the ' + botconfig.prefix + 'delrole command!');

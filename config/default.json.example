@@ -9,11 +9,6 @@
     "perms": ["Moderator Team","LBRY TEAM"], // Roles that have access to all commands.
     "logchannel": "371620338263523328" // Channel to log the bots moderation..
    },
-  "lbrycrd": {
-    "port": 9245,
-    "user": "user",
-    "pass": "password"
-  },
   //define channels for Commands.js usage
   "Channels": {
     "verification": "363050496023592961",
@@ -82,7 +77,7 @@
   "rolelist": {
     // The roles here are Case Sensitive to how they are in your Discord Server!
     "baserole": "LBRYian",
-    "allowedroles": ["NSFW", "Marketers", "Miners", "Off-Topic Chats"]
+    "allowedroles": ["NSFW", "Marketers", "Miners", "Off-Topic Chats", "International", "Dev"]
   },
   "claimbot": {
     "channels": [
