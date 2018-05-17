@@ -183,7 +183,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Hey, glad to see you love LBRY so much, but for the safety of our users we ask that you avoid using discord names that include the word lbry. This is to prevent impersonation and scams.",
+      "description": "Hey, glad to see you love LBRY so much, but for the safety of our users we ask that you avoid using discord names that include the word lbry or LBRY staff / other members as well . This is to prevent impersonation and scams.",
       "color": 7976557,
       "author": {
         "name": "Discord Username",
