@@ -760,6 +760,23 @@
       }
     }
   },
+    "!jiggytom": {
+    "usage": "",
+    "description": "What is JiggyTom?",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description":
+        ":jiggy: [JiggyTom](https://spee.ch/5/jiggytomsuperhero.jpeg) is LBRY's very own superhero. He has special powers which enable him to seek out and fix almost any issue that might occur within planet LBRY. \nUse JiggyTom with care. Overuse may result in unforeseen consequences and a meltdown which could lead to thermonuclear LBRYian war. \nMAke sure you show your appreciation for Jiggy and his team of superheros when they use superpowers to help you. And remember kids, stay safe and behave yourselves",
+      "color": 7976557,
+      "author": {
+        "name": "What is JiggyTom?",
+        "url": "https://en.wikipedia.org/wiki/Superhero",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
   "!tipbot": {
     "usage": "",
     "description": "Tipbot Help Message",
