@@ -1,0 +1,10 @@
+{
+    "Wunderbot": {
+        "dbUrl": "mongodb://localhost:27017",
+        "dbName": "wunderbot",
+        "token": "**********************************************",
+        "owner": "132434059270815744",
+        "defaultPrefix": ".w",
+        "logLevel": "silly"
+    }
+}
