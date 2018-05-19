@@ -5,6 +5,7 @@
         "discord.js": "^11.2.1",
         "discord.js-commando": "^0.10.0",
         "mongodb": "^3.1.0-beta4",
+        "prettier-eslint-cli": "^4.7.1",
         "request": "^2.86.0",
         "request-promise-cache": "^1.1.1"
     },
@@ -15,6 +16,7 @@
     "scripts": {
         "build": "babel ./src --experimental --source-maps-inline -d ./dist",
         "lint": "eslint ./src",
+        "precommit": "prettier-eslint --write \"src/**/*.js\" && git add .",
         "start": "nodemon ./src/index.js --exec babel-node",
         "debug": "nodemon ./src/index.js --inspect-brk=41000 --exec babel-node"
     },
@@ -29,6 +31,7 @@
         "eslint-config-airbnb-base": "^12.1.0",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-import": "^2.8.0",
+        "husky": "^0.14.3",
         "nodemon": "^1.14.8",
         "prettier-eslint": "^8.7.0"
     },
