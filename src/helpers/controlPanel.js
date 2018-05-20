@@ -1,4 +1,4 @@
-// import Discord from "discord.js";
+import Discord from "discord.js";
 import express from "express";
 import session from "express-session";
 import passport from "passport";
@@ -33,6 +33,13 @@ passport.use(
 function checkAuth(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.send("not logged in :(");
+}
+// Returns all the guilds a user can control
+function canControlGuilds(guilds) {
+    return guilds.filter(g => {
+        gp = new Discord.Permissions(null, g.permissions);
+        return gp.has("MANAGE_GUILD");
+    });
 }
 // Lets get some sessions going!
 app.use(
