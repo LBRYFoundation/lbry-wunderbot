@@ -6,5 +6,9 @@
         "owner": "132434059270815744",
         "defaultPrefix": ".w",
         "logLevel": "silly"
+    },
+    "Web": {
+        "clientID": "XXXXX",
+        "clientSecret": "XXXXX"
     }
 }

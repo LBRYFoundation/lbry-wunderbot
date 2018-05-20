@@ -6,6 +6,7 @@ import { MongoClient } from "mongodb";
 import MongoDBProvider from "commando-provider-mongo";
 import requestCacheSupport from "request-promise-cache";
 import checkCustomCommands from "./helpers/customCommands";
+import controlPanel from "./helpers/controlPanel";
 
 module.exports = class Wunderbot extends commando.Client {
     constructor() {
@@ -84,5 +85,6 @@ module.exports = class Wunderbot extends commando.Client {
             .registerCommandsIn(path.join(__dirname, "commands"));
         // .registerGroup("util", "Utility");
         this.login(config.get("Wunderbot.token"));
+        controlPanel(this); // Lets start the control panel!
     }
 };
