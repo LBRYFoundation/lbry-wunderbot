@@ -6,7 +6,7 @@ import { MongoClient } from "mongodb";
 import MongoDBProvider from "commando-provider-mongo";
 import requestCacheSupport from "request-promise-cache";
 import checkCustomCommands from "./helpers/customCommands";
-import controlPanel from "./helpers/controlPanel";
+import controlPanel from "./web/controlPanel";
 
 module.exports = class Wunderbot extends commando.Client {
     constructor() {
