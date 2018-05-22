@@ -16,7 +16,7 @@ exports.stats = {
   usage: '',
   description: 'Displays list of current Market stats',
   process: function(bot, msg) {
-    needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/', function(error, response) {
+    needle.get('https://api.coinmarketcap.com/v2/ticker/1298/', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
@@ -44,13 +44,13 @@ exports.stats = {
           day_indicator = ':thumbsdown:';
         }
 
-        needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=GBP', function(error, response) {
+        needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=GBP', function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
             var data = response.body[0];
             var price_gbp = Number(data.price_gbp);
-            needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=EUR', function(error, response) {
+            needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
