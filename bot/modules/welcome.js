@@ -21,7 +21,7 @@ exports.onUserJoin = function(bot) {
       }
     }).catch(function(error) {
 	bot.channels.get('369896313082478594').send(member +
-	', Please enable Direct Messages from server members to communicate fully with our bot, it is located in the user setting area under Privacy & Safety tab, select the option allow direct messages from server members\nSince the bot could not send you our Welcome message please check the posts in <#428634445176766464> and available commands in <#428661678796832768>'
+	', Please enable Direct Messages from server members to communicate fully with our bot, it is located in the user setting area under Privacy & Safety tab, select the option allow direct messages from server members\nSince the bot could not send you our Welcome message please check the posts in <#431211007050776577> and see the Wunderbot and tipbot commands by typing `!help` in <#369896313082478594>'
       )
     });
     member.send({
