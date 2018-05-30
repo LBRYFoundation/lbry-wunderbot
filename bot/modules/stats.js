@@ -22,13 +22,13 @@ exports.stats = {
       } else {
         var data = response.body[0];
         var rank = data.rank;
-        var price_usd = Number(data.price_usd);
+        var price_usd = Number(data.quotes.USD.price);
         var price_btc = Number(data.price_btc);
-        var market_cap_usd = Number(data.market_cap_usd);
-        var available_supply = Number(data.available_supply);
+        var market_cap_usd = Number(data.quotes.USD.market_cap);
+        var circulating_supply = Number(data.circulating_supply);
         var total_supply = Number(data.total_supply);
-        var percent_change_1h = Number(data.percent_change_1h);
-        var percent_change_24h = Number(data.percent_change_24h);
+        var percent_change_1h = Number(data.quotes.USD.percent_change_1h);
+        var percent_change_24h = Number(data.quotes.USD.percent_change_24h);
         var json = response.body[0];
         var newjson = parse_obj(json);
         var parse = JSON.stringify(newjson);
@@ -49,13 +49,13 @@ exports.stats = {
             msg.channel.send('coinmarketcap API is not available');
           } else {
             var data = response.body[0];
-            var price_gbp = Number(data.price_gbp);
+            var price_gbp = Number(data.quotes.GBP.price);
             needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
                 var data = response.body[0];
-                var price_eur = Number(data.price_eur);
+                var price_eur = Number(data.quotes.EUR.price);
                 description =
                   '**Rank: [' +
                   rank +
