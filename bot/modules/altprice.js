@@ -23,25 +23,25 @@ exports.altprice = {
         .filter(function(n) {
           return n !== '';
         });
-      var currency1 = words[0].toUpperCase();
+      let currency1 = words[0].toUpperCase();
       if (words[1] == undefined) {
-        var currency2 = 'BTC';
+        let currency2 = 'BTC';
       } else {
-        var currency2 = words[1].toUpperCase();
+        let currency2 = words[1].toUpperCase();
       }
       if (words[2] == undefined) {
-        var amount = '1';
+        let amount = '1';
       } else {
         if (getValidatedAmount(words[2]) === null) {
           msg.reply('Please specify a number for <amount>');
           return;
         }
-        var amount = words[2].toUpperCase();
+        let amount = words[2].toUpperCase();
       }
     } else {
-      var currency1 = 'BTC';
-      var currency2 = 'USD';
-      var amount = '1';
+      let currency1 = 'BTC';
+      let currency2 = 'USD';
+      let amount = '1';
     }
     needle.get('https://min-api.cryptocompare.com/data/all/coinlist', function(error, response) {
       if (error || response.statusCode !== 200) {
@@ -55,9 +55,9 @@ exports.altprice = {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
-            var price = Number(response.body[currency2]);
-            var newprice = price * amount;
-            var message = amount + ' ' + currency1 + ' = ' + newprice.toFixed(8) + ' ' + currency2 + '\n' + '*Updated: ' + timestamp + '*';
+            let price = Number(response.body[currency2]);
+            let newprice = price * amount;
+            let message = amount + ' ' + currency1 + ' = ' + newprice.toFixed(8) + ' ' + currency2 + '\n' + '*Updated: ' + timestamp + '*';
             msg.channel.send(message);
           }
         });

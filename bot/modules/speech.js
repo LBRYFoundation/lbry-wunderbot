@@ -25,14 +25,14 @@ exports.speech = {
       return;
     }
 
-    var command = '!speech';
+    let command = '!speech';
     words = suffix
       .trim()
       .split(' ')
       .filter(function(n) {
         return n !== '';
       });
-    var imagename = words[0];
+    let imagename = words[0];
 
     //check if image name is help, if it is then do help message
     if (imagename == 'help') {
@@ -42,13 +42,13 @@ exports.speech = {
       //check if imagename is defined if not do error
       if (imagename === undefined) {
         if (FullDebug === 'true') {
-          var message = '`no name provided`';
+          let message = '`no name provided`';
           console.log('no name provided');
           msg.channel.send(message);
           doHelp(bot, msg, suffix);
           return;
         } else {
-          var message = '`no name provided`';
+          let message = '`no name provided`';
           msg.channel.send(message);
           doHelp(bot, msg, suffix);
           return;
@@ -56,17 +56,17 @@ exports.speech = {
       }
 
       //set second word to url
-      var filepath = words[1];
+      let filepath = words[1];
 
       //check if a url is provided if none do help message
       if (filepath === undefined) {
         if (FullDebug === 'true') {
-          var message = '`no url provided, fetching image from:`\n' + 'https://spee.ch/' + imagename;
+          let message = '`no url provided, fetching image from:`\n' + 'https://spee.ch/' + imagename;
           console.log('no url provided');
           msg.channel.send(message);
           return;
         } else {
-          var message = '`no url provided, fetching image from:`\n' + 'https://spee.ch/' + imagename;
+          let message = '`no url provided, fetching image from:`\n' + 'https://spee.ch/' + imagename;
           msg.channel.send(message);
           return;
         }
@@ -74,34 +74,34 @@ exports.speech = {
 
       //prepare url for other uses
       //we will just set filepath to url to be safe
-      var url = filepath;
+      let url = filepath;
       //parse first 4 letters of url should be http
-      var linkvalid = url.slice(0, 4);
+      let linkvalid = url.slice(0, 4);
 
       //check of url provided begins with http in not throw error and help message
       if (linkvalid !== 'http') {
         if (FullDebug === 'true') {
-          var message = '`error not a valid url, please start with http or https`';
+          let message = '`error not a valid url, please start with http or https`';
           console.log('invalid url provided: ' + filepath);
           msg.channel.send(message);
           return;
         } else {
-          var message = '`error not a valid url, please start with http or https`';
+          let message = '`error not a valid url, please start with http or https`';
           msg.channel.send(message);
           return;
         }
       }
 
       //function to check if url is an image
-      var isUriImage = function(uri) {
+      let isUriImage = function(uri) {
         //make sure we remove any nasty GET params
         uri = uri.split('?')[0];
         //moving on, split the uri into parts that had dots before them
-        var parts = uri.split('.');
+        let parts = uri.split('.');
         //get the last part ( should be the extension )
-        var extension = parts[parts.length - 1];
+        let extension = parts[parts.length - 1];
         //define some image types to test against
-        var imageTypes = ['jpg', 'jpeg', 'tiff', 'png', 'gif', 'bmp'];
+        let imageTypes = ['jpg', 'jpeg', 'tiff', 'png', 'gif', 'bmp'];
         //check if the extension matches anything in the list. if it does set true if not set false
         if (imageTypes.indexOf(extension) !== -1) {
           return true;
@@ -113,18 +113,18 @@ exports.speech = {
       //check if url is an image if its not throw error and help message
       if (isUriImage(url) === false) {
         if (FullDebug === 'true') {
-          var message = '`error not a valid image url, be sure the link includes a file type`';
+          let message = '`error not a valid image url, be sure the link includes a file type`';
           console.log('invalid url provided: ' + url);
           msg.channel.send(message);
           return;
         } else {
-          var message = '`error not a valid image url, be sure the link includes a file type`';
+          let message = '`error not a valid image url, be sure the link includes a file type`';
           msg.channel.send(message);
           return;
         }
       }
       //set third word to nsfw, with it being an optional functionality
-      var eighteen = words[2];
+      let eighteen = words[2];
 
       //check is NSFW if yes or no sets proper value if none
       if (eighteen == '' || eighteen == 'none' || eighteen == undefined || eighteen == null || eighteen == 'no' || eighteen == 'false' || eighteen == false || eighteen == 'n') {
@@ -134,27 +134,27 @@ exports.speech = {
       }
 
       //prepare url for wget
-      var source = url;
+      let source = url;
       //parse the filename to use to save file
       filepath = source.split('/').pop();
       //set proper directory for downloading image
-      var outputFile = 'speech-uploads/' + filepath;
+      let outputFile = 'speech-uploads/' + filepath;
       //set download directory to current working directory
-      var dir = process.cwd();
+      let dir = process.cwd();
       //set full path to directory for speech uploading
-      var fullpath = dir + '\\speech-uploads\\' + filepath;
+      let fullpath = dir + '\\speech-uploads\\' + filepath;
 
       //download url via wget
-      var download = wget.download(url, outputFile);
+      let download = wget.download(url, outputFile);
       //check if url is reachable if not throw error
       download.on('error', function(err) {
         if (FullDebug === 'true') {
           console.log('error could not reach: ' + url + ' : ' + err);
-          var message = '`error url could not be reached`';
+          let message = '`error url could not be reached`';
           msg.channel.send(message);
           return;
         } else {
-          var message = '`error url could not be reached`';
+          let message = '`error url could not be reached`';
           msg.channel.send(message);
           return;
         }
@@ -213,11 +213,11 @@ exports.speech = {
           if (body.message === 'no files found in request') {
             if (FullDebug === 'true') {
               console.log('no file found: ' + fullpath);
-              var message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
+              let message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
               msg.channel.send(message);
               return;
             } else {
-              var message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
+              let message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
               msg.channel.send(message);
               return;
             }
@@ -227,18 +227,18 @@ exports.speech = {
           if (body.message === 'no name field found in request') {
             if (FullDebug === 'true') {
               console.log('no name field found: ' + imagename);
-              var message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
+              let message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
               msg.channel.send(message);
               return;
             } else {
-              var message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
+              let message = '`Failed to upload file internally!!`\n please contact <@244245498746241025> or another moderator if the issue persists';
               msg.channel.send(message);
               return;
             }
           }
 
           //if no errors post this message
-          var message = 'uploading... \n "name":"' + imagename + '",\n "URL": "' + url + '",\n "nsfw":"' + eighteen + '"\n to spee.ch';
+          let message = 'uploading... \n "name":"' + imagename + '",\n "URL": "' + url + '",\n "nsfw":"' + eighteen + '"\n to spee.ch';
           console.log('uploading... \n "name":"' + imagename + '",\n "file name": "' + filepath + '",\n "url":"' + url + '"\n "path":"' + fullpath + '"\n "nsfw": "' + eighteen + '"');
           msg.channel.send(message);
         }

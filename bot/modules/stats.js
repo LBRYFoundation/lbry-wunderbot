@@ -37,13 +37,29 @@ exports.stats = {
         var timestamp = dt.toUTCString();
         var hr_indicator = ':thumbsup:';
         var day_indicator = ':thumbsup:';
+        let data = response.body[0];
+        let rank = data.rank;
+        let price_usd = Number(data.price_usd);
+        let price_btc = Number(data.price_btc);
+        let market_cap_usd = Number(data.market_cap_usd);
+        let available_supply = Number(data.available_supply);
+        let total_supply = Number(data.total_supply);
+        let percent_change_1h = Number(data.percent_change_1h);
+        let percent_change_24h = Number(data.percent_change_24h);
+        let json = response.body[0];
+        let newjson = parse_obj(json);
+        let parse = JSON.stringify(newjson);
+        let volume24_usd = parse.replace(/[^0-9]/g, '');
+        let dt = new Date();
+        let timestamp = dt.toUTCString();
+        let hr_indicator = ':thumbsup:';
+        let day_indicator = ':thumbsup:';
         if (percent_change_1h < 0) {
           hr_indicator = ':thumbsdown:';
         }
         if (percent_change_24h < 0) {
           day_indicator = ':thumbsdown:';
         }
-
         needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=GBP', function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
@@ -56,6 +72,15 @@ exports.stats = {
               } else {
                 var data = response.body[0];
                 var price_eur = Number(data.quotes.EUR.price);
+
+            let data = response.body[0];
+            let price_gbp = Number(data.price_gbp);
+            needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=EUR', function(error, response) {
+              if (error || response.statusCode !== 200) {
+                msg.channel.send('coinmarketcap API is not available');
+              } else {
+                let data = response.body[0];
+                let price_eur = Number(data.price_eur);
                 description =
                   '**Rank: [' +
                   rank +
@@ -139,12 +164,12 @@ exports.stats = {
       }
     });
     function parse_obj(obj) {
-      var array = [];
-      var prop;
+      let array = [];
+      let prop;
       for (prop in obj) {
         if (obj.hasOwnProperty(prop)) {
-          var key = parseInt(prop, 10);
-          var value = obj[prop];
+          let key = parseInt(prop, 10);
+          let value = obj[prop];
           if (typeof value == 'object') {
             value = parse_obj(value);
           }
