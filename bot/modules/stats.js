@@ -16,19 +16,19 @@ exports.stats = {
   usage: '',
   description: 'Displays list of current Market stats',
   process: function(bot, msg) {
-    needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/', function(error, response) {
+    needle.get('https://api.coinmarketcap.com/v2/ticker/1298/', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
         let data = response.body[0];
         let rank = data.rank;
-        let price_usd = Number(data.price_usd);
+        let price_usd = Number(data.quotes.USD.price);
         let price_btc = Number(data.price_btc);
-        let market_cap_usd = Number(data.market_cap_usd);
-        let available_supply = Number(data.available_supply);
+        let market_cap_usd = Number(data.quotes.USD.market_cap);
+        let circulating_supply = Number(data.circulating_supply);
         let total_supply = Number(data.total_supply);
-        let percent_change_1h = Number(data.percent_change_1h);
-        let percent_change_24h = Number(data.percent_change_24h);
+        let percent_change_1h = Number(data.quotes.USD.percent_change_1h);
+        let percent_change_24h = Number(data.quotes.USD.percent_change_24h);
         let json = response.body[0];
         let newjson = parse_obj(json);
         let parse = JSON.stringify(newjson);
@@ -44,18 +44,18 @@ exports.stats = {
           day_indicator = ':thumbsdown:';
         }
 
-        needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=GBP', function(error, response) {
+        needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=GBP', function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
             let data = response.body[0];
-            let price_gbp = Number(data.price_gbp);
-            needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=EUR', function(error, response) {
+            let price_gbp = Number(data.quotes.GBP.price);
+            needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
                 let data = response.body[0];
-                let price_eur = Number(data.price_eur);
+                let price_eur = Number(data.quotes.EUR.price);
                 description =
                   '**Rank: [' +
                   rank +
