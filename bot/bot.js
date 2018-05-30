@@ -101,11 +101,11 @@ function checkMessageForCommand(msg, isEdit) {
       }
     }
     let alias = aliases[cmdTxt];
+    let cmd;
     if (alias) {
-      let cmd = alias;
+      cmd = alias;
     } else {
-      let cmd = commands[cmdTxt];
-
+      cmd = commands[cmdTxt];
     }
     if (cmdTxt === 'help') {
       //help is special since it iterates over the other commands
