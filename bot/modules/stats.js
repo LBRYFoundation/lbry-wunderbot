@@ -20,23 +20,23 @@ exports.stats = {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
-        var data = response.body[0];
-        var rank = data.rank;
-        var price_usd = Number(data.price_usd);
-        var price_btc = Number(data.price_btc);
-        var market_cap_usd = Number(data.market_cap_usd);
-        var available_supply = Number(data.available_supply);
-        var total_supply = Number(data.total_supply);
-        var percent_change_1h = Number(data.percent_change_1h);
-        var percent_change_24h = Number(data.percent_change_24h);
-        var json = response.body[0];
-        var newjson = parse_obj(json);
-        var parse = JSON.stringify(newjson);
-        var volume24_usd = parse.replace(/[^0-9]/g, '');
-        var dt = new Date();
-        var timestamp = dt.toUTCString();
-        var hr_indicator = ':thumbsup:';
-        var day_indicator = ':thumbsup:';
+        let data = response.body[0];
+        let rank = data.rank;
+        let price_usd = Number(data.price_usd);
+        let price_btc = Number(data.price_btc);
+        let market_cap_usd = Number(data.market_cap_usd);
+        let available_supply = Number(data.available_supply);
+        let total_supply = Number(data.total_supply);
+        let percent_change_1h = Number(data.percent_change_1h);
+        let percent_change_24h = Number(data.percent_change_24h);
+        let json = response.body[0];
+        let newjson = parse_obj(json);
+        let parse = JSON.stringify(newjson);
+        let volume24_usd = parse.replace(/[^0-9]/g, '');
+        let dt = new Date();
+        let timestamp = dt.toUTCString();
+        let hr_indicator = ':thumbsup:';
+        let day_indicator = ':thumbsup:';
         if (percent_change_1h < 0) {
           hr_indicator = ':thumbsdown:';
         }
@@ -48,14 +48,14 @@ exports.stats = {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
-            var data = response.body[0];
-            var price_gbp = Number(data.price_gbp);
+            let data = response.body[0];
+            let price_gbp = Number(data.price_gbp);
             needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
-                var data = response.body[0];
-                var price_eur = Number(data.price_eur);
+                let data = response.body[0];
+                let price_eur = Number(data.price_eur);
                 description =
                   '**Rank: [' +
                   rank +
@@ -139,12 +139,12 @@ exports.stats = {
       }
     });
     function parse_obj(obj) {
-      var array = [];
-      var prop;
+      let array = [];
+      let prop;
       for (prop in obj) {
         if (obj.hasOwnProperty(prop)) {
-          var key = parseInt(prop, 10);
-          var value = obj[prop];
+          let key = parseInt(prop, 10);
+          let value = obj[prop];
           if (typeof value == 'object') {
             value = parse_obj(value);
           }

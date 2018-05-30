@@ -11,7 +11,7 @@ const claimbot = require('./modules/claimbot.js');
 const commandsV2 = require('./modules/commandsV2.js');
 const supportbot = require('./modules/supportbot.js');
 
-var aliases;
+let aliases;
 try {
   aliases = require('./alias.json');
 } catch (e) {
@@ -24,7 +24,7 @@ try {
     }
   };
 }
-var commands = {
+let commands = {
   ping: {
     description: 'responds pong, useful for checking if bot is alive',
     process: async function(bot, msg, suffix) {
@@ -37,7 +37,7 @@ var commands = {
   }
 };
 
-var bot = new Discord.Client();
+let bot = new Discord.Client();
 
 bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
@@ -88,8 +88,8 @@ function checkMessageForCommand(msg, isEdit) {
       return;
     });
     }
-    var cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
-    var suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
+    let cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
+    let suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
     if (msg.isMentioned(bot.user)) {
       try {
         cmdTxt = msg.content.split(' ')[1];
@@ -102,26 +102,26 @@ function checkMessageForCommand(msg, isEdit) {
     }
     let alias = aliases[cmdTxt];
     if (alias) {
-      var cmd = alias;
+      let cmd = alias;
     } else {
-      var cmd = commands[cmdTxt];
+      let cmd = commands[cmdTxt];
 
     }
     if (cmdTxt === 'help') {
       //help is special since it iterates over the other commands
       if (suffix) {
-        var cmds = suffix.split(' ').filter(function(cmd) {
+        let cmds = suffix.split(' ').filter(function(cmd) {
           return commands[cmd];
         });
-        var info = '';
-        for (var i = 0; i < cmds.length; i++) {
-          var cmd = cmds[i];
+        let info = '';
+        for (let i = 0; i < cmds.length; i++) {
+          let cmd = cmds[i];
           info += '**' + config.prefix + cmd + '**';
-          var usage = commands[cmd].usage;
+          let usage = commands[cmd].usage;
           if (usage) {
             info += ' ' + usage;
           }
-          var description = commands[cmd].description;
+          let description = commands[cmd].description;
           if (description instanceof Function) {
             description = description();
           }
@@ -133,23 +133,23 @@ function checkMessageForCommand(msg, isEdit) {
         msg.channel.send(info);
       } else {
         msg.author.send('**Available Commands:**').then(function() {
-          var batch = '';
-          var sortedCommands = Object.keys(commands).sort();
-          for (var i in sortedCommands) {
-            var cmd = sortedCommands[i];
-            var info = '**' + config.prefix + cmd + '**';
-            var usage = commands[cmd].usage;
+          let batch = '';
+          let sortedCommands = Object.keys(commands).sort();
+          for (let i in sortedCommands) {
+            let cmd = sortedCommands[i];
+            let info = '**' + config.prefix + cmd + '**';
+            let usage = commands[cmd].usage;
             if (usage) {
               info += ' ' + usage;
             }
-            var description = commands[cmd].description;
+            let description = commands[cmd].description;
             if (description instanceof Function) {
               description = description();
             }
             if (description) {
               info += '\n\t' + description;
             }
-            var newBatch = batch + '\n' + info;
+            let newBatch = batch + '\n' + info;
             if (newBatch.length > 1024 - 8) {
               //limit message length
               msg.author.send(batch);
@@ -169,7 +169,7 @@ function checkMessageForCommand(msg, isEdit) {
       try {
         cmd.process(bot, msg, suffix, isEdit);
       } catch (e) {
-        var msgTxt = 'command ' + cmdTxt + ' failed :(';
+        let msgTxt = 'command ' + cmdTxt + ' failed :(';
         if (config.debug) {
           msgTxt += '\n' + e.stack;
         }
