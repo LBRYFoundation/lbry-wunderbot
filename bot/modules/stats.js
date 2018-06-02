@@ -56,7 +56,7 @@ exports.stats = {
               } else {
                 let data = response.body[0];
                 let price_eur = Number(data.price_eur);
-                description =
+                let description =
                   '**Rank: [' +
                   rank +
                   '](' +
