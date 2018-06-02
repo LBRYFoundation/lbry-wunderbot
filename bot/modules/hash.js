@@ -19,18 +19,18 @@ exports.timedhash = function(bot) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('Explorer API is not available');
       } else {
-        var data = response.body;
-        var height = Number(data.status.height);
-        var hashrate = data.status.hashrate;
-        var difficulty = Number(data.status.difficulty);
+        let data = response.body;
+        let height = Number(data.status.height);
+        let hashrate = data.status.hashrate;
+        let difficulty = Number(data.status.difficulty);
         needle.get('https://whattomine.com/coins/164.json', function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('whattomine API is not available');
           }
-          var data = response.body;
-          var reward = Number(data.block_reward);
-          var block_time = Number(data.block_time);
-          var difficulty24 = Number(data.difficulty24);
+          let data = response.body;
+          let reward = Number(data.block_reward);
+          let block_time = Number(data.block_time);
+          let difficulty24 = Number(data.difficulty24);
           description =
             'Hashrate: ' +
             numberWithCommas(hashrate) +
@@ -75,7 +75,7 @@ exports.hash = {
   usage: '',
   description: 'Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate',
   process: function(bot, msg, suffix) {
-    var command = '!hash';
+    let command = '!hash';
     words = suffix
       .trim()
       .split(' ')
@@ -101,18 +101,18 @@ exports.hash = {
         if (error || response.statusCode !== 200) {
           msg.channel.send('Explorer API is not available');
         } else {
-          var data = response.body;
-          var height = Number(data.status.height);
-          var hashrate = data.status.hashrate;
-          var difficulty = Number(data.status.difficulty);
+          let data = response.body;
+          let height = Number(data.status.height);
+          let hashrate = data.status.hashrate;
+          let difficulty = Number(data.status.difficulty);
           needle.get('https://whattomine.com/coins/164.json', function(error, response) {
             if (error || response.statusCode !== 200) {
               msg.channel.send('whattomine API is not available');
             }
-            var data = response.body;
-            var reward = Number(data.block_reward);
-            var block_time = Number(data.block_time);
-            var difficulty24 = Number(data.difficulty24);
+            let data = response.body;
+            let reward = Number(data.block_reward);
+            let block_time = Number(data.block_time);
+            let difficulty24 = Number(data.difficulty24);
             description =
               'Hashrate: ' +
               numberWithCommas(hashrate) +
@@ -159,18 +159,18 @@ exports.hash = {
             .filter(function(n) {
               return n !== '';
             });
-          var myhashrate = words[1];
+          let myhashrate = words[1];
           if (myhashrate == '' || myhashrate == null || myhashrate == undefined || myhashrate == ' ') {
             myhashrate = '100';
           }
-          var Diff = response.body.difficulty24;
-          var Reward = response.body.block_reward;
-          var myHash = Number(myhashrate);
-          var LBC = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 3600;
-          var LBC24 = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 86400;
-          var LBC1w = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 604800;
-          var LBC1m = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 2628000;
-          var message =
+          let Diff = response.body.difficulty24;
+          let Reward = response.body.block_reward;
+          let myHash = Number(myhashrate);
+          let LBC = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 3600;
+          let LBC24 = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 86400;
+          let LBC1w = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 604800;
+          let LBC1m = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 2628000;
+          let message =
             'With **' +
             myHash +
             ' Mh/s** and Average 24 hour Difficulty: **' +
