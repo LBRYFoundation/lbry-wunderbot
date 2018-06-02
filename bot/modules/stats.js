@@ -16,14 +16,14 @@ exports.stats = {
   usage: '',
   description: 'Displays list of current Market stats',
   process: function(bot, msg) {
-    needle.get('https://api.coinmarketcap.com/v2/ticker/1298/', function(error, response) {
+    needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=BTC', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
-        let data = response.body[0];
+        let data = response.body.data;
         let rank = data.rank;
         let price_usd = Number(data.quotes.USD.price);
-        let price_btc = Number(data.price_btc);
+        let price_btc = Number(data.quotes.BTC.price);
         let market_cap_usd = Number(data.quotes.USD.market_cap);
         let circulating_supply = Number(data.circulating_supply);
         let total_supply = Number(data.total_supply);
@@ -48,13 +48,13 @@ exports.stats = {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
-            let data = response.body[0];
+            let data = response.body.data;
             let price_gbp = Number(data.quotes.GBP.price);
             needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
-                let data = response.body[0];
+                let data = response.body.data;
                 let price_eur = Number(data.quotes.EUR.price);
                 description =
                   '**Rank: [' +
