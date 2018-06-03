@@ -45,7 +45,7 @@ exports.lambo = {
       needle.get('https://api.coinmarketcap.com/v2/listings/', function(error, response) {
         if (error || response.statusCode !== 200) {
                 msg.channel.send(
-                  'API not avaialble...'
+                  'API not available...'
                 );
         } else {
           let JSON1 = response.body.data;
@@ -70,7 +70,7 @@ exports.lambo = {
           ) {
             if (error || response.statusCode !== 200) {
                 msg.channel.send(
-                  'API not avaialble...'
+                  'API not available...'
                 );
             } else {
               let dt = new Date();
