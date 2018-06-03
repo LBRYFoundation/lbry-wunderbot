@@ -16,11 +16,6 @@ exports.lambo = {
   description:
     'displays amount of given alt coin to get a lambo\n    if <amount> is supplied that will be deducted from total price towards 1 Lambo!',
   process: function(bot, msg, suffix) {
-    let dt = new Date();
-    let timestamp = moment()
-      .tz('America/Los_Angeles')
-      .format('MM-DD-YYYY hh:mm a');
-
     if (!hasPriceBotChannels(msg) && !inPrivate(msg)) {
       msg.channel.send(
         'Please use <#' + channelID + '> or DMs to talk to price bot.'
@@ -78,6 +73,8 @@ exports.lambo = {
                   'API not avaialble...'
                 );
             } else {
+              let dt = new Date();
+              let timestamp = dt.toUTCString();
               let rate = Number(response.body.data.quotes.USD.price);
               let cost = 250000 / rate;
               if (amount <= 1) {
