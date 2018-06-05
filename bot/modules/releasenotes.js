@@ -12,23 +12,24 @@ exports.releasenotes = {
   usage: '',
   description: 'gets current release notes from GITHUB',
   process: function(bot, msg, suffix) {
-    var headers = {
+    const headers = {
       'Content-Type': 'application/json',
       'User-Agent': 'Super Agent/0.0.1'
     };
     // Configure the request
-    var options = {
+    const options = {
       url: 'https://api.github.com/repos/lbryio/lbry-app/releases/latest',
       method: 'GET',
       headers: headers
     };
 
     // Start the request
+    let message;
     request(options, function(error, response, body) {
-      releasemessage = JSON.parse(body).body;
-      releasename = JSON.parse(body).name;
-      releasedate = JSON.parse(body).published_at;
-      releaseurl = JSON.parse(body).html_url;
+      let releasemessage = JSON.parse(body).body;
+      let releasename = JSON.parse(body).name;
+      let releasedate = JSON.parse(body).published_at;
+      let releaseurl = JSON.parse(body).html_url;
       if (releasemessage.length < 2000) {
         message = {
           embed: {
@@ -64,12 +65,12 @@ exports.releasenotes = {
           .filter(function(n) {
             return n !== '';
           });
-        releasemessage1 = message[0];
-        releasemessage2 = message[1];
-        releasemessage3 = message[2];
-        releasemessage4 = message[3];
-        releasemessage5 = message[4];
-        message1 = {
+        let releasemessage1 = message[0];
+        let releasemessage2 = message[1];
+        let releasemessage3 = message[2];
+        let releasemessage4 = message[3];
+        let releasemessage5 = message[4];
+        let message1 = {
           embed: {
             title: '*Download ' + releasename + ' here!*',
             description: releasemessage1,
@@ -86,7 +87,7 @@ exports.releasenotes = {
             }
           }
         };
-        message2 = {
+        let message2 = {
           embed: {
             description: releasemessage2,
             color: 7976557,
@@ -100,7 +101,7 @@ exports.releasenotes = {
             }
           }
         };
-        message3 = {
+        let message3 = {
           embed: {
             description: releasemessage3,
             color: 7976557,
@@ -114,7 +115,7 @@ exports.releasenotes = {
             }
           }
         };
-        message4 = {
+        let message4 = {
           embed: {
             description: releasemessage4,
             color: 7976557,
@@ -128,7 +129,7 @@ exports.releasenotes = {
             }
           }
         };
-        message5 = {
+        let message5 = {
           embed: {
             description: releasemessage5,
             color: 7976557,
