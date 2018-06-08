@@ -31,7 +31,7 @@ exports.timedhash = function(bot) {
           let reward = Number(data.block_reward);
           let block_time = Number(data.block_time);
           let difficulty24 = Number(data.difficulty24);
-          description =
+          let description =
             'Hashrate: ' +
             numberWithCommas(hashrate) +
             '\n' +
@@ -76,14 +76,14 @@ exports.hash = {
   description: 'Displays current Hashrate of Network\n**!hash power <Mh/s>**\n  Displays potential Earnings For Given Hashrate',
   process: function(bot, msg, suffix) {
     let command = '!hash';
-    words = suffix
+    let words = suffix
       .trim()
       .split(' ')
       .filter(function(n) {
         return n !== '';
       });
-    profitcommand = words[0];
-    myhashrate = words[1];
+    let profitcommand = words[0];
+    let myhashrate = words[1];
     if (profitcommand == 'power') {
       sendProfitInfo(bot, msg, suffix);
       return;
@@ -113,7 +113,7 @@ exports.hash = {
             let reward = Number(data.block_reward);
             let block_time = Number(data.block_time);
             let difficulty24 = Number(data.difficulty24);
-            description =
+            let description =
               'Hashrate: ' +
               numberWithCommas(hashrate) +
               '\n' +
