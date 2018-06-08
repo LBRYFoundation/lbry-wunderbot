@@ -48,16 +48,16 @@ exports.stats = {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
-            let data = response.body.data;
+            data = response.body.data;
             let price_gbp = Number(data.quotes.GBP.price);
             needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
-                let data = response.body.data;
+                data = response.body.data;
                 let price_eur = Number(data.quotes.EUR.price);
-                let data = response.body[0];
-                let price_eur = Number(data.price_eur);
+                data = response.body[0];
+                price_eur = Number(data.price_eur);
                 let description =
                   '**Rank: [' +
                   rank +
