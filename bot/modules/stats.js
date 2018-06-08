@@ -32,7 +32,7 @@ exports.stats = {
         let json = response.body[0];
         let newjson = parse_obj(json);
         let parse = JSON.stringify(newjson);
-        let volume24_usd = parse.replace(/[^0-9]/g, '');
+        let volume24_usd = Number(data.quotes.USD.volume_24h);
         let dt = new Date();
         let timestamp = dt.toUTCString();
         let hr_indicator = ':thumbsup:';
@@ -56,8 +56,6 @@ exports.stats = {
               } else {
                 data = response.body.data;
                 let price_eur = Number(data.quotes.EUR.price);
-                data = response.body[0];
-                price_eur = Number(data.price_eur);
                 let description =
                   '**Rank: [' +
                   rank +
@@ -76,7 +74,7 @@ exports.stats = {
                   statsurl +
                   ')\n' +
                   'Circulating Supply: [' +
-                  numberWithCommas(available_supply) +
+                  numberWithCommas(circulating_supply) +
                   ' LBC](' +
                   statsurl +
                   ')\n' +
