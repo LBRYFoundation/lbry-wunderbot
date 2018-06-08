@@ -11,7 +11,7 @@ exports.lbrylink = function(bot, msg, suffix) {
     }
     if (msg.content.includes('lbry://')) {
       //Extract URL from Message
-      newURL = msg.content
+      let newURL = msg.content
         .replace('lbry://', 'https://open.lbry.io/')
         .match(/\bhttps?:\/\/\S+/gi)
         .toString();
@@ -28,8 +28,8 @@ exports.lbrylink = function(bot, msg, suffix) {
       //Check if Username Was Supplied
       if (newURL.includes('>')) {
         //Get rid of ID from message
-        parseID = newURL.split('>').pop();
-        newURL = 'https://open.lbry.io' + parseID;
+        let parseID = newURL.split('>').pop();
+        let newURL = 'https://open.lbry.io' + parseID;
         if (responseDebug) {
           console.log('Username Provided!');
           console.log('parseID = ' + parseID);
@@ -45,8 +45,8 @@ exports.lbrylink = function(bot, msg, suffix) {
         //Also check obscurity in username like ``@MSFTserver` vs `@MSFTserverPics`
         if (parseID.includes('/')) {
           //parse out extra params before `/` like `<@123456789>Pics`
-          parseID = parseID.split('/').pop();
-          newURL = 'https://open.lbry.io/' + parseID;
+          let parseID = parseID.split('/').pop();
+          let newURL = 'https://open.lbry.io/' + parseID;
           if (responseDebug) {
             console.log('Username no / check');
             console.log('parseID = ' + parseID);

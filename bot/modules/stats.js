@@ -56,6 +56,8 @@ exports.stats = {
               } else {
                 let data = response.body.data;
                 let price_eur = Number(data.quotes.EUR.price);
+                let data = response.body[0];
+                let price_eur = Number(data.price_eur);
                 let description =
                   '**Rank: [' +
                   rank +
