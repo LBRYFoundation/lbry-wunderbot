@@ -94,12 +94,17 @@ exports.roles = {
           },
           {
             name: 'How to add a role to yourself',
-            value: '!addrole (role) - Adds a specified role to yourself.\n!addrole Certified Troll would add the Certified Troll role.',
+            value: '!addrole (role) - Adds a specified role to yourself.\n!addrole International would add the International role.',
             inline: false
           },
           {
             name: 'How to remove a role from yourself',
-            value: '!delrole (role) - Removed a specified role from yourself.\n!delrole Certified Troll would remove the Certified Troll role.',
+            value: '!delrole (role) - Removed a specified role from yourself.\n!delrole International would remove the International role.',
+            inline: false
+          },
+            {
+            name: 'NOTE',
+            value: 'The above roles are case sensitive.',
             inline: false
           }
         ],
