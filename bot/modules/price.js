@@ -131,13 +131,73 @@ exports.price = {
         },
         MYR: {
           steps: ['LBCBTC', 'BTCMYR'],
-          format: 'RM 0,0.00',
+          format: 'RM0,0.00',
           sign: 'RM'
         },
         IDR: {
           steps: ['LBCBTC', 'BTCIDR'],
           format: 'Rp0,0.00',
           sign: 'Rp'
+        },
+        VND: {
+          steps: ['LBCBTC', 'BTCVND'],
+          format: '₫0,0.00',
+          sign: '₫'
+        },
+        PHP: {
+          steps: ['LBCBTC', 'BTCPHP'],
+          format: '₱0,0.00',
+          sign: '₱'
+        },
+        BND: {
+          steps: ['LBCBTC', 'BTCBND'],
+          format: 'B$0,0.00',
+          sign: 'B$'
+        },
+        SAR: {
+          steps: ['LBCBTC', 'BTCSAR'],
+          format: 'SR0,0.00',
+          sign: 'SR'
+        },
+        MXN: {
+          steps: ['LBCBTC', 'BTCMXN'],
+          format: 'Mex$0,0.00',
+          sign: 'Mex$'
+        },
+        TRY: {
+          steps: ['LBCBTC', 'BTCTRY'],
+          format: '₺0,0.00',
+          sign: '₺'
+        },
+        MMK: {
+          steps: ['LBCBTC', 'BTCMMK'],
+          format: 'K0,0.00',
+          sign: 'K'
+        },
+        KHR: {
+          steps: ['LBCBTC', 'BTCKHR'],
+          format: '៛0,0.00',
+          sign: '៛'
+        },
+        AED: {
+          steps: ['LBCBTC', 'BTCAED'],
+          format: 'د.إ0,0.00',
+          sign: 'د.إ'
+        },
+        ZAR: {
+          steps: ['LBCBTC', 'BTCZAR'],
+          format: 'R0,0.00',
+          sign: 'R'
+        },
+        PGK: {
+          steps: ['LBCBTC', 'BTCPGK'],
+          format: 'K0,0.00',
+          sign: 'K'
+        },
+        EGP: {
+          steps: ['LBCBTC', 'BTCEGP'],
+          format: 'EGP0,0.00',
+          sign: 'EGP'
         },
         BTC: {
           steps: ['LBCBTC'],
@@ -244,6 +304,54 @@ exports.price = {
           url: 'https://blockchain.info/ticker',
           path: '$.TWD.buy'
         },
+        BTCBND: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BND',
+          path: '$.BND'
+        },
+        BTCVND: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=VND',
+          path: '$.VND'
+        },
+        BTCPHP: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=PHP',
+          path: '$.PHP'
+        },
+        BTCSAR: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=SAR',
+          path: '$.SAR'
+        },
+        BTCMXN: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=MXN',
+          path: '$.MXN'
+        },
+        BTCTRY: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=TRY',
+          path: '$.TRY'
+        },
+        BTCMMK: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=MMK',
+          path: '$.MMK'
+        },
+        BTCKHR: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=KHR',
+          path: '$.KHR'
+        },
+        BTCAED: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=AED',
+          path: '$.AED'
+        },
+        BTCZAR: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=ZAR',
+          path: '$.ZAR'
+        },
+        BTCPGK: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=PGK',
+          path: '$.PGK'
+        },
+        BTCEGP: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EGP',
+          path: '$.EGP'
+        },
         BTCIDR: {
           url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=IDR',
           path: '$.IDR'
@@ -307,7 +415,7 @@ exports.price = {
         '**' +
         command +
         ' CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY\n' +
-        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *idr* and *btc* (case-insensitive)';
+        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *bnd*,*vnd*, *php*, *sar*, *mxn*, *try*, *mmk*, *khr*, *aed*, *zar*, *pgk*, *egp*, *idr* and *btc* (case-insensitive)';
       msg.channel.send(message);
     }
 
