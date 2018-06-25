@@ -237,7 +237,7 @@ exports.price = {
         AZN: {
           steps: ['LBCBTC', 'BTCAZN'],
           format: '₼ 0,0.00',
-          sign: '	₼'
+          sign: '₼'
         },
         AMD: {
           steps: ['LBCBTC', 'BTCAMD'],
