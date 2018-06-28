@@ -156,9 +156,9 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
 
         if (value) {
           /*
-          if (channelName) { 
+          if (channelName) {
             text.push("Channel: lbry://" + channelName);
-          } 
+          }
           else
           */
           console.log(value);
@@ -197,7 +197,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
           const richEmbeded = {
             author: {
               name: value['author'] || 'Anonymous',
-              url: 'http://open.lbry.io/' + claim['name'],
+              url: `http://open.lbry.io/${claim['name']}#${claim['claimId']}`,
               icon_url: 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif'
             },
             title: 'lbry://' + (channelName ? channelName + '/' : '') + claim['name'],
