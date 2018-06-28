@@ -279,6 +279,11 @@ exports.price = {
           format: 'zł 0,0.00',
           sign: 'zł'
         },
+        HRK: {
+          steps: ['LBCBTC', 'BTCHRK'],
+          format: 'kn 0,0.00',
+          sign: 'kn'
+        },
         BTC: {
           steps: ['LBCBTC'],
           format: '0,0[.][00000000] BTC',
@@ -496,6 +501,10 @@ exports.price = {
           url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=PLN',
           path: '$.PLN'
         },
+        BTCHRK: {
+          url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=HRK',
+          path: '$.HRK'
+        },
         BTCIDR: {
           url: 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=IDR',
           path: '$.IDR'
@@ -559,7 +568,7 @@ exports.price = {
         '**' +
         command +
         ' CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY\n' +
-        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *bnd*,*vnd*, *php*, *sar*, *mxn*, *try*, *mmk*, *khr*, *aed*, *zar*, *pgk*, *egp*,*nok*, *huf*, *all*, *gel*, *mdl*, *bam* ,*kzt*, *azn*, *amd*, *byn*, *btn*, *npr*, *bdt*, *pkr*, *ars*, *pln*, *idr* and *btc* (case-insensitive)';
+        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *bnd*,*vnd*, *php*, *sar*, *mxn*, *try*, *mmk*, *khr*, *aed*, *zar*, *pgk*, *egp*,*nok*, *hrk*, *huf*, *all*, *gel*, *mdl*, *bam* ,*kzt*, *azn*, *amd*, *byn*, *btn*, *npr*, *bdt*, *pkr*, *ars*, *pln*, *idr* and *btc* (case-insensitive)';
       msg.channel.send(message);
     }
 
