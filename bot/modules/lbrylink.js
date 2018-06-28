@@ -75,7 +75,7 @@ exports.lbrylink = function(bot, msg, suffix) {
         }
       }
       const embed = {
-        description: "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" + newURL.replace(/[^0-9a-z#]/gi,''),
+        description: "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" + newURL.replace(/[^0-9a-z#/:]/gi,''),
         color: 7976557,
         author: {
           name: 'LBRY Linker',
