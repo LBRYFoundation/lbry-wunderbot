@@ -760,6 +760,22 @@
       }
     }
   },
+  "!fund": {
+    "usage": "",
+    "description": "Android Alpha Tester",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "The [LBRY Fund](https://lbry.fund) receives funding from a portion of the 200m LBC premined credits reserved for Community to spread the use and adoption of the LBRY protocol.",
+      "color": 7976557,
+      "author": {
+        "name": "The LBRY Community Fund",
+        "url": "https://lbry.fund",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
     "!jiggytom": {
     "usage": "",
     "description": "What is JiggyTom?",
