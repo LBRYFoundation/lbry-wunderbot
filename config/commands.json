@@ -800,7 +800,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Type `!tip help` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.io/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
+      "description": "Type `!tip help` or `!tips` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.io/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
       "color": 7976557,
       "author": {
         "name": "Tipbot Help Message",
