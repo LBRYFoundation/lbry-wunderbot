@@ -18,7 +18,7 @@ exports.releasenotes = {
     };
     // Configure the request
     const options = {
-      url: 'https://api.github.com/repos/lbryio/lbry-app/releases/latest',
+      url: 'https://api.github.com/repos/lbryio/lbry-desktop/releases/latest',
       method: 'GET',
       headers: headers
     };
@@ -39,12 +39,12 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              name: 'Lbry-app Release Notes for ' + releasename,
+              name: 'LBRY Desktop release Notes for ' + releasename,
               icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
             },
             footer: {
               icon_url: 'https://i.imgur.com/yWf5USu.png',
-              text: 'Lbry-app Updated '
+              text: 'LBRY Desktop Updated '
             }
           }
         };
@@ -78,12 +78,12 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              name: 'Lbry-app Release Notes for ' + releasename,
+              name: 'LBRY Desktop Release Notes for ' + releasename,
               icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
             },
             footer: {
               icon_url: 'https://i.imgur.com/yWf5USu.png',
-              text: 'Lbry-app Updated '
+              text: 'LBRY Desktop Updated '
             }
           }
         };
@@ -97,7 +97,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://i.imgur.com/yWf5USu.png',
-              text: 'Lbry-app Updated '
+              text: 'LBRY Desktop Updated '
             }
           }
         };
@@ -111,7 +111,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://i.imgur.com/yWf5USu.png',
-              text: 'Lbry-app Updated '
+              text: 'LBRY Desktop Updated '
             }
           }
         };
@@ -125,7 +125,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://i.imgur.com/yWf5USu.png',
-              text: 'Lbry-app Updated '
+              text: 'LBRY Desktop Updated '
             }
           }
         };
@@ -139,7 +139,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://i.imgur.com/yWf5USu.png',
-              text: 'Lbry-app Updated '
+              text: 'LBRY Desktop Updated '
             }
           }
         };
