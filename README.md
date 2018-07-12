@@ -27,7 +27,7 @@
 
   - *Responds to `!altprice <coin> <currency> <amount>`*
 
-* Github Release Notes bot displays release notes for current lbry-app release.
+* Github Release Notes bot displays release notes for current LBRY Desktop release.
 
   - *Responds to `!releasenotes`*
 
