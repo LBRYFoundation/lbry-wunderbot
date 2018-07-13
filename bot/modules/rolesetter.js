@@ -24,12 +24,14 @@ exports.addrole = {
           // Checks if the member has the role that they are trying to add
           if (!msg.member.roles.find('name', suffix)) {
             msg.member.addRole(newrole).then(msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!'));
-            if (baserole !== null) {
-              if (!msg.member.roles.find('name', rolelist.baserole)) {
-                msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
+            if (rolelist.baserole !== ' ') {
+              if (baserole !== null) {
+                if (!msg.member.roles.find('name', rolelist.baserole)) {
+                  msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
+                }
+              } else {
+                msg.channel.send('The ' + rolelist.baserole + " Role doesn't exist. Please add that role first!");
               }
-            } else {
-              msg.channel.send('The ' + rolelist.baserole + " Doesn't exist. Please add that role first!");
             }
           } else {
             msg.channel.send('It seems that you already have that role! Try removing it first with the ' + botconfig.prefix + 'delrole command!');
@@ -38,7 +40,7 @@ exports.addrole = {
           msg.channel.send('The role ' + '`' + suffix + '`' + ' does not exist!');
         }
       } else {
-        msg.channel.send("That role isn't one you can add yourself too! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
+        msg.channel.send("That role isn't one you can add yourself to! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
       }
     } else {
       msg.channel.send('Please specify a role. Type ' + botconfig.prefix + 'roles to see which you may add!');
@@ -47,15 +49,15 @@ exports.addrole = {
 };
 exports.delrole = {
   usage: '<role>',
-  description: 'Deletes your role specified',
+  description: 'Deletes the specified role from your account',
   process: function(bot, msg, suffix) {
-    // Here the bot,msg and suffix is avaible, this function can be async if needed.
+    // Here in the bot, msg and suffix are available, this function can be async if needed.
     let oldrole = msg.guild.roles.find('name', suffix);
     // Checks if the user put a role in the message.
     if (suffix) {
-      // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
+      // Checks if the role mentioned in the message is in the allowed roles listed in the Wunderbot config.
       if (rolelist.allowedroles.includes(suffix)) {
-        // Checks if the role even exists in the discord server
+        // Checks if the role exists in the Discord server
         if (oldrole !== null) {
           // Checks if the member has the role that they are trying to add
           if (msg.member.roles.find('name', suffix)) {
@@ -67,7 +69,7 @@ exports.delrole = {
           msg.channel.send('The role ' + '`' + suffix + '`' + ' does not exist!');
         }
       } else {
-        msg.channel.send("That role isn't one you can add yourself too! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
+        msg.channel.send("That role isn't one you can add yourself to! Please run the " + botconfig.prefix + 'roles command to find out which ones are allowed.');
       }
     } else {
       msg.channel.send('Please specify a role. Type ' + botconfig.prefix + 'roles to see which you may add!');
@@ -78,7 +80,7 @@ exports.roles = {
   usage: '',
   description: 'displays roles you can give yourself',
   process: function(bot, msg, suffix) {
-    // Here the bot,msg and suffix is avaible, this function can be async if needed.
+    // Here in the bot, msg and suffix are available, this function can be async if needed.
     msg.channel.send({
       embed: {
         color: 3447003,
@@ -92,12 +94,17 @@ exports.roles = {
           },
           {
             name: 'How to add a role to yourself',
-            value: '!addrole (role) - Adds a specified role to yourself.\n!addrole Certified Troll would add the Certified Troll role.',
+            value: '!addrole (role) - Adds a specified role to yourself.\n!addrole International would add the International role.',
             inline: false
           },
           {
             name: 'How to remove a role from yourself',
-            value: '!delrole (role) - Removed a specified role from yourself.\n!delrole Certified Troll would remove the Certified Troll role.',
+            value: '!delrole (role) - Removed a specified role from yourself.\n!delrole International would remove the International role.',
+            inline: false
+          },
+            {
+            name: 'NOTE',
+            value: 'The above roles are case sensitive.',
             inline: false
           }
         ],

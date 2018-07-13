@@ -1,7 +1,7 @@
 {
   "!helpcommands": {
     "usage": "",
-    "description": "Displays Helpful Commands",
+    "description": "List of Helpful LBRY Commands",
     "operation": "none",
     "bundle": {
       "url": "",
@@ -17,16 +17,16 @@
   },
   "!what": {
     "usage": "",
-    "description": "What is Lbry?",
+    "description": "What Is LBRY?",
     "operation": "send",
     "bundle": {
       "url": "https://lbry.io/what",
       "title": "*Click Here for more Info!*",
       "description":
-        "[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the App here**_](https://lbry.io/get)",
+        "[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the app here**_](https://lbry.io/get)",
       "color": 7976557,
       "author": {
-        "name": "What is LBRY?",
+        "name": "What Is LBRY?",
         "url": "https://lbry.io/what",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -34,12 +34,12 @@
   },
   "!begging": {
     "usage": "",
-    "description": "Dont Request Free Coins Message",
+    "description": "Don't Request Free Coins Message",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "**Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.**",
+      "description": ":warning: **Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.**",
       "color": 7976557,
       "author": {
         "name": "BEGGING!",
@@ -50,12 +50,12 @@
   },
   "!beta": {
     "usage": "",
-    "description": "beta message",
+    "description": "Beta Message",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Even though LBRY is in Open Beta, it's still beta software! There will be bugs and issues to be worked out, thanks for your patience!",
+      "description": "Even though LBRY is in Open Beta, it's still beta software! There will be bugs and issues to be worked out. Thanks for your patience!",
       "color": 7976557,
       "author": {
         "name": "Open Beta",
@@ -66,15 +66,15 @@
   },
   "!github": {
     "usage": "",
-    "description": "Lbry Github",
+    "description": "LBRY GitHub",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "The official github for LBRY is [github.com/lbryio](https://github.com/lbryio)",
+      "description": "The official GitHub for LBRY is [github.com/lbryio](https://github.com/lbryio)",
       "color": 7976557,
       "author": {
-        "name": "GitHub",
+        "name": "LBRY GitHub",
         "url": "https://github.com/lbryio",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -82,15 +82,15 @@
   },
   "!appdownload": {
     "usage": "",
-    "description": "LBRY-app Installers",
+    "description": "LBRY App Installers",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "**Installers for the LBRY Application are available for download** [**HERE**](https://lbry.io/get)",
+      "description": "**Installers for the LBRY app are available for download** [**HERE**](https://lbry.io/get)",
       "color": 7976557,
       "author": {
-        "name": "Get The App",
+        "name": "Get The LBRY App",
         "url": "http://lbry.io/get?auto=1",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -103,10 +103,10 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Installers for the LBRY Daemon are available for download [**HERE**](https://github.com/lbryio/lbry/releases)",
+      "description": "Installers for the LBRY daemon are available for download [**HERE**](https://github.com/lbryio/lbry/releases)",
       "color": 7976557,
       "author": {
-        "name": "Daemon Download",
+        "name": "LBRY Daemon Download",
         "url": "https://github.com/lbryio/lbry/releases",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -114,7 +114,7 @@
   },
   "!directories": {
     "usage": "",
-    "description": "Lbry-app Directories",
+    "description": "LBRY App Directories",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -122,7 +122,7 @@
       "description": "You can find details about the folders your LBRY files are stored in at [lbry.io/faq/lbry-directories](https://lbry.io/faq/lbry-directories)",
       "color": 7976557,
       "author": {
-        "name": "Directories",
+        "name": "LBRY Directories",
         "url": "https://lbry.io/faq/lbry-directories",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -130,15 +130,15 @@
   },
   "!faq": {
     "usage": "",
-    "description": "LBRY F.A.Q.",
+    "description": "LBRY FAQ",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "These questions and many more have been answered on the [F.A.Q Page](https://lbry.io/faq/)",
+      "description": "These questions and many more have been answered on the [FAQ Page](https://lbry.io/faq/)",
       "color": 7976557,
       "author": {
-        "name": "F.A.Q",
+        "name": "LBRY FAQ",
         "url": "https://lbry.io/faq/",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -151,7 +151,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Want to help develop and contribute to the Lbry Project?\nCheck out this **[GUIDE](https://lbry.io/faq/contributing)** that will get you startd.",
+      "description": "Want to help develop and contribute to the LBRY Project?\nCheck out **[GUIDE](https://lbry.io/faq/contributing)** to help you get you started.",
       "color": 7976557,
       "author": {
         "name": "Contributing to LBRY",
@@ -162,15 +162,15 @@
   },
   "!news": {
     "usage": "",
-    "description": "LBRY inc. News Feed",
+    "description": "LBRY Inc. Newsfeed",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "check out the News Feed **[HERE](https://lbry.io/news)**.",
+      "description": "Check out the newsfeed **[HERE](https://lbry.io/news)**.",
       "color": 7976557,
       "author": {
-        "name": "LBRY inc. News Feed",
+        "name": "LBRY Inc. Newsfeed",
         "url": "https://lbry.io/news",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -183,7 +183,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Hey, glad to see you love LBRY so much, but for the safety of our users we ask that you avoid using discord names that include the word lbry. This is to prevent impersonation and scams.",
+      "description": ":warning: Hey, glad to see you love **LBRY** so much, but for the safety of our users we ask that you avoid using **Discord names** that include the word **LBRY**, names of **LBRY staff**, names of other **LBRY members** on the this server or any name that could be considered **deceptive**. This is to prevent impersonation and scams.",
       "color": 7976557,
       "author": {
         "name": "Discord Username",
@@ -199,10 +199,10 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>, we have guides pinned in that channel to get you started mining some LBC!",
+      "description": "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>. We have guides pinned in that channel to get you started mining some LBC!",
       "color": 7976557,
       "author": {
-        "name": "Mining",
+        "name": "Mining LBC",
         "url": "",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -226,15 +226,15 @@
   },
   "!youtuber": {
     "usage": "",
-    "description": "Are you a Youtuber curious about LBRY?",
+    "description": "Are You a YouTuber Curious About LBRY?",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Are you a Youtuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
+      "description": "Are you a YouTuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
       "color": 7976557,
       "author": {
-        "name": "Are you a Youtuber?",
+        "name": "Are You a YouTuber?",
         "url": "https://lbry.io/youtube",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -242,7 +242,7 @@
   },
   "!publish": {
     "usage": "",
-    "description": "How To Publish on LBRY?",
+    "description": "How to Publish on LBRY?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -250,7 +250,7 @@
       "description": "We've created a small guide to help with the Publishing features of LBRY, check it out here: [lbry.io/faq/how-to-publish](https://lbry.io/faq/how-to-publish)",
       "color": 7976557,
       "author": {
-        "name": "How To Publish on LBRY?",
+        "name": "How to Publish on LBRY?",
         "url": "https://lbry.io/faq/how-to-publish",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -258,12 +258,12 @@
   },
   "!random": {
     "usage": "",
-    "description": "Off-Topic Message",
+    "description": "Off-Topic Messages",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please keep conversation on topic, or move random conversations to #363084227518136322  if you wish to continue",
+      "description": "Please keep conversations on topic, or move random conversations to #363084227518136322 if you wish to continue",
       "color": 7976557,
       "author": {
         "name": "Random",
@@ -274,7 +274,7 @@
   },
   "!naming": {
     "usage": "",
-    "description": "How does LBRY naming work?",
+    "description": "How Does LBRY Naming Work?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -283,7 +283,7 @@
         "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity. Learn more **[HERE](https://lbry.io/faq/naming)**",
       "color": 7976557,
       "author": {
-        "name": "How does LBRY naming work?",
+        "name": "How Does LBRY Naming Work?",
         "url": "https://lbry.io/faq/naming",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -297,7 +297,7 @@
       "url": "",
       "title": "",
       "description":
-        "You can earn LBRY Credits for completing tasks as part of the LBRY Bounty Program, All bounties can be seen on the **[Bounty Home Page](https://lbry.io/bounty)**.\nBounties range from simple typo fixes to third party applications and custom projects!",
+        "You can earn LBRY Credits for completing tasks as part of the LBRY Bounty Program, All bounties can be seen on the **[Bounty Home Page](https://lbry.io/bounty)**.\nBounties range from simple typo fixes to third party applications and custom projects.",
       "color": 7976557,
       "author": {
         "name": "LBRY Bounties",
@@ -308,13 +308,13 @@
   },
   "!roadmap": {
     "usage": "",
-    "description": "The Lbry RoadMap",
+    "description": "The LBRY RoadMap",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
       "description":
-        "Check Out The **[RoadMap](https://lbry.io/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
+        "Check out the **[RoadMap](https://lbry.io/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
       "color": 7976557,
       "author": {
         "name": "RoadMap",
@@ -325,12 +325,12 @@
   },
   "!referrals": {
     "usage": "",
-    "description": "What are Referrals?",
+    "description": "What Are Referrals?",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - referral redemptions are currently in test mode and limited to one. But you can see your entire referral history in your LBRY app.",
+      "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - Referral redemptions are currently in test mode and limited to one. But you can see your entire referral history in your LBRY app.",
       "color": 7976557,
       "author": {
         "name": "Referrals",
@@ -341,13 +341,13 @@
   },
   "!rewards": {
     "usage": "",
-    "description": "What are Rewards?",
+    "description": "What Are Rewards?",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
       "description":
-        "[Rewards](https://lbry.io/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a Credit Card or other manual methods.\n Please see [lbry.io/faq/identity-requirements](https://lbry.io/faq/identity-requirements)",
+        "[Rewards](https://lbry.io/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a credit card or other manual methods.\n Please see [lbry.io/faq/identity-requirements](https://lbry.io/faq/identity-requirements)",
       "color": 7976557,
       "author": {
         "name": "Rewards",
@@ -358,7 +358,7 @@
   },
   "!rewardsvsreferrals": {
     "usage": "",
-    "description": "What the Difference Between Rewards & Referrals?",
+    "description": "Difference Between Rewards & Referrals?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -366,7 +366,7 @@
       "description": "Rewards are different to referral bonuses. Rewards are given for testing the LBRY software and system. Referrals are given for sharing LBRY with the masses.",
       "color": 7976557,
       "author": {
-        "name": "Rewards Vs. Referrals",
+        "name": "Rewards vs Referrals",
         "url": "",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -380,7 +380,7 @@
       "url": "",
       "title": "",
       "description":
-        "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a Credit Card or by a manual verification process in order to be eligible for Rewards. Prepaid or Virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#363050496023592961> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards, the app can be used without providing CC information**\n**Please See:https://lbry.io/faq/identity-requirements**",
+        "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a credit card or by a manual verification process in order to be eligible for Rewards. Prepaid or virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#363050496023592961> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards. The LBRY app can be used without providing CC information**\n**Please See:https://lbry.io/faq/identity-requirements**",
       "color": 7976557,
       "author": {
         "name": "Credit Card Verification",
@@ -397,10 +397,10 @@
       "url": "",
       "title": "",
       "description":
-        "Please download the latest version from [HERE](https://lbry.io/get) Upon install, you'll be greeted with a welcome message. If you already had the App installed, then go to the wallet (bank icon in the top right) > Rewards - this should show your current status. New users will need to verify in order to access rewards. Type !cc or !verification for more information.",
+        "Please download the latest version from [HERE](https://lbry.io/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to verify in order to access Rewards. Type !cc or !verification for more information.",
       "color": 7976557,
       "author": {
-        "name": "How To Verify?",
+        "name": "How to Verify?",
         "url": "",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -414,7 +414,7 @@
       "url": "",
       "title": "",
       "description":
-        "If you would like to be verified go to <#363050496023592961> and type *`-new`* \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
+        "If you would like to be verified, please go to <#363050496023592961> and type *`-new`* \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [YouTube Sync FAQ](https://lbry.io/faq/youtube) for assistance with the YouTube Sync rewards verification method.",
       "color": 7976557,
       "author": {
         "name": "Rewards Verification",
@@ -425,7 +425,7 @@
   },
   "!logfile": {
     "usage": "",
-    "description": "How to find LBRY-app Log File?",
+    "description": "How to Find LBRY App Log File?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -433,7 +433,7 @@
       "description": "You can find your log files by following the guide [HERE](https://lbry.io/faq/how-to-find-lbry-log-file)",
       "color": 7976557,
       "author": {
-        "name": "How to find my LogFile?",
+        "name": "How to Find My LogFile?",
         "url": "https://lbry.io/faq/how-to-find-lbry-log-file",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -449,7 +449,7 @@
       "description": "Please see this guide on how to backup your wallet: [lbry.io/faq/how-to-backup-wallet](https://lbry.io/faq/how-to-backup-wallet)",
       "color": 7976557,
       "author": {
-        "name": "How to Backup my Wallet?",
+        "name": "How to Backup My Wallet?",
         "url": "https://lbry.io/faq/how-to-backup-wallet",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -473,7 +473,7 @@
   },
   "!streamingissues": {
     "usage": "",
-    "description": "Unable To Stream?",
+    "description": "Unable to Stream?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -506,7 +506,7 @@
   },
   "!migrate": {
     "usage": "",
-    "description": "How to Migrate your Wallet/Data",
+    "description": "How to Migrate Your Wallet/Data",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -514,7 +514,7 @@
       "description": "Please see [lbry.io/faq/backup-data](https://lbry.io/faq/backup-data) for instructions on how to backup and/or migrate your LBRY data",
       "color": 7976557,
       "author": {
-        "name": "How To Backup/Migrate LBRY Data?",
+        "name": "How to Backup/Migrate LBRY Data?",
         "url": "https://lbry.io/faq/backup-data",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -522,15 +522,15 @@
   },
   "!tipping": {
     "usage": "",
-    "description": "Details About LBRY-app Tipping",
+    "description": "Details About LBRY App Tipping",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/tipping](https://lbry.io/faq/tipping) for details about tipping in the LBRY-App",
+      "description": "Please see [lbry.io/faq/tipping](https://lbry.io/faq/tipping) for details about tipping in the LBRY app",
       "color": 7976557,
       "author": {
-        "name": "LBRY-App Tipping?",
+        "name": "LBRY App Tipping?",
         "url": "https://lbry.io/faq/tipping",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -538,15 +538,15 @@
   },
   "!email": {
     "usage": "",
-    "description": "How to change Email in LBRY-app?",
+    "description": "How to Change Email in the LBRY App",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you need to change your LBRY connected email, please see instructions [HERE](https://lbry.io/faq/how-to-change-email)",
+      "description": "If you need to change your LBRY connected email, please see these instructions [HERE](https://lbry.io/faq/how-to-change-email)",
       "color": 7976557,
       "author": {
-        "name": "LBRY-App Change connected E-mail?",
+        "name": "How to Change Email in the LBRY App",
         "url": "https://lbry.io/faq/how-to-change-email",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -554,7 +554,7 @@
   },
   "!cli": {
     "usage": "",
-    "description": "How to interact with LBRY CLI?",
+    "description": "How to Interact with LBRY CLI?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -570,7 +570,7 @@
   },
   "!ipfstorrent": {
     "usage": "",
-    "description": "How is LBRY different from IPFS / BitTorrent?",
+    "description": "How Is LBRY Different from IPFS/BitTorrent?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -578,7 +578,7 @@
       "description": "If you are interested in how LBRY is different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
       "color": 7976557,
       "author": {
-        "name": "How is LBRY different from IPFS / BitTorrent?",
+        "name": "How Is LBRY Different from IPFS/BitTorrent?",
         "url": "https://lbry.io/faq/different-ipfs",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -586,7 +586,7 @@
   },
   "!shapeshift": {
     "usage": "",
-    "description": "How can I convert my crypto into LBC?",
+    "description": "How Can I Convert My Crypto into LBC?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -594,7 +594,7 @@
       "description": "Please see this guide on how to convert your crypto into LBC: [lbry.io/faq/shapeshift](https://lbry.io/faq/shapeshift)",
       "color": 7976557,
       "author": {
-        "name": "How can I convert my crypto into LBC?",
+        "name": "How Can I Convert My Crypto into LBC?",
         "url": "https://lbry.io/faq/shapeshift",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -602,15 +602,15 @@
   },
   "!youtube": {
     "usage": "",
-    "description": "What is YouTube Sync?",
+    "description": "What Is YouTube Sync?",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see this guide on how youtube sync works, check out [lbry.io/faq/youtube](https://lbry.io/faq/youtube)",
+      "description": "Please see this guide on how YouTube sync works: [lbry.io/faq/youtube](https://lbry.io/faq/youtube)",
       "color": 7976557,
       "author": {
-        "name": "What is YouTube Sync?",
+        "name": "What Is YouTube Sync?",
         "url": "https://lbry.io/faq/youtube",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -618,7 +618,7 @@
   },
   "!transactions": {
     "usage": "",
-    "description": "What types of LBRY transactions are there?",
+    "description": "What Types of LBRY Transactions Are There?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -626,7 +626,7 @@
       "description": "Please see this guide on [transaction types](https://lbry.io/faq/transaction-types)",
       "color": 7976557,
       "author": {
-        "name": "What types of LBRY transactions are there?",
+        "name": "What Types of LBRY Transactions Are There?",
         "url": "https://lbry.io/faq/transaction-types",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -639,7 +639,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Get to know the [Offical Team](https://lbry.io/team) behind the scenes of lbry inc.",
+      "description": "Get to know the [Official Team](https://lbry.io/team) behind the scenes of LBRY Inc.",
       "color": 7976557,
       "author": {
         "name": "Meet the Team!",
@@ -655,7 +655,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[Phone number](https://lbry.io/faq/phone) verification provides another method for LBRY users to participate in the rewards program",
+      "description": "[Phone number](https://lbry.io/faq/phone) verification provides another method for LBRY users to participate in the Rewards program",
       "color": 7976557,
       "author": {
         "name": "Phone Verification!",
@@ -671,7 +671,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[LBRY App Basics](https://lbry.io/faq/lbry-basics) The purpose of this FAQ is to answer questions about some of the basic functionality available in the LBRY App",
+      "description": "[LBRY App Basics](https://lbry.io/faq/lbry-basics) The purpose of this FAQ is to answer questions about some of the basic functionality available in the LBRY app",
       "color": 7976557,
       "author": {
         "name": "LBRY App Basics!",
@@ -682,7 +682,7 @@
   },
   "!shop": {
     "usage": "",
-    "description": "LBRY Inc. Shop!",
+    "description": "The LBRY Inc. Shop!",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -690,7 +690,7 @@
       "description": "Visit our at-cost [merchandise store](https://shop.lbry.io) to check out the latest LBRY swag.",
       "color": 7976557,
       "author": {
-        "name": "LBRY Inc. Shop!",
+        "name": "The LBRY Inc. Shop!",
         "url": "https://shop.lbry.io",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -698,7 +698,7 @@
   },
    "!content": {
     "usage": "",
-    "description": "What content can I legally upload to LBRY?",
+    "description": "What Content Can I legally Upload to LBRY?",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -706,7 +706,7 @@
       "description": "[Read our FAQ](https://lbry.io/faq/content) to learn more about LBRY's content policy.",
       "color": 7976557,
       "author": {
-        "name": "What content can I legally upload to LBRY ?",
+        "name": "What Content Can I legally Upload to LBRY?",
         "url": "https://lbry.io/faq/content",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
@@ -760,6 +760,39 @@
       }
     }
   },
+  "!fund": {
+    "usage": "",
+    "description": "Android Alpha Tester",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "The [LBRY Fund](https://lbry.fund) receives funding from a portion of the 200m LBC premined credits reserved for Community to spread the use and adoption of the LBRY protocol.",
+      "color": 7976557,
+      "author": {
+        "name": "The LBRY Community Fund",
+        "url": "https://lbry.fund",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+    "!jiggytom": {
+    "usage": "",
+    "description": "What is JiggyTom?",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description":
+        "[JiggyTom](https://spee.ch/5/jiggytomsuperhero.jpeg) is LBRY's very own superhero. He has special powers which enable him to seek out and fix almost any issue that might occur within planet LBRY. \n\nUse JiggyTom with care. Overuse may result in unforeseen consequences and a meltdown which could lead to thermonuclear LBRYian war. \n\nMake sure you show your appreciation for Jiggy and his team of superheros when they use superpowers to help you. And remember kids, stay safe and behave yourselves",
+      "color": 7976557,
+      "author": {
+        "name": "What is JiggyTom?",
+        "url": "https://en.wikipedia.org/wiki/Superhero",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
   "!tipbot": {
     "usage": "",
     "description": "Tipbot Help Message",
@@ -767,7 +800,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Type `!tip help` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels.",
+      "description": "Type `!tip help` or `!tips` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.io/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
       "color": 7976557,
       "author": {
         "name": "Tipbot Help Message",

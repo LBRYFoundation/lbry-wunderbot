@@ -16,27 +16,27 @@ exports.stats = {
   usage: '',
   description: 'Displays list of current Market stats',
   process: function(bot, msg) {
-    needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/', function(error, response) {
+    needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=BTC', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
-        var data = response.body[0];
-        var rank = data.rank;
-        var price_usd = Number(data.price_usd);
-        var price_btc = Number(data.price_btc);
-        var market_cap_usd = Number(data.market_cap_usd);
-        var available_supply = Number(data.available_supply);
-        var total_supply = Number(data.total_supply);
-        var percent_change_1h = Number(data.percent_change_1h);
-        var percent_change_24h = Number(data.percent_change_24h);
-        var json = response.body[0];
-        var newjson = parse_obj(json);
-        var parse = JSON.stringify(newjson);
-        var volume24_usd = parse.replace(/[^0-9]/g, '');
-        var dt = new Date();
-        var timestamp = dt.toUTCString();
-        var hr_indicator = ':thumbsup:';
-        var day_indicator = ':thumbsup:';
+        let data = response.body.data;
+        let rank = data.rank;
+        let price_usd = Number(data.quotes.USD.price);
+        let price_btc = Number(data.quotes.BTC.price);
+        let market_cap_usd = Number(data.quotes.USD.market_cap);
+        let circulating_supply = Number(data.circulating_supply);
+        let total_supply = Number(data.total_supply);
+        let percent_change_1h = Number(data.quotes.USD.percent_change_1h);
+        let percent_change_24h = Number(data.quotes.USD.percent_change_24h);
+        let json = response.body[0];
+        let newjson = parse_obj(json);
+        let parse = JSON.stringify(newjson);
+        let volume24_usd = Number(data.quotes.USD.volume_24h);
+        let dt = new Date();
+        let timestamp = dt.toUTCString();
+        let hr_indicator = ':thumbsup:';
+        let day_indicator = ':thumbsup:';
         if (percent_change_1h < 0) {
           hr_indicator = ':thumbsdown:';
         }
@@ -44,19 +44,19 @@ exports.stats = {
           day_indicator = ':thumbsdown:';
         }
 
-        needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=GBP', function(error, response) {
+        needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=GBP', function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
-            var data = response.body[0];
-            var price_gbp = Number(data.price_gbp);
-            needle.get('https://api.coinmarketcap.com/v1/ticker/library-credit/?convert=EUR', function(error, response) {
+            data = response.body.data;
+            let price_gbp = Number(data.quotes.GBP.price);
+            needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
-                var data = response.body[0];
-                var price_eur = Number(data.price_eur);
-                description =
+                data = response.body.data;
+                let price_eur = Number(data.quotes.EUR.price);
+                let description =
                   '**Rank: [' +
                   rank +
                   '](' +
@@ -74,7 +74,7 @@ exports.stats = {
                   statsurl +
                   ')\n' +
                   'Circulating Supply: [' +
-                  numberWithCommas(available_supply) +
+                  numberWithCommas(circulating_supply) +
                   ' LBC](' +
                   statsurl +
                   ')\n' +
@@ -139,12 +139,12 @@ exports.stats = {
       }
     });
     function parse_obj(obj) {
-      var array = [];
-      var prop;
+      let array = [];
+      let prop;
       for (prop in obj) {
         if (obj.hasOwnProperty(prop)) {
-          var key = parseInt(prop, 10);
-          var value = obj[prop];
+          let key = parseInt(prop, 10);
+          let value = obj[prop];
           if (typeof value == 'object') {
             value = parse_obj(value);
           }
