@@ -103,7 +103,6 @@ function checkMessageForCommand(msg, isEdit) {
     }
     let cmd = aliases.hasOwnProperty(cmdTxt) ? commands[aliases[cmdTxt]] : commands[cmdTxt];
     let alias = aliases[cmdTxt];
-    let cmd;
     if (alias) {
       cmd = alias;
     } else {
