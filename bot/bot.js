@@ -13,8 +13,9 @@ const supportbot = require('./modules/supportbot.js');
 
 let aliases;
 try {
-  aliases = require('./alias.json');
+  aliases = require("./alias.json");
 } catch (e) {
+  console.log("No aliases defined")
   //No aliases defined
   aliases = {
     test: {
@@ -100,6 +101,7 @@ function checkMessageForCommand(msg, isEdit) {
         return;
       }
     }
+    let cmd = aliases.hasOwnProperty(cmdTxt) ? commands[aliases[cmdTxt]] : commands[cmdTxt];
     let alias = aliases[cmdTxt];
     let cmd;
     if (alias) {
