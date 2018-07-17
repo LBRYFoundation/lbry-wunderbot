@@ -34,7 +34,7 @@ exports.lbrylink = async function(bot, msg, suffix) {
           .setDescription("I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click:")
           .setColor(7976557);
         cleanURLs.forEach(url => linkEmbed.addField("Open with LBRY:", url, true));
-        return msg.embed(linkEmbed);
+        return msg.channel.send({embed: linkEmbed});
       } catch (e) {
         console.log(e);
         msg.channel.send("Something went wrong when trying to run the lbrylinker, contact a moderator.");
