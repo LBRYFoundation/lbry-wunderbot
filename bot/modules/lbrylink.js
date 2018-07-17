@@ -1,88 +1,44 @@
 let inPrivate = require('../helpers.js').inPrivate;
-let responseDebug = false;
+let { RichEmbed } = require('discord.js');
 exports.custom = [
   'lbrylink' //change this to your function name
 ];
 
-exports.lbrylink = function(bot, msg, suffix) {
+exports.lbrylink = async function(bot, msg, suffix) {
   bot.on('message', msg => {
     if (inPrivate(msg)) {
       return;
     }
     if (msg.content.includes('lbry://')) {
-      //Extract URL from Message
-      let newURL = msg.content
-        .replace('lbry://', 'https://open.lbry.io/')
-        .match(/\bhttps?:\/\/\S+/gi)
-        .toString();
-      if (responseDebug) {
-        console.log('___________________________');
-        console.log('newURL = ' + newURL);
-      }
-
-      //Check if just lbry:// was supplied
-      if (newURL == 'https://open.lbry.io/') {
-        return;
-      }
-
-      //Check if Username Was Supplied
-      if (newURL.includes('>')) {
-        //Get rid of ID from message
-        let parseID = newURL.split('>').pop();
-        let newURL = 'https://open.lbry.io' + parseID;
-        if (responseDebug) {
-          console.log('Username Provided!');
-          console.log('parseID = ' + parseID);
-          console.log('newURL = ' + newURL);
-        }
-
-        //check if just Username Was Supplied
-        if (!newURL.substr(20).includes('/')) {
-          return;
-        }
-
-        //check if more than username was supplied
-        //Also check obscurity in username like ``@MSFTserver` vs `@MSFTserverPics`
-        if (parseID.includes('/')) {
-          //parse out extra params before `/` like `<@123456789>Pics`
-          let parseID = parseID.split('/').pop();
-          let newURL = 'https://open.lbry.io/' + parseID;
-          if (responseDebug) {
-            console.log('Username no / check');
-            console.log('parseID = ' + parseID);
-            console.log('newURL = ' + newURL);
+      try {
+        // Extract the URL(s).
+        const urls = msg.content
+          .replace(new RegExp("(lbry:\\/\\/)", "g"), "https://open.lbry.io/")
+          .match(/\bhttps?:\/\/\S+/gi)
+          .filter(url => url !== "https://open.lbry.io/");
+        const cleanURLs = [];
+        for (const i in urls) {
+          // Check if Username Was Supplied
+          const user = urls[i].match("<@.*>");
+          if (user) {
+            const { username } = msg.mentions.users.get(user[0].slice(2, -1));
+            urls[i] = urls[i].replace(user[0], `@${username}`);
           }
-
-          //checks if username had if after it or just blank to be safe
-          if (newURL == 'https://open.lbry.io/' || parseID.startsWith('#')) {
-            return;
-          }
+          // Push clean URLs to the array.
+          cleanURLs.push(urls[i]);
         }
-
-        //one last saftey check
-        if (newURL == 'https://open.lbry.io') {
-          return;
-        }
-
-        //If no UserName Found proceed
-      } else {
-        if (newURL == 'https://open.lbry.io/') {
-          return;
-        }
-        if (responseDebug) {
-          console.log('___________________________');
-          console.log('newURL = ' + newURL);
-        }
+        if (cleanURLs.length < 1) return;
+        const linkEmbed = new RichEmbed();
+        linkEmbed
+          .setAuthor("LBRY Linker")
+          .setDescription("I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click:")
+          .setColor(7976557);
+        cleanURLs.forEach(url => linkEmbed.addField("Open with LBRY:", url, true));
+        return msg.embed(linkEmbed);
+      } catch (e) {
+        console.log(e);
+        msg.channel.send("Something went wrong when trying to run the lbrylinker, contact a moderator.");
       }
-      const embed = {
-        description: "I see you tried to post a LBRY URL, here's a friendly hyperlink to share and for others to access your content with a single click: \n" + newURL.replace(/[^0-9a-z#./:]/gi,''),
-        color: 7976557,
-        author: {
-          name: 'LBRY Linker',
-          icon_url: 'https://i.imgur.com/yWf5USu.png'
-        }
-      };
-      msg.channel.send({ embed });
     }
   });
 };

@@ -13,9 +13,9 @@ const supportbot = require('./modules/supportbot.js');
 
 let aliases;
 try {
-  aliases = require("./alias.json");
+  aliases = require('./alias.json');
 } catch (e) {
-  console.log("No aliases defined")
+  console.log('No aliases defined');
   //No aliases defined
   aliases = {
     test: {
@@ -44,9 +44,7 @@ bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
-  bot.user
-    .setActivity(config.prefix + 'help', { type: 'LISTENING' })
-    .catch(console.error);
+  bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' }).catch(console.error);
 
   //initialize the claimbot (content bot)
   claimbot.init(bot);
@@ -76,18 +74,17 @@ function checkMessageForCommand(msg, isEdit) {
   if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
     //check if user is Online
     if (!msg.author.presence.status || msg.author.presence.status == 'offline' || msg.author.presence.status == 'invisible') {
-      msg.author.send('Please set your Discord Presence to Online to talk to the bot!')
-        .catch(function(error) {
-          msg.channel.send(msg.author +
-            ', Please enable Direct Messages from server members to communicate fully with our bot, ' +
-	    'it is located in the user setting area under Privacy & Safety tab, ' +
-	    'select the option allow direct messages from server members'
-	    ).then(msg.channel.send(
-              'Please set your Discord Presence to Online to talk to the Bot!'
-       	    )
-          );
-      return;
-    });
+      msg.author.send('Please set your Discord Presence to Online to talk to the bot!').catch(function(error) {
+        msg.channel
+          .send(
+            msg.author +
+              ', Please enable Direct Messages from server members to communicate fully with our bot, ' +
+              'it is located in the user setting area under Privacy & Safety tab, ' +
+              'select the option allow direct messages from server members'
+          )
+          .then(msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!'));
+        return;
+      });
     }
     let cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
     let suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space

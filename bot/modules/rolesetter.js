@@ -102,7 +102,7 @@ exports.roles = {
             value: '!delrole (role) - Removed a specified role from yourself.\n!delrole International would remove the International role.',
             inline: false
           },
-            {
+          {
             name: 'NOTE',
             value: 'The above roles are case sensitive.',
             inline: false
