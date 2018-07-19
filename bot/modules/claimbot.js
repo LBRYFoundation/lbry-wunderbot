@@ -207,7 +207,7 @@ function announceClaim(claim, claimBlockHeight, currentHeight) {
               text: 'Block ' + claimBlockHeight + ' • Claim ID ' + claim['claimId']
             },
             image: { url: !value['nsfw'] ? value['thumbnail'] || '' : '' },
-            url: 'http://open.lbry.io/' + claim['name']
+            url: `http://open.lbry.io/${claim['name']}#${claim['claimId']}`
           };
 
           discordPost(text, richEmbeded);
