@@ -41,8 +41,8 @@ module.exports = class RankCommand extends Command {
             if (!msg.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return msg.reply("I do not have permission to manage roles! Contact a mod or admin.");
             const rankToGive = msg.guild.roles.find("name", args.rank);
             if (rankToGive === null) return msg.reply("That is not a role! Was your capatalization and spelling correct?");
-            if (!await msg.guild.settings.get("ranks", null)) return msg.reply(`There are no public roles! Maybe try adding some? Do \`${msg.guild.commandPrefix}rank add role\` to add a role.`);
-            if (!await msg.guild.settings.get("ranks", []).includes(args.rank)) return msg.reply(`That role can not be added! Use \`${msg.guild.commandPrefix}rank list\` to see a list of ranks you can add.`);
+            if (!(await msg.guild.settings.get("ranks", null))) return msg.reply(`There are no public roles! Maybe try adding some? Do \`${msg.guild.commandPrefix}rank add role\` to add a role.`);
+            if (!(await msg.guild.settings.get("ranks", []).includes(args.rank))) return msg.reply(`That role can not be added! Use \`${msg.guild.commandPrefix}rank list\` to see a list of ranks you can add.`);
             msg.guild
                 .member(msg.author)
                 .addRole(msg.guild.roles.find("name", args.rank))
@@ -54,8 +54,8 @@ module.exports = class RankCommand extends Command {
             if (!msg.guild.member(this.client.user).hasPermission("MANAGE_ROLES")) return msg.reply("I do not have permission to manage roles! Contact a mod or admin.");
             const rankToTake = msg.guild.roles.find("name", args.rank);
             if (rankToTake === null) return msg.reply("That is not a role! Was your capatalization and spelling correct?");
-            if (!await msg.guild.settings.get("ranks", null)) return msg.reply(`There are no public roles! Maybe try adding some? Do \`${msg.guild.commandPrefix}rank add role\` to add a role.`);
-            if (!await msg.guild.settings.get("ranks", []).includes(args.rank)) return msg.reply(`That role can not be taken! Use \`${msg.guild.commandPrefix}rank list\` to see a list of ranks you can add.`);
+            if (!(await msg.guild.settings.get("ranks", null))) return msg.reply(`There are no public roles! Maybe try adding some? Do \`${msg.guild.commandPrefix}rank add role\` to add a role.`);
+            if (!(await msg.guild.settings.get("ranks", []).includes(args.rank))) return msg.reply(`That role can not be taken! Use \`${msg.guild.commandPrefix}rank list\` to see a list of ranks you can add.`);
             msg.guild
                 .member(msg.author)
                 .removeRole(msg.guild.roles.find("name", args.rank))

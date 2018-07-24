@@ -22,7 +22,7 @@ const capitalizeFirstLetter = function(string) {
 };
 
 const countCaps = function(capcount, total) {
-    return capcount.replace(/[^A-Z]/g, "").length / total.length * 100;
+    return (capcount.replace(/[^A-Z]/g, "").length / total.length) * 100;
 };
 
 const countEmojis = function(str) {

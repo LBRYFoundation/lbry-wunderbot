@@ -74,7 +74,12 @@ module.exports = class Wunderbot extends Commando.Client {
             `);
             });
 
-        this.setProvider(MongoClient.connect(config.get("Wunderbot.dbUrl"), { useNewUrlParser: true }).then(client => new MongoDBProvider(client.db(config.get("Wunderbot.dbName"))))).catch(console.error);
+        this.setProvider(
+            MongoClient.connect(
+                config.get("Wunderbot.dbUrl"),
+                { useNewUrlParser: true }
+            ).then(client => new MongoDBProvider(client.db(config.get("Wunderbot.dbName"))))
+        ).catch(console.error);
         this.registry
             .registerDefaults()
             .registerGroup("info", "Info")

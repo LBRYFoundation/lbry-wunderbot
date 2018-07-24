@@ -55,7 +55,7 @@ module.exports = class PubRanksCommand extends Command {
             if (rankToRemove === null) return msg.reply("That is not a role! Was your capatalization and spelling correct?");
             guildRanks.splice(rankIndex, 1);
             msg.reply("Role removed.");
-            -await msg.guild.settings.set("ranks", guildRanks);
+            -(await msg.guild.settings.set("ranks", guildRanks));
         } else if (args.action.toLowerCase() === "list") {
             const guildRanks = await msg.guild.settings.get("ranks", null);
             if (!guildRanks) return msg.reply(`There are no public roles! Maybe try adding some? Do \`${msg.guild.commandPrefix}pubranks add role\` to add a role.`);
