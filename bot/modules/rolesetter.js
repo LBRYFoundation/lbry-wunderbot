@@ -106,7 +106,7 @@ exports.roles = {
           },
           {
             name: 'NOTE',
-            value: 'The above roles are case sensitive.',
+            value: 'The above roles are case sensitive. The LBRYian role will be auto-added when you chose any of the available roles',
             inline: false
           }
         ],
