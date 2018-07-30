@@ -12,11 +12,13 @@ exports.addrole = {
   usage: '<role>',
   description: 'Adds you to specified role',
   process: function(bot, msg, suffix) {
+    rolelist.allowedroles = rolelist.allowedroles.map(v => v.toLowerCase());
     // Here the bot,msg and suffix is avaible, this function can be async if needed.
     let newrole = msg.guild.roles.find('name', suffix);
     let baserole = msg.guild.roles.find('name', rolelist.baserole);
     // Checks if the user put a role in the message.
     if (suffix) {
+      suffix = suffix.toLowerCase();
       // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
       if (rolelist.allowedroles.includes(suffix)) {
         // Checks if the role even exists in the discord server
