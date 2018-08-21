@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "app-root-path": "^2.1.0",
     "babel-cli": "^6.26.0",
     "babel-preset-node8": "^1.2.0",
     "bitcoin": "^3.0.1",
@@ -8,6 +9,8 @@
     "discord.js": "^11.3.2",
     "elmadev-discord-irc": "^2.4.1",
     "embed-creator": "^1.2.3",
+    "file-exists": "^5.0.1",
+    "jsonfile": "^4.0.0",
     "jsonpath": "^1.0.0",
     "moment": "^2.21.0",
     "mongoose": "^4.13.12",
@@ -15,6 +18,7 @@
     "node-config": "^0.0.2",
     "numeral": "^2.0.6",
     "request": "^2.85.0",
+    "request-promise": "^4.2.2",
     "sleep": "^5.1.1",
     "wget": "^0.0.1"
   },

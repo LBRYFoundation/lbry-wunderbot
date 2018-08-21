@@ -1,259 +1,201 @@
-'use strict';
+"use strict";
 
 let lbry;
 let mongo;
 let discordBot;
-let moment = require('moment');
-let request = require('request');
-let sleep = require('sleep');
-let config = require('config');
-let channels = config.get('claimbot').channels;
-const Discord = require('discord.js');
-
+let moment = require("moment");
+let request = require("request");
+let sleep = require("sleep");
+let config = require("config");
+let channels = config.get("claimbot").channels;
+const Discord = require("discord.js");
+const rp = require("request-promise");
+const jsonfile = require("jsonfile");
+const path = require("path");
+const fs = require("fs");
+const appRoot = require("app-root-path");
+const fileExists = require("file-exists");
 module.exports = {
   init: init
 };
 
 function init(discordBot_) {
   if (lbry) {
-    throw new Error('init was already called once');
+    throw new Error("init was already called once");
   }
 
   discordBot = discordBot_;
 
-  const MongoClient = require('mongodb').MongoClient;
-  MongoClient.connect(config.get('mongodb').url, function(err, db) {
+  const MongoClient = require("mongodb").MongoClient;
+  MongoClient.connect(config.get("mongodb").url, function(err, db) {
     if (err) {
       throw err;
     }
     mongo = db;
 
-    const bitcoin = require('bitcoin');
-    lbry = new bitcoin.Client(config.get('lbrycrd'));
+    console.log("Activating claimbot ");
+    discordBot.channels.get(channels[0]).send("activating claimbot");
 
-    console.log('Activating claimbot ');
-    discordBot.channels.get(channels[0]).send('activating claimbot');
-
+    // Check that our syncState file exist.
+    fileExists(path.join(appRoot.path, "syncState.json"), (err, exists) => {
+      if (err) {
+        throw err;
+      }
+      if (!exists) {
+        fs.writeFileSync(path.join(appRoot.path, "syncState.json"), "{}");
+      }
+    });
     setInterval(function() {
-      announceNewClaims();
+      announceClaims();
     }, 60 * 1000);
-    announceNewClaims();
+    announceClaims();
   });
 }
 
-function announceNewClaims() {
-  if (!mongo) {
-    discordPost('Failed to connect to mongo', {});
-    return;
+async function announceClaims() {
+  // get last block form the explorer API.
+  let lastBlockHeight = JSON.parse(
+    await rp("https://explorer.lbry.io/api/v1/status")
+  ).status.height;
+  // get the latest claims from chainquery since last sync
+  let syncState = await getJSON(path.join(appRoot.path, "syncState.json")); // get our persisted state
+  if (!syncState.LastSyncTime) {
+    syncState.LastSyncTime = new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace("T", " ");
   }
-
-  if (!lbry) {
-    discordPost('Failed to connect to lbrycrd', {});
-    return;
-  }
-
-  Promise.all([getLastBlock(), lbryCall('getinfo')])
-    .then(function([lastProcessedBlock, currentBlockInfo]) {
-      const currentHeight = currentBlockInfo['blocks'];
-      console.log(currentHeight);
-      if (lastProcessedBlock === null) {
-        console.log('First run. Setting last processed block to ' + currentHeight + ' and exiting.');
-        return setLastBlock(currentHeight);
-      }
-
-      const testBlock = false;
-
-      if (testBlock || lastProcessedBlock < currentHeight) {
-        const firstBlockToProcess = testBlock || lastProcessedBlock + 1,
-          lastBlockToProcess = testBlock || currentHeight;
-
-        console.log('Doing blocks ' + firstBlockToProcess + ' to ' + lastBlockToProcess);
-        return announceClaimsLoop(firstBlockToProcess, lastBlockToProcess, currentHeight);
-      }
-    })
-    .catch(function(err) {
-      discordPost(err.stack, {});
-    });
-}
-
-function announceClaimsLoop(block, lastBlock, currentHeight) {
-  let claimsFound = 0;
-  return lbryCall('getblockhash', block)
-    .then(function(blockHash) {
-      return lbryCall('getblock', blockHash);
-    })
-    .then(function(blockData) {
-      return Promise.all(blockData['tx'].map(getClaimsForTxid));
-    })
-    .then(function(arrayOfClaimArrays) {
-      const claims = Array.prototype.concat(...arrayOfClaimArrays).filter(function(c) {
-        return !!c;
-      });
-      console.log('Found ' + claims.length + ' claims in ' + block);
-      claimsFound = claims.length;
-      return Promise.all(
-        claims.map(function(claim) {
-          //the API has a rate limit. to avoid hitting it we must have a small delay between each message
-          //if claims were found in this block, then we wait, otherwise we don't
-          if (claimsFound > 0 && claim.hasOwnProperty('claimId')) sleep.msleep(300);
-          return announceClaim(claim, block, currentHeight);
-        })
-      );
-    })
-    .then(function() {
-      return setLastBlock(block);
-    })
-    .then(function() {
-      const nextBlock = block + 1;
-      if (nextBlock <= lastBlock) {
-        return announceClaimsLoop(nextBlock, lastBlock, currentHeight);
-      }
-    });
-}
-
-function announceClaim(claim, claimBlockHeight, currentHeight) {
-  console.log('' + claimBlockHeight + ': New claim for ' + claim['name']);
-  console.log(claim);
-
-  //ignore supports for now
-  //the issue with supports is that they should be treated completely differently
-  //they are not new claims...
-  if (claim.hasOwnProperty('supported claimId')) return;
-
-  let options = {
-    method: 'GET',
-    url: 'http://127.0.0.1:5000/claim_decode/' + claim['name']
-  };
-
-  request(options, function(error, response, body) {
-    if (error) throw new Error(error);
-    try {
-      console.log(JSON.stringify(JSON.parse(body), null, 2));
-      let claimData = null;
-      let channelName = null;
-      try {
-        body = JSON.parse(body);
-        if (body.hasOwnProperty('stream') && body.stream.hasOwnProperty('metadata')) {
-          claimData = body.stream.metadata;
-          channelName = body.hasOwnProperty('channel_name') ? body['channel_name'] : null;
-        }
-      } catch (e) {
-        console.error(e);
-        return;
-      }
-
-      return Promise.all([lbryCall('getvalueforname', claim['name']), lbryCall('getclaimsforname', claim['name'])]).then(function([currentWinningClaim, claimsForName]) {
-        //console.log(JSON.stringify(claimData));
-        let value = null;
-        if (claimData !== null) value = claimData;
-        else {
-          try {
-            value = JSON.parse(claim['value']);
-          } catch (e) {}
-        }
-
-        const text = [];
-
-        if (value) {
-          /*
-          if (channelName) {
-            text.push("Channel: lbry://" + channelName);
-          }
-          else
-          */
-          console.log(value);
-          if (value['author']) {
-            text.push('author: ' + value['author']);
-          }
-          if (value['description']) {
-            text.push(value['description']);
-          }
-          // if (value['content_type'])
-          // {
-          //   text.push("*Content Type:* " + value['content_type']);
-          // }
-          if (value['nsfw']) {
-            text.push('*Warning: Adult Content*');
-          }
-
-          //"fee":{"currency":"LBC","amount":186,"version":"_0_0_1","address":"bTGoFCakvQXvBrJg1b7FJzombFUu6iRJsk"}
-          if (value['fee']) {
-            const fees = [];
-            text.push('Price: ' + value['fee'].amount + ' *' + value['fee'].currency + '*');
-          }
-
-          if (!claim['is controlling']) {
-            // the following is based on https://lbry.io/faq/claimtrie-implementation
-            const lastTakeoverHeight = claimsForName['nLastTakeoverHeight'],
-              maxDelay = 4032, // 7 days of blocks at 2.5min per block
-              activationDelay = Math.min(maxDelay, Math.floor((claimBlockHeight - lastTakeoverHeight) / 32)),
-              takeoverHeight = claimBlockHeight + activationDelay,
-              secondsPerBlock = 161, // in theory this should be 150, but in practice its closer to 161
-              takeoverTime = Date.now() + (takeoverHeight - currentHeight) * secondsPerBlock * 1000;
-
-            text.push('Takes effect on approx. **' + moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]') + '** (block ' + takeoverHeight + ')');
-          }
-
-          const richEmbeded = {
-            author: {
-              name: value['author'] || 'Anonymous',
-              url: `http://open.lbry.io/${claim['name']}#${claim['claimId']}`,
-              icon_url: 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif'
-            },
-            title: 'lbry://' + (channelName ? channelName + '/' : '') + claim['name'],
-            color: 1399626,
-            description: escapeSlackHtml(text.join('\n')),
-            footer: {
-              text: 'Block ' + claimBlockHeight + ' • Claim ID ' + claim['claimId']
-            },
-            image: { url: !value['nsfw'] ? value['thumbnail'] || '' : '' },
-            url: `http://open.lbry.io/${claim['name']}#${claim['claimId']}`
-          };
-
-          discordPost(text, richEmbeded);
-        }
-      });
-    } catch (e) {
-      console.error(e);
+  let claimsSince = JSON.parse(await getClaimsSince(syncState.LastSyncTime))
+    .data;
+  // filter out the claims that we should add to discord
+  let claims = [];
+  for (let claim of claimsSince) {
+    claim.value = JSON.parse(claim.value);
+    if (claim.value.Claim && claim.value.Claim.stream) {
+      claim.metadata = claim.value.Claim.stream.metadata;
+    } else {
+      claim.metadata = null;
     }
-  });
+    if (claim.bid_state !== "Spent" || claim.bid_state !== "Expired") {
+      claims.push(claim);
+    }
+  }
+  for (let claim of claims) {
+    console.log(claim);
+  }
+  // send each claim to discord.
+  for (let claim of claims) {
+    console.log(claim);
+    if (claim.metadata) {
+      // If its a claim, make a claimEmbed
+      let claimEmbed = new Discord.RichEmbed()
+        .setAuthor(
+          claim.channel
+            ? `New claim from ${claim.channel}`
+            : "New claim from Anonymous",
+          "http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif",
+          `http://open.lbry.io/${
+            claim.channel
+              ? `${claim.channel}#${claim.channelId}/${claim["name"]}`
+              : `${claim["name"]}#${claim["claimId"]}`
+          }`
+        )
+        .setTitle(
+          "lbry://" + (claim.channel ? `${claim.channel}/` : "") + claim["name"]
+        )
+        .setURL(
+          `http://open.lbry.io/${
+            claim.channel
+              ? `${claim.channel}#${claim.channelId}/${claim["name"]}`
+              : `${claim["name"]}#${claim["claimId"]}`
+          }`
+        )
+        .setColor(1399626)
+        .setFooter(
+          `Block ${claim.height} • Claim ID ${
+            claim.claimId
+          } • Data from Chainquery`
+        );
+      if (claim.metadata["title"])
+        claimEmbed.addField("Title", claim.metadata["title"]);
+      if (claim.metadata["author"])
+        claimEmbed.addField("Author", claim.metadata["author"]);
+      if (claim.metadata["description"]) {
+        claimEmbed.addField(
+          "Description",
+          claim.metadata["description"].substring(0, 1020)
+        );
+      }
+      if (claim.metadata["fee"])
+        claimEmbed.addField(
+          "Fee",
+          claim.metadata["fee"].amount + " " + claim.metadata["fee"].currency
+        );
+      if (claim.metadata["license"] && claim.metadata["license"].length > 2)
+        claimEmbed.addField("License", claim.metadata["license"]);
+      if (!claim.metadata["nsfw"] && claim.metadata["thumbnail"])
+        claimEmbed.setThumbnail(claim.metadata["thumbnail"]);
+      if (
+        claim.bid_state !== "Controlling" &&
+        claim.height < claim.valid_at_height
+      ) {
+        // Claim have not taken over the old claim, send approx time to event.
+        let takeoverTime =
+          Date.now() + (claim.valid_at_height - lastBlockHeight) * 161 * 1000; // in theory this should be 150, but in practice its closer to 161
+        claimEmbed.addField(
+          "Takes effect on approx",
+          moment(takeoverTime, "x").format("MMMM Do [at] HH:mm [UTC]") +
+            ` • at block height ${claim.valid_at_height}`
+        );
+      }
+      /*claimEmbed.addField("Claimed for", `${claim.effective_amount} LBC`);*/
+      discordPost(claimEmbed);
+    } else if (claim.name.charAt(0) === "@") {
+      // This is a channel claim
+      let channelEmbed = new Discord.RichEmbed()
+        .setAuthor(
+          "New channel claim",
+          "http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif",
+          `http://open.lbry.io/${claim["name"]}#${claim["claimId"]}`
+        )
+        .setTitle(
+          "lbry://" + (claim.channel ? claim.channel + "/" : "") + claim["name"]
+        )
+        .setURL(`http://open.lbry.io/${claim["name"]}#${claim["claimId"]}`)
+        .setColor(1399626)
+        .setFooter(
+          `Block ${claim.height} • Claim ID ${
+            claim.claimId
+          } • Data from Chainquery`
+        )
+        .addField("Channel Name", claim["name"]);
+      discordPost(channelEmbed);
+    }
+  }
+  // set the last sync time to the db.
+  syncState.LastSyncTime = new Date()
+    .toISOString()
+    .slice(0, 19)
+    .replace("T", " ");
+  await saveJSON(path.join(appRoot.path, "syncState.json"), syncState);
 }
 
-function escapeSlackHtml(txt) {
-  return txt
-    .replace('&', '&amp;')
-    .replace('<', '&lt;')
-    .replace('>', '&gt;');
-}
-
-function getClaimsForTxid(txid) {
-  return lbryCall('getclaimsfortx', txid).catch(function(err) {
-    // an error here most likely means the transaction is spent,
-    // which also means there are no claims worth looking at
-    return [];
-  });
-}
-
-function getLastBlock() {
-  return new Promise(function(resolve, reject) {
-    mongo.collection('claimbot').findOne({}, function(err, obj) {
+function getJSON(path) {
+  return new Promise((resolve, reject) => {
+    jsonfile.readFile(path, function(err, jsoncontent) {
       if (err) {
         reject(err);
-      } else if (!obj) {
-        mongo.collection('claimbot').createIndex({ last_block: 1 }, { unique: true });
-        resolve(null);
       } else {
-        resolve(obj.last_block);
+        resolve(jsoncontent);
       }
     });
   });
 }
-
-function setLastBlock(block) {
-  return new Promise(function(resolve, reject) {
-    mongo.collection('claimbot').findOneAndUpdate({ last_block: { $exists: true } }, { last_block: block }, { upsert: true, returnOriginal: false }, function(err, obj) {
-      if (!err && obj && obj.value.last_block != block) {
-        reject('Last value should be ' + block + ', but it is ' + obj.value.last_block);
+function saveJSON(path, obj) {
+  return new Promise((resolve, reject) => {
+    jsonfile.writeFile(path, obj, function(err, jsoncontent) {
+      if (err) {
+        reject(err);
       } else {
         resolve();
       }
@@ -261,25 +203,45 @@ function setLastBlock(block) {
   });
 }
 
-function discordPost(text, params) {
-  let richEmbeded = new Discord.RichEmbed(params);
-
+function discordPost(embed) {
   channels.forEach(channel => {
     discordBot.channels
       .get(channel)
-      .send('', richEmbeded)
+      .send("", embed)
       .catch(console.error);
   });
 }
 
-function lbryCall(...args) {
-  return new Promise(function(resolve, reject) {
-    lbry.cmd(...args, function(err, ...response) {
-      if (err) {
-        reject(new Error('JSONRPC call failed. Args: [' + args.join(', ') + ']'));
-      } else {
-        resolve(...response);
-      }
-    });
+function getClaimsSince(time) {
+  return new Promise((resolve, reject) => {
+    let query =
+      `` +
+      `SELECT ` +
+      `c.name,` +
+      `c.valid_at_height,` +
+      `c.height,` +
+      `p.name as channel,` +
+      `c.publisher_id as channelId,` +
+      `c.bid_state,` +
+      `c.effective_amount,` +
+      `c.claim_id as claimId,` +
+      `c.value_as_json as value ` +
+      // `,transaction_by_hash_id, ` + // txhash and vout needed to leverage old format for comparison.
+      // `vout ` +
+      `FROM claim c ` +
+      `LEFT JOIN claim p on p.claim_id = c.publisher_id ` +
+      `WHERE c.created_at >='` +
+      time +
+      `'`;
+    // Outputs full query to console for copy/paste into chainquery (debugging)
+    // console.log(query);
+    rp(`https://chainquery.lbry.io/api/sql?query=` + query)
+      .then(function(htmlString) {
+        resolve(htmlString);
+      })
+      .catch(function(err) {
+        console.log("error", "[Importer] Error getting updated claims. " + err);
+        reject(err);
+      });
   });
 }
