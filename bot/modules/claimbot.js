@@ -118,7 +118,7 @@ async function announceClaims() {
         );
       if (claim.metadata["title"])
         claimEmbed.addField("Title", claim.metadata["title"]);
-      if (claim.channel) claimEmbed.addField("Author", claim.channel);
+      if (claim.channel) claimEmbed.addField("Channel", claim.channel);
       if (claim.metadata["description"]) {
         claimEmbed.addField(
           "Description",
@@ -133,7 +133,7 @@ async function announceClaims() {
       if (claim.metadata["license"] && claim.metadata["license"].length > 2)
         claimEmbed.addField("License", claim.metadata["license"]);
       if (!claim.metadata["nsfw"] && claim.metadata["thumbnail"])
-        claimEmbed.setThumbnail(claim.metadata["thumbnail"]);
+        claimEmbed.setImage(claim.metadata["thumbnail"]);
       if (
         claim.bid_state !== "Controlling" &&
         claim.height < claim.valid_at_height
@@ -149,7 +149,7 @@ async function announceClaims() {
       }
       claimEmbed.addField(
         "Claimed for",
-        `${Number.parseFloat(claim.outputValue).toFixed(2)} LBC`
+        `${Number.parseFloat(claim.outputValue).toFixed(3)} LBC`
       );
       discordPost(claimEmbed);
     } else if (claim.name.charAt(0) === "@") {
