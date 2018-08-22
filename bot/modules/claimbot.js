@@ -118,8 +118,7 @@ async function announceClaims() {
         );
       if (claim.metadata["title"])
         claimEmbed.addField("Title", claim.metadata["title"]);
-      if (claim.metadata["author"])
-        claimEmbed.addField("Author", claim.metadata["author"]);
+      if (claim.channel) claimEmbed.addField("Author", claim.channel);
       if (claim.metadata["description"]) {
         claimEmbed.addField(
           "Description",
@@ -148,7 +147,10 @@ async function announceClaims() {
             ` • at block height ${claim.valid_at_height}`
         );
       }
-      /*claimEmbed.addField("Claimed for", `${claim.effective_amount} LBC`);*/
+      claimEmbed.addField(
+        "Claimed for",
+        `${Number.parseFloat(claim.outputValue).toFixed(2)} LBC`
+      );
       discordPost(claimEmbed);
     } else if (claim.name.charAt(0) === "@") {
       // This is a channel claim
@@ -225,11 +227,13 @@ function getClaimsSince(time) {
       `c.bid_state,` +
       `c.effective_amount,` +
       `c.claim_id as claimId,` +
-      `c.value_as_json as value ` +
-      // `,transaction_by_hash_id, ` + // txhash and vout needed to leverage old format for comparison.
-      // `vout ` +
+      `c.value_as_json as value, ` +
+      `c.transaction_hash_id, ` + // txhash and vout needed to leverage old format for comparison.
+      `c.vout, ` +
+      `o.value as outputValue ` +
       `FROM claim c ` +
       `LEFT JOIN claim p on p.claim_id = c.publisher_id ` +
+      `LEFT JOIN output o on (o.transaction_hash=c.transaction_hash_id and o.vout=c.vout) ` +
       `WHERE c.created_at >='` +
       time +
       `'`;
