@@ -149,7 +149,7 @@ async function announceClaims() {
       }
       claimEmbed.addField(
         "Claimed for",
-        `${Number.parseFloat(claim.outputValue).toFixed(3)} LBC`
+        `${Number.parseFloat(claim.outputValue).toFixed(4)} LBC`
       );
       discordPost(claimEmbed);
     } else if (claim.name.charAt(0) === "@") {
