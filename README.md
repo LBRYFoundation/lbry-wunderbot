@@ -77,7 +77,6 @@ ____
 
 * node > 8.0.0
 * npm > 0.12.x
-* yarn ( install with npm install -g yarn if not installed )
 ____
 ### Installation
 
@@ -88,7 +87,7 @@ Edit and rename default.json.example in /config, then cd to wunderbot directory
 and run:
 
 ```
-yarn install
+npm install --production
 node bot/bot.js
 ```
 ____
@@ -98,10 +97,10 @@ Be sure to run the command below before working on any code, this ensures
 prettier goes to work and keeps code to our standard.
 
 ```
-yarn install --production=false
+npm install
 ```
 to run prettier before submitting your code simply run the following in the bots root directory.
 
 ```
-yarn precommit
+npm run precommit
 ```
