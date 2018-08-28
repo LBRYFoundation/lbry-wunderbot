@@ -27,17 +27,18 @@
     "build": "babel bot -d dist",
     "prod": "babel bot -d dist & node dist/bot.js",
     "lint": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240",
-    "precommit": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240"
+    "precommit": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240",
+    "test": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240 --list-different && npm audit && npm i"
   },
   "devDependencies": {
     "husky": "^0.14.3",
     "prettier": "1.8.1"
   },
   "name": "wunderbot-discord",
-  "version": "0.0.1",
-  "description": "LBRYs bot for Discord",
-  "main": "app.js",
-  "repository": "https://github.com/filipnyquist/wunderbot-disc",
+  "version": "1.0.0",
+  "description": "LBRY bot for Discord",
+  "main": "bot/bot.js",
+  "repository": "https://github.com/lbryio/lbry-wunderbot",
   "author": "filipnyquist <filip@lbry.io>",
   "license": "MIT"
 }
