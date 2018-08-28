@@ -77,7 +77,7 @@ ____
 ### Requirements
 
 * node > 8.0.0
-* npm > 0.12.x
+* npm > 6.4.0
 ____
 ### Installation
 
