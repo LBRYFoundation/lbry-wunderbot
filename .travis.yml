@@ -4,3 +4,4 @@ node_js:
 cache:
   directories:
     - "node_modules"
+before_install: dpkg --compare-versions `npm -v` ge 6.4.0 || npm i -g npm@^6.4.0
