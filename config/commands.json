@@ -745,25 +745,25 @@
       }
     }
   },
-  "!alpha": {
+  "!android": {
     "usage": "",
-    "description": "Android Alpha Tester",
+    "description": "LBRY Android Beta",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Sign up to become an alpha tester for our [Android app](https://lbry.io/android-alpha)!",
+      "description": "Download our LBRY Android app [here](https://play.google.com/apps/testing/io.lbry.browser)!",
       "color": 7976557,
       "author": {
-        "name": "Android Alpha Tester",
-        "url": "https://lbry.io/android-alpha",
+        "name": "LBRY Android Beta",
+        "url": "https://play.google.com/apps/testing/io.lbry.browser",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
     }
   },
   "!fund": {
     "usage": "",
-    "description": "Android Alpha Tester",
+    "description": "LBRY Fund Project",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -824,8 +824,41 @@
       "author": {
         "name": "Tipbot Help Message",
         "url": "",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"        
+      }
+    }
+  },
+  "!ios": {
+    "usage": "",
+    "description": "iOS waiting list",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "LBRY is not yet out on this [platform](https://lbry.io/iOS), but will be soon. Enter your email to be notified when it is released!",
+      "color": 7976557,
+      "author": {
+        "name": "iOS waiting list",
+        "url": "https://lbry.io/ios",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
     }
-  }
+  },
+   "!3d": {
+    "usage": "",
+    "description": "3D Printing Program",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "Want to earn rewards for 3D printing nifty items?, Explore our [3D Printing Program](https://lbry.io/3d-printing) ",
+      "color": 7976557,
+      "author": {
+        "name": "3D Printing Program",
+        "url": "https://lbry.io/3d-printing",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+   
 }
