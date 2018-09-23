@@ -851,7 +851,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Want to earn rewards for 3D printing nifty items?, Explore our [3D Printing Program](https://lbry.io/3d-printing) ",
+      "description": "Want to earn rewards for 3D printing nifty items? Explore our [3D Printing Program](https://lbry.io/3d-printing) ",
       "color": 7976557,
       "author": {
         "name": "3D Printing Program",
@@ -859,6 +859,5 @@
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
     }
-  },
-   
+  }
 }
