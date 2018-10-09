@@ -39,7 +39,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": ":warning: **Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.**",
+      "description":
+        ":warning: **Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.**",
       "color": 7976557,
       "author": {
         "name": "BEGGING!",
@@ -55,7 +56,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Even though LBRY is in Open Beta, it's still beta software! There will be bugs and issues to be worked out. Thanks for your patience!",
+      "description":
+        "Even though LBRY is in Open Beta, it's still beta software! There will be bugs and issues to be worked out. Thanks for your patience!",
       "color": 7976557,
       "author": {
         "name": "Open Beta",
@@ -71,7 +73,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "The official GitHub for LBRY is [github.com/lbryio](https://github.com/lbryio)",
+      "description":
+        "The official GitHub for LBRY is [github.com/lbryio](https://github.com/lbryio)",
       "color": 7976557,
       "author": {
         "name": "LBRY GitHub",
@@ -87,7 +90,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "**Installers for the LBRY app are available for download** [**HERE**](https://lbry.io/get)",
+      "description":
+        "**Installers for the LBRY app are available for download** [**HERE**](https://lbry.io/get)",
       "color": 7976557,
       "author": {
         "name": "Get The LBRY App",
@@ -103,7 +107,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Installers for the LBRY daemon are available for download [**HERE**](https://github.com/lbryio/lbry/releases)",
+      "description":
+        "Installers for the LBRY daemon are available for download [**HERE**](https://github.com/lbryio/lbry/releases)",
       "color": 7976557,
       "author": {
         "name": "LBRY Daemon Download",
@@ -119,7 +124,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "You can find details about the folders your LBRY files are stored in at [lbry.io/faq/lbry-directories](https://lbry.io/faq/lbry-directories)",
+      "description":
+        "You can find details about the folders your LBRY files are stored in at [lbry.io/faq/lbry-directories](https://lbry.io/faq/lbry-directories)",
       "color": 7976557,
       "author": {
         "name": "LBRY Directories",
@@ -135,7 +141,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "These questions and many more have been answered on the [FAQ Page](https://lbry.io/faq/)",
+      "description":
+        "These questions and many more have been answered on the [FAQ Page](https://lbry.io/faq/)",
       "color": 7976557,
       "author": {
         "name": "LBRY FAQ",
@@ -151,7 +158,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Want to help develop and contribute to the LBRY Project?\nCheck out **[GUIDE](https://lbry.io/faq/contributing)** to help you get you started.",
+      "description":
+        "Want to help develop and contribute to the LBRY Project?\nCheck out **[GUIDE](https://lbry.io/faq/contributing)** to help you get you started.",
       "color": 7976557,
       "author": {
         "name": "Contributing to LBRY",
@@ -200,7 +208,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>. We have guides pinned in that channel to get you started mining some LBC!",
+      "description":
+        "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>. We have guides pinned in that channel to get you started mining some LBC!",
       "color": 7976557,
       "author": {
         "name": "Mining LBC",
@@ -216,7 +225,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Details about our stance on price can be found here: [lbry.io/news/acryptypical](https://lbry.io/news/acryptypical)",
+      "description":
+        "Details about our stance on price can be found here: [lbry.io/news/acryptypical](https://lbry.io/news/acryptypical)",
       "color": 7976557,
       "author": {
         "name": "CEO's Stance on Price",
@@ -232,7 +242,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Are you a YouTuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
+      "description":
+        "Are you a YouTuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.io/youtube)",
       "color": 7976557,
       "author": {
         "name": "Are You a YouTuber?",
@@ -248,7 +259,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "We've created a small guide to help with the Publishing features of LBRY, check it out here: [lbry.io/faq/how-to-publish](https://lbry.io/faq/how-to-publish)",
+      "description":
+        "We've created a small guide to help with the Publishing features of LBRY, check it out here: [lbry.io/faq/how-to-publish](https://lbry.io/faq/how-to-publish)",
       "color": 7976557,
       "author": {
         "name": "How to Publish on LBRY?",
@@ -264,7 +276,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please keep conversations on topic, or move random conversations to #363084227518136322 if you wish to continue",
+      "description":
+        "Please keep conversations on topic, or move random conversations to #363084227518136322 if you wish to continue",
       "color": 7976557,
       "author": {
         "name": "Random",
@@ -331,7 +344,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - Referral redemptions are currently in test mode and limited to one. But you can see your entire referral history in your LBRY app.",
+      "description":
+        "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - Referral redemptions are currently in test mode and limited to one. But you can see your entire referral history in your LBRY app.",
       "color": 7976557,
       "author": {
         "name": "Referrals",
@@ -364,7 +378,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Rewards are different to referral bonuses. Rewards are given for testing the LBRY software and system. Referrals are given for sharing LBRY with the masses.",
+      "description":
+        "Rewards are different to referral bonuses. Rewards are given for testing the LBRY software and system. Referrals are given for sharing LBRY with the masses.",
       "color": 7976557,
       "author": {
         "name": "Rewards vs Referrals",
@@ -431,7 +446,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "You can find your log files by following the guide [HERE](https://lbry.io/faq/how-to-find-lbry-log-file)",
+      "description":
+        "You can find your log files by following the guide [HERE](https://lbry.io/faq/how-to-find-lbry-log-file)",
       "color": 7976557,
       "author": {
         "name": "How to Find My LogFile?",
@@ -447,7 +463,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see this guide on how to backup your wallet: [lbry.io/faq/how-to-backup-wallet](https://lbry.io/faq/how-to-backup-wallet)",
+      "description":
+        "Please see this guide on how to backup your wallet: [lbry.io/faq/how-to-backup-wallet](https://lbry.io/faq/how-to-backup-wallet)",
       "color": 7976557,
       "author": {
         "name": "How to Backup My Wallet?",
@@ -463,7 +480,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/startup-troubleshooting](https://lbry.io/faq/startup-troubleshooting) if you are having trouble getting LBRY to start correctly.",
+      "description":
+        "Please see [lbry.io/faq/startup-troubleshooting](https://lbry.io/faq/startup-troubleshooting) if you are having trouble getting LBRY to start correctly.",
       "color": 7976557,
       "author": {
         "name": "Startup Troubleshooting",
@@ -479,7 +497,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/unable-to-stream](https://lbry.io/faq/unable-to-stream) if you are experiencing problems viewing **ANY** LBRY content.",
+      "description":
+        "Please see [lbry.io/faq/unable-to-stream](https://lbry.io/faq/unable-to-stream) if you are experiencing problems viewing **ANY** LBRY content.",
       "color": 7976557,
       "author": {
         "name": "Streaming Troubleshooting",
@@ -512,7 +531,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/backup-data](https://lbry.io/faq/backup-data) for instructions on how to backup and/or migrate your LBRY data",
+      "description":
+        "Please see [lbry.io/faq/backup-data](https://lbry.io/faq/backup-data) for instructions on how to backup and/or migrate your LBRY data",
       "color": 7976557,
       "author": {
         "name": "How to Backup/Migrate LBRY Data?",
@@ -528,7 +548,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/tipping](https://lbry.io/faq/tipping) for details about tipping in the LBRY app",
+      "description":
+        "Please see [lbry.io/faq/tipping](https://lbry.io/faq/tipping) for details about tipping in the LBRY app",
       "color": 7976557,
       "author": {
         "name": "LBRY App Tipping?",
@@ -544,7 +565,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you need to change your LBRY connected email, please see these instructions [HERE](https://lbry.io/faq/how-to-change-email)",
+      "description":
+        "If you need to change your LBRY connected email, please see these instructions [HERE](https://lbry.io/faq/how-to-change-email)",
       "color": 7976557,
       "author": {
         "name": "How to Change Email in the LBRY App",
@@ -560,7 +582,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you are interested in interacting with the LBRY protocol via commands, check out [lbry.io/faq/how-to-cli](https://lbry.io/faq/how-to-cli)",
+      "description":
+        "If you are interested in interacting with the LBRY protocol via commands, check out [lbry.io/faq/how-to-cli](https://lbry.io/faq/how-to-cli)",
       "color": 7976557,
       "author": {
         "name": "Interact with the LBRY CLI",
@@ -576,7 +599,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you are interested in how LBRY is different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
+      "description":
+        "If you are interested in how LBRY is different from IPFS or BitTorrent, check out [lbry.io/faq/different-ipfs](https://lbry.io/faq/different-ipfs)",
       "color": 7976557,
       "author": {
         "name": "How Is LBRY Different from IPFS/BitTorrent?",
@@ -592,7 +616,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see this guide on how to convert your crypto into LBC: [lbry.io/faq/shapeshift](https://lbry.io/faq/shapeshift)",
+      "description":
+        "Please see this guide on how to convert your crypto into LBC: [lbry.io/faq/shapeshift](https://lbry.io/faq/shapeshift)",
       "color": 7976557,
       "author": {
         "name": "How Can I Convert My Crypto into LBC?",
@@ -608,7 +633,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see this guide on how YouTube sync works: [lbry.io/faq/youtube](https://lbry.io/faq/youtube)",
+      "description":
+        "Please see this guide on how YouTube sync works: [lbry.io/faq/youtube](https://lbry.io/faq/youtube)",
       "color": 7976557,
       "author": {
         "name": "What Is YouTube Sync?",
@@ -624,7 +650,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see this guide on [transaction types](https://lbry.io/faq/transaction-types)",
+      "description":
+        "Please see this guide on [transaction types](https://lbry.io/faq/transaction-types)",
       "color": 7976557,
       "author": {
         "name": "What Types of LBRY Transactions Are There?",
@@ -640,7 +667,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Get to know the [Official Team](https://lbry.io/team) behind the scenes of LBRY Inc.",
+      "description":
+        "Get to know the [Official Team](https://lbry.io/team) behind the scenes of LBRY Inc.",
       "color": 7976557,
       "author": {
         "name": "Meet the Team!",
@@ -656,7 +684,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[Phone number](https://lbry.io/faq/phone) verification provides another method for LBRY users to participate in the Rewards program",
+      "description":
+        "[Phone number](https://lbry.io/faq/phone) verification provides another method for LBRY users to participate in the Rewards program",
       "color": 7976557,
       "author": {
         "name": "Phone Verification!",
@@ -672,7 +701,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[LBRY App Basics](https://lbry.io/faq/lbry-basics) The purpose of this FAQ is to answer questions about some of the basic functionality available in the LBRY app",
+      "description":
+        "[LBRY App Basics](https://lbry.io/faq/lbry-basics) The purpose of this FAQ is to answer questions about some of the basic functionality available in the LBRY app",
       "color": 7976557,
       "author": {
         "name": "LBRY App Basics!",
@@ -688,7 +718,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Visit our at-cost [merchandise store](https://shop.lbry.io) to check out the latest LBRY swag.",
+      "description":
+        "Visit our at-cost [merchandise store](https://shop.lbry.io) to check out the latest LBRY swag.",
       "color": 7976557,
       "author": {
         "name": "The LBRY Inc. Shop!",
@@ -704,7 +735,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[Read our FAQ](https://lbry.io/faq/content) to learn more about LBRY's content policy.",
+      "description":
+        "[Read our FAQ](https://lbry.io/faq/content) to learn more about LBRY's content policy.",
       "color": 7976557,
       "author": {
         "name": "What Content Can I legally Upload to LBRY?",
@@ -720,7 +752,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to learn more about LBRY's Acceptable Use Policy",
+      "description":
+        "[Read Our FAQ](https://lbry.io/faq/acceptable-use-policy) to learn more about LBRY's Acceptable Use Policy",
       "color": 7976557,
       "author": {
         "name": "Acceptable Use Policy",
@@ -736,7 +769,8 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "LBRY is looking for ambassadors to spread the word to [College campuses](https://lbry.io/college) and [Meetup](https://lbry.io/meet) groups worldwide! ",
+      "description":
+        "LBRY is looking for ambassadors to spread the word to [College campuses](https://lbry.io/college) and [Meetup](https://lbry.io/meet) groups worldwide! ",
       "color": 7976557,
       "author": {
         "name": "Wanna Meet Up?",
@@ -745,30 +779,32 @@
       }
     }
   },
-  "!alpha": {
+  "!android": {
     "usage": "",
-    "description": "Android Alpha Tester",
+    "description": "LBRY Android Beta",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Sign up to become an alpha tester for our [Android app](https://lbry.io/android-alpha)!",
+      "description":
+        "Download our LBRY Android app [here](https://play.google.com/apps/testing/io.lbry.browser)!",
       "color": 7976557,
       "author": {
-        "name": "Android Alpha Tester",
-        "url": "https://lbry.io/android-alpha",
+        "name": "LBRY Android Beta",
+        "url": "https://play.google.com/apps/testing/io.lbry.browser",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
     }
   },
   "!fund": {
     "usage": "",
-    "description": "Android Alpha Tester",
+    "description": "LBRY Fund Project",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "The [LBRY Fund](https://lbry.fund) receives funding from a portion of the 200m LBC premined credits reserved for Community to spread the use and adoption of the LBRY protocol.",
+      "description":
+        "The [LBRY Fund](https://lbry.fund) receives funding from a portion of the 200m LBC premined credits reserved for Community to spread the use and adoption of the LBRY protocol.",
       "color": 7976557,
       "author": {
         "name": "The LBRY Community Fund",
@@ -824,6 +860,40 @@
       "author": {
         "name": "Tipbot Help Message",
         "url": "",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+  "!ios": {
+    "usage": "",
+    "description": "iOS waiting list",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description":
+        "LBRY is not yet out on this [platform](https://lbry.io/iOS), but will be soon. Enter your email to be notified when it is released!",
+      "color": 7976557,
+      "author": {
+        "name": "iOS waiting list",
+        "url": "https://lbry.io/ios",
+        "icon_url": "https://i.imgur.com/yWf5USu.png"
+      }
+    }
+  },
+  "!3d": {
+    "usage": "",
+    "description": "3D Printing Program",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description":
+        "Want to earn rewards for 3D printing nifty items? Explore our [3D Printing Program](https://lbry.io/3d-printing) ",
+      "color": 7976557,
+      "author": {
+        "name": "3D Printing Program",
+        "url": "https://lbry.io/3d-printing",
         "icon_url": "https://i.imgur.com/yWf5USu.png"
       }
     }
