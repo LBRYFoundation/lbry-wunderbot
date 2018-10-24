@@ -46,7 +46,7 @@ function init(discordBot_) {
       }
     });
     setInterval(function() {
-      announceClaims();
+      //announceClaims(); pause the claim until https://github.com/lbryio/chainquery/issues/58 has been fixed.
     }, 60 * 1000);
     announceClaims();
   });
