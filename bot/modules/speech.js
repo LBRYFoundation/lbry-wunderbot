@@ -180,7 +180,7 @@ exports.speech = {
           color: 7976557,
           author: {
             name: 'Speech Bot Help',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       });
