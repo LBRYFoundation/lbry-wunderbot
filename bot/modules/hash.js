@@ -166,10 +166,10 @@ exports.hash = {
           let Diff = response.body.difficulty24;
           let Reward = response.body.block_reward;
           let myHash = Number(myhashrate);
-          let LBC = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 3600;
-          let LBC24 = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 86400;
-          let LBC1w = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 604800;
-          let LBC1m = myHash / 2000 * (1 / ((Diff * 2) ^ 32) * Reward) * 2628000;
+          let LBC = (myHash / 2000) * ((1 / ((Diff * 2) ^ 32)) * Reward) * 3600;
+          let LBC24 = (myHash / 2000) * ((1 / ((Diff * 2) ^ 32)) * Reward) * 86400;
+          let LBC1w = (myHash / 2000) * ((1 / ((Diff * 2) ^ 32)) * Reward) * 604800;
+          let LBC1m = (myHash / 2000) * ((1 / ((Diff * 2) ^ 32)) * Reward) * 2628000;
           let message =
             'With **' +
             myHash +

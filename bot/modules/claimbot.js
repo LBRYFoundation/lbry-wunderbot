@@ -27,29 +27,32 @@ function init(discordBot_) {
   discordBot = discordBot_;
 
   const MongoClient = require('mongodb').MongoClient;
-  MongoClient.connect(config.get('mongodb').url, function(err, db) {
-    if (err) {
-      throw err;
-    }
-    mongo = db;
-
-    console.log('Activating claimbot ');
-    discordBot.channels.get(channels[0]).send('activating claimbot');
-
-    // Check that our syncState file exist.
-    fileExists(path.join(appRoot.path, 'syncState.json'), (err, exists) => {
+  MongoClient.connect(
+    config.get('mongodb').url,
+    function(err, db) {
       if (err) {
         throw err;
       }
-      if (!exists) {
-        fs.writeFileSync(path.join(appRoot.path, 'syncState.json'), '{}');
-      }
-    });
-    setInterval(function() {
-      //announceClaims(); pause the claim until https://github.com/lbryio/chainquery/issues/58 has been fixed.
-    }, 60 * 1000);
-    //announceClaims();
-  });
+      mongo = db;
+
+      console.log('Activating claimbot ');
+      discordBot.channels.get(channels[0]).send('activating claimbot');
+
+      // Check that our syncState file exist.
+      fileExists(path.join(appRoot.path, 'syncState.json'), (err, exists) => {
+        if (err) {
+          throw err;
+        }
+        if (!exists) {
+          fs.writeFileSync(path.join(appRoot.path, 'syncState.json'), '{}');
+        }
+      });
+      setInterval(function() {
+        //announceClaims(); pause the claim until https://github.com/lbryio/chainquery/issues/58 has been fixed.
+      }, 60 * 1000);
+      //announceClaims();
+    }
+  );
 }
 
 async function announceClaims() {

@@ -22,8 +22,7 @@
     "bundle": {
       "url": "https://lbry.io/what",
       "title": "*Click Here for more Info!*",
-      "description":
-        "[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the app here**_](https://lbry.io/get)",
+      "description": "[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the app here**_](https://lbry.io/get)",
       "color": 7976557,
       "author": {
         "name": "What Is LBRY?",
@@ -183,8 +182,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        ":warning: Hey, glad to see you love **LBRY** so much, but for the safety of our users we ask that you avoid using **Discord names** that include the word **LBRY**, names of **LBRY staff**, names of other **LBRY members** on the this server or any name that could be considered **deceptive**. This is to prevent impersonation and scams.",
+      "description": ":warning: Hey, glad to see you love **LBRY** so much, but for the safety of our users we ask that you avoid using **Discord names** that include the word **LBRY**, names of **LBRY staff**, names of other **LBRY members** on the this server or any name that could be considered **deceptive**. This is to prevent impersonation and scams.",
       "color": 7976557,
       "author": {
         "name": "Discord Username",
@@ -280,8 +278,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity. Learn more **[HERE](https://lbry.io/faq/naming)**",
+      "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity. Learn more **[HERE](https://lbry.io/faq/naming)**",
       "color": 7976557,
       "author": {
         "name": "How Does LBRY Naming Work?",
@@ -297,8 +294,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "You can earn LBRY Credits for completing tasks as part of the LBRY Bounty Program, All bounties can be seen on the **[Bounty Home Page](https://lbry.io/bounty)**.\nBounties range from simple typo fixes to third party applications and custom projects.",
+      "description": "You can earn LBRY Credits for completing tasks as part of the LBRY Bounty Program, All bounties can be seen on the **[Bounty Home Page](https://lbry.io/bounty)**.\nBounties range from simple typo fixes to third party applications and custom projects.",
       "color": 7976557,
       "author": {
         "name": "LBRY Bounties",
@@ -314,8 +310,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "Check out the **[RoadMap](https://lbry.io/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
+      "description": "Check out the **[RoadMap](https://lbry.io/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
       "color": 7976557,
       "author": {
         "name": "RoadMap",
@@ -347,8 +342,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "[Rewards](https://lbry.io/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a credit card or other manual methods.\n Please see [lbry.io/faq/identity-requirements](https://lbry.io/faq/identity-requirements)",
+      "description": "[Rewards](https://lbry.io/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a credit card or other manual methods.\n Please see [lbry.io/faq/identity-requirements](https://lbry.io/faq/identity-requirements)",
       "color": 7976557,
       "author": {
         "name": "Rewards",
@@ -380,8 +374,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a credit card or by a manual verification process in order to be eligible for Rewards. Prepaid or virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#363050496023592961> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards. The LBRY app can be used without providing CC information**\n**Please See:https://lbry.io/faq/identity-requirements**",
+      "description": "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a credit card or by a manual verification process in order to be eligible for Rewards. Prepaid or virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#363050496023592961> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards. The LBRY app can be used without providing CC information**\n**Please See:https://lbry.io/faq/identity-requirements**",
       "color": 7976557,
       "author": {
         "name": "Credit Card Verification",
@@ -397,8 +390,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "Please download the latest version from [HERE](https://lbry.io/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to verify in order to access Rewards. Type !cc or !verification for more information.",
+      "description": "Please download the latest version from [HERE](https://lbry.io/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to verify in order to access Rewards. Type !cc or !verification for more information.",
       "color": 7976557,
       "author": {
         "name": "How to Verify?",
@@ -414,8 +406,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "If you would like to be verified, please go to <#363050496023592961> and type *`-new`* \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.io/faq/rewards) to know more about rewards.",
+      "description": "If you would like to be verified, please go to <#363050496023592961> and type *`-new`* \nthis will create a ticket (channel) for your request. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.io/faq/rewards) to know more about rewards.",
       "color": 7976557,
       "author": {
         "name": "Rewards Verification",
@@ -495,8 +486,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "The daemon uses ports **3333** and **4444**. It may interfere with mining software, Start the miner after the app and you should be okay. Also these ports need to be port forwarded on your router. Google is your friend there. \n **Please see this tutorial on how to change ports : [lbry.io/faq/how-to-change-port](https://lbry.io/faq/how-to-change-port)**",
+      "description": "The daemon uses ports **3333** and **4444**. It may interfere with mining software, Start the miner after the app and you should be okay. Also these ports need to be port forwarded on your router. Google is your friend there. \n **Please see this tutorial on how to change ports : [lbry.io/faq/how-to-change-port](https://lbry.io/faq/how-to-change-port)**",
       "color": 7976557,
       "author": {
         "name": "Ports",
@@ -784,8 +774,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "[JiggyTom](https://spee.ch/5/jiggytomsuperhero.jpeg) is LBRY's very own superhero. He has special powers which enable him to seek out and fix almost any issue that might occur within planet LBRY. \n\nUse JiggyTom with care. Overuse may result in unforeseen consequences and a meltdown which could lead to thermonuclear LBRYian war. \n\nMake sure you show your appreciation for Jiggy and his team of superheros when they use superpowers to help you. And remember kids, stay safe and behave yourselves",
+      "description": "[JiggyTom](https://spee.ch/5/jiggytomsuperhero.jpeg) is LBRY's very own superhero. He has special powers which enable him to seek out and fix almost any issue that might occur within planet LBRY. \n\nUse JiggyTom with care. Overuse may result in unforeseen consequences and a meltdown which could lead to thermonuclear LBRYian war. \n\nMake sure you show your appreciation for Jiggy and his team of superheros when they use superpowers to help you. And remember kids, stay safe and behave yourselves",
       "color": 7976557,
       "author": {
         "name": "What is JiggyTom?",
@@ -801,8 +790,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "[Julie](https://spee.ch/f/julie-meme-fail-chris45.jpeg) is LBRY's very own wunder woman. She has special powers which enable her to seek out and fix almost any issue that might occur within planet LBRY. \n\nUse Julie with care. Overuse may result in unforeseen consequences and a meltdown which could lead to thermonuclear LBRYian war. \n\nMake sure you show your appreciation for Julie and her team of super-woman when they use superpowers to help you. And remember kids, stay safe and behave yourselves",
+      "description": "[Julie](https://spee.ch/f/julie-meme-fail-chris45.jpeg) is LBRY's very own wunder woman. She has special powers which enable her to seek out and fix almost any issue that might occur within planet LBRY. \n\nUse Julie with care. Overuse may result in unforeseen consequences and a meltdown which could lead to thermonuclear LBRYian war. \n\nMake sure you show your appreciation for Julie and her team of super-woman when they use superpowers to help you. And remember kids, stay safe and behave yourselves",
       "color": 7976557,
       "author": {
         "name": "What is Julie?",
@@ -818,8 +806,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description":
-        "Type `!tip help` or `!tips` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.io/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
+      "description": "Type `!tip help` or `!tips` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.io/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
       "color": 7976557,
       "author": {
         "name": "Tipbot Help Message",
