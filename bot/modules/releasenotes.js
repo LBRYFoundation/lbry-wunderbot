@@ -40,10 +40,10 @@ exports.releasenotes = {
             timestamp: releasedate,
             author: {
               name: 'LBRY Desktop release Notes for ' + releasename,
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
+              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
-              icon_url: 'https://i.imgur.com/yWf5USu.png',
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
               text: 'LBRY Desktop Updated '
             }
           }
@@ -79,10 +79,10 @@ exports.releasenotes = {
             timestamp: releasedate,
             author: {
               name: 'LBRY Desktop Release Notes for ' + releasename,
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
+              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
-              icon_url: 'https://i.imgur.com/yWf5USu.png',
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
               text: 'LBRY Desktop Updated '
             }
           }
@@ -93,10 +93,10 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
+              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
-              icon_url: 'https://i.imgur.com/yWf5USu.png',
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
               text: 'LBRY Desktop Updated '
             }
           }
@@ -107,10 +107,10 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
+              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
-              icon_url: 'https://i.imgur.com/yWf5USu.png',
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
               text: 'LBRY Desktop Updated '
             }
           }
@@ -121,10 +121,10 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
+              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
-              icon_url: 'https://i.imgur.com/yWf5USu.png',
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
               text: 'LBRY Desktop Updated '
             }
           }
@@ -138,7 +138,7 @@ exports.releasenotes = {
               icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
             },
             footer: {
-              icon_url: 'https://i.imgur.com/yWf5USu.png',
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
               text: 'LBRY Desktop Updated '
             }
           }

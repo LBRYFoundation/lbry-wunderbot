@@ -128,7 +128,7 @@ exports.stats = {
                   author: {
                     name: 'Coin Market Cap Stats (LBC)',
                     url: statsurl,
-                    icon_url: 'https://i.imgur.com/yWf5USu.png'
+                    icon_url: 'https://spee.ch/2/pinkylbryheart.png'
                   }
                 };
                 msg.channel.send({ embed });

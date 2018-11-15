@@ -17,7 +17,7 @@ exports.onUserJoin = function(bot) {
           color: 7976557,
           author: {
             name: 'Welcome to LBRY Discord Community',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -43,7 +43,7 @@ exports.onUserJoin = function(bot) {
           color: 7976557,
           author: {
             name: 'Ground rules',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -64,7 +64,7 @@ exports.onUserJoin = function(bot) {
           color: 7976557,
           author: {
             name: 'Helpful hints',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -82,7 +82,7 @@ exports.onUserJoin = function(bot) {
           author: {
             name: 'What is LBRY?',
             url: 'https://lbry.io/what',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -118,7 +118,7 @@ exports.onUserJoin = function(bot) {
           author: {
             name: 'spee.ch',
             url: 'https://spee.ch',
-            icon_url: 'http://www.pd4pic.com/images/flag-green-blue-purple-indigo-bars-background.png'
+            icon_url: 'https://spee.ch/e/flag-green-blue-purple-indigo-bars-background.png'
           }
         }
       })
@@ -162,7 +162,7 @@ exports.welcome = {
           color: 7976557,
           author: {
             name: 'Welcome to LBRY Discord Community',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -187,7 +187,7 @@ exports.welcome = {
           color: 7976557,
           author: {
             name: 'Ground rules',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -209,7 +209,7 @@ exports.welcome = {
           color: 7976557,
           author: {
             name: 'Helpful hints',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -228,7 +228,7 @@ exports.welcome = {
           author: {
             name: 'What is LBRY?',
             url: 'https://lbry.io/what',
-            icon_url: 'https://i.imgur.com/yWf5USu.png'
+            icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
       })
@@ -265,7 +265,7 @@ exports.welcome = {
           author: {
             name: 'spee.ch',
             url: 'https://spee.ch',
-            icon_url: 'http://www.pd4pic.com/images/flag-green-blue-purple-indigo-bars-background.png'
+            icon_url: 'https://spee.ch/e/flag-green-blue-purple-indigo-bars-background.png'
           }
         }
       })

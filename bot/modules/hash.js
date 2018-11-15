@@ -57,7 +57,7 @@ exports.timedhash = function(bot) {
             color: 7976557,
             author: {
               name: 'LBRY Network Stats',
-              icon_url: 'https://i.imgur.com/yWf5USu.png'
+              icon_url: 'https://spee.ch/2/pinkylbryheart.png'
             }
           };
           bot.channels.get(ChannelID).send({ embed });
@@ -139,7 +139,7 @@ exports.hash = {
               color: 7976557,
               author: {
                 name: 'LBRY Network Stats',
-                icon_url: 'https://i.imgur.com/yWf5USu.png'
+                icon_url: 'https://spee.ch/2/pinkylbryheart.png'
               }
             };
             msg.channel.send({ embed });
@@ -194,7 +194,7 @@ exports.hash = {
             color: 7976557,
             author: {
               name: 'Hashing Power Calculator!',
-              icon_url: 'https://i.imgur.com/nKHVQgq.png'
+              icon_url: 'https://spee.ch/6/nKHVQgq.png'
             }
           };
           msg.channel.send({ embed });
