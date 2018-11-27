@@ -50,7 +50,7 @@ function init(discordBot_) {
       }, 60 * 1000);
       //announceClaims();
     }
-  ).catch(console.error);
+  );
 }
 
 function announceClaimsV2() {
@@ -137,8 +137,8 @@ function getClaimsForLastBlock() {
 
     request(options, function(error, response, body) {
       if (error) return reject(error);
-      if (response.statusCode !== 200 || !body) return reject(response);
-      if (!body.success || body.error) return reject(response);
+      if (response.statusCode !== 200 || body === null) return reject(response);
+      if (body.success === false || body.error !== null) return reject(body);
       let claimsInBlock = body.data;
       return resolve(claimsInBlock);
     });
