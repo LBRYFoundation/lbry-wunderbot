@@ -1,15 +1,10 @@
 'use strict';
 
-let mongo;
 let discordBot;
 let moment = require('moment');
 let config = require('config');
 let channels = config.get('claimbot').channels;
 const Discord = require('discord.js');
-const path = require('path');
-const fs = require('fs');
-const appRoot = require('app-root-path');
-const fileExists = require('file-exists');
 const request = require('request');
 let lastProcessedBlock = 0;
 
@@ -23,34 +18,12 @@ function init(discordBot_) {
   }
 
   discordBot = discordBot_;
-
-  const MongoClient = require('mongodb').MongoClient;
-  MongoClient.connect(
-    config.get('mongodb').url,
-    function(err, db) {
-      if (err) {
-        throw err;
-      }
-      mongo = db;
-
-      console.log('Activating claimbot');
-      discordBot.channels.get(channels[0]).send('activating claimbot');
-
-      // Check that our syncState file exist.
-      fileExists(path.join(appRoot.path, 'syncState.json'), (err, exists) => {
-        if (err) {
-          throw err;
-        }
-        if (!exists) {
-          fs.writeFileSync(path.join(appRoot.path, 'syncState.json'), '{}');
-        }
-      });
-      setInterval(function() {
-        announceClaimsV2();
-      }, 60 * 1000);
-      //announceClaims();
-    }
-  );
+  console.log('Activating claimbot');
+  discordBot.channels.get(channels[0]).send('activating claimbot');
+  setInterval(function() {
+    announceClaimsV2();
+  }, 60 * 1000);
+  announceClaimsV2();
 }
 
 function announceClaimsV2() {
@@ -86,20 +59,20 @@ function embedFromClaim(claim) {
       let channelName = claim.channel_name ? claim.channel_name : 'Anonymous';
       let channelPermalink = claim.channel_name ? `${claim.channel_name}#${claim.publisher_id}` : '';
       let claimPermalink = claim.channel_name ? `${channelPermalink}/${claim.name}` : `${claim.name}#${claim.claim_id}`;
-      let metadata = JSON.parse(claim.value_as_json).claim.stream.metadata;
+      let metadata = JSON.parse(claim.value_as_json).Claim.stream.metadata;
       e.setAuthor(`New claim from ${channelName}`, 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif', `http://open.lbry.io/${claimPermalink}`)
         .setTitle(`lbry://${claimPermalink}`)
         .setURL(`http://open.lbry.io/${claimPermalink}`)
         .setColor(1399626)
         .setFooter(`Block ${claim.height} • Claim ID ${claim.claim_id} • Data from Chainquery`);
-      if (metadata.title) e.addField('Title', claim.metadata['title']);
+      if (metadata.title) e.addField('Title', metadata.title);
       if (claim.channel_name) e.addField('Channel', claim.channel_name);
       if (metadata.description) {
-        e.addField('Description', claim.metadata.description.substring(0, 1020));
+        e.addField('Description', metadata.description.substring(0, 1020));
       }
       if (metadata.fee) e.addField('Fee', `${metadata.fee.amount} ${metadata.fee.currency}`);
       if (metadata.license && metadata.license.length > 2) e.addField('License', metadata.license);
-      if (!metadata.nsfw && metadata.thumbnail) e.setImage(claim.metadata.thumbnail);
+      if (!metadata.nsfw && metadata.thumbnail) e.setImage(metadata.thumbnail);
       if (claim.bid_state !== 'Controlling' && claim.height < claim.valid_at_height) {
         // Claim have not taken over the old claim, send approx time to event.
         let blockTime = 150 * 1000;
@@ -138,6 +111,11 @@ function getClaimsForLastBlock() {
     request(options, function(error, response, body) {
       if (error) return reject(error);
       if (response.statusCode !== 200 || body === null) return reject(response);
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        return reject(e);
+      }
       if (body.success === false || body.error !== null) return reject(body);
       let claimsInBlock = body.data;
       return resolve(claimsInBlock);
