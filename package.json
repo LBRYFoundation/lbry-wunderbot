@@ -20,7 +20,8 @@
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "sleep": "^5.1.1",
-    "wget": "^0.0.1"
+    "wget": "^0.0.1",
+    "mongodb": "latest"
   },
   "scripts": {
     "prettier": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240",
