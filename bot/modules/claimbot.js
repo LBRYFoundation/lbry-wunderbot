@@ -20,14 +20,14 @@ function init(discordBot_) {
   discordBot = discordBot_;
   console.log('Activating claimbot');
   discordBot.channels.get(channels[0]).send('activating claimbot');
-  setInterval(announceClaimsV2, 60 * 1000);
-  announceClaimsV2();
+  setInterval(announceClaims, 60 * 1000);
+  announceClaims();
 }
 
-function announceClaimsV2() {
+function announceClaims() {
+  let currentBlock = lastProcessedBlock;
   getClaimsForLastBlock()
     .then(claims => {
-      let currentBlock = lastProcessedBlock;
       claims.forEach(c => {
         if (c.height <= lastProcessedBlock) return;
         currentBlock = Math.max(currentBlock, c.height);
@@ -37,15 +37,15 @@ function announceClaimsV2() {
 
         discordPost(embedFromClaim(c));
       });
-      lastProcessedBlock = currentBlock;
     })
     .catch(console.error);
+  lastProcessedBlock = currentBlock;
 }
 
 /**
  *
  * @param {Object} claim
- * @returns {RichEmbed} discordEmbeded
+ * @returns {RichEmbed} discordEmbed
  */
 function embedFromClaim(claim) {
   let e = new Discord.RichEmbed();
