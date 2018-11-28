@@ -20,9 +20,7 @@ function init(discordBot_) {
   discordBot = discordBot_;
   console.log('Activating claimbot');
   discordBot.channels.get(channels[0]).send('activating claimbot');
-  setInterval(function() {
-    announceClaimsV2();
-  }, 60 * 1000);
+  setInterval(announceClaimsV2, 60 * 1000);
   announceClaimsV2();
 }
 
@@ -32,8 +30,7 @@ function announceClaimsV2() {
       let currentBlock = lastProcessedBlock;
       claims.forEach(c => {
         if (c.height <= lastProcessedBlock) return;
-        currentBlock = c.height;
-        console.log(JSON.stringify(c, null, 4));
+        currentBlock = Math.max(currentBlock, c.height);
 
         //filter claims that we don't want to announce
         if (c.bid_state === 'Expired' || c.bid_state === 'Spent') return;
@@ -99,8 +96,15 @@ function embedFromClaim(claim) {
  */
 function getClaimsForLastBlock() {
   return new Promise((resolve, reject) => {
+    let blockSelectQuery = 'SELECT height FROM block where height > ' + lastProcessedBlock;
+    if (lastProcessedBlock === 0) {
+      blockSelectQuery = 'SELECT MAX(height) AS height FROM block';
+    }
     let query =
-      'SELECT t1.*, t3.name AS channel_name, t4.value AS bid_amount FROM claim t1 INNER JOIN (SELECT MAX(height) AS height FROM block) t2 ON t1.height = t2.height LEFT JOIN claim t3 ON t1.publisher_id = t3.claim_id LEFT JOIN output t4 ON (t1.transaction_hash_id = t4.transaction_hash AND t1.vout = t4.vout)';
+      'SELECT t1.*, t3.name AS channel_name, t4.value AS bid_amount FROM claim t1 INNER JOIN (' +
+      blockSelectQuery +
+      ') t2 ON t1.height = t2.height ' +
+      'LEFT JOIN claim t3 ON t1.publisher_id = t3.claim_id LEFT JOIN output t4 ON (t1.transaction_hash_id = t4.transaction_hash AND t1.vout = t4.vout)';
     let options = {
       method: 'GET',
       url: 'https://chainquery.lbry.io/api/sql',

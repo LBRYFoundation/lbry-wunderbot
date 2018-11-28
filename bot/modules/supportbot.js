@@ -1,7 +1,4 @@
 'use strict';
-//let config = require("config");
-//let rolelist = config.get("rolelist");
-const Discord = require('discord.js');
 let initialized = false;
 let discordBot = null;
 

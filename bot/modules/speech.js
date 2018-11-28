@@ -1,6 +1,5 @@
 let request = require('request');
 let wget = require('wget');
-let fs = require('fs');
 let config = require('config');
 let hasSpeechBotChannels = require('../helpers.js').hasSpeechBotChannels;
 let inPrivate = require('../helpers.js').inPrivate;
@@ -103,11 +102,7 @@ exports.speech = {
         //define some image types to test against
         let imageTypes = ['jpg', 'jpeg', 'tiff', 'png', 'gif', 'bmp'];
         //check if the extension matches anything in the list. if it does set true if not set false
-        if (imageTypes.indexOf(extension) !== -1) {
-          return true;
-        } else {
-          return false;
-        }
+        return imageTypes.indexOf(extension) !== -1;
       };
 
       //check if url is an image if its not throw error and help message
@@ -127,16 +122,15 @@ exports.speech = {
       let eighteen = words[2];
 
       //check is NSFW if yes or no sets proper value if none
-      if (eighteen == '' || eighteen == 'none' || eighteen == undefined || eighteen == null || eighteen == 'no' || eighteen == 'false' || eighteen == false || eighteen == 'n') {
+      if (eighteen === '' || eighteen === 'none' || eighteen === undefined || eighteen === null || eighteen === 'no' || eighteen === 'false' || eighteen === false || eighteen === 'n') {
         eighteen = 'no';
       } else {
         eighteen = 'yes';
       }
 
       //prepare url for wget
-      let source = url;
       //parse the filename to use to save file
-      filepath = source.split('/').pop();
+      filepath = url.split('/').pop();
       //set proper directory for downloading image
       let outputFile = 'speech-uploads/' + filepath;
       //set download directory to current working directory
@@ -152,11 +146,9 @@ exports.speech = {
           console.log('error could not reach: ' + url + ' : ' + err);
           let message = '`error url could not be reached`';
           msg.channel.send(message);
-          return;
         } else {
           let message = '`error url could not be reached`';
           msg.channel.send(message);
-          return;
         }
       });
 

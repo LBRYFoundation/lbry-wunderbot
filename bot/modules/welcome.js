@@ -33,7 +33,7 @@ exports.onUserJoin = function(bot) {
       .send({
         embed: {
           description:
-            '1. Be respectful to other community members. Harrasment and vulgarity will not be tolerated \n' +
+            '1. Be respectful to other community members. Harassment and vulgarity will not be tolerated \n' +
             '2. Do not spam, advertise or post referral links \n' +
             '3. Use appropriate channels for your discussions/questions. If you are looking for help with LBRY, use #help, for price talk, use #market-and-trading \n' +
             '4. #general discussions should be at least somewhat related to LBRY, otherwise there is #random \n' +
@@ -56,7 +56,7 @@ exports.onUserJoin = function(bot) {
           description:
             '1. Type !tip help in the #bot-sandbox channel to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n' +
             '2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n' +
-            '3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n' +
+            '3. Backing up your LBRY wallet is your responsibility, see FAQ link below \n' +
             '4. You can find the LBRY Block explorer at https://explorer.lbry.io \n' +
             '5. Want to contribute more? Check out https://lbry.io/faq/contributing \n' +
             '6. Are you a dev? Check out the #dev channel \n' +
@@ -94,7 +94,7 @@ exports.onUserJoin = function(bot) {
         embed: {
           title: '*Click here to see all LBRY Frequently Asked Questions (FAQ)!*',
           description:
-            'Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troublshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)',
+            'Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troubleshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)',
           url: 'https://lbry.io/faq',
           color: 7976557,
           author: {
@@ -112,7 +112,7 @@ exports.onUserJoin = function(bot) {
         embed: {
           title: '*Have you checked out spee.ch yet?!*',
           description:
-            "[**spee.ch**](https://spee.ch) runs on top of the LBRY network - it's essentially an open source, censorship resistent and decentralized image and video sharing site with the added benefit of being a web-based (works on mobile too!) gateway into the LBRY network. spee.ch can be used to retrieve LBRY images/videos that are free by accessing them through a web browser. \nFor example, if content is located at lbry://loose-cannons-episode1#12c87bb42dd8832167b1e54edf72bbd37bc47622, you can view it on spee.ch at: https://spee.ch/12c87bb42dd8832167b1e54edf72bbd37bc47622/loose-cannons-episode1. You can also view channels on spee.ch, such as: https://spee.ch/@copchronicles:5c039dc7423657e59d78939df72c186e43273675 or https://spee.ch/@MinutePhysics:589276465a23c589801d874f484cc39f307d7ec7 \n\nspee.ch also allows you to create a channel to group your uploads and retreive them easily. These channels are separate from any you may have in the LBRY app since they exist on the spee.ch site via a login process. You can even share your channel name and password so that others can contribute to it.",
+            "[**spee.ch**](https://spee.ch) runs on top of the LBRY network - it's essentially an open source, censorship resistant and decentralized image and video sharing site with the added benefit of being a web-based (works on mobile too!) gateway into the LBRY network. spee.ch can be used to retrieve LBRY images/videos that are free by accessing them through a web browser. \nFor example, if content is located at lbry://loose-cannons-episode1#12c87bb42dd8832167b1e54edf72bbd37bc47622, you can view it on spee.ch at: https://spee.ch/12c87bb42dd8832167b1e54edf72bbd37bc47622/loose-cannons-episode1. You can also view channels on spee.ch, such as: https://spee.ch/@copchronicles:5c039dc7423657e59d78939df72c186e43273675 or https://spee.ch/@MinutePhysics:589276465a23c589801d874f484cc39f307d7ec7 \n\nspee.ch also allows you to create a channel to group your uploads and retrieve them easily. These channels are separate from any you may have in the LBRY app since they exist on the spee.ch site via a login process. You can even share your channel name and password so that others can contribute to it.",
           url: 'https://spee.ch/about',
           color: 7976557,
           author: {
@@ -140,7 +140,7 @@ exports.welcome = {
       msg.channel.send('command cannot be used in a DM');
       return;
     }
-    if (suffix == '') {
+    if (suffix === '') {
       msg.channel.send('no user defined');
       return;
     }
@@ -177,7 +177,7 @@ exports.welcome = {
       .send({
         embed: {
           description:
-            '1. Be respectful to other community members. Harrasment and vulgarity will not be tolerated \n' +
+            '1. Be respectful to other community members. Harassment and vulgarity will not be tolerated \n' +
             '2. Do not spam, advertise or post referral links \n' +
             '3. Use appropriate channels for your discussions/questions. If you are looking for help with LBRY, use #help, for price talk, use #market-and-trading \n' +
             '4. #general discussions should be at least somewhat related to LBRY, otherwise there is #random \n' +
@@ -201,7 +201,7 @@ exports.welcome = {
           description:
             '1. Type !tip help in the #bot-sandbox channel to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n' +
             '2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n' +
-            '3. Backing up your LBRY wallet is your responsbility, see FAQ link below \n' +
+            '3. Backing up your LBRY wallet is your responsibility, see FAQ link below \n' +
             '4. You can find the LBRY Block explorer at https://explorer.lbry.io \n' +
             '5. Want to contribute more? Check out https://lbry.io/faq/contributing \n' +
             '6. Are you a dev? Check out the #dev channel \n' +
@@ -241,7 +241,7 @@ exports.welcome = {
         embed: {
           title: '*Click here to see all LBRY Frequently Asked Questions (FAQ)!*',
           description:
-            'Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troublshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)',
+            'Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troubleshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)',
           url: 'https://lbry.io/faq',
           color: 7976557,
           author: {
@@ -259,7 +259,7 @@ exports.welcome = {
         embed: {
           title: '*Have you checked out spee.ch yet?!*',
           description:
-            "[**spee.ch**](https://spee.ch) runs on top of the LBRY network - it's essentially an open source, censorship resistent and decentralized image and video sharing site with the added benefit of being a web-based (works on mobile too!) gateway into the LBRY network. spee.ch can be used to retrieve LBRY images/videos that are free by accessing them through a web browser. \nFor example, if content is located at lbry://loose-cannons-episode1#12c87bb42dd8832167b1e54edf72bbd37bc47622, you can view it on spee.ch at: https://spee.ch/12c87bb42dd8832167b1e54edf72bbd37bc47622/loose-cannons-episode1. You can also view channels on spee.ch, such as: https://spee.ch/@copchronicles:5c039dc7423657e59d78939df72c186e43273675 or https://spee.ch/@MinutePhysics:589276465a23c589801d874f484cc39f307d7ec7 \n\nspee.ch also allows you to create a channel to group your uploads and retreive them easily. These channels are separate from any you may have in the LBRY app since they exist on the spee.ch site via a login process. You can even share your channel name and password so that others can contribute to it.",
+            "[**spee.ch**](https://spee.ch) runs on top of the LBRY network - it's essentially an open source, censorship resistant and decentralized image and video sharing site with the added benefit of being a web-based (works on mobile too!) gateway into the LBRY network. spee.ch can be used to retrieve LBRY images/videos that are free by accessing them through a web browser. \nFor example, if content is located at lbry://loose-cannons-episode1#12c87bb42dd8832167b1e54edf72bbd37bc47622, you can view it on spee.ch at: https://spee.ch/12c87bb42dd8832167b1e54edf72bbd37bc47622/loose-cannons-episode1. You can also view channels on spee.ch, such as: https://spee.ch/@copchronicles:5c039dc7423657e59d78939df72c186e43273675 or https://spee.ch/@MinutePhysics:589276465a23c589801d874f484cc39f307d7ec7 \n\nspee.ch also allows you to create a channel to group your uploads and retrieve them easily. These channels are separate from any you may have in the LBRY app since they exist on the spee.ch site via a login process. You can even share your channel name and password so that others can contribute to it.",
           url: 'https://spee.ch/about',
           color: 7976557,
           author: {

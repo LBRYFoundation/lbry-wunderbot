@@ -99,11 +99,6 @@ exports.price = {
           format: '$0,0.00',
           sign: 'NZD '
         },
-        PLN: {
-          steps: ['LBCBTC', 'BTCPLN'],
-          format: 'zł 0,0.00',
-          sign: 'zł'
-        },
         RUB: {
           steps: ['LBCBTC', 'BTCRUB'],
           format: 'RUB 0,0.00',
@@ -223,11 +218,6 @@ exports.price = {
           steps: ['LBCBTC', 'BTCMDL'],
           format: 'lei 0,0.00',
           sign: 'lei'
-        },
-        BAM: {
-          steps: ['LBCBTC', 'BTCBAM'],
-          format: 'KM 0,0.00',
-          sign: 'KM'
         },
         BAM: {
           steps: ['LBCBTC', 'BTCBAM'],
@@ -364,10 +354,6 @@ exports.price = {
         BTCNZD: {
           url: 'https://blockchain.info/ticker',
           path: '$.NZD.buy'
-        },
-        BTCPLN: {
-          url: 'https://blockchain.info/ticker',
-          path: '$.PLN.buy'
         },
         BTCRUB: {
           url: 'https://blockchain.info/ticker',
@@ -553,29 +539,19 @@ exports.price = {
         msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
         return;
       }
-      var message =
-        '**' +
-        command +
-        '**: show the price of 1 LBC in ' +
-        options.defaultCurrency +
-        '\n' +
-        '**' +
-        command +
-        ' help**: this message\n' +
-        '**' +
-        command +
-        ' CURRENCY**: show the price of 1 LBC in CURRENCY. Supported values for CURRENCY are Listed Below\n' +
-        '**' +
-        command +
-        ' CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY\n' +
-        '**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *bnd*,*vnd*, *php*, *sar*, *mxn*, *try*, *mmk*, *khr*, *aed*, *zar*, *pgk*, *egp*,*nok*, *hrk*, *huf*, *all*, *gel*, *mdl*, *bam* ,*kzt*, *azn*, *amd*, *byn*, *btn*, *npr*, *bdt*, *pkr*, *ars*, *pln*, *idr* and *btc* (case-insensitive)';
+      var message = `**${command}**: show the price of 1 LBC in ${options.defaultCurrency}
+**${command} help**: this message
+**${command} CURRENCY**: show the price of 1 LBC in CURRENCY. Supported values for CURRENCY are Listed Below
+**${command} CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY
+**Supported Currencies:** *usd*, *gbp*, *eur*, *aud*, *brl*, *cad*, *chf*, *clp*, *cny*, *dkk*, *hkd*, *inr*, *isk*, *jpy*, *krw*, *nzd*, *pln* ,*rub*, *sek*, *sgd*, *thb*, *twd*, *myr*, *bnd*,*vnd*, *php*, *sar*, *mxn*, *try*, *mmk*, *khr*, *aed*, *zar*, *pgk*, *egp*,*nok*, *hrk*, *huf*, *all*, *gel*, *mdl*, *bam* ,*kzt*, *azn*, *amd*, *byn*, *btn*, *npr*, *bdt*, *pkr*, *ars*, *pln*, *idr* and *btc* (case-insensitive)`;
       msg.channel.send(message);
     }
 
     function formatMessage(amount, rate, option) {
       var cur = option.sign;
       var value = numeral(rate.rate * amount).format(option.format);
-      return '*' + numeral(amount).format('0,0[.][00000000]') + ' LBC = ' + cur + ' ' + value + '*\n_last updated ' + rate.time.utc().format(options.dtFormat) + '_';
+      return `*${numeral(amount).format('0,0[.][00000000]')} LBC = ${cur} ${value}*
+_last updated ${rate.time.utc().format(options.dtFormat)}_`;
     }
 
     function doSteps(bot, currency, amount) {
@@ -605,7 +581,7 @@ exports.price = {
       if (steps.length > 0) {
         var pairName = steps[0];
         if (!options.api[pairName]) {
-          msg.channel.send('There was a configuration error. ' + pairName + ' pair was not found.');
+          msg.channel.send(`There was a configuration error. ${pairName} pair was not found.`);
           return;
         }
 
@@ -641,7 +617,7 @@ exports.price = {
             cachedRates[currency] = result;
             msg.channel.send(formatMessage(amount, result, option));
           } else {
-            msg.channel.send('The rate returned for the ' + pairName + ' pair was invalid.');
+            msg.channel.send(`The rate returned for the ${pairName} pair was invalid.`);
           }
         });
       }
