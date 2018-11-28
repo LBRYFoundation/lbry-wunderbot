@@ -37,9 +37,9 @@ function announceClaims() {
 
         discordPost(embedFromClaim(c));
       });
+      lastProcessedBlock = currentBlock;
     })
     .catch(console.error);
-  lastProcessedBlock = currentBlock;
 }
 
 /**
