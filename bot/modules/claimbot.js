@@ -73,7 +73,7 @@ function embedFromClaim(claim) {
       if (claim.bid_state !== 'Controlling' && claim.height < claim.valid_at_height) {
         // Claim have not taken over the old claim, send approx time to event.
         let blockTime = 150 * 1000;
-        let takeoverTime = Date.now() + (claim.valid_at_height - lastBlockHeight) * blockTime;
+        let takeoverTime = Date.now() + (claim.valid_at_height - claim.height) * blockTime;
         e.addField('Takes effect on approx', `${moment(takeoverTime, 'x').format('MMMM Do [at] HH:mm [UTC]')} • at block height ${claim.valid_at_height}`);
       }
       e.addField('Claimed for', `${Number.parseFloat(claim.bid_amount)} LBC`);
