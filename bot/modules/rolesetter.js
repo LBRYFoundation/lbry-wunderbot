@@ -91,7 +91,7 @@ exports.roles = {
         fields: [
           {
             name: 'List of roles',
-            value: buildRoleString(rolelist.allowedroles),
+            value: buildRoleString(rolelist.allowedroles) + '\n' + rolelist.baserole,
             inline: false
           },
           {
