@@ -20,7 +20,7 @@ exports.addrole = {
     if (suffix) {
       //suffix = suffix.toLowerCase();
       // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
-      if (rolelist.allowedroles.includes(suffix)) {
+      if (rolelist.allowedroles.includes(suffix) || (baserole == suffix) {
         // Checks if the role even exists in the discord server
         if (newrole !== null) {
           // Checks if the member has the role that they are trying to add
