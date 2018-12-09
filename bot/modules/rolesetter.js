@@ -20,7 +20,7 @@ exports.addrole = {
     if (suffix) {
       //suffix = suffix.toLowerCase();
       // Checks if the role mentioned in the message is in the allowed roles listed in the wunderbot config.
-      if (rolelist.allowedroles.includes(suffix) || baserole == suffix) {
+      if (rolelist.allowedroles.includes(suffix) || rolelist.baserole.includes(suffix)) {
         // Checks if the role even exists in the discord server
         if (newrole !== null) {
           // Checks if the member has the role that they are trying to add
@@ -28,7 +28,8 @@ exports.addrole = {
             msg.member.addRole(newrole).then(msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!'));
             if (rolelist.baserole !== ' ') {
               if (baserole !== null) {
-                if (!msg.member.roles.find('name', rolelist.baserole)) {
+				  // Checks if Member has the baserole, and also checks if they just added the baserole
+                if (!msg.member.roles.find('name', rolelist.baserole) && suffix !== rolelist.baserole) {
                   msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
                 }
               } else {
@@ -91,7 +92,7 @@ exports.roles = {
         fields: [
           {
             name: 'List of roles',
-            value: buildRoleString(rolelist.allowedroles) + '\n' + rolelist.baserole,
+            value: buildRoleString(rolelist.allowedroles) + '`' + rolelist.baserole + '`',
             inline: false
           },
           {
@@ -127,3 +128,4 @@ function buildRoleString(roles) {
   }
   return str;
 }
+
