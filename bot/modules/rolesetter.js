@@ -128,4 +128,3 @@ function buildRoleString(roles) {
   }
   return str;
 }
-
