@@ -28,7 +28,7 @@ exports.addrole = {
             msg.member.addRole(newrole).then(msg.channel.send(msg.member + ' has been added to the ' + suffix + ' role!'));
             if (rolelist.baserole !== ' ') {
               if (baserole !== null) {
-				  // Checks if Member has the baserole, and also checks if they just added the baserole
+		// Checks if Member has the baserole, and also checks if they just added the baserole
                 if (!msg.member.roles.find('name', rolelist.baserole) && suffix !== rolelist.baserole) {
                   msg.member.addRole(baserole).then(msg.channel.send(msg.member + ' has been added to the ' + rolelist.baserole + ' role!'));
                 }
