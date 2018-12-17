@@ -103,5 +103,9 @@ npm install
 to run prettier before submitting your code simply run the following in the bots root directory.
 
 ```
-npm run precommit
+npm run prettier
+```
+To be sure your build will pass with TravisCI, also be sure to run
+```
+npm run test
 ```
