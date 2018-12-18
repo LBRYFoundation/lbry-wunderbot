@@ -846,5 +846,21 @@
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
     }
+  },
+  "!topbids": {
+    "usage": "",
+    "description": "Community Top Bids",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "Community Top Bids is a public space on the LBRY application that allows for community controlled content. Learn more about it in our [Community Top Bid FAQ](https://lbry.io/faq/community-top-bid) ",
+      "color": 7976557,
+      "author": {
+        "name": "Community Top Bids",
+        "url": "https://lbry.io/faq/community-top-bid",
+        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+      }
+    }
   }
 }
