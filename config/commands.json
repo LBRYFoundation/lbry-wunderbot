@@ -862,5 +862,21 @@
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
     }
+  },
+  "!piratebay": {
+    "usage": "",
+    "description": "Why LBRY has piratebay.com",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "Piratebay.com is not related to The Pirate Bay torrent site. We use it for relaying users who accidently go there looking for pirated content and we try to point them towards an alternative, legal form of content sharing (LBRY). LBRY Inc. does not own the domain, it was lent to us by a community member. For the full reddit post about this topic, [Click Here!](https://www.reddit.com/r/lbry/comments/8i4lj9/why_do_you_own_piratebaycom/) ",
+      "color": 7976557,
+      "author": {
+        "name": "Why LBRY Has priatebay.com",
+        "url": "https://www.reddit.com/r/lbry/comments/8i4lj9/why_do_you_own_piratebaycom/",
+        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+      }
+    }
   }
 }
