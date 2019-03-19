@@ -326,7 +326,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - Referral redemptions are currently in test mode and limited to one. But you can see your entire referral history in your LBRY app.",
+      "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - Referral redemptions are currently in test mode and limited to ten. But you can see your entire referral history in your LBRY app.",
       "color": 7976557,
       "author": {
         "name": "Referrals",
