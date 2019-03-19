@@ -20,7 +20,8 @@ exports.lbrylink = async function(bot, msg, suffix) {
 
       //compile a list of URLs
       let urls = msg.content.match(/lbry:\/\/\S+/g);
-
+      //if no urls return!
+      if (!urls) return;
       //clean URLS from any prepended or appended extra chars
       for (let i = 0; i < urls.length; i++) {
         urls[i] = urls[i].replace(/^lbry:\/\//g, 'https://open.lbry.io/').replace(/\W+$/g, '');
