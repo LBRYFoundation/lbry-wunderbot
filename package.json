@@ -39,7 +39,7 @@
   "description": "LBRY bot for Discord",
   "main": "bot/bot.js",
   "repository": "https://github.com/lbryio/lbry-wunderbot",
-  "author": "filipnyquist <filip@lbry.io>",
+  "author": "filipnyquist <filip@lbry.com>",
   "license": "MIT",
   "husky": {
     "hooks": {
