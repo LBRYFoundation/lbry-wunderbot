@@ -13,7 +13,7 @@ exports.onUserJoin = function(bot) {
             'If you are new to LBRY and would like to learn more, see the links at the end of this message. \n' +
             'This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n' +
             '**Looking for *Rewards Verification*? Please make a request in the #verification channel by typing **-new** - this will create a ticket (channel) for your request. A mod will reach out to you, please be patient . **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n',
-          url: 'https://lbry.io/what',
+          url: 'https://lbry.com/what',
           color: 7976557,
           author: {
             name: 'Welcome to LBRY Discord Community',
@@ -57,8 +57,8 @@ exports.onUserJoin = function(bot) {
             '1. Type !tip help in the #bot-sandbox channel to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n' +
             '2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n' +
             '3. Backing up your LBRY wallet is your responsibility, see FAQ link below \n' +
-            '4. You can find the LBRY Block explorer at https://explorer.lbry.io \n' +
-            '5. Want to contribute more? Check out https://lbry.io/faq/contributing \n' +
+            '4. You can find the LBRY Block explorer at https://explorer.lbry.com \n' +
+            '5. Want to contribute more? Check out https://lbry.tech/contribute \n' +
             '6. Are you a dev? Check out the #dev channel \n' +
             '7. Want to share something you published? Post it on the #publishers channel \n',
           color: 7976557,
@@ -76,8 +76,8 @@ exports.onUserJoin = function(bot) {
         embed: {
           title: '*Click here for more info about LBRY!*',
           description:
-            '[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Download the LBRY App here**_](https://lbry.io/get)',
-          url: 'https://lbry.io/what',
+            '[**LBRY**](https://lbry.com) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.com/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Download the LBRY App here**_](https://lbry.com/get)',
+          url: 'https://lbry.com/what',
           color: 7976557,
           author: {
             name: 'What is LBRY?',
@@ -94,8 +94,8 @@ exports.onUserJoin = function(bot) {
         embed: {
           title: '*Click here to see all LBRY Frequently Asked Questions (FAQ)!*',
           description:
-            'Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troubleshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)',
-          url: 'https://lbry.io/faq',
+            'Want to backup your LBRY wallet? [**Backup**](https://lbry.com/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.com/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.com/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.com/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troubleshoot streaming**](https://lbry.com/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.com/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.com/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.com/faq/referrals)',
+          url: 'https://lbry.com/faq',
           color: 7976557,
           author: {
             name: 'LBRY FAQ',
@@ -158,7 +158,7 @@ exports.welcome = {
             'If you are new to LBRY and would like to learn more, see the links at the end of this message. \n' +
             'This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n' +
             '**Looking for *Rewards Verification*? Please make a request in the #verification channel by typing **-new** - this will create a ticket (channel) for your request. A mod will reach out to you, please be patient, **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n',
-          url: 'https://lbry.io/what',
+          url: 'https://lbry.com/what',
           color: 7976557,
           author: {
             name: 'Welcome to LBRY Discord Community',
@@ -202,7 +202,7 @@ exports.welcome = {
             '1. Type !tip help in the #bot-sandbox channel to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). **Enable 2FA in your Discord account settings!** \n' +
             '2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n' +
             '3. Backing up your LBRY wallet is your responsibility, see FAQ link below \n' +
-            '4. You can find the LBRY Block explorer at https://explorer.lbry.io \n' +
+            '4. You can find the LBRY Block explorer at https://explorer.lbry.com \n' +
             '5. Want to contribute more? Check out https://lbry.io/faq/contributing \n' +
             '6. Are you a dev? Check out the #dev channel \n' +
             '7. Want to share something you published? Post it on the #publishers channel \n',
@@ -222,8 +222,8 @@ exports.welcome = {
         embed: {
           title: '*Click here for more info about LBRY!*',
           description:
-            '[**LBRY**](https://lbry.io) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.io/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Download the LBRY App here**_](https://lbry.io/get)',
-          url: 'https://lbry.io/what',
+            '[**LBRY**](https://lbry.com) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.com/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Download the LBRY App here**_](https://lbry.com/get)',
+          url: 'https://lbry.com/what',
           color: 7976557,
           author: {
             name: 'What is LBRY?',
@@ -241,12 +241,12 @@ exports.welcome = {
         embed: {
           title: '*Click here to see all LBRY Frequently Asked Questions (FAQ)!*',
           description:
-            'Want to backup your LBRY wallet? [**Backup**](https://lbry.io/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.io/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.io/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.io/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troubleshoot streaming**](https://lbry.io/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.io/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.io/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.io/faq/referrals)',
-          url: 'https://lbry.io/faq',
+            'Want to backup your LBRY wallet? [**Backup**](https://lbry.com/faq/how-to-backup-wallet) \nLooking for LBRY data? [**Behind the scenes files**](https://lbry.com/faq/lbry-directories) \nTrouble starting LBRY? [**Startup troubleshooting**](https://lbry.com/faq/startup-troubleshooting) \nNeed help finding your log files (will help us troubleshoot!)? [**Find logs**](https://lbry.com/faq/how-to-find-lbry-log-file) \nNot able to stream any content? [**Troubleshoot streaming**](https://lbry.com/faq/unable-to-stream)\nNeed help with publishing? [**How to Publish**](https://lbry.com/faq/how-to-publish) \nWant more LBRY Credits (LBC)? [**Get LBC**](https://lbry.com/faq/earn-credits) \nLooking for referral information? [**Referrals**](https://lbry.com/faq/referrals)',
+          url: 'https://lbry.com/faq',
           color: 7976557,
           author: {
             name: 'LBRY FAQ',
-            url: 'https://lbry.io/faq',
+            url: 'https://lbry.com/faq',
             icon_url: 'https://spee.ch/8/Id5Qoc3w.png'
           }
         }
