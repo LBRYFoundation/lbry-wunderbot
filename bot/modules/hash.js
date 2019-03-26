@@ -15,7 +15,7 @@ exports.timedhash = function(bot) {
   }, 6 * 60 * 60 * 1000);
 
   function sendMiningInfo(bot) {
-    needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
+    needle.get('https://explorer.lbry.com/api/v1/status', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('Explorer API is not available');
       } else {
@@ -97,7 +97,7 @@ exports.hash = {
         msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to hash bot.');
         return;
       }
-      needle.get('https://explorer.lbry.io/api/v1/status', function(error, response) {
+      needle.get('https://explorer.lbry.com/api/v1/status', function(error, response) {
         if (error || response.statusCode !== 200) {
           msg.channel.send('Explorer API is not available');
         } else {
@@ -132,7 +132,7 @@ exports.hash = {
               'Block Reward: ' +
               numberWithCommas(reward.toFixed(0)) +
               ' LBC \n' +
-              'Sources: https://explorer.lbry.io & \n' +
+              'Sources: https://explorer.lbry.com & \n' +
               'https://whattomine.com/coins/164-lbc-lbry';
             const embed = {
               description: description,
