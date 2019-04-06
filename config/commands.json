@@ -342,7 +342,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "[Rewards](https://lbry.com/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a credit card or other manual methods.\n Please see [lbry.com/faq/identity-requirements](https://lbry.com/faq/identity-requirements)",
+      "description": "[Rewards](https://lbry.com/faq/rewards) are given to legitimate users who are using the system (and in turn are testing things for us). In order to redeem rewards, you may need to verify your identity through a credit card or other manual methods.",
       "color": 7976557,
       "author": {
         "name": "Rewards",
