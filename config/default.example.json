@@ -19,7 +19,7 @@
     "url": "mongodb://localhost:27017/wunderbot"
   },
   "Channels": {
-    "verification": "363050496023592961",
+    "verification": "571001864271691805",
     "mining": "363049669636390913",
     "random": "363084227518136322"
   },
