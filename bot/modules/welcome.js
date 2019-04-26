@@ -12,7 +12,7 @@ exports.onUserJoin = function(bot) {
             '**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n' +
             'If you are new to LBRY and would like to learn more, see the links at the end of this message. \n' +
             'This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n' +
-            '**Looking for *Rewards Verification*? Please make a request in the #verification channel by send a Direct Message to @VerificationBot#0287. You can do this by right clicking on the name, A mod will reach out to you, please be patient . **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n',
+            '**Looking for *Rewards Verification*? Please make a request in the #verification channel by sending a direct message (DM) to @VerificationBot#0287. You can do this by right clicking on the name, A mod will reach out to you, please be patient . **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n',
           url: 'https://lbry.com/what',
           color: 7976557,
           author: {
@@ -157,7 +157,7 @@ exports.welcome = {
             '**Welcome to LBRY Discord Community, you are now officially a LBRYian!** \n' +
             'If you are new to LBRY and would like to learn more, see the links at the end of this message. \n' +
             'This community allows LBRYians to interact with the team directly and for us to engage users in order to grow the LBRY platform! \n' +
-            '**Looking for *Rewards Verification*? Please make a request in the #verification channel by send a Direct Message to @VerificationBot#0287. You can do this by right clicking on the name. A mod will reach out to you, please be patient, **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n',
+            '**Looking for *Rewards Verification*? Please make a request in the #verification channel by sending a direct message (DM) to @VerificationBot#0287. You can do this by right clicking on the name. A mod will reach out to you, please be patient, **Note: DO NOT message any team members or post in other channels about verification concerns.**. Only 1 Reward account is allowed per household** \n',
           url: 'https://lbry.com/what',
           color: 7976557,
           author: {
