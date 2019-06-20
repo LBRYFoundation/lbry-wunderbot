@@ -385,7 +385,7 @@
   },
   "!rewardsapprove": {
     "usage": "",
-    "description": "Rewards Approval",
+    "description": "How to become Rewards approved",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -393,7 +393,7 @@
       "description": "Please download the latest version from [HERE](https://lbry.com/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to get their rewards approved in order to access Rewards. Type !cc or !rewardsapproval for more information.",
       "color": 7976557,
       "author": {
-        "name": "Rewards Approval",
+        "name": "How to become Rewards approved",
         "url": "",
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
@@ -409,7 +409,7 @@
       "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and send a Direct Message to @VerificationBot#0287 \n You can do this by right clicking on the name, and selecting Message. . A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.io/faq/rewards) to know more about rewards.",
       "color": 7976557,
       "author": {
-        "name": "Rewards Approval",
+        "name": "Applying for Rewards Approval",
         "url": "",
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
