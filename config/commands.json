@@ -374,7 +374,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a credit card or by a manual verification process in order to be eligible for Rewards. Prepaid or virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#363050496023592961> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards. The LBRY app can be used without providing CC information**\n**Please See:https://lbry.com/faq/identity-requirements**",
+      "description": "In an effort to limit abuse, newly invited LBRY users will be required to verify their identity via a credit card or by a manual approval process in order to be eligible for Rewards. Prepaid or virtual credit cards are disallowed. Certain countries (where we've previously seen abuse) are being denied, but that list may expand later on.  If you use Tor/Proxy/VPN, you also may be denied. If credit card verification does not work for you, please go to the <#363050496023592961> channel for assistance.\n**Verification is purely optional and ONLY relevant for Rewards. The LBRY app can be used without providing CC information**\n**Please See:https://lbry.com/faq/identity-requirements**",
       "color": 7976557,
       "author": {
         "name": "Credit Card Verification",
