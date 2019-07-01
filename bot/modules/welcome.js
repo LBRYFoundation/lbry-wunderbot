@@ -1,7 +1,8 @@
 let hasPerms = require('../helpers.js').hasPerms;
 let inPrivate = require('../helpers.js').inPrivate;
 
-exports.custom = ['onUserJoin'];
+/* Disabled Temporarily
+exports.custom = ['onUserJoin']; 
 exports.onUserJoin = function(bot) {
   bot.on('guildMemberAdd', member => {
     member
@@ -127,7 +128,7 @@ exports.onUserJoin = function(bot) {
       });
   });
 };
-
+*/
 exports.commands = [
   'welcome' // command that is in this file, every command needs it own export as shown below
 ];
