@@ -59,7 +59,7 @@
 
   - *Responds to `!roles` - List Available Roles*
 
-* LBRY URL Linker displays lbry:// urls as open.lbry.io links to make them clickable
+* LBRY URL Linker displays lbry:// urls as open.lbry.com links to make them clickable
 
 * LBRY claim bot displays recent publishes on the lbry protocol
 

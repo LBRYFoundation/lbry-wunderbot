@@ -82,7 +82,7 @@ exports.onUserJoin = function(bot) {
           color: 7976557,
           author: {
             name: 'What is LBRY?',
-            url: 'https://lbry.io/what',
+            url: 'https://lbry.com/what',
             icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
@@ -100,7 +100,7 @@ exports.onUserJoin = function(bot) {
           color: 7976557,
           author: {
             name: 'LBRY FAQ',
-            url: 'https://lbry.io/faq',
+            url: 'https://lbry.com/faq',
             icon_url: 'https://spee.ch/8/Id5Qoc3w.png'
           }
         }
@@ -204,7 +204,7 @@ exports.welcome = {
             '2. See the Frequently Asked Questions (FAQ) section below prior to asking for help or information on LBRY \n' +
             '3. Backing up your LBRY wallet is your responsibility, see FAQ link below \n' +
             '4. You can find the LBRY Block explorer at https://explorer.lbry.com \n' +
-            '5. Want to contribute more? Check out https://lbry.io/faq/contributing \n' +
+            '5. Want to contribute more? Check out https://lbry.com/faq/contributing \n' +
             '6. Are you a dev? Check out the #dev channel \n' +
             '7. Want to share something you published? Post it on the #publishers channel \n',
           color: 7976557,
@@ -228,7 +228,7 @@ exports.welcome = {
           color: 7976557,
           author: {
             name: 'What is LBRY?',
-            url: 'https://lbry.io/what',
+            url: 'https://lbry.com/what',
             icon_url: 'https://spee.ch/2/pinkylbryheart.png'
           }
         }
