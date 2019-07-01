@@ -23,7 +23,7 @@ exports.lbrylink = async function(bot, msg, suffix) {
 
       //clean URLS from any prepended or appended extra chars
       for (let i = 0; i < urls.length; i++) {
-        urls[i] = urls[i].replace(/^lbry:\/\//g, 'https://open.lbry.io/').replace(/\W+$/g, '');
+        urls[i] = urls[i].replace(/^lbry:\/\//g, 'https://open.lbry.com/').replace(/\W+$/g, '');
       }
       const linkEmbed = new RichEmbed();
       linkEmbed
