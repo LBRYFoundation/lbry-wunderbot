@@ -118,7 +118,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "You can find details about the folders your LBRY files are stored in at [lbry.io/faq/lbry-directories](https://lbry.com/faq/lbry-directories)",
+      "description": "You can find details about the folders your LBRY files are stored in at [lbry.com/faq/lbry-directories](https://lbry.com/faq/lbry-directories)",
       "color": 7976557,
       "author": {
         "name": "LBRY Directories",
@@ -214,7 +214,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Details about our stance on price can be found here: [lbry.io/news/acryptypical](https://lbry.com/news/acryptypical)",
+      "description": "Details about our stance on price can be found here: [lbry.com/news/acryptypical](https://lbry.com/news/acryptypical)",
       "color": 7976557,
       "author": {
         "name": "CEO's Stance on Price",
@@ -230,7 +230,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Are you a YouTuber curious about LBRY? Have a look at [lbry.io/youtube](https://lbry.com/youtube)",
+      "description": "Are you a YouTuber curious about LBRY? Have a look at [lbry.com/youtube](https://lbry.com/youtube)",
       "color": 7976557,
       "author": {
         "name": "Are You a YouTuber?",
@@ -326,7 +326,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.io/faq/referrals](https://lbry.io/faq/referrals)  - Referral redemptions are currently in test mode and limited to ten. But you can see your entire referral history in your LBRY app.",
+      "description": "Please see [lbry.com/faq/referrals](https://lbry.com/faq/referrals)  - Referral redemptions are currently in test mode and limited to ten. But you can see your entire referral history in your LBRY app.",
       "color": 7976557,
       "author": {
         "name": "Referrals",
@@ -406,7 +406,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and send a Direct Message to @RewardsBot#0287 \n You can do this by right clicking on the name, and selecting Message. . A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.io/faq/rewards) to know more about rewards.",
+      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and send a Direct Message to @RewardsBot#0287 \n You can do this by right clicking on the name, and selecting Message. . A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.com/faq/rewards) to know more about rewards.",
       "color": 7976557,
       "author": {
         "name": "Applying for Rewards Approval",
@@ -454,7 +454,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see [lbry.com/faq/startup-troubleshooting](https://lbry.io/faq/startup-troubleshooting) if you are having trouble getting LBRY to start correctly.",
+      "description": "Please see [lbry.com/faq/startup-troubleshooting](https://lbry.com/faq/startup-troubleshooting) if you are having trouble getting LBRY to start correctly.",
       "color": 7976557,
       "author": {
         "name": "Startup Troubleshooting",
@@ -806,7 +806,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Type `!tip help` or `!tips` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.io/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
+      "description": "Type `!tip help` or `!tips` to interact with our Tipbot which can be used to send and receive LBRY Credits (LBC). <#369896313082478594> should be used to talk to bots in order to avoid spamming other channels. \nRead our [Tipbot FAQ](https://lbry.com/faq/tipbot-discord) on how use the LBRY Discord Tipbot",
       "color": 7976557,
       "author": {
         "name": "Tipbot Help Message",
