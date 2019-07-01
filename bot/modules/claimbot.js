@@ -57,9 +57,9 @@ function embedFromClaim(claim) {
       let channelPermalink = claim.channel_name ? `${claim.channel_name}#${claim.publisher_id}` : '';
       let claimPermalink = claim.channel_name ? `${channelPermalink}/${claim.name}` : `${claim.name}#${claim.claim_id}`;
       let metadata = JSON.parse(claim.value_as_json).Claim.stream.metadata;
-      e.setAuthor(`New claim from ${channelName}`, 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif', `http://open.lbry.io/${claimPermalink}`)
+      e.setAuthor(`New claim from ${channelName}`, 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif', `https://open.lbry.com/${claimPermalink}`)
         .setTitle(`lbry://${claimPermalink}`)
-        .setURL(`http://open.lbry.io/${claimPermalink}`)
+        .setURL(`https://open.lbry.com/${claimPermalink}`)
         .setColor(1399626)
         .setFooter(`Block ${claim.height} • Claim ID ${claim.claim_id} • Data from Chainquery`);
       if (metadata.title) e.addField('Title', metadata.title);
@@ -79,9 +79,9 @@ function embedFromClaim(claim) {
       e.addField('Claimed for', `${Number.parseFloat(claim.bid_amount)} LBC`);
       break;
     case typeChannel:
-      e.setAuthor('New channel claim', 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif', `https://open.lbry.io/${claim.name}#${claim.claim_id}`)
+      e.setAuthor('New channel claim', 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif', `https://open.lbry.com/${claim.name}#${claim.claim_id}`)
         .setTitle(`lbry://${claim.name}`)
-        .setURL(`https://open.lbry.io/${claim.name}#${claim.claim_id}`)
+        .setURL(`https://open.lbry.com/${claim.name}#${claim.claim_id}`)
         .setColor(1399626)
         .setFooter(`Block ${claim.height} • Claim ID ${claim.claim_id} • Data from Chainquery`)
         .addField('Channel Name', claim.name);
@@ -107,7 +107,7 @@ function getClaimsForLastBlock() {
       'LEFT JOIN claim t3 ON t1.publisher_id = t3.claim_id LEFT JOIN output t4 ON (t1.transaction_hash_id = t4.transaction_hash AND t1.vout = t4.vout)';
     let options = {
       method: 'GET',
-      url: 'https://chainquery.lbry.io/api/sql',
+      url: 'https://chainquery.lbry.com/api/sql',
       qs: { query: query },
       headers: { 'Cache-Control': 'no-cache' }
     };
