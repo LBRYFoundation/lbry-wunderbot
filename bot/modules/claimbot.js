@@ -55,7 +55,7 @@ function embedFromClaim(claim) {
     case typeClaim:
       let channelName = claim.channel_name ? claim.channel_name : 'Anonymous';
       let channelPermalink = claim.channel_name ? `${claim.channel_name}#${claim.publisher_id}` : '';
-      let claimPermalink = claim.channel_name ? `${channelPermalink}/${claim.name}` : `${claim.name}#${claim.claim_id}`;
+      let claimPermalink = `${claim.name}#${claim.claim_id}`;
       let metadata = JSON.parse(claim.value_as_json).Claim.stream.metadata;
       e.setAuthor(`New claim from ${channelName}`, 'http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif', `https://open.lbry.com/${claimPermalink}`)
         .setTitle(`lbry://${claimPermalink}`)
