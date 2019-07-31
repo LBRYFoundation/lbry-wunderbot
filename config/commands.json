@@ -895,6 +895,23 @@
       }
     }
   },
+  "!translation": {
+    "usage": "",
+    "description": "App translation",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "Currently, the translation of the LBRY application is in the experimental phase, we will inform you when it will be completed.",
+      "color": 7976557,
+      "author": {
+        "name": "Can I translate LBRY App to X language??",
+        "url": "",
+        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+      }
+    }
+  },
+  
   "!piratebay": {
     "usage": "",
     "description": "Why LBRY has piratebay.com",
