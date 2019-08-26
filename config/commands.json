@@ -38,12 +38,12 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": ":warning: **Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.**",
+      "description": "Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.",
       "color": 7976557,
       "author": {
         "name": "BEGGING!",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://spee.ch/7/LBRY-Discord-Warning.png"
       }
     }
   },
@@ -102,11 +102,11 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Installers for the LBRY daemon are available for download [**HERE**](https://github.com/lbryio/lbry/releases)",
+      "description": "Installers for the LBRY daemon are available for download [**HERE**](https://github.com/lbryio/lbry-sdk/releases)",
       "color": 7976557,
       "author": {
         "name": "LBRY Daemon Download",
-        "url": "https://github.com/lbryio/lbry/releases",
+        "url": "https://github.com/lbryio/lbry-sdk/releases",
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
     }
@@ -262,12 +262,12 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please keep conversations on topic, or move random conversations to #363084227518136322 if you wish to continue",
+      "description": "Please keep conversations on topic, or move random conversations to #random if you wish to continue",
       "color": 7976557,
       "author": {
         "name": "Random",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://spee.ch/7/LBRY-Discord-Warning.png"
       }
     }
   },
@@ -390,7 +390,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please download the latest version from [HERE](https://lbry.com/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to get their rewards approved in order to access Rewards. Type !cc or !rewardsapproval for more information.",
+      "description": "Please download the latest version from [HERE](https://lbry.com/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to get their rewards approved in order to access Rewards. Type !cc or see the !rewardsapproval information below.",
       "color": 7976557,
       "author": {
         "name": "How to become Rewards approved",
@@ -879,22 +879,7 @@
       }
     }
   },
-  "!topbids": {
-    "usage": "",
-    "description": "Community Top Bids",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": "Community Top Bids is a public space on the LBRY application that allows for community controlled content. Learn more about it in our [Community Top Bid FAQ](https://lbry.com/faq/community-top-bid) ",
-      "color": 7976557,
-      "author": {
-        "name": "Community Top Bids",
-        "url": "https://lbry.com/faq/community-top-bid",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
-      }
-    }
-  },
+
   "!translation": {
     "usage": "",
     "description": "App translation",
@@ -905,9 +890,26 @@
       "description": "Currently, the translation of the LBRY application is in the experimental phase, we will inform you when it will be completed.",
       "color": 7976557,
       "author": {
-        "name": "Can I translate LBRY App to X language??",
+        "name": "LBRY Translation Help",
         "url": "",
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+      }
+    }
+  },
+  
+    "!status": {
+    "usage": "",
+    "description": "LBRY Services Status",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "To see the status of LBRY services please visit the offical [LBRY Status](https://status.lbry.com/) webpage.",
+      "color": 7976557,
+      "author": {
+        "name": "LBRY Services Status",
+        "url": "",
+        "icon_url": "https://spee.ch/7/LBRY-Discord-Warning.png"
       }
     }
   },
@@ -919,7 +921,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Piratebay.com is not related to The Pirate Bay torrent site. We use it for relaying users who accidently go there looking for pirated content and we try to point them towards an alternative, legal form of content sharing (LBRY). LBRY Inc. does not own the domain, it was lent to us by a community member. For the full reddit post about this topic, [Click Here!](https://www.reddit.com/r/lbry/comments/8i4lj9/why_do_you_own_piratebaycom/) ",
+      "description": "Piratebay.com is not related to The Pirate Bay torrent site. We use it for relaying users who accidently go there looking for content and pointing them towards an alternative, legal form of content sharing (LBRY). LBRY Inc. does not own the domain, it was lent to us by a community member. For the full reddit post about this topic, [Click Here!](https://www.reddit.com/r/lbry/comments/8i4lj9/why_do_you_own_piratebaycom/) ",
       "color": 7976557,
       "author": {
         "name": "Why LBRY has piratebay.com",
