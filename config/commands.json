@@ -31,6 +31,22 @@
       }
     }
   },
+    "!whitepaper": {
+    "usage": "",
+    "description": "LBRY White Paper",
+    "operation": "send",
+    "bundle": {
+      "url": "https://spec.lbry.com/",
+      "title": "",
+      "description": "The [LBRY White Paper](https://spec.lbry.com/) defines the LBRY protocol, its components, and how they fit together. \nThis document assumes that the reader is familiar with distributed hash tables (DHTs), the BitTorrent protocol, Bitcoin, and blockchain technology in general. It does not attempt to document these technologies or explain how they work.",
+      "color": 16777215,
+      "author": {
+        "name": "LBRY White Paper",
+        "url": "https://spec.lbry.com/",
+        "icon_url": "https://spee.ch/0/info-white.png"
+      }
+    }
+  },
   "!begging": {
     "usage": "",
     "description": "Don't Request Free Coins Message",
@@ -39,11 +55,11 @@
       "url": "",
       "title": "",
       "description": "Please don't request free coins or invites, we have a strict policy against begging. Further offenses will result in removal from the chat.",
-      "color": 7976557,
+      "color": 16718635,
       "author": {
         "name": "BEGGING!",
         "url": "",
-        "icon_url": "https://spee.ch/7/LBRY-Discord-Warning.png"
+        "icon_url": "https://spee.ch/8/caution-red.png"
       }
     }
   },
@@ -263,11 +279,11 @@
       "url": "",
       "title": "",
       "description": "Please keep conversations on topic, or move random conversations to #random if you wish to continue",
-      "color": 7976557,
+      "color": 16764237,
       "author": {
         "name": "Random",
         "url": "",
-        "icon_url": "https://spee.ch/7/LBRY-Discord-Warning.png"
+        "icon_url": "https://spee.ch/3/question-orange.png"
       }
     }
   },
@@ -383,22 +399,6 @@
       }
     }
   },
-  "!rewardsapprove": {
-    "usage": "",
-    "description": "How to become Rewards approved",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": "Please download the latest version from [HERE](https://lbry.com/get) Upon install, you'll be greeted with a welcome message. If you already had the app installed, please go to the wallet (bank icon in the top right) > Rewards - This should show your current status. New users will need to get their rewards approved in order to access Rewards. Type !cc or see the !rewardsapproval information below.",
-      "color": 7976557,
-      "author": {
-        "name": "How to become Rewards approved",
-        "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
-      }
-    }
-  },
   "!verify": {
     "usage": "",
     "description": "How to become Rewards approved",
@@ -423,22 +423,6 @@
       "url": "",
       "title": "",
       "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and send a Direct Message to @RewardsBot#0287 \n You can do this by right clicking on the name, and selecting Message. . A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.com/faq/rewards) to know more about rewards.",
-      "color": 7976557,
-      "author": {
-        "name": "Applying for Rewards Approval",
-        "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
-      }
-    }
-  },
-  "!verification": {
-    "usage": "",
-    "description": "Rewards Approval Help Message",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and send a Direct Message to @RewardsBot#0287 \n You can do this by right clicking on the name, and selecting Message. . A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.io/faq/rewards) to know more about rewards.",
       "color": 7976557,
       "author": {
         "name": "Applying for Rewards Approval",
