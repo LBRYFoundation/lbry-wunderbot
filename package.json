@@ -1,7 +1,8 @@
 {
   "dependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
     "app-root-path": "^2.2.1",
-    "babel-cli": "^6.26.0",
     "babel-preset-node8": "^1.2.0",
     "bitcoin": "^3.0.1",
     "braces": "^2.3.1",
