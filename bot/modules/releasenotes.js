@@ -28,19 +28,19 @@ exports.releasenotes = {
       method: 'GET',
       headers: headers
     };
-
     // Start the request
     let message;
     request(options, function(error, response, body) {
-      let releasemessage = JSON.parse(body).body;
-      let releasename = JSON.parse(body).name;
-      let releasedate = JSON.parse(body).published_at;
-      let releaseurl = JSON.parse(body).html_url;
+      let json = JSON.parse(body);
+      let releasemessage = json.body;
+      let releasename = json.name || json.tag_name;
+      let releasedate = json.published_at;
+      let releaseurl = json.html_url;
       if (releasemessage.length < 2000) {
         message = {
           embed: {
             title: '*Download ' + releasename + ' here!*',
-            description: releasemessage,
+            description: releasemessage.replace('###', ''),
             url: releaseurl,
             color: 7976557,
             timestamp: releasedate,
@@ -71,105 +71,43 @@ exports.releasenotes = {
           .filter(function(n) {
             return n !== '';
           });
-        let releasemessage1 = message[0];
-        let releasemessage2 = message[1];
-        let releasemessage3 = message[2];
-        let releasemessage4 = message[3];
-        let releasemessage5 = message[4];
-        let message1 = {
-          embed: {
-            title: '*Download ' + releasename + ' here!*',
-            description: releasemessage1,
-            url: releaseurl,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              name: 'LBRY ' + releaseTypeName + ' release notes for ' + releasename,
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY ' + releaseTypeName + ' updated '
-            }
+        let embedmessages = [];
+        for (let i = 0; i < message.length; i++) {
+          if (message[i]) {
+            embedmessages.push({
+              embed: {
+                description: message[i],
+                url: releaseurl,
+                color: 7976557,
+                timestamp: releasedate,
+                author: {
+                  name: 'LBRY ' + releaseTypeName + ' release notes for ' + releasename,
+                  icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
+                },
+                footer: {
+                  icon_url: 'https://spee.ch/2/pinkylbryheart.png',
+                  text: 'LBRY ' + releaseTypeName + ' updated '
+                }
+              }
+            });
+            if (i === 0) embedmessages[i].embed.title = '*Download ' + releasename + ' here!*';
           }
-        };
-        let message2 = {
-          embed: {
-            description: releasemessage2,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY ' + releaseTypeName + ' updated '
-            }
-          }
-        };
-        let message3 = {
-          embed: {
-            description: releasemessage3,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY ' + releaseTypeName + ' updated '
-            }
-          }
-        };
-        let message4 = {
-          embed: {
-            description: releasemessage4,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY ' + releaseTypeName + ' updated '
-            }
-          }
-        };
-        let message5 = {
-          embed: {
-            description: releasemessage5,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY ' + releaseTypeName + ' updated '
-            }
-          }
-        };
+        }
         if (inPrivate(msg)) {
-          msg.channel.send(message1);
-          msg.channel.send(message2);
-          msg.channel.send(message3);
-          msg.channel.send(message4);
-          msg.channel.send(message5);
+          for (let i = 0; i < embedmessages.length; i++) {
+            msg.channel.send(embedmessages[i]);
+          }
           return;
         }
         if (hasPerms(msg) && suffix === 'post') {
-          bot.channels.get(ChannelID).send(message1);
-          bot.channels.get(ChannelID).send(message2);
-          bot.channels.get(ChannelID).send(message3);
-          bot.channels.get(ChannelID).send(message4);
-          bot.channels.get(ChannelID).send(message5);
+          for (let i = 0; i < embedmessages.length; i++) {
+            bot.channels.get(ChannelID).send(embedmessages[i]);
+          }
         } else {
           msg.channel.send(msg.author + ' Release notes sent via DM');
-          msg.author.send(message1);
-          msg.author.send(message2);
-          msg.author.send(message3);
-          msg.author.send(message4);
-          msg.author.send(message5);
+          for (let i = 0; i < embedmessages.length; i++) {
+            msg.author.send(embedmessages[i]);
+          }
         }
       }
     });
