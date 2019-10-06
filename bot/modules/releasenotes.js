@@ -9,16 +9,22 @@ exports.commands = [
 ];
 
 exports.releasenotes = {
-  usage: '',
-  description: 'gets current release notes from GITHUB',
+  usage: '<desktop/android>',
+  description: 'gets current release notes from GitHub, for either Desktop or Android',
   process: function(bot, msg, suffix) {
+    let releaseType = suffix.toLowerCase();
+    let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
+    if (releaseType !== 'android' && releaseType !== 'desktop') {
+      msg.reply('Please specify which release notes to display: "desktop" or "android".');
+      return;
+    }
     const headers = {
       'Content-Type': 'application/json',
       'User-Agent': 'Super Agent/0.0.1'
     };
     // Configure the request
     const options = {
-      url: 'https://api.github.com/repos/lbryio/lbry-desktop/releases/latest',
+      url: 'https://api.github.com/repos/lbryio/lbry-' + releaseType + '/releases/latest',
       method: 'GET',
       headers: headers
     };
@@ -39,12 +45,12 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              name: 'LBRY Desktop release Notes for ' + releasename,
+              name: 'LBRY ' + releaseTypeName + ' release notes for ' + releasename,
               icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
               icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+              text: 'LBRY ' + releaseTypeName + ' updated '
             }
           }
         };
@@ -78,12 +84,12 @@ exports.releasenotes = {
             color: 7976557,
             timestamp: releasedate,
             author: {
-              name: 'LBRY Desktop Release Notes for ' + releasename,
+              name: 'LBRY ' + releaseTypeName + ' release notes for ' + releasename,
               icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
             },
             footer: {
               icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+              text: 'LBRY ' + releaseTypeName + ' updated '
             }
           }
         };
@@ -97,7 +103,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+              text: 'LBRY ' + releaseTypeName + ' updated '
             }
           }
         };
@@ -111,7 +117,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+              text: 'LBRY ' + releaseTypeName + ' updated '
             }
           }
         };
@@ -125,7 +131,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+              text: 'LBRY ' + releaseTypeName + ' updated '
             }
           }
         };
@@ -139,7 +145,7 @@ exports.releasenotes = {
             },
             footer: {
               icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+              text: 'LBRY ' + releaseTypeName + ' updated '
             }
           }
         };
