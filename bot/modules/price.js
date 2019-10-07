@@ -14,7 +14,7 @@ exports.price = {
   usage: '<currency> <amount>',
   description: 'displays price of lbc',
   process: function(bot, msg, suffix) {
-    var options = {
+    let options = {
       defaultCurrency: 'BTC',
 
       // supported currencies and api steps to arrive at the final value
@@ -503,22 +503,22 @@ exports.price = {
       // refresh rate in milliseconds to retrieve a new price (default to 10 minutes)
       refreshTime: 100000
     };
-    var words = suffix
+    let words = suffix
       .trim()
       .split(' ')
       .filter(function(n) {
         return n !== '';
       });
 
-    var currency = words.length > 0 ? words[0].toUpperCase() : options.defaultCurrency;
-    var amount = words.length > 1 ? parseFloat(words[1], 10) : 1;
-    var showHelp = isNaN(amount) || Object.keys(options.currencies).indexOf(currency) === -1;
+    let currency = words.length > 0 ? words[0].toUpperCase() : options.defaultCurrency;
+    let amount = words.length > 1 ? parseFloat(words[1], 10) : 1;
+    let showHelp = isNaN(amount) || Object.keys(options.currencies).indexOf(currency) === -1;
     // store the last retrieved rate
-    var cachedRates = {};
-    var command = '!price';
+    let cachedRates = {};
+    let command = '!price';
 
-    var currencies = Object.keys(options.currencies);
-    for (var i = 0; i < currencies.length; i++) {
+    let currencies = Object.keys(options.currencies);
+    for (let i = 0; i < currencies.length; i++) {
       cachedRates[currencies[i]] = {
         rate: 0,
         time: null
@@ -539,7 +539,7 @@ exports.price = {
         msg.channel.send('Please use <#' + ChannelID + '> or DMs to talk to price bot.');
         return;
       }
-      var message = `**${command}**: show the price of 1 LBC in ${options.defaultCurrency}
+      let message = `**${command}**: show the price of 1 LBC in ${options.defaultCurrency}
 **${command} help**: this message
 **${command} CURRENCY**: show the price of 1 LBC in CURRENCY. Supported values for CURRENCY are Listed Below
 **${command} CURRENCY AMOUNT**: show the price of AMOUNT LBC in CURRENCY
@@ -548,28 +548,28 @@ exports.price = {
     }
 
     function formatMessage(amount, rate, option) {
-      var cur = option.sign;
-      var value = numeral(rate.rate * amount).format(option.format);
+      let cur = option.sign;
+      let value = numeral(rate.rate * amount).format(option.format);
       return `*${numeral(amount).format('0,0[.][00000000]')} LBC = ${cur} ${value}*
 _last updated ${rate.time.utc().format(options.dtFormat)}_`;
     }
 
     function doSteps(bot, currency, amount) {
-      var option = options.currencies[currency];
-      var shouldReload = true;
+      let option = options.currencies[currency];
+      let shouldReload = true;
       if (cachedRates[currency]) {
-        var cache = cachedRates[currency];
+        let cache = cachedRates[currency];
         shouldReload = cache.time === null || moment().diff(cache.time) >= options.refreshTime;
         if (!shouldReload) {
-          var message = formatMessage(amount, cache, option);
+          let message = formatMessage(amount, cache, option);
           msg.channel.send(message);
         }
       }
 
       if (shouldReload) {
         // copy the steps array
-        var steps = [];
-        for (var i = 0; i < option.steps.length; i++) {
+        let steps = [];
+        for (let i = 0; i < option.steps.length; i++) {
           steps.push(option.steps[i]);
         }
 
@@ -579,19 +579,19 @@ _last updated ${rate.time.utc().format(options.dtFormat)}_`;
 
     function processSteps(bot, currency, rate, amount, steps, option) {
       if (steps.length > 0) {
-        var pairName = steps[0];
+        let pairName = steps[0];
         if (!options.api[pairName]) {
           msg.channel.send(`There was a configuration error. ${pairName} pair was not found.`);
           return;
         }
 
-        var pair = options.api[pairName];
+        let pair = options.api[pairName];
         request.get(pair.url, function(error, response, body) {
           if (error) {
             msg.channel.send(err.message ? err.message : 'The request could not be completed at this time. Please try again later.');
             return;
           }
-          var pairRate = 0;
+          let pairRate = 0;
           try {
             pairRate = jp.query(JSON.parse(body), pair.path);
             if (Array.isArray(pairRate) && pairRate.length > 0) {
@@ -610,7 +610,7 @@ _last updated ${rate.time.utc().format(options.dtFormat)}_`;
             }
 
             // final step, cache and then response
-            var result = {
+            let result = {
               rate: rate,
               time: moment()
             };

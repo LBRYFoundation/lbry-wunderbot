@@ -13,12 +13,13 @@ exports.purge = {
       return;
     }
     if (hasPerms(msg)) {
+      let newamount = 0
       if (!suffix) {
-        var newamount = '2';
+        newamount = 2;
       } else {
         let amount = Number(suffix);
         let adding = 1;
-        var newamount = amount + adding;
+        newamount = amount + adding;
       }
       let messagecount = newamount.toString();
       msg.channel
