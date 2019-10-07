@@ -16,8 +16,8 @@ exports.purge = {
       if (!suffix) {
         var newamount = '2';
       } else {
-        var amount = Number(suffix);
-        var adding = 1;
+        let amount = Number(suffix);
+        let adding = 1;
         var newamount = amount + adding;
       }
       let messagecount = newamount.toString();
