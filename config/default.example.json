@@ -63,7 +63,7 @@
   },
   "rolelist": {
     "baserole": "LBRYian",
-    "allowedroles": ["NSFW", "Traders", "Miners", "Off-Topic Chats", "International", "Dev"]
+    "allowedroles": ["Off-Topic Chats", "Dev"]
   },
   "irc": {
     "nickname": "wunderbot",
