@@ -13,7 +13,7 @@ exports.purge = {
       return;
     }
     if (hasPerms(msg)) {
-      let newamount = 0
+      let newamount = 0;
       if (!suffix) {
         newamount = 2;
       } else {
