@@ -898,6 +898,22 @@
     }
   },
   
+  "!why": {
+    "usage": "",
+    "description": "Why should I use LBRY?",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "LBRY is a new protocol which allows anyone to build apps that interact with digital content on the LBRY network. Apps built on the protocol allow creators to upload their work to the LBRY network of hosts (like BitTorrent), and set a price per stream or download (like iTunes) or give it away for free (like YouTube without ads). It benefits the consumer, because there's no ads, and you can often buy things cheaper on LBRY, and it benefits the creator, because there's no risk of demonetization, essentially no fees, and it's a lot harder to censor. You can find out more on the [FAQ](https://lbry.com/faq), or ask anyone here for their experience!",
+      "color": 7976557,
+      "author": {
+        "name": "Why should I use LBRY?",
+        "url": "https://lbry.com/faq",
+        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+      }
+    }
+  
   "!piratebay": {
     "usage": "",
     "description": "Why LBRY has piratebay.com",
