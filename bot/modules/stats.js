@@ -44,7 +44,7 @@ exports.stats = {
                 msg.channel.send('coingecko API is not available');
               } else {
                 data = response.body.data;
-                let price_eur\ = Number(data.current_price);
+                let price_eur = Number(data.current_price);
                 needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coingecko API is not available');
