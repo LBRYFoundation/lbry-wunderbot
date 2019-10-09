@@ -8,20 +8,20 @@ exports.stats = {
   usage: '',
   description: 'Displays list of current Market stats',
   process: function(bot, msg) {
-    needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=BTC', function(error, response) {
+    needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=btc&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C1h%2C7d
+', function(error, response) {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coinmarketcap API is not available');
       } else {
         let data = response.body.data;
-        let rank = data.rank;
-        let price_usd = Number(data.quotes.USD.price);
-        let price_btc = Number(data.quotes.BTC.price);
+        let rank = data.market_cap_rank;
+        let price_btc = Number(data.current_price);
         let market_cap_usd = Number(data.quotes.USD.market_cap);
         let circulating_supply = Number(data.circulating_supply);
         let total_supply = Number(data.total_supply);
-        let percent_change_1h = Number(data.quotes.USD.percent_change_1h);
-        let percent_change_24h = Number(data.quotes.USD.percent_change_24h);
-        let volume24_usd = Number(data.quotes.USD.volume_24h);
+        let percent_change_1h = Number(data.price_change_percentage_1h_in_currency);
+        let percent_change_24h = Number(data.price_change_percentage_24h_in_currency);
+        let volume24_btc = Number(data.total_volume);
         let dt = new Date();
         let timestamp = dt.toUTCString();
         let hr_indicator = ':thumbsup:';
@@ -33,18 +33,24 @@ exports.stats = {
           day_indicator = ':thumbsdown:';
         }
 
-        needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=GBP', function(error, response) {
+        needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
           if (error || response.statusCode !== 200) {
             msg.channel.send('coinmarketcap API is not available');
           } else {
             data = response.body.data;
-            let price_gbp = Number(data.quotes.GBP.price);
-            needle.get('https://api.coinmarketcap.com/v2/ticker/1298/?convert=EUR', function(error, response) {
+            let price_gbp = Number(data.current_price);
+            needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
               if (error || response.statusCode !== 200) {
                 msg.channel.send('coinmarketcap API is not available');
               } else {
                 data = response.body.data;
-                let price_eur = Number(data.quotes.EUR.price);
+                let price_eur = Number(data.current_price);
+                needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
+              if (error || response.statusCode !== 200) {
+                msg.channel.send('coinmarketcap API is not available');
+              } else {
+                data = response.body.data;
+                let price_usd = Number(data.current_price);
                 let description = `**Rank: [${rank}](${statsurl})**
 **Data**
 Market Cap: [$${numberWithCommas(market_cap_usd)}](${statsurl}) 
