@@ -11,12 +11,12 @@ exports.stats = {
     needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=btc&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C1h%2C7d
 ', function(error, response) {
       if (error || response.statusCode !== 200) {
-        msg.channel.send('coinmarketcap API is not available');
+        msg.channel.send('coingecko API is not available');
       } else {
         let data = response.body.data;
         let rank = data.market_cap_rank;
         let price_btc = Number(data.current_price);
-        let market_cap_usd = Number(data.quotes.USD.market_cap);
+        let market_cap_btc = Number(data.quotes.market_cap);
         let circulating_supply = Number(data.circulating_supply);
         let total_supply = Number(data.total_supply);
         let percent_change_1h = Number(data.price_change_percentage_1h_in_currency);
@@ -35,19 +35,19 @@ exports.stats = {
 
         needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
           if (error || response.statusCode !== 200) {
-            msg.channel.send('coinmarketcap API is not available');
+            msg.channel.send('coingecko API is not available');
           } else {
             data = response.body.data;
             let price_gbp = Number(data.current_price);
             needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
               if (error || response.statusCode !== 200) {
-                msg.channel.send('coinmarketcap API is not available');
+                msg.channel.send('coingecko API is not available');
               } else {
                 data = response.body.data;
-                let price_eur = Number(data.current_price);
+                let price_eur\ = Number(data.current_price);
                 needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function(error, response) {
               if (error || response.statusCode !== 200) {
-                msg.channel.send('coinmarketcap API is not available');
+                msg.channel.send('coingecko API is not available');
               } else {
                 data = response.body.data;
                 let price_usd = Number(data.current_price);
