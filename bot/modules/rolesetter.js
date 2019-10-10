@@ -14,10 +14,7 @@ exports.addrole = {
   description: 'Adds you to specified role',
   process: function(bot, msg, suffix) {
     // Provide shortened syntax for the sake of code cleanliness
-    let send = msgTxt => {
-      msg.channel.send(msgTxt);
-      return;
-    };
+    let send = msgTxt => msg.channel.send(msgTxt);
     // Checks if the user has messaged the bot via Direct Message
     if (inPrivate(msg)) return send('You can not set roles in DMs! Please go to the Discord server to do this.');
 
@@ -25,7 +22,7 @@ exports.addrole = {
     // Make sure to eliminate case sensitivity, do this here to only perform the sweep once.
     let newrole = msg.guild.roles.find(role => role.name.toLowerCase() === suffix.toLowerCase());
     // Baserole is assumed to already be case accurate as it's handled in the config itself.
-    let baserole = msg.guild.roles.find('name', rolelist.baserole);
+    let baserole = msg.guild.roles.find(item => item.name === rolelist.baserole);
 
     let rolecmd = botconfig.prefix + 'roles';
 
@@ -36,7 +33,7 @@ exports.addrole = {
     // Checks that the allowed roles and base role against the matched role's name, since this eliminates case sensitivity issues
     if (!rolelist.allowedroles.includes(newrole.name) && !rolelist.baserole.includes(newrole.name)) return send("That role isn't one you can add yourself to! Type " + rolecmd + ' command to find out which ones are allowed.');
     // Use the matched name to check against the member's existing roles
-    if (msg.member.roles.find('name', newrole.name)) return send('It seems you already have the ' + newrole.name + 'role');
+    if (msg.member.roles.find(item => item.name === newrole.name)) return send('It seems you already have the ' + newrole.name + 'role');
 
     // Assuming all these factors succeed, add the role
     msg.member.addRole(newrole).then(send(msg.member + ' has been added to the ' + newrole.name + ' role!'));
@@ -46,7 +43,7 @@ exports.addrole = {
     // Confirm that the role exists on the server and if not then be sure to send a nag message
     if (!baserole) return send('The base role of ' + rolelist.baserole + ' has been set in config but is missing from the server');
     // Confirm if the user has the baserole already, including if it was added just now
-    if (msg.member.roles.find('name', baserole.name)) return;
+    if (msg.member.roles.find(item => item.name === baserole.name)) return;
     // Add the base role and avoid spamming the user by only mentioning them in the previous message
     msg.member.addRole(baserole).then(send('We also added the base ' + rolelist.baserole + ' role for you!'));
   }
@@ -56,10 +53,7 @@ exports.delrole = {
   description: 'Deletes the specified role from your account',
   process: function(bot, msg, suffix) {
     // Provide shortened syntax for the sake of code cleanliness
-    let send = msgTxt => {
-      msg.channel.send(msgTxt);
-      return;
-    };
+    let send = msgTxt => msg.channel.send(msgTxt);
     // Checks if the user has messaged the bot via Direct Message
     if (inPrivate(msg)) return send('You can not set roles in DMs! Please go to the Discord server to do this.');
     // Here in the bot, msg and suffix are available, this function can be async if needed.
@@ -73,7 +67,7 @@ exports.delrole = {
     // Checks that the allowed roles against the matched role's name, since this eliminates case sensitivity issues
     if (!rolelist.allowedroles.includes(oldrole.name)) return send("That role isn't one you can remove yourself! If you need it removed, please ask a moderator!");
     // Use the matched name to check against the member's existing roles
-    if (!msg.member.roles.find('name', oldrole.name)) return send("It seems you don't actually have the " + oldrole.name + 'role! Mission accomplished!');
+    if (!msg.member.roles.find(item => item.name === oldrole.name)) return send("It seems you don't actually have the " + oldrole.name + 'role! Mission accomplished!');
 
     // Assuming all these factors succeed, add the role
     msg.member.removeRole(oldrole).then(send(msg.member + ' has been removed from the ' + oldrole.name + ' role!'));
@@ -83,12 +77,11 @@ exports.roles = {
   usage: '',
   description: 'displays roles you can give yourself',
   process: function(bot, msg, suffix) {
-    if (inPrivate(msg)) {
-      msg.channel.send('You can not set roles in DMs! Please go to the Discord server to do this.');
-      return;
-    } else {
+    let send = msgTxt => msg.channel.send(msgTxt);
+    if (inPrivate(msg)) return send('You can not set roles in DMs! Please go to the Discord server to do this.');
+    else {
       // Here in the bot, msg and suffix are available, this function can be async if needed.
-      msg.channel.send({
+      send({
         embed: {
           color: 3447003,
           title: 'Wunderbot',
@@ -121,7 +114,6 @@ exports.roles = {
           }
         }
       });
-      //msg.channel.send(JSON.stringify(rolelist.allowedroles));
     }
   }
 };
