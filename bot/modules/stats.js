@@ -8,8 +8,8 @@ exports.stats = {
   usage: '',
   description: 'Displays list of current Market stats',
   process: function(bot, msg) {
-    needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=btc&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C1h%2C7d
-', function(error, response) {
+    needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=btc&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C1h%2C7d', function(error, response) 
+   {
       if (error || response.statusCode !== 200) {
         msg.channel.send('coingecko API is not available');
       } else {
