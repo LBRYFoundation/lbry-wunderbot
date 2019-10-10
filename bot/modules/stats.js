@@ -23,14 +23,8 @@ exports.stats = {
                 let volume24_btc = Number(data.total_volume);
                 let dt = new Date();
                 let timestamp = dt.toUTCString();
-                let hr_indicator = ':thumbsup:';
-                let day_indicator = ':thumbsup:';
-                if (percent_change_1h < 0) {
-                    hr_indicator = ':thumbsdown:';
-                }
-                if (percent_change_24h < 0) {
-                    day_indicator = ':thumbsdown:';
-                }
+                let hr_indicator = (percent_change_1h < 0) ? ':thumbsdown:' : ':thumbsup:';
+                let day_indicator = (percent_change_24h < 0) ? ':thumbsdown:' : ':thumbsup:';
 
                 needle.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&ids=lbry-credits&order=market_cap_desc&per_page=100&page=1&sparkline=false', function (error, response) {
                     if (error || response.statusCode !== 200) {
