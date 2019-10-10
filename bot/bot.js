@@ -71,9 +71,9 @@ bot.on('error', function(error) {
 
 function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
-  if (msg.author.id != bot.user.id && msg.content.startsWith(config.prefix)) {
+  if (msg.author.id !== bot.user.id && msg.content.startsWith(config.prefix)) {
     //check if user is Online
-    if (!msg.author.presence.status || msg.author.presence.status == 'offline' || msg.author.presence.status == 'invisible') {
+    if (!msg.author.presence.status || msg.author.presence.status === 'offline' || msg.author.presence.status === 'invisible') {
       msg.author.send('Please set your Discord Presence to Online to talk to the bot!').catch(function(error) {
         msg.channel
           .send(
@@ -183,7 +183,7 @@ function checkMessageForCommand(msg, isEdit) {
       return;
     }
 
-    if (msg.author != bot.user && msg.isMentioned(bot.user)) {
+    if (msg.author !== bot.user && msg.isMentioned(bot.user)) {
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
     }
