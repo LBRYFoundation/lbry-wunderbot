@@ -46,10 +46,10 @@ exports.stats = {
                                         let price_usd = Number(data.current_price);
                                         let description = `**Rank: [${rank}](${statsurl})**
                                         **Data**
-                                        Market Cap: [$${numberWithCommas(market_cap_usd)}](${statsurl}) 
+                                        Market Cap: [$${numberWithCommas(market_cap_btc)} BTC](${statsurl}) 
                                         Total Supply: [${numberWithCommas(total_supply)} LBC](${statsurl})
                                         Circulating Supply: [${numberWithCommas(circulating_supply)} LBC](${statsurl})
-                                        24 Hour Volume: [$${volume24_usd}](${statsurl}) 
+                                        24 Hour Volume: [$${numberWithCommas(volume24_btc)} BTC](${statsurl}) 
                                         
                                         **Price**
                                         BTC: [₿${price_btc.toFixed(8)}](${statsurl})
