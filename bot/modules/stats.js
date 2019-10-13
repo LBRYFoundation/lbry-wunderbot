@@ -12,8 +12,8 @@ exports.stats = {
             if (error || response.statusCode !== 200) {
                 msg.channel.send('coingecko API is not available');
             } else {
-		console.log(response);
-		console.log(response.body[0]);
+		//console.log(response);
+		//console.log(response.body[0]);
                 let data = response.body[0];
                 let rank = data.market_cap_rank;
                 let price_btc = Number(data.current_price);
