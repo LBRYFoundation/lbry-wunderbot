@@ -13,7 +13,7 @@ exports.releasenotes = {
     description: 'gets current release notes from GitHub, for either Desktop or Android',
     process: function(bot, msg, suffix) {
         let releaseType = suffix.toLowerCase();
-        let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(5);
+        let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
         if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'post android' && releaseType !== 'post desktop') {
             msg.reply('Please specify which release notes to display: "desktop" or "android".');
             return;
