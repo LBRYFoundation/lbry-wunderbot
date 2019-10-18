@@ -15,7 +15,7 @@ exports.releasenotes = {
         let releaseType = suffix.toLowerCase();
         let releaseTypePost = null;
         if (releaseType === 'android post' || 'desktop post') {
-            releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(7);
+            releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(0,7);
             console.log('Post message detected ' + releaseTypePost);
         }
         let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
