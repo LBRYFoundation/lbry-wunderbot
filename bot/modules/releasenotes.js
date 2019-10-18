@@ -14,7 +14,7 @@ exports.releasenotes = {
     process: function(bot, msg, suffix) {
         let releaseType = suffix.toLowerCase();
         let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
-        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'android push' && releaseType !== 'desktop push') {
+        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'android post' && releaseType !== 'desktop post') {
             msg.reply('Please specify which release notes to display: "desktop" or "android".');
             return;
         }
