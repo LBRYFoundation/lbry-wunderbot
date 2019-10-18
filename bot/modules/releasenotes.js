@@ -24,7 +24,7 @@ exports.releasenotes = {
         };
         // Configure the request
         const options = {
-            url: 'https://api.github.com/repos/lbryio/lbry-' + releaseType + '/releases/latest',
+            url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypeName + '/releases/latest',
             method: 'GET',
             headers: headers
         };
