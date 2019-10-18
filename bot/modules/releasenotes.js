@@ -23,8 +23,8 @@ exports.releasenotes = {
             'User-Agent': 'Super Agent/0.0.1'
         };
         // Configure the request
+        console.log('Release being sent: ' + releaseTypeName);
         const options = {
-            console.log('Release being sent: ' + releaseTypeName);
             url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypeName + '/releases/latest',
             method: 'GET',
             headers: headers
