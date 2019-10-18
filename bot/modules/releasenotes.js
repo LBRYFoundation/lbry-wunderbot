@@ -13,8 +13,13 @@ exports.releasenotes = {
     description: 'gets current release notes from GitHub, for either Desktop or Android',
     process: function(bot, msg, suffix) {
         let releaseType = suffix.toLowerCase();
+        let releaseTypePost = null;
+        if (releaseType === 'android post' || 'desktop post') {
+            let releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(-5);
+            break;
+        }
         let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
-        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'post android' && releaseType !== 'post desktop') {
+        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'android post' && releaseType !== 'desktop post') {
             msg.reply('Please specify which release notes to display: "desktop" or "android".');
             return;
         }
@@ -23,12 +28,20 @@ exports.releasenotes = {
             'User-Agent': 'Super Agent/0.0.1'
         };
         // Configure the request
-        console.log('Release being sent: ' + releaseTypeName);
-        const options = {
-            url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypeName + '/releases/latest',
-            method: 'GET',
-            headers: headers
-        };
+        if (releaseTypePost !== null) {
+            const options = {
+                url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypePost + '/releases/latest',
+                method: 'GET',
+                headers: headers
+            };
+        } else {
+            console.log('Release being sent: ' + releaseTypeName);
+            const options = {
+                url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypeName + '/releases/latest',
+                method: 'GET',
+                headers: headers
+            };
+        }
         // Start the request
         let message;
         request(options, function(error, response, body) {
@@ -47,12 +60,12 @@ exports.releasenotes = {
                         color: 7976557,
                         timestamp: releasedate,
                         author: {
-                            name: 'LBRY ' + releaseTypeName + ' release notes for ' + releasename,
+                            name: 'LBRY ' + releaseType + ' release notes for ' + releasename,
                             icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
                         },
                         footer: {
                             icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-                            text: 'LBRY ' + releaseTypeName + ' updated '
+                            text: 'LBRY ' + releaseType + ' updated '
                         }
                     }
                 };
@@ -60,7 +73,7 @@ exports.releasenotes = {
                     msg.channel.send(message);
                     return;
                 }
-                if (hasPerms(msg) && suffix === 'post ' + releaseTypeName) {
+                if (hasPerms(msg) && suffix === releaseTypeName + ' post') {
                     bot.channels.get(ChannelID).send(message);
                 } else {
                     msg.channel.send(msg.author + ' Release notes sent via DM');
@@ -101,7 +114,7 @@ exports.releasenotes = {
                     }
                     return;
                 } 
-                if (hasPerms(msg) && suffix === 'post ' + releaseTypeName) {
+                if (hasPerms(msg) && suffix === releaseTypeName + ' post') {
                     for (let i = 0; i < embedmessages.length; i++) {
                         bot.channels.get(ChannelID).send(embedmessages[i]);
                     }
