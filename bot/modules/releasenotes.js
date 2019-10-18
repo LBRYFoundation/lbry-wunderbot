@@ -74,7 +74,7 @@ exports.releasenotes = {
                     msg.channel.send(message);
                     return;
                 }
-                if (hasPerms(msg) && suffix === releaseTypeName + ' post') {
+                if (hasPerms(msg) && suffix === 'android post' || 'desktop post') {
                     bot.channels.get(ChannelID).send(message);
                 } else {
                     msg.channel.send(msg.author + ' Release notes sent via DM');
@@ -115,7 +115,7 @@ exports.releasenotes = {
                     }
                     return;
                 } 
-                if (hasPerms(msg) && suffix === releaseTypeName + ' post') {
+                if (hasPerms(msg) && suffix === 'android post' || 'desktop post') {
                     for (let i = 0; i < embedmessages.length; i++) {
                         bot.channels.get(ChannelID).send(embedmessages[i]);
                     }
