@@ -13,8 +13,8 @@ exports.releasenotes = {
     description: 'gets current release notes from GitHub, for either Desktop or Android',
     process: function(bot, msg, suffix) {
         let releaseType = suffix.toLowerCase();
-        let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
-        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'android post' && releaseType !== 'desktop post') {
+        let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(5);
+        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'post android' && releaseType !== 'post desktop') {
             msg.reply('Please specify which release notes to display: "desktop" or "android".');
             return;
         }
@@ -60,7 +60,7 @@ exports.releasenotes = {
                     msg.channel.send(message);
                     return;
                 }
-                if (hasPerms(msg) && suffix === releaseTypeName + ' post') {
+                if (hasPerms(msg) && suffix === 'post ' + releaseTypeName) {
                     bot.channels.get(ChannelID).send(message);
                 } else {
                     msg.channel.send(msg.author + ' Release notes sent via DM');
@@ -100,8 +100,8 @@ exports.releasenotes = {
                         msg.channel.send(embedmessages[i]);
                     }
                     return;
-                }
-                if (hasPerms(msg) && suffix === releaseTypeName + ' post') {
+                } 
+                if (hasPerms(msg) && suffix === 'post ' + releaseTypeName) {
                     for (let i = 0; i < embedmessages.length; i++) {
                         bot.channels.get(ChannelID).send(embedmessages[i]);
                     }
