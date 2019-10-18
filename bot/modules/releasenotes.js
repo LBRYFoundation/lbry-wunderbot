@@ -15,7 +15,7 @@ exports.releasenotes = {
         let releaseType = suffix.toLowerCase();
         let releaseTypePost = null;
         if (releaseType === 'android post' || 'desktop post') {
-            let releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(-5);
+            releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(-5);
         }
         let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
         if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'android post' && releaseType !== 'desktop post') {
