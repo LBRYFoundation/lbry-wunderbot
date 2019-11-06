@@ -13,7 +13,7 @@
     "jsonfile": "^5.0.0",
     "jsonpath": "^1.0.1",
     "moment": "^2.24.0",
-    "mongoose": "^5.5.0",
+    "mongoose": "^5.7.5",
     "needle": "^2.3.0",
     "node-config": "^0.0.2",
     "numeral": "^2.0.6",
