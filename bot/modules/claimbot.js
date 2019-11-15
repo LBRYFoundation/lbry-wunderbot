@@ -6,7 +6,6 @@ let config = require('config');
 let channels = config.get('claimbot').channels;
 const Discord = require('discord.js');
 const request = require('request');
-let lastProcessedBlock = 0;
 
 module.exports = {
   init: init
@@ -20,24 +19,6 @@ function init(discordBot_) {
   discordBot = discordBot_;
   console.log('Activating claimbot');
   discordBot.channels.get(channels[0]).send('activating claimbot');
-}
-
-function announceClaims() {
-  let currentBlock = lastProcessedBlock;
-  getClaimsForLastBlock()
-    .then(claims => {
-      claims.forEach(c => {
-        if (c.height <= lastProcessedBlock) return;
-        currentBlock = Math.max(currentBlock, c.height);
-
-        //filter claims that we don't want to announce
-        if (c.bid_state === 'Expired' || c.bid_state === 'Spent') return;
-
-        discordPost(embedFromClaim(c));
-      });
-      lastProcessedBlock = currentBlock;
-    })
-    .catch(console.error);
 }
 
 /**
