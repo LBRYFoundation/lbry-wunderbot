@@ -20,8 +20,6 @@ function init(discordBot_) {
   discordBot = discordBot_;
   console.log('Activating claimbot');
   discordBot.channels.get(channels[0]).send('activating claimbot');
-  setInterval(announceClaims, 60 * 1000);
-  announceClaims();
 }
 
 function announceClaims() {
