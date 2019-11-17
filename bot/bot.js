@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 // Load config!
 let config = require('config');
 config = config.get('bot');
-
+let genconfig = require('config');
 //load modules
 const claimbot = require('./modules/claimbot.js');
 const commandsV2 = require('./modules/commandsV2.js');
@@ -47,7 +47,9 @@ bot.on('ready', function() {
   bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' }).catch(console.error);
 
   //initialize the claimbot (content bot)
-  claimbot.init(bot);
+  if (genconfig.get('claimbot').enabled) {
+    claimbot.init(bot);
+  }
   //initialize the commandsBot
   commandsV2.init(bot);
   //initialize the support bot

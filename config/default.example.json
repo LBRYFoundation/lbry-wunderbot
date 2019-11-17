@@ -9,15 +9,6 @@
     "perms": ["Moderator Team", "LBRY TEAM"], // Roles that have access to all commands.
     "logchannel": "371620338263523328" // Channel to log the bots moderation..
   },
-  "lbrycrd": {
-    "host": "localhost",
-    "port": 9245,
-    "user": "USERHERE",
-    "pass": "PASSWORDHERE"
-  },
-  "mongodb": {
-    "url": "mongodb://localhost:27017/wunderbot"
-  },
   "Channels": {
     "verification": "571001864271691805",
     "mining": "363049669636390913",
@@ -59,6 +50,7 @@
     "mainchannel": "363050205043621908" // Main Stats Bot channel for directing with help message
   },
   "claimbot": {
+    "enabled": false,
     "channels": ["363086719391629326"]
   },
   "rolelist": {
@@ -66,6 +58,7 @@
     "allowedroles": ["Off-Topic Chats", "Dev"]
   },
   "irc": {
+    "enabled": false,
     "nickname": "wunderbot",
     "server": "chat.freenode.net",
     "discordToken": "",

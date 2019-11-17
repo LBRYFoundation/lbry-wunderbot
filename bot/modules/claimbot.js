@@ -15,10 +15,29 @@ function init(discordBot_) {
   if (discordBot) {
     throw new Error('init was already called once');
   }
+    discordBot = discordBot_;
+    console.log('Activating claimbot');
+    discordBot.channels.get(channels[0]).send('activating claimbot');
+    setInterval(announceClaims, 60 * 1000);
+    announceClaims();
+}
 
-  discordBot = discordBot_;
-  console.log('Activating claimbot');
-  discordBot.channels.get(channels[0]).send('activating claimbot');
+function announceClaims() {
+  let currentBlock = lastProcessedBlock;
+  getClaimsForLastBlock()
+    .then(claims => {
+      claims.forEach(c => {
+        if (c.height <= lastProcessedBlock) return;
+        currentBlock = Math.max(currentBlock, c.height);
+
+        //filter claims that we don't want to announce
+        if (c.bid_state === 'Expired' || c.bid_state === 'Spent') return;
+
+        discordPost(embedFromClaim(c));
+      });
+      lastProcessedBlock = currentBlock;
+    })
+    .catch(console.error);
 }
 
 /**
