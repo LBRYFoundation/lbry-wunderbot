@@ -414,7 +414,7 @@
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
     }
-  },  
+  },
   "!rewardsapproval": {
     "usage": "",
     "description": "Rewards Approval Help Message",
@@ -896,8 +896,8 @@
       }
     }
   },
-  
-    "!status": {
+
+  "!status": {
     "usage": "",
     "description": "LBRY Services Status",
     "operation": "send",
@@ -913,7 +913,7 @@
       }
     }
   },
-  
+
   "!piratebay": {
     "usage": "",
     "description": "Why LBRY has piratebay.com",

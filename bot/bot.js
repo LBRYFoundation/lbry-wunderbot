@@ -47,7 +47,7 @@ bot.on('ready', function() {
   bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' }).catch(console.error);
 
   //initialize the claimbot (content bot)
-  if(genconfig.get('claimbot').enabled) {
+  if (genconfig.get('claimbot').enabled) {
     claimbot.init(bot);
   }
   //initialize the commandsBot

@@ -4,7 +4,7 @@ const ircconfig = config.get('irc');
 exports.custom = ['irc'];
 
 exports.irc = function(bot) {
-  if(ircconfig.enabled) {
+  if (ircconfig.enabled) {
     discordIRC([ircconfig]);
   }
 };
