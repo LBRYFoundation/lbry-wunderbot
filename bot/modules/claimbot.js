@@ -6,7 +6,6 @@ let config = require('config');
 let channels = config.get('claimbot').channels;
 const Discord = require('discord.js');
 const request = require('request');
-let lastProcessedBlock = 0;
 
 module.exports = {
   init: init

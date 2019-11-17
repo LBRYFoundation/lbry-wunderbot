@@ -5,167 +5,127 @@ let inPrivate = require('../helpers.js').inPrivate;
 let ChannelID = config.get('gitrelease').channel;
 
 exports.commands = [
-  'releasenotes' // command that is in this file, every command needs it own export as shown below
+    'releasenotes' // command that is in this file, every command needs it own export as shown below
 ];
 
 exports.releasenotes = {
-  usage: '',
-  description: 'gets current release notes from GITHUB',
-  process: function(bot, msg, suffix) {
-    const headers = {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Super Agent/0.0.1'
-    };
-    // Configure the request
-    const options = {
-      url: 'https://api.github.com/repos/lbryio/lbry-desktop/releases/latest',
-      method: 'GET',
-      headers: headers
-    };
-
-    // Start the request
-    let message;
-    request(options, function(error, response, body) {
-      let releasemessage = JSON.parse(body).body;
-      let releasename = JSON.parse(body).name;
-      let releasedate = JSON.parse(body).published_at;
-      let releaseurl = JSON.parse(body).html_url;
-      if (releasemessage.length < 2000) {
-        message = {
-          embed: {
-            title: '*Download ' + releasename + ' here!*',
-            description: releasemessage,
-            url: releaseurl,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              name: 'LBRY Desktop release Notes for ' + releasename,
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
-            }
-          }
-        };
-        if (inPrivate(msg)) {
-          msg.channel.send(message);
-          return;
+    usage: '<desktop/android>',
+    description: 'gets current release notes from GitHub, for either Desktop or Android',
+    process: function(bot, msg, suffix) {
+        let releaseType = suffix.toLowerCase();
+        let releaseTypePost = null;
+        if (releaseType === 'android post' || 'desktop post') {
+            releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(1,7);
+            console.log('Post message detected ' + releaseTypePost);
         }
-        if (hasPerms(msg) && suffix === 'post') {
-          bot.channels.get(ChannelID).send(message);
+        let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
+        if (releaseType !== 'android' && releaseType !== 'desktop' && releaseType !== 'android post' && releaseType !== 'desktop post') {
+            msg.reply('Please specify which release notes to display: "desktop" or "android".');
+            return;
+        }
+        const headers = {
+            'Content-Type': 'application/json',
+            'User-Agent': 'Super Agent/0.0.1'
+        };
+        // Configure the request
+        let options;
+        if (releaseTypePost !== null) {
+            options = {
+                url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypePost + '/releases/latest',
+                method: 'GET',
+                headers: headers
+            };
         } else {
-          msg.channel.send(msg.author + ' Release notes sent via DM');
-          msg.author.send(message);
+            console.log('Release being sent: ' + releaseTypeName);
+            options = {
+                url: 'https://api.github.com/repos/lbryio/lbry-' + releaseTypeName + '/releases/latest',
+                method: 'GET',
+                headers: headers
+            };
         }
-      } else {
-        message = releasemessage
-          .trim()
-          .split('###')
-          .filter(function(n) {
-            return n !== '';
-          });
-        let releasemessage1 = message[0];
-        let releasemessage2 = message[1];
-        let releasemessage3 = message[2];
-        let releasemessage4 = message[3];
-        let releasemessage5 = message[4];
-        let message1 = {
-          embed: {
-            title: '*Download ' + releasename + ' here!*',
-            description: releasemessage1,
-            url: releaseurl,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              name: 'LBRY Desktop Release Notes for ' + releasename,
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
+        // Start the request
+        let message;
+        request(options, function(error, response, body) {
+            let json = JSON.parse(body);
+            let releasemessage = json.body;
+            console.log(releasemessage);
+            let releasename = json.name || json.tag_name;
+            let releasedate = json.published_at;
+            let releaseurl = json.html_url;
+            if (releasemessage.length < 2000) {
+                message = {
+                    embed: {
+                        title: '*Download ' + releasename + ' here!*',
+                        description: releasemessage.replace('###', ''),
+                        url: releaseurl,
+                        color: 7976557,
+                        timestamp: releasedate,
+                        author: {
+                            name: 'LBRY ' + releaseType + ' release notes for ' + releasename,
+                            icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
+                        },
+                        footer: {
+                            icon_url: 'https://spee.ch/2/pinkylbryheart.png',
+                            text: 'LBRY ' + releaseType + ' updated '
+                        }
+                    }
+                };
+                if (inPrivate(msg)) {
+                    msg.channel.send(message);
+                    return;
+                }
+                if (hasPerms(msg) && suffix === 'android post' || 'desktop post') {
+                    bot.channels.get(ChannelID).send(message);
+                } else {
+                    msg.channel.send(msg.author + ' Release notes sent via DM');
+                    msg.author.send(message);
+                }
+            } else {
+                message = releasemessage
+                    .trim()
+                    .split('###')
+                    .filter(function(n) {
+                        return n !== '';
+                    });
+                let embedmessages = [];
+                for (let i = 0; i < message.length; i++) {
+                    if (message[i]) {
+                        embedmessages.push({
+                            embed: {
+                                description: message[i],
+                                url: releaseurl,
+                                color: 7976557,
+                                timestamp: releasedate,
+                                author: {
+                                    name: 'LBRY ' + releaseTypeName + ' release notes for ' + releasename,
+                                    icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
+                                },
+                                footer: {
+                                    icon_url: 'https://spee.ch/2/pinkylbryheart.png',
+                                    text: 'LBRY ' + releaseTypeName + ' updated '
+                                }
+                            }
+                        });
+                        if (i === 0) embedmessages[i].embed.title = '*Download ' + releasename + ' here!*';
+                    }
+                }
+                if (inPrivate(msg)) {
+                    for (let i = 0; i < embedmessages.length; i++) {
+                        msg.channel.send(embedmessages[i]);
+                    }
+                    return;
+                } 
+                if (hasPerms(msg) && suffix === 'android post' || 'desktop post') {
+                    for (let i = 0; i < embedmessages.length; i++) {
+                        bot.channels.get(ChannelID).send(embedmessages[i]);
+                    }
+                } else {
+                    msg.channel.send(msg.author + ' Release notes sent via DM');
+                    for (let i = 0; i < embedmessages.length; i++) {
+                        msg.author.send(embedmessages[i]);
+                    }
+                }
             }
-          }
-        };
-        let message2 = {
-          embed: {
-            description: releasemessage2,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
-            }
-          }
-        };
-        let message3 = {
-          embed: {
-            description: releasemessage3,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
-            }
-          }
-        };
-        let message4 = {
-          embed: {
-            description: releasemessage4,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'https://spee.ch/b/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
-            }
-          }
-        };
-        let message5 = {
-          embed: {
-            description: releasemessage5,
-            color: 7976557,
-            timestamp: releasedate,
-            author: {
-              icon_url: 'http://www.pngall.com/wp-content/uploads/2016/04/Github-PNG-Image.png'
-            },
-            footer: {
-              icon_url: 'https://spee.ch/2/pinkylbryheart.png',
-              text: 'LBRY Desktop Updated '
-            }
-          }
-        };
-        if (inPrivate(msg)) {
-          msg.channel.send(message1);
-          msg.channel.send(message2);
-          msg.channel.send(message3);
-          msg.channel.send(message4);
-          msg.channel.send(message5);
-          return;
-        }
-        if (hasPerms(msg) && suffix === 'post') {
-          bot.channels.get(ChannelID).send(message1);
-          bot.channels.get(ChannelID).send(message2);
-          bot.channels.get(ChannelID).send(message3);
-          bot.channels.get(ChannelID).send(message4);
-          bot.channels.get(ChannelID).send(message5);
-        } else {
-          msg.channel.send(msg.author + ' Release notes sent via DM');
-          msg.author.send(message1);
-          msg.author.send(message2);
-          msg.author.send(message3);
-          msg.author.send(message4);
-          msg.author.send(message5);
-        }
-      }
-    });
-  }
+        });
+    }
 };
