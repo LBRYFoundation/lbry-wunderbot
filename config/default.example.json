@@ -71,5 +71,14 @@
     "channelMapping": {
       "#shared": "#lbry"
     }
+  },
+  "spam_detection": {
+    "warnBuffer": 10,
+    "maxBuffermsg": 20,
+    "intervalms": 1000,
+    "warningMessage": ", Stop spamming or you will be banned! This is your warning!",
+    "banMessage": "has been banned for spamming!",
+    "maxDuplicatesWarning": 10,
+    "maxDuplicatesBan": 20
   }
 }
