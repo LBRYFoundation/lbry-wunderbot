@@ -19,13 +19,13 @@ let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
 exports.custom = ['antiSpam'];
 
 exports.antiSpam = function(bot) {
-  const warnBuffer = 5;
-  const maxBuffer = 10;
-  const interval = 1500;
-  const warningMessage = ', Stop spamming or you will be banned! This is your warning!';
+  const warnBuffer = 10;
+  const maxBuffer = 20;
+  const interval = 3000;
+  const warningMessage = ', please slow down. Posting too fast may flag you as spam and result in an auto-ban';
   const banMessage = 'has been banned for spamming!';
-  const maxDuplicatesWarning = 5;
-  const maxDuplicatesBan = 10;
+  const maxDuplicatesWarning = 10;
+  const maxDuplicatesBan = 20;
 
   bot.on('message', msg => {
     if (inPrivate(msg) || msg.author.bot || hasPerms(msg) || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
