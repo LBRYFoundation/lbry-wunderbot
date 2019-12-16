@@ -8,6 +8,7 @@ let hasPerms = require('../helpers.js').hasPerms;
 let inPrivate = require('../helpers.js').inPrivate;
 let hasExcludedSpamChannels = require('../helpers.js').hasExcludedSpamChannels;
 let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
+let vars = config.get('spam_detection');
 
 /**
  * Add simple spam protection to your discord server.
@@ -19,13 +20,13 @@ let hasExcludedSpamUsers = require('../helpers.js').hasExcludedSpamUsers;
 exports.custom = ['antiSpam'];
 
 exports.antiSpam = function(bot) {
-  const warnBuffer = 5;
-  const maxBuffer = 10;
-  const interval = 1500;
-  const warningMessage = ', Stop spamming or you will be banned! This is your warning!';
-  const banMessage = 'has been banned for spamming!';
-  const maxDuplicatesWarning = 5;
-  const maxDuplicatesBan = 10;
+  const warnBuffer = vars.warnBuffer;
+  const maxBuffer = vars.maxBuffermsg;
+  const interval = vars.intervalms;
+  const warningMessage = vars.warningMessage;
+  const banMessage = vars.banMessage;
+  const maxDuplicatesWarning = vars.maxDuplicatesWarning;
+  const maxDuplicatesBan = vars.maxDuplicatesBan;
 
   bot.on('message', msg => {
     if (inPrivate(msg) || msg.author.bot || hasPerms(msg) || hasExcludedSpamChannels(msg) || hasExcludedSpamUsers(msg)) {
