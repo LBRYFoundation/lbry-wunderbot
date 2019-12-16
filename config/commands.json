@@ -889,11 +889,11 @@
       "url": "",
       "title": "",
       "description": "To see the status of LBRY services please visit the offical [LBRY Status](https://status.lbry.com/) webpage.",
-      "color": 7976557,
+      "color": 3205696,
       "author": {
         "name": "LBRY Services Status",
         "url": "",
-        "icon_url": "https://spee.ch/7/LBRY-Discord-Warning.png"
+        "icon_url": "https://spee.ch/a/caution-green.png"
       }
     }
   },
@@ -904,7 +904,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "LBRY is a new protocol which allows anyone to build apps that interact with digital content on the LBRY network. Apps built on the protocol allow creators to upload their work to the LBRY network of hosts (like BitTorrent), and set a price per stream or download (like iTunes) or give it away for free (like YouTube without ads). It benefits the consumer, because there's no ads, and you can often buy things cheaper on LBRY, and it benefits the creator, because there's no risk of demonetization, essentially no fees, and it's a lot harder to censor. You can find out more on the [FAQ](https://lbry.com/faq), or ask anyone here for their experience!",
+      "description": "LBRY or lbry:// is a new protocol which allows anyone to build apps and APIs that use the LBRY blockchain, which is a fork of Bitcoin. The LBRY app, which is built on the LBRY protocol, allows creators to broadcast their content via the LBRY blockchain to anyone using a connected app or website, so it can be downloaded or advertised; a little like how BitTorrent works. Using the app or API, you can set a price for your content or give it away for free, like you do on YouTube but without the ads. It benefits the user because there's no ads and content isn't shaped or removed to fit a political narrative. For content creators there's no risk of demonetization and legal content can't be censored or removed. You can find out more on the [FAQ](https://lbry.com/faq), or ask anyone here for their experience!",
       "color": 7976557,
       "author": {
         "name": "Why should I use LBRY?",
