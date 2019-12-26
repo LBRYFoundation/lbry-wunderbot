@@ -13,14 +13,11 @@ exports.lbrylink = async function(bot, msg, suffix) {
     const urlOccurrences = (msg.content.match(/lbry:\/\//g) || []).length;
     if (urlOccurrences > 0) {
       //convert all mentions to a ﻿plain string (because lbry://@Nikooo777 gets parsed as lbry://@<123123123> instead)
-      const mentionRegex = /(.+)<@!?(\d{18})>(.+)/;
+      const mentionRegex = /(.+)<@!?(\d{18})>(.+)/s;
       let match;
       do {
         if (match) {
-          msg.content =
-            match[1] +
-            `@${msg.guild.members.get(match[2]).user.username}` +
-            match[3];
+          msg.content = match[1] + `@${msg.guild.members.get(match[2]).user.username}` + match[3];
         }
         match = msg.content.match(mentionRegex);
       } while (match);
