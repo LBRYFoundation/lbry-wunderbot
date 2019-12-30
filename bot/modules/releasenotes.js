@@ -12,15 +12,11 @@ exports.releasenotes = {
   usage: '<desktop/android>',
   description: 'gets current release notes from GitHub, for either Desktop or Android',
   process: function(bot, msg, suffix) {
-    console.log('Suffix is: ' + suffix);
     let releaseType = suffix.toLowerCase();
-    console.log('Release Type is ' + releaseType);
     let releaseTypePost = null;
 
     if (releaseType === 'android post' || releaseType === 'desktop post') {
       releaseTypePost = releaseType.charAt(0).toUpperCase() + releaseType.slice(1, 7);
-      console.log('ReleaseType is ' + releaseType);
-      console.log('ReleaseTypePost is ' + releaseTypePost);
       console.log('Post message detected ' + releaseTypePost);
     }
     let releaseTypeName = releaseType.charAt(0).toUpperCase() + releaseType.slice(1);
