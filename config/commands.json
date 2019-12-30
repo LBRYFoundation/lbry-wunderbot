@@ -31,7 +31,7 @@
       }
     }
   },
-    "!whitepaper": {
+  "!whitepaper": {
     "usage": "",
     "description": "LBRY White Paper",
     "operation": "send",
