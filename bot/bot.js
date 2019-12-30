@@ -74,20 +74,6 @@ bot.on('error', function(error) {
 function checkMessageForCommand(msg, isEdit) {
   //check if message is a command
   if (msg.author.id !== bot.user.id && msg.content.startsWith(config.prefix)) {
-    //check if user is Online
-    if (!msg.author.presence.status || msg.author.presence.status === 'offline' || msg.author.presence.status === 'invisible') {
-      msg.author.send('Please set your Discord Presence to Online to talk to the bot!').catch(function(error) {
-        msg.channel
-          .send(
-            msg.author +
-              ', Please enable Direct Messages from server members to communicate fully with our bot, ' +
-              'it is located in the user setting area under Privacy & Safety tab, ' +
-              'select the option allow direct messages from server members'
-          )
-          .then(msg.channel.send('Please set your Discord Presence to Online to talk to the Bot!'));
-        return;
-      });
-    }
     let cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
     let suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
     if (msg.isMentioned(bot.user)) {
@@ -184,7 +170,6 @@ function checkMessageForCommand(msg, isEdit) {
     if (msg.author == bot.user) {
       return;
     }
-
     if (msg.author !== bot.user && msg.isMentioned(bot.user)) {
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
