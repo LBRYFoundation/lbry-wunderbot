@@ -15,11 +15,11 @@ function init(discordBot_) {
   if (discordBot) {
     throw new Error('init was already called once');
   }
-    discordBot = discordBot_;
-    console.log('Activating claimbot');
-    discordBot.channels.get(channels[0]).send('activating claimbot');
-    setInterval(announceClaims, 60 * 1000);
-    announceClaims();
+  discordBot = discordBot_;
+  console.log('Activating claimbot');
+  discordBot.channels.get(channels[0]).send('activating claimbot');
+  setInterval(announceClaims, 60 * 1000);
+  announceClaims();
 }
 
 function announceClaims() {

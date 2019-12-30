@@ -33,7 +33,7 @@ exports.addrole = {
     // Checks that the allowed roles and base role against the matched role's name, since this eliminates case sensitivity issues
     if (!rolelist.allowedroles.includes(newrole.name) && !rolelist.baserole.includes(newrole.name)) return send("That role isn't one you can add yourself to! Type " + rolecmd + ' command to find out which ones are allowed.');
     // Use the matched name to check against the member's existing roles
-    if (msg.member.roles.find(item => item.name === newrole.name)) return send('It seems you already have the ' + newrole.name + 'role');
+    if (msg.member.roles.find(item => item.name === newrole.name)) return send('It seems you already have the ' + newrole.name + ' role');
 
     // Assuming all these factors succeed, add the role
     msg.member.addRole(newrole).then(send(msg.member + ' has been added to the ' + newrole.name + ' role!'));
@@ -67,7 +67,7 @@ exports.delrole = {
     // Checks that the allowed roles against the matched role's name, since this eliminates case sensitivity issues
     if (!rolelist.allowedroles.includes(oldrole.name)) return send("That role isn't one you can remove yourself! If you need it removed, please ask a moderator!");
     // Use the matched name to check against the member's existing roles
-    if (!msg.member.roles.find(item => item.name === oldrole.name)) return send("It seems you don't actually have the " + oldrole.name + 'role! Mission accomplished!');
+    if (!msg.member.roles.find(item => item.name === oldrole.name)) return send("It seems you don't actually have the " + oldrole.name + ' role! Mission accomplished!');
 
     // Assuming all these factors succeed, add the role
     msg.member.removeRole(oldrole).then(send(msg.member + ' has been removed from the ' + oldrole.name + ' role!'));
@@ -104,7 +104,7 @@ exports.roles = {
             },
             {
               name: 'NOTE',
-              value: 'The above roles are case sensitive. The LBRYian role will be auto-added when you chose any of the available roles',
+              value: 'The LBRY-Curious role will be auto-added when you chose any of the available roles',
               inline: false
             }
           ],
