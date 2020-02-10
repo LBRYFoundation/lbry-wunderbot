@@ -63,6 +63,22 @@
       }
     }
   },
+  "!spamreward": {
+    "usage": "",
+    "description": "Don't send DM to LBRY Staff",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "If you are here for Rewards approval, please do not message any team members or ask about approval in any channels. Failure to follow this simple rule may result in your removal.",
+      "color": 16718635,
+      "author": {
+        "name": "IMPORTANT!",
+        "url": "",
+        "icon_url": "https://spee.ch/8/caution-red.png"
+      }
+    }
+  },
   "!beta": {
     "usage": "",
     "description": "Beta Message",
