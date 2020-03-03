@@ -55,7 +55,7 @@
   },
   "rolelist": {
     "baserole": "LBRYian",
-    "allowedroles": ["Off-Topic Chats", "Developer", "Contributor", "Creator", "Translator", "Science", "Espanol", "TurkishCommunity", "Musician", "OpenSource", "WatchonLBRY", "WalletServer", "BeatSaber", "LBRYan"]
+    "allowedroles": ["Off-Topic Chats", "Developer", "Contributor", "Creator", "Translator", "Science", "Espanol", "TurkishCommunity", "Musician", "OpenSource", "WatchonLBRY", "WalletServer", "BeatSaber", "LBRYan", "Reddit"]
   },
   "irc": {
     "enabled": false,
