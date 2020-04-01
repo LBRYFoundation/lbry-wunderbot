@@ -230,7 +230,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "We have a dedicated channel for mining discussion, feel free to join <#363049669636390913>. We have guides pinned in that channel to get you started mining some LBC!",
+      "description": "To get started mining LBC, we suggest reading the mining FAQ entry [**HERE**](https://lbry.com/faq/mining-credits).",
       "color": 7976557,
       "author": {
         "name": "Mining LBC",
@@ -607,18 +607,18 @@
       }
     }
   },
-  "!shapeshift": {
+  "!exchange": {
     "usage": "",
     "description": "How Can I Convert My Crypto into LBC?",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Please see this guide on how to convert your crypto into LBC: [lbry.com/faq/shapeshift](https://lbry.com/faq/shapeshift)",
+      "description": "Please see this guide on how to convert your crypto into LBC: [lbry.com/faq/exchanges](https://lbry.com/faq/exchanges)",
       "color": 7976557,
       "author": {
         "name": "How Can I Convert My Crypto into LBC?",
-        "url": "https://lbry.com/faq/shapeshift",
+        "url": "https://lbry.com/faq/exchanges",
         "icon_url": "https://spee.ch/2/pinkylbryheart.png"
       }
     }
@@ -887,7 +887,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Currently, the translation of the LBRY application is in the experimental phase, we will inform you when it will be completed.",
+      "description": "Currently, the translation of the LBRY application is in the experimental phase, we will inform you when it will be completed. If you are interested in helping us translate the app, take a look at the LBRY Transifex page [**HERE**](https://www.transifex.com/lbry/lbry-desktop/).",
       "color": 7976557,
       "author": {
         "name": "LBRY Translation Help",
