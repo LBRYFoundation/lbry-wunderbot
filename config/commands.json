@@ -929,6 +929,25 @@
       }
     }
   },
+   "!ask": {
+    "usage": "",
+    "description": "Help Template",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "**Read this First** \n|> [Name](test.com)\n`Violating those rules will not be tolerated`\n---\n\n- What exact problem are you facing **Describe Clearly**\n- What have you tried so far *to solve the issue*\n- Your email and channel link *if have any*\n- Useful Screenshots regarding issue *Of wallet/reward page/Error message*
+
+
+      ",
+      "color": 7976557,
+      "author": {
+        "name": "Please Provide Following Information",
+        "url": "https://lbry.com/news",
+        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+      }
+    }
+  },
   "!piratebay": {
     "usage": "",
     "description": "Why LBRY has piratebay.com",
