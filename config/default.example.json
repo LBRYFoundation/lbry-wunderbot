@@ -32,7 +32,7 @@
   },
   "pricebot": {
     "channels": ["363050205043621908", "369896313082478594", "371620338263523328"], // Chanels price bot is allowed to post in
-    "mainchannel": "363050205043621908" // Main Price Bot channel for directing with help message
+    "mainchannel": "369896313082478594" // Main Price Bot channel for directing with help message
   },
   "gitrelease": {
     "channel": "370779899650375681" // Channel to send release info to using <!releasenotes post>
