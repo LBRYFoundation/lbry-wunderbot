@@ -310,7 +310,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical ! addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity. Learn more **[HERE](https://lbry.com/faq/naming)**",
+      "description": "Names exist so that we can map a human readable and understandable word or term to a more difficult to remember number or ID. In the traditional domain system, names map to numerical IP addresses. In LBRY, names map to a unique, permanent ID representing a piece of digital content and/or a publisher identity. Learn more **[HERE](https://lbry.com/faq/naming)**",
       "color": 7976557,
       "author": {
         "name": "How Does LBRY Naming Work?",
@@ -383,14 +383,14 @@
       }
     }
   },
- "!verify": {
+  "!verify": {
     "usage": "",
     "description": "Rewards Approval Help Message",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and send a Direct Message to @RewardsBot#0287 saying "Hi" \n You can do this by right clicking on the name, and selecting Message. A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per email/ip/household is allowed access to LBRY Rewards. Check out our [Rewards FAQ](https://lbry.com/faq/rewards) to know more about rewards.",
+      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and follow the written text \n A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per email/ip/household is allowed access to LBRY Rewards",
       "color": 7976557,
       "author": {
         "name": "Getting approved for rewards",
@@ -863,7 +863,6 @@
       }
     }
   },
-
   "!translation": {
     "usage": "",
     "description": "App translation",
@@ -880,7 +879,6 @@
       }
     }
   },
-
   "!status": {
     "usage": "",
     "description": "LBRY Services Status",
