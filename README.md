@@ -84,7 +84,7 @@ ____
 Create a bot and get the bot's API Token:
 https://discordapp.com/developers/applications/me
 
-Edit and rename default.json.example in /config, then cd to wunderbot directory
+Edit and rename default.example.json in /config, then cd to wunderbot directory
 and run:
 
 ```
