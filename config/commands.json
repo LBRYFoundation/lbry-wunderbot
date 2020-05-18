@@ -399,7 +399,7 @@
       }
     }
   },
-  "!rewardsvsreferrals": {
+  "!rvr": {
     "usage": "",
     "description": "Difference Between Rewards & Referrals?",
     "operation": "send",
