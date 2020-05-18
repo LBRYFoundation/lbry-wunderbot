@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/lbryio/lbry-wunderbot.svg?branch=master)](https://travis-ci.com/lbryio/lbry-wunderbot)
-![heartlogo](pinkylbryheart.png)## Bot for [LBRY's Discord](https://discord.gg/tgnNHf5)
+## Bot for [LBRY's Discord](https://discord.gg/tgnNHf5)
 
 (This README will be updated along with bot updates)
 
