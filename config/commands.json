@@ -795,7 +795,7 @@
       "author": {
         "name": "What is JiggyTom?",
         "url": "https://en.wikipedia.org/wiki/Superhero",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "pinkylbryheart.png"
       }
     }
   },
@@ -811,7 +811,7 @@
       "author": {
         "name": "What is Julie?",
         "url": "https://en.wikipedia.org/wiki/Superhero",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://github.com/Eniamza/lbry-wunderbot/blob/relative-path/pinkylbryheart.png"
       }
     }
   },
