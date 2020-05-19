@@ -607,7 +607,7 @@
       }
     }
   },
-  "!youtube": {
+  "!ytsync": {
     "usage": "",
     "description": "What Is YouTube Sync?",
     "operation": "send",
