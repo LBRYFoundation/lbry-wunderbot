@@ -299,7 +299,7 @@
       "author": {
         "name": "Random",
         "url": "",
-        "icon_url": "https://spee.ch/3/question-orange.png"
+        "icon_url": "https://raw.githubusercontent.com/Eniamza/lbry-wunderbot/relative-path/orange.png"
       }
     }
   },
@@ -891,7 +891,7 @@
       "author": {
         "name": "LBRY Services Status",
         "url": "",
-        "icon_url": "https://spee.ch/a/caution-green.png"
+        "icon_url": "https://raw.githubusercontent.com/Eniamza/lbry-wunderbot/relative-path/green.png"
       }
     }
   },
