@@ -1,0 +1,85 @@
+{
+  // Bot configuration
+  "bot": {
+    "token": "",
+    "prefix": "!",
+    "debug": false
+  },
+  "moderation": {
+    "perms": ["Moderator Team", "LBRY TEAM"], // Roles that have access to all commands.
+    "logchannel": "371620338263523328" // Channel to log the bots moderation..
+  },
+  "Channels": {
+    "verification": "571001864271691805",
+    "mining": "363049669636390913",
+    "random": "363084227518136322"
+  },
+  "speechbot": {
+    "channels": [
+      "363089721313722387",
+      "363085078403874823",
+      "363086945976320010",
+      "363086925428555776",
+      "363086752518242308",
+      "369896313082478594",
+      "363087606239461377",
+      "363088045366312962",
+      "363084227518136322",
+      "363084262028607488",
+      "371620338263523328"
+    ], // Channels speech bot is allowed to post in
+    "mainchannel": "369896313082478594" // Main Speech Bot channel for directing with help message
+  },
+  "pricebot": {
+    "channels": ["363050205043621908", "369896313082478594", "371620338263523328"], // Chanels price bot is allowed to post in
+    "mainchannel": "369896313082478594" // Main Price Bot channel for directing with help message
+  },
+  "gitrelease": {
+    "channel": "369896313082478594" // Channel to send release info to using <!releasenotes post>
+  },
+  "spamdetection": {
+    "channels": ["363089721313722387", "363044238486798336", "363086719391629326", "363044275363119105", "363044260938776576", "372067478542745601", "369896313082478594", "371620338263523328"], // Channels excluded from Spam Detection
+    "users": ["369896313082478594"] // Users to exclude from Spam Detection (include other bots here)
+  },
+  "hashbot": {
+    "channels": ["363049669636390913", "369896313082478594", "371620338263523328"], // Channels Hash Bot is allowed to post in
+    "mainchannel": "369896313082478594" // Main Hash Bot channel for directing with help message
+  },
+  "statsbot": {
+    "channels": ["363050205043621908", "369896313082478594", "371620338263523328"], // Channels Stats Bot is allowed to post in
+    "mainchannel": "369896313082478594" // Main Stats Bot channel for directing with help message
+  },
+  "claimbot": {
+    "enabled": false,
+    "channels": ["369896313082478594"]
+  },
+  "rolelist": {
+    "baserole": "LBRYian",
+    "allowedroles": ["Developer", "Contributor", "Creator", "Translator", "Science", "Musician", "OpenSource", "WatchonLBRY", "WalletServer", "BeatSaber", "LBRYansUnited", "Reddit", "LazyBit", "MakerspaceHive", "Ruqqus"]
+  },
+  "irc": {
+    "enabled": false,
+    "nickname": "wunderbot",
+    "server": "chat.freenode.net",
+    "discordToken": "",
+    "ircOptions": {
+      "userName": "wunderbot",
+      "nick": "wunderbot",
+      "password": "",
+      "sasl": true
+    },
+    "channelMapping": {
+      "#shared": "#lbry"
+    }
+  },
+  "spam_detection": {
+    "warnBuffer": 10,
+    "maxBuffermsg": 20,
+    "intervalms": 1000,
+    "warningMessage": ", Stop spamming or you will be banned! This is your warning!",
+    "banMessage": "has been banned for spamming!",
+    "maxDuplicatesWarning": 10,
+    "maxDuplicatesBan": 20
+  }
+}
+
