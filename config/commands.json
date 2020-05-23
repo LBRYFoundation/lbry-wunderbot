@@ -11,7 +11,7 @@
       "author": {
         "name": "List of Helpful LBRY Commands",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -27,7 +27,7 @@
       "author": {
         "name": "What Is LBRY?",
         "url": "https://lbry.com/what",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -43,7 +43,7 @@
       "author": {
         "name": "LBRY White Paper",
         "url": "https://spec.lbry.com/",
-        "icon_url": "https://spee.ch/0/info-white.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -59,7 +59,7 @@
       "author": {
         "name": "BEGGING!",
         "url": "",
-        "icon_url": "https://spee.ch/8/caution-red.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/Red.png"
       }
     }
   },
@@ -75,7 +75,7 @@
       "author": {
         "name": "IMPORTANT!",
         "url": "",
-        "icon_url": "https://spee.ch/8/caution-red.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/Red.png"
       }
     }
   },
@@ -91,7 +91,7 @@
       "author": {
         "name": "Open Beta",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -107,7 +107,7 @@
       "author": {
         "name": "LBRY GitHub",
         "url": "https://github.com/lbryio",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -123,7 +123,7 @@
       "author": {
         "name": "Get The LBRY App",
         "url": "http://lbry.com/get?auto=1",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -139,7 +139,7 @@
       "author": {
         "name": "LBRY Daemon Download",
         "url": "https://github.com/lbryio/lbry-sdk/releases",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -155,7 +155,7 @@
       "author": {
         "name": "LBRY Directories",
         "url": "https://lbry.com/faq/lbry-directories",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -171,7 +171,7 @@
       "author": {
         "name": "LBRY FAQ",
         "url": "https://lbry.com/faq/",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -187,7 +187,7 @@
       "author": {
         "name": "Contributing to LBRY",
         "url": "https://lbry.tech/contribute",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -203,7 +203,7 @@
       "author": {
         "name": "LBRY Inc. Newsfeed",
         "url": "https://lbry.com/news",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -219,7 +219,7 @@
       "author": {
         "name": "Discord Username",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -235,7 +235,7 @@
       "author": {
         "name": "Mining LBC",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -251,7 +251,7 @@
       "author": {
         "name": "CEO's Stance on Price",
         "url": "https://lbry.com/news/acryptypical",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -267,7 +267,7 @@
       "author": {
         "name": "Are You a YouTuber?",
         "url": "https://lbry.com/youtube",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -283,7 +283,7 @@
       "author": {
         "name": "How to Publish on LBRY?",
         "url": "https://lbry.com/faq/how-to-publish",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -299,7 +299,7 @@
       "author": {
         "name": "Random",
         "url": "",
-        "icon_url": "https://spee.ch/3/question-orange.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/orange.png"
       }
     }
   },
@@ -315,7 +315,7 @@
       "author": {
         "name": "How Does LBRY Naming Work?",
         "url": "https://lbry.com/faq/naming",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -331,7 +331,7 @@
       "author": {
         "name": "LBRY Bounties",
         "url": "https://lbry.com/bounty",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -347,7 +347,7 @@
       "author": {
         "name": "RoadMap",
         "url": "https://lbry.com/roadmap",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -363,7 +363,7 @@
       "author": {
         "name": "Referrals",
         "url": "https://lbry.com/faq/referrals",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -379,7 +379,7 @@
       "author": {
         "name": "Rewards",
         "url": "https://lbry.com/faq/rewards",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -395,7 +395,7 @@
       "author": {
         "name": "Getting approved for rewards",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -411,7 +411,7 @@
       "author": {
         "name": "Rewards vs Referrals",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -427,7 +427,7 @@
       "author": {
         "name": "Credit Card Verification",
         "url": "https://lbry.com/faq/identity-requirements",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -443,7 +443,7 @@
       "author": {
         "name": "How to Find My LogFile?",
         "url": "https://lbry.com/faq/how-to-find-lbry-log-file",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -459,7 +459,7 @@
       "author": {
         "name": "How to Backup My Wallet?",
         "url": "https://lbry.com/faq/how-to-backup-wallet",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -475,7 +475,7 @@
       "author": {
         "name": "Startup Troubleshooting",
         "url": "https://lbry.com/faq/startup-troubleshooting",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -491,7 +491,7 @@
       "author": {
         "name": "Streaming Troubleshooting",
         "url": "https://lbry.com/faq/unable-to-stream",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -507,7 +507,7 @@
       "author": {
         "name": "Ports",
         "url": "https://lbry.com/faq/how-to-change-port",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -523,7 +523,7 @@
       "author": {
         "name": "How to Backup/Migrate LBRY Data?",
         "url": "https://lbry.com/faq/backup-data",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -539,7 +539,7 @@
       "author": {
         "name": "LBRY App Tipping?",
         "url": "https://lbry.com/faq/tipping",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -555,7 +555,7 @@
       "author": {
         "name": "How to Change Email in the LBRY App",
         "url": "https://lbry.com/faq/how-to-change-email",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -571,7 +571,7 @@
       "author": {
         "name": "Interact with the LBRY CLI",
         "url": "https://lbry.com/faq/how-to-cli",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -587,7 +587,7 @@
       "author": {
         "name": "How Is LBRY Different from IPFS/BitTorrent?",
         "url": "https://lbry.com/faq/different-ipfs",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -603,7 +603,7 @@
       "author": {
         "name": "How Can I Convert My Crypto into LBC?",
         "url": "https://lbry.com/faq/exchanges",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -619,7 +619,7 @@
       "author": {
         "name": "What Is YouTube Sync?",
         "url": "https://lbry.com/faq/youtube",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -635,7 +635,7 @@
       "author": {
         "name": "What Types of LBRY Transactions Are There?",
         "url": "https://lbry.com/faq/transaction-types",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -651,7 +651,7 @@
       "author": {
         "name": "Meet the Team!",
         "url": "https://lbry.com/team",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -667,7 +667,7 @@
       "author": {
         "name": "Phone Verification!",
         "url": "https://lbry.com/faq/phone",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -683,7 +683,7 @@
       "author": {
         "name": "LBRY App Basics!",
         "url": "https://lbry.com/faq/lbry-basics",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -699,7 +699,7 @@
       "author": {
         "name": "The LBRY Inc. Shop!",
         "url": "https://shop.lbry.com",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -715,7 +715,7 @@
       "author": {
         "name": "What Content Can I legally Upload to LBRY?",
         "url": "https://lbry.com/faq/content",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -731,7 +731,7 @@
       "author": {
         "name": "Acceptable Use Policy",
         "url": "https://lbry.com/faq/acceptable-use-policy",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -747,7 +747,7 @@
       "author": {
         "name": "Wanna Meet Up?",
         "url": "https://lbry.com/meet",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -763,7 +763,7 @@
       "author": {
         "name": "LBRY Android Beta",
         "url": "https://play.google.com/apps/testing/io.lbry.browser",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -779,7 +779,7 @@
       "author": {
         "name": "The LBRY Community Fund",
         "url": "https://lbry.fund",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -795,7 +795,7 @@
       "author": {
         "name": "What is JiggyTom?",
         "url": "https://en.wikipedia.org/wiki/Superhero",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -811,7 +811,7 @@
       "author": {
         "name": "What is Julie?",
         "url": "https://en.wikipedia.org/wiki/Superhero",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -827,7 +827,7 @@
       "author": {
         "name": "Tipbot Help Message",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -843,7 +843,7 @@
       "author": {
         "name": "iOS waiting list",
         "url": "https://lbry.com/ios",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -859,7 +859,7 @@
       "author": {
         "name": "3D Printing Program",
         "url": "https://lbry.com/3d-printing",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -875,7 +875,7 @@
       "author": {
         "name": "LBRY Translation Help",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -891,7 +891,7 @@
       "author": {
         "name": "LBRY Services Status",
         "url": "",
-        "icon_url": "https://spee.ch/a/caution-green.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/green.png"
       }
     }
   },
@@ -907,11 +907,11 @@
       "author": {
         "name": "Why should I use LBRY?",
         "url": "https://lbry.com/faq",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
-   "!ask": {
+  "!ask": {
     "usage": "",
     "description": "Please Provide Following Information",
     "operation": "send",
@@ -923,7 +923,7 @@
       "author": {
         "name": "Please Provide Following Information",
         "url": "",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   },
@@ -939,7 +939,7 @@
       "author": {
         "name": "Why LBRY has piratebay.com",
         "url": "https://www.reddit.com/r/lbry/comments/8i4lj9/why_do_you_own_piratebaycom/",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
     }
   }
