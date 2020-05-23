@@ -847,22 +847,6 @@
       }
     }
   },
-  "!3d": {
-    "usage": "",
-    "description": "3D Printing Program",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": "Want to earn rewards for 3D printing nifty items? Explore our [3D Printing Program](https://lbry.com/3d-printing) ",
-      "color": 7976557,
-      "author": {
-        "name": "3D Printing Program",
-        "url": "https://lbry.com/3d-printing",
-        "icon_url": "https://spee.ch/2/pinkylbryheart.png"
-      }
-    }
-  },
   "!translation": {
     "usage": "",
     "description": "App translation",
