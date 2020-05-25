@@ -319,22 +319,6 @@
       }
     }
   },
-  "!bounty": {
-    "usage": "",
-    "description": "LBRY Bounties",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": "You can earn LBRY Credits for completing tasks as part of the LBRY Bounty Program, All bounties can be seen on the **[Bounty Home Page](https://lbry.com/bounty)**.\nBounties range from simple typo fixes to third party applications and custom projects.",
-      "color": 7976557,
-      "author": {
-        "name": "LBRY Bounties",
-        "url": "https://lbry.com/bounty",
-        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
-      }
-    }
-  },
   "!roadmap": {
     "usage": "",
     "description": "The LBRY RoadMap",
