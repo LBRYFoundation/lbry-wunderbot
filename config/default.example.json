@@ -55,7 +55,7 @@
   },
   "rolelist": {
     "baserole": "LBRYian",
-    "allowedroles": ["Developer", "Contributor", "Creator", "Translator", "Science", "Musician", "OpenSource", "WatchonLBRY", "WalletServer", "BeatSaber", "LBRYansUnited", "Reddit", "LazyBit", "MakerspaceHive", "Ruqqus", "Gamer"]
+    "allowedroles": ["Developer", "Contributor", "Creator", "Translator", "Science", "Musician", "OpenSource", "WatchonLBRY", "WalletServer", "BeatSaber", "LBRYansUnited", "Reddit", "LazyBit", "MakerspaceHive", "Ruqqus", "Gamer", "Memes", "Events"]
   },
   "irc": {
     "enabled": false,
