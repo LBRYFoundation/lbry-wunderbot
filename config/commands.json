@@ -59,7 +59,7 @@
       "author": {
         "name": "BEGGING!",
         "url": "",
-        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/Red.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/Red.png"
       }
     }
   },
@@ -75,7 +75,7 @@
       "author": {
         "name": "IMPORTANT!",
         "url": "",
-        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/Red.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/Red.png"
       }
     }
   },
@@ -299,7 +299,7 @@
       "author": {
         "name": "Random",
         "url": "",
-        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/orange.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/orange.png"
       }
     }
   },
@@ -859,7 +859,7 @@
       "author": {
         "name": "LBRY Services Status",
         "url": "",
-        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/relative-path/green.png"
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/green.png"
       }
     }
   },
