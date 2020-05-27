@@ -49,9 +49,9 @@ let checkForCommand = function(message) {
   });
      Object.keys(commandsVerify).forEach(command => {
     //if a command is found
-    if (!message.author.bot && message.content.toLowerCase().indexOf(command.toLowerCase()) >= 0 && commands[command].operation === 'send') {
+    if (!message.author.bot && message.content.toLowerCase().indexOf(command.toLowerCase()) >= 0 && commandsVerify[command].operation === 'send') {
       //send a message to the channel according to the config
-      message.channel.send('', new Discord.RichEmbed(commands[command].bundle));
+      message.channel.send('', new Discord.RichEmbed(commandsVerify[command].bundle));
     }
   });
   if (firstRun) {
