@@ -2,7 +2,7 @@
   "dependencies": {
     "app-root-path": "^2.2.1",
     "bitcoin": "^3.0.1",
-    "braces": "^2.3.1",
+    "braces": "^3.0.2",
     "chrono-node": "^1.4.6",
     "config": "^3.3.1",
     "discord-irc": "^2.8.1",
@@ -18,8 +18,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "sleep": "^6.2.0",
-    "wget": "^0.0.1",
-    "minimist": "^0.2.1"
+    "wget": "^0.0.1"
   },
   "scripts": {
     "prettier": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240",
@@ -27,11 +26,11 @@
     "test": "prettier --write \"{bot,.}/**/*.{js,json}\" --single-quote --print-width 240 --list-different && npm audit && npm i"
   },
   "devDependencies": {
-    "husky": "^3.1.0",
+    "husky": "^4.2.5",
     "prettier": "^1.19.1"
   },
   "name": "wunderbot-discord",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "LBRY bot for Discord",
   "main": "bot/bot.js",
   "repository": "https://github.com/lbryio/lbry-wunderbot",
