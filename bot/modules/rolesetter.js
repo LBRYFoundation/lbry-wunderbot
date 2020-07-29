@@ -42,6 +42,8 @@ exports.addrole = {
     if (!rolelist.baserole) return;
     // Confirm that the role exists on the server and if not then be sure to send a nag message
     if (!baserole) return send('The base role of ' + rolelist.baserole + ' has been set in config but is missing from the server');
+    // Checks if the new role being added is the same as the baserole, then skips the messages below if this is the case.
+    if (newrole == baserole) return;
     // Confirm if the user has the baserole already, including if it was added just now
     if (msg.member.roles.find(item => item.name === baserole.name)) return;
     // Add the base role and avoid spamming the user by only mentioning them in the previous message

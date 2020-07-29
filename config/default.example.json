@@ -55,7 +55,27 @@
   },
   "rolelist": {
     "baserole": "LBRYian",
-    "allowedroles": ["Developer", "Contributor", "Creator", "Translator", "Science", "Musician", "OpenSource", "WatchonLBRY", "WalletServer", "BeatSaber", "LBRYansUnited", "Reddit", "LazyBit", "MakerspaceHive", "Ruqqus", "Gamer"]
+    "allowedroles": [
+      "Developer",
+      "Contributor",
+      "Creator",
+      "Translator",
+      "Science",
+      "Musician",
+      "OpenSource",
+      "WatchonLBRY",
+      "WalletServer",
+      "BeatSaber",
+      "LBRYansUnited",
+      "Reddit",
+      "LazyBit",
+      "MakerspaceHive",
+      "Ruqqus",
+      "Gamer",
+      "Memes",
+      "Events",
+      "Skateboard"
+    ]
   },
   "irc": {
     "enabled": false,
@@ -82,4 +102,3 @@
     "maxDuplicatesBan": 20
   }
 }
-
