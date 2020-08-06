@@ -22,7 +22,7 @@
     "bundle": {
       "url": "https://lbry.com/what",
       "title": "*Click Here for more Info!*",
-      "description": "[**LBRY**](https://lbry.com) is a protocol providing fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.com/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the app here**_](https://lbry.com/get)",
+      "description": "[**LBRY**](https://lbry.com) is a protocol providing a fully decentralized network for the discovery, distribution, and payment of data. It utilizes the [**LBRY blockchain**](https://lbry.com/what#the-network) as a global namespace and database of digital content. Blockchain entries contain searchable content metadata, identities, and rights and access rules. \n[_**Get the app here**_](https://lbry.com/get)",
       "color": 7976557,
       "author": {
         "name": "What Is LBRY?",
@@ -271,6 +271,22 @@
       }
     }
   },
+  "!youtube": {
+    "usage": "",
+    "description": "Are You a YouTuber Curious About LBRY?",
+    "operation": "send",
+    "bundle": {
+      "url": "",
+      "title": "",
+      "description": "Are you a YouTuber curious about LBRY? Have a look at [lbry.com/youtube](https://lbry.com/youtube)",
+      "color": 7976557,
+      "author": {
+        "name": "Are You a YouTuber?",
+        "url": "https://lbry.com/youtube",
+        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
+      }
+    }
+  },
   "!publish": {
     "usage": "",
     "description": "How to Publish on LBRY?",
@@ -321,15 +337,15 @@
   },
   "!roadmap": {
     "usage": "",
-    "description": "The LBRY RoadMap",
+    "description": "The LBRY Roadmap",
     "operation": "send",
     "bundle": {
       "url": "",
       "title": "",
-      "description": "Check out the **[RoadMap](https://lbry.com/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
+      "description": "Check out the **[Roadmap](https://lbry.com/roadmap)**, it only outlines past and anticipated technical changes, it does not cover other initiatives. Development was fast and furious among a small group prior to 0.6, and release notes are sparse.",
       "color": 7976557,
       "author": {
-        "name": "RoadMap",
+        "name": "Roadmap",
         "url": "https://lbry.com/roadmap",
         "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
@@ -374,7 +390,7 @@
     "bundle": {
       "url": "",
       "title": "",
-      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and follow the written text \n A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per email/ip/household is allowed access to LBRY Rewards",
+      "description": "If you would like to be approved for rewards, please go to <#571001864271691805> and follow the written text. \n A LBRY mod will get back to you as soon as possible. We appreciate your patience. Only one account per email/ip/household is allowed access to LBRY Rewards",
       "color": 7976557,
       "author": {
         "name": "Getting approved for rewards",
@@ -417,7 +433,7 @@
   },
   "!logfile": {
     "usage": "",
-    "description": "How to Find LBRY App Log File?",
+    "description": "How to Find LBRY App Log File",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -425,7 +441,7 @@
       "description": "You can find your log files by following the guide [HERE](https://lbry.com/faq/how-to-find-lbry-log-file)",
       "color": 7976557,
       "author": {
-        "name": "How to Find My LogFile?",
+        "name": "How to Find the LBRY App Log File",
         "url": "https://lbry.com/faq/how-to-find-lbry-log-file",
         "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
       }
@@ -449,7 +465,7 @@
   },
   "!startup": {
     "usage": "",
-    "description": "Startup Troubleshooting?",
+    "description": "Startup Troubleshooting",
     "operation": "send",
     "bundle": {
       "url": "",
@@ -545,7 +561,7 @@
   },
   "!cli": {
     "usage": "",
-    "description": "How to Interact with LBRY CLI?",
+    "description": "How to Interact with LBRY CLI",
     "operation": "send",
     "bundle": {
       "url": "",
