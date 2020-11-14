@@ -1,11 +1,9 @@
 {
   "dependencies": {
     "app-root-path": "^2.2.1",
-    "bitcoin": "^3.0.1",
     "braces": "^3.0.2",
     "chrono-node": "^1.4.6",
     "config": "^3.3.1",
-    "discord-irc": "^2.8.1",
     "discord.js": "^11.6.4",
     "file-exists": "^5.0.1",
     "jsonfile": "^5.0.0",
