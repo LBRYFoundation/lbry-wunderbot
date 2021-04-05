@@ -41,7 +41,7 @@ let commands = {
 let bot = new Discord.Client();
 
 bot.on('ready', function() {
-  console.log('Logged in! Serving in ' + bot.guilds.array().length + ' servers');
+  console.log('Logged in! Serving in ' + bot.guilds.cache.size + ' servers');
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
   bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' }).catch(console.error);
