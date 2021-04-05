@@ -78,7 +78,7 @@ exports.releasenotes = {
         if ((hasPerms(msg) && suffix === 'android post') || (hasPerms(msg) && suffix === 'desktop post')) {
           bot.channels.get(ChannelID).send(message);
         } else {
-          msg.channel.send(msg.author + ' Release notes sent via DM');
+          msg.channel.send(msg.author.mentionable + ' Release notes sent via DM');
           msg.author.send(message);
         }
       } else {
