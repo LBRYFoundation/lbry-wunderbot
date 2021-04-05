@@ -76,7 +76,7 @@ function checkMessageForCommand(msg, isEdit) {
   if (msg.author.id !== bot.user.id && msg.content.startsWith(config.prefix)) {
     let cmdTxt = msg.content.split(' ')[0].substring(config.prefix.length);
     let suffix = msg.content.substring(cmdTxt.length + config.prefix.length + 1); //add one for the ! and one for the space
-    if (msg.isMentioned(bot.user)) {
+    if (msg.mentions.has(bot.user)) {
       try {
         cmdTxt = msg.content.split(' ')[1];
         suffix = msg.content.substring(bot.user.mention().length + cmdTxt.length + config.prefix.length + 1);
