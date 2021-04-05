@@ -125,6 +125,7 @@ exports.onUserJoin = function(bot) {
       })
       .catch(function(error) {
         console.log('could not send dm');
+        console.log(error);
       });
   });
 };
@@ -194,6 +195,7 @@ exports.welcome = {
       })
       .catch(function(error) {
         console.log('could not send dm');
+        console.log(error);
       });
     msg.mentions.members
       .first()
@@ -216,6 +218,7 @@ exports.welcome = {
       })
       .catch(function(error) {
         console.log('could not send dm');
+        console.log(error);
       });
     msg.mentions.members
       .first()
@@ -235,6 +238,7 @@ exports.welcome = {
       })
       .catch(function(error) {
         console.log('could not send dm');
+        console.log(error);
       });
     msg.mentions.members
       .first()
@@ -253,7 +257,8 @@ exports.welcome = {
         }
       })
       .catch(console.error)
-      .then(console.log('could not send dm'));
+        console.log('could not send dm');
+        console.log(error);
     msg.mentions.members
       .first()
       .send({
@@ -272,6 +277,7 @@ exports.welcome = {
       })
       .catch(function(error) {
         console.log('could not send dm');
+        console.log(error);
       });
   }
 };
