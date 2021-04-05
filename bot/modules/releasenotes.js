@@ -49,7 +49,7 @@ exports.releasenotes = {
     request(options, function(error, response, body) {
       let json = JSON.parse(body);
       let releasemessage = json.body;
-      console.log(releasemessage);
+      //console.log(releasemessage);
       let releasename = json.name || json.tag_name;
       let releasedate = json.published_at;
       let releaseurl = json.html_url;
