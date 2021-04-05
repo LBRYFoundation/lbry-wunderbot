@@ -170,7 +170,7 @@ function checkMessageForCommand(msg, isEdit) {
     if (msg.author === bot.user) {
       return;
     }
-    if (msg.author !== bot.user && msg.MessageMentions.equals(bot.user)) {
+    if (msg.author !== bot.user && msg.mentions.has(bot.user)) {
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
     }
