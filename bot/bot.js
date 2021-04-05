@@ -167,10 +167,10 @@ function checkMessageForCommand(msg, isEdit) {
   } else {
     //message isn't a command or is from us
     //drop our own messages to prevent feedback loops
-    if (msg.author == bot.user) {
+    if (msg.author === bot.user) {
       return;
     }
-    if (msg.author !== bot.user && msg.isMentioned(bot.user)) {
+    if (msg.author !== bot.user && msg.MessageMentions.equals(bot.user)) {
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
     }
