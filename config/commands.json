@@ -79,22 +79,6 @@
       }
     }
   },
-  "!beta": {
-    "usage": "",
-    "description": "Beta Message",
-    "operation": "send",
-    "bundle": {
-      "url": "",
-      "title": "",
-      "description": "Even though LBRY is in Open Beta, it's still beta software! There will be bugs and issues to be worked out. Thanks for your patience!",
-      "color": 7976557,
-      "author": {
-        "name": "Open Beta",
-        "url": "",
-        "icon_url": "https://raw.githubusercontent.com/lbryio/lbry-wunderbot/master/pinkylbryheart.png"
-      }
-    }
-  },
   "!github": {
     "usage": "",
     "description": "LBRY GitHub",
