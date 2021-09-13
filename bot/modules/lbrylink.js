@@ -1,11 +1,11 @@
 let inPrivate = require('../helpers.js').inPrivate;
-let { RichEmbed } = require('discord.js');
+let { MessageEmbed } = require('discord.js');
 exports.custom = [
   'lbrylink' //change this to your function name
 ];
 
 exports.lbrylink = async function(bot, msg, suffix) {
-  bot.on('message', msg => {
+  bot.on('messageCreate', msg => {
     if (inPrivate(msg)) {
       return;
     }
@@ -32,13 +32,13 @@ exports.lbrylink = async function(bot, msg, suffix) {
           .replace(/\W+$/g, '')
           .replace(/#/g, ':');
       }
-      const linkEmbed = new RichEmbed();
+      const linkEmbed = new MessageEmbed();
       linkEmbed
         .setAuthor('LBRY Linker')
         .setDescription("I see you tried to post a LBRY URL, here's a friendly link to share and for others to access your content with a single click:")
         .setColor(7976557);
       urls.forEach(url => linkEmbed.addField('Open with LBRY or LBRY TV:', url, true));
-      return msg.channel.send({ embed: linkEmbed });
+      return msg.channel.send({ embeds: [linkEmbed] });
     }
   });
 };

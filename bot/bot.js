@@ -1,15 +1,14 @@
 'use strict';
 
 // Load up libraries
-const Discord = require('discord.js');
+const { Client, Intents } = require('discord.js');
+const neededIntents = new Intents(32767);
 // Load config!
 let config = require('config');
 config = config.get('bot');
 let genconfig = require('config');
 //load modules
-const claimbot = require('./modules/claimbot.js');
 const commandsV2 = require('./modules/commandsV2.js');
-const supportbot = require('./modules/supportbot.js');
 
 let aliases;
 try {
@@ -30,7 +29,7 @@ let commands = {
     description: 'responds pong, useful for checking if bot is alive',
     process: async function(bot, msg, suffix) {
       let m = await msg.channel.send(msg.author + ' Ping?');
-      m.edit(`Pong! Latency is ${m.createdTimestamp - msg.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+      m.edit(`Pong! Latency is ${m.createdTimestamp - msg.createdTimestamp}ms. WebSocket Latency is ${bot.ws.ping}ms`);
       if (suffix) {
         msg.channel.send('note that !ping takes no arguments!');
       }
@@ -38,22 +37,16 @@ let commands = {
   }
 };
 
-let bot = new Discord.Client();
+const bot = new Client({ intents: [neededIntents] });
 
 bot.on('ready', function() {
   console.log('Logged in! Serving in ' + bot.guilds.cache.size + ' servers');
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
-  bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' }).catch(console.error);
-
-  //initialize the claimbot (content bot)
-  if (genconfig.get('claimbot').enabled) {
-    claimbot.init(bot);
-  }
+  bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' });
+  
   //initialize the commandsBot
   commandsV2.init(bot);
-  //initialize the support bot
-  supportbot.init(bot);
 });
 
 process.on('unhandledRejection', err => {
@@ -82,7 +75,6 @@ function checkMessageForCommand(msg, isEdit) {
         suffix = msg.content.substring(bot.user.mention().length + cmdTxt.length + config.prefix.length + 1);
       } catch (e) {
         //no command
-        msg.channel.send('Yes?');
         return;
       }
     }
@@ -177,7 +169,7 @@ function checkMessageForCommand(msg, isEdit) {
   }
 }
 
-bot.on('message', msg => checkMessageForCommand(msg, false));
+bot.on('messageCreate', msg => checkMessageForCommand(msg, false));
 bot.on('messageUpdate', (oldMessage, newMessage) => {
   checkMessageForCommand(newMessage, true);
 });

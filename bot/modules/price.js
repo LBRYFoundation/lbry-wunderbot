@@ -512,7 +512,8 @@ exports.price = {
 
     let currency = words.length > 0 ? words[0].toUpperCase() : options.defaultCurrency;
     let amount = words.length > 1 ? parseFloat(words[1], 10) : 1;
-    let showHelp = isNaN(amount) || Object.keys(options.currencies).indexOf(currency) === -1;
+    let showHelp = !suffix;
+    //let showHelp = isNaN(amount) || Object.keys(options.currencies).indexOf(currency) === -1;
     // store the last retrieved rate
     let cachedRates = {};
     let command = '!price';
