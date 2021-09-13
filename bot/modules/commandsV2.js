@@ -52,8 +52,6 @@ let checkForCommand = function(message) {
   if (!message.author.bot && message.content.toLowerCase().indexOf('!helpcommands') >= 0) {
     let bundle = commands['!helpcommands'].bundle;
     bundle.description = '**' + commandsList + '**';
-    console.log(bundle);
-    console.log(bundle.description);
     message.channel.send({embeds: [bundle]});
   }
 };
