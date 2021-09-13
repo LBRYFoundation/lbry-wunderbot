@@ -16,7 +16,7 @@ function init(discordBot_) {
 
   discordBot = discordBot_;
 
-  discordBot.on('message', checkForCommand);
+  discordBot.on('messageCreate', checkForCommand);
 }
 
 /**
@@ -35,7 +35,12 @@ let checkForCommand = function(message) {
     //if a command is found
     if (!message.author.bot && message.content.toLowerCase().indexOf(command.toLowerCase()) >= 0 && commands[command].operation === 'send') {
       //send a message to the channel according to the config
-      message.channel.send('', new Discord.RichEmbed(commands[command].bundle));
+      try {
+        //message.channel.send('test1', new Discord.MessageEmbed(commands[command].bundle));
+        message.channel.send({embeds: [commands[command].bundle]})
+      } catch (e) {
+        console.log(e);
+      }
     }
   });
   if (firstRun) {
@@ -47,6 +52,8 @@ let checkForCommand = function(message) {
   if (!message.author.bot && message.content.toLowerCase().indexOf('!helpcommands') >= 0) {
     let bundle = commands['!helpcommands'].bundle;
     bundle.description = '**' + commandsList + '**';
-    message.channel.send('', new Discord.RichEmbed(bundle));
+    console.log(bundle);
+    console.log(bundle.description);
+    message.channel.send({embeds: [bundle]});
   }
 };

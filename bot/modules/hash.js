@@ -84,7 +84,7 @@ exports.hash = {
       });
     let profitcommand = words[0];
     let myhashrate = words[1];
-    if (profitcommand == 'power') {
+    if (profitcommand === 'power') {
       sendProfitInfo(bot, msg, suffix);
       return;
     } else {
@@ -142,7 +142,7 @@ exports.hash = {
                 icon_url: 'https://spee.ch/2/pinkylbryheart.png'
               }
             };
-            msg.channel.send({ embed });
+            msg.channel.send({ embeds: [embed] });
             return;
           });
         }
@@ -197,7 +197,7 @@ exports.hash = {
               icon_url: 'https://spee.ch/6/nKHVQgq.png'
             }
           };
-          msg.channel.send({ embed });
+          msg.channel.send({ embeds: [embed] });
           return;
         }
       });

@@ -75,7 +75,7 @@ exports.stats = {
                         icon_url: 'https://spee.ch/2/pinkylbryheart.png'
                       }
                     };
-                    msg.channel.send({ embed });
+                    msg.channel.send({ embeds: [embed] });
                   }
                 });
               }
