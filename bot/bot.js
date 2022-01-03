@@ -163,8 +163,7 @@ function checkMessageForCommand(msg, isEdit) {
       return;
     }
     if (msg.author !== bot.user && msg.mentions.has(bot.user.id)) {
-      if (msg.content.includes("@here") || msg.content.includes("@everyone") 
-          return;
+      if (!msg.content.includes("@here") || !msg.content.includes("@everyone") 
       msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
     }
