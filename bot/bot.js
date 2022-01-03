@@ -44,7 +44,7 @@ bot.on('ready', function() {
   require('./plugins.js').init();
   console.log('type ' + config.prefix + 'help in Discord for a commands list.');
   bot.user.setActivity(config.prefix + 'help', { type: 'LISTENING' });
-  
+
   //initialize the commandsBot
   commandsV2.init(bot);
 });
@@ -163,9 +163,10 @@ function checkMessageForCommand(msg, isEdit) {
       return;
     }
     if (msg.author !== bot.user && msg.mentions.has(bot.user.id)) {
-      if (!msg.content.includes("@here") || !msg.content.includes("@everyone")) {
-        msg.channel.send('yes?'); //using a mention here can lead to looping
+      if (msg.content.includes('@here') || msg.content.includes('@everyone')) {
+        return;
       }
+      msg.channel.send('yes?'); //using a mention here can lead to looping
     } else {
     }
   }
